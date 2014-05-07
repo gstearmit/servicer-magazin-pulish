@@ -1,5 +1,5 @@
 <?php
-namespace AlbumRestTest;
+namespace MagazinePublishRestTest;
 
 use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Service\ServiceManagerConfig;
