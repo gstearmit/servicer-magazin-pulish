@@ -2,7 +2,9 @@
 return array(
     'modules' => array(
         'Album',
-        'AlbumRest'
+        'AlbumRest',
+		'Magazinepublish',
+		'MagazinePublishRest',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(

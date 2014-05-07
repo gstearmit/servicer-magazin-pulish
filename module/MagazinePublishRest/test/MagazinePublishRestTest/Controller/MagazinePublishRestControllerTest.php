@@ -1,8 +1,8 @@
 <?php
-namespace AlbumRestTest\Controller;
+namespace MagazinePublishRestTest\Controller;
 
-use AlbumRestTest\Bootstrap;
-use AlbumRest\Controller\AlbumRestController;
+use MagazinePublishRestTest\Bootstrap;
+use MagazinePublishRest\Controller\MagazinePublishRestController;
 use Zend\Http\Request;
 use Zend\Http\Response;
 use Zend\Mvc\MvcEvent;
@@ -10,7 +10,7 @@ use Zend\Mvc\Router\RouteMatch;
 use Zend\Mvc\Router\Http\TreeRouteStack as HttpRouter;
 use PHPUnit_Framework_TestCase;
 
-class AlbumRestControllerTest extends PHPUnit_Framework_TestCase
+class MagazinePublishRestControllerTest extends PHPUnit_Framework_TestCase
 {
     protected $controller;
     protected $request;
@@ -21,7 +21,7 @@ class AlbumRestControllerTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $serviceManager = Bootstrap::getServiceManager();
-        $this->controller = new AlbumRestController();
+        $this->controller = new MagazinePublishRestController();
         $this->request    = new Request();
         $this->routeMatch = new RouteMatch(array('controller' => 'index'));
         $this->event      = new MvcEvent();
@@ -86,8 +86,8 @@ class AlbumRestControllerTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    public function testGetAlbumTableReturnsAnInstanceOfAlbumTable()
+    public function testGetMagazinepublishTableReturnsAnInstanceOfAlbumTable()
     {
-        $this->assertInstanceOf('Album\Model\AlbumTable', $this->controller->getAlbumTable());
+        $this->assertInstanceOf('Magazinepublish\Model\MagazinepublishTable', $this->controller->getMagazinepublishTable());
     }
 }
