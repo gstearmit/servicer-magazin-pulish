@@ -15,6 +15,9 @@ class MagazinepublishController extends AbstractActionController {
     protected $magazinepublishTable;
 
     public function indexAction() {
+    	
+    	
+    	
         $select = new Select();
 
         $order_by = $this->params()->fromRoute('order_by') ?

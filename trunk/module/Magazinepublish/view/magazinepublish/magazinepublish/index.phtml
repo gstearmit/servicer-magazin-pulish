@@ -7,6 +7,11 @@ if ($order_by == 'title')
 elseif ($order_by == 'artist')
     $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
 ?>
+<?php 
+// echo 'hang si '.WEB_PATH_IMG;
+// echo '<br/>';
+?>
+<img src="<?php echo WEB_PATH_IMG;?>/book1/car_magazine_1.jpg" style="width: 50px;height:40px;">
 
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <p><a href="<?php

@@ -4,6 +4,8 @@ namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
 
+//define('SEED_ICONS_PATH', '/perseed/public/images/seed_icons');
+
 class Module
 {
     public function onBootstrap($e)
