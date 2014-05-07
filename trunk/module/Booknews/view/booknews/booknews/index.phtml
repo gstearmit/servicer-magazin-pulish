@@ -1,0 +1,37 @@
+<?php 
+$title = 'My booknewss';
+$this->headTitle($title);
+?>
+
+<?php 
+// echo 'paginator';var_dump($paginator);
+// die;
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p><a href="<?php echo $this->url('booknews', array( 
+        'action'=>'add'));?>">Add new booknews</a></p>
+
+<table class="table">
+<tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($paginator as $booknews) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($booknews->title);?></td>
+    <td><?php echo $this->escapeHtml($booknews->artist);?></td>
+    <td>
+        <a href="<?php echo $this->url('booknews',
+            array('action'=>'edit', 'id' => $booknews->id));?>">Edit</a>
+        <a href="<?php echo $this->url('booknews',
+            array('action'=>'delete', 'id' => $booknews->id));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
+<?php 
+echo $this->paginationControl(
+            $paginator, 'Sliding', 'paginator-slide-book', array('order_by' => $order_by, 'order' => $order)
+    );
+?>
