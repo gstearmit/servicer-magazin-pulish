@@ -29,7 +29,15 @@ class MagazinePublishRestController extends AbstractRestfulController
     public function get($id)
     {
         $magazinepublish = $this->getMagazinepublishTable()->getMagazinepublish($id);
-
+        
+//         echo 'hoaNG PHUC<br/>';
+//        // var_dump($array);
+//        echo '<pre>';
+//        print_r($magazinepublish);
+//        echo "</pre>";
+       
+//         die;
+       // $sql="SELECT `mzimg`.`img` AS `img`, `mzimg`.`description` AS `description`, `magazinepublish`.`idmzalbum` AS `id`, `magazinepublish`.`title` AS `title`, `magazinepublish`.`descriptionkey` AS `descriptionkey`, `magazinepublish`.`imgkey` AS `imgkey`, `magazinepublish`.`id` AS `idmzalbum` FROM `mzimg` INNER JOIN `magazinepublish` ON `mzimg`.`idmzalbum`=`magazinepublish`.`id` WHERE `mzimg`.`id` = '2'";
         return new JsonModel(array(
             'data' => $magazinepublish,
         ));

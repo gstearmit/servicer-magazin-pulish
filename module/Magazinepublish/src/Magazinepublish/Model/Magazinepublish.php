@@ -10,7 +10,9 @@ use Zend\InputFilter\InputFilterInterface;
 class Magazinepublish implements InputFilterAwareInterface
 {
     public $id;
-    public $artist;
+    public $imgkey;
+    public $descriptionkey;
+    public $idmzalbum;
     public $title;
 
     protected $inputFilter;
@@ -21,8 +23,10 @@ class Magazinepublish implements InputFilterAwareInterface
     public function exchangeArray($data)
     {
         $this->id     = (isset($data['id'])) ? $data['id'] : null;
-        $this->artist = (isset($data['artist'])) ? $data['artist'] : null;
+        $this->descriptionkey = (isset($data['descriptionkey'])) ? $data['descriptionkey'] : null;
         $this->title  = (isset($data['title'])) ? $data['title'] : null;
+        $this->imgkey  = (isset($data['imgkey'])) ? $data['imgkey'] : null;
+        $this->idmzalbum  = (isset($data['idmzalbum'])) ? $data['idmzalbum'] : null;
     }
 
     public function getArrayCopy()
@@ -49,9 +53,17 @@ class Magazinepublish implements InputFilterAwareInterface
                     array('name' => 'Int'),
                 ),
             )));
+            
+            $inputFilter->add($factory->createInput(array(
+            		'name'     => 'idmzalbum',
+            		'required' => true,
+            		'filters'  => array(
+            				array('name' => 'Int'),
+            		),
+            )));
 
             $inputFilter->add($factory->createInput(array(
-                'name'     => 'artist',
+                'name'     => 'descriptionkey',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
@@ -68,7 +80,26 @@ class Magazinepublish implements InputFilterAwareInterface
                     ),
                 ),
             )));
-
+            
+            $inputFilter->add($factory->createInput(array(
+            		'name'     => 'imgkey',
+            		'required' => true,
+            		'filters'  => array(
+            				array('name' => 'StripTags'),
+            				array('name' => 'StringTrim'),
+            		),
+            		'validators' => array(
+            				array(
+            						'name'    => 'StringLength',
+            						'options' => array(
+            								'encoding' => 'UTF-8',
+            								'min'      => 1,
+            								'max'      => 100,
+            						),
+            				),
+            		),
+            )));
+            
             $inputFilter->add($factory->createInput(array(
                 'name'     => 'title',
                 'required' => true,
