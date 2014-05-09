@@ -19,7 +19,7 @@ class MagazinepublishForm extends Form
         ));
 
         $this->add(array(
-            'name' => 'artist',
+            'name' => 'descriptionkey',
             'attributes' => array(
                 'type'  => 'text',
             ),
@@ -36,6 +36,24 @@ class MagazinepublishForm extends Form
             'options' => array(
                 'label' => 'Title',
             ),
+        ));
+        
+        $this->add(array(
+        		'name' => 'imgkey',
+        		'attributes' => array(
+        				'type'  => 'text',
+        		),
+        		'options' => array(
+        				'label' => 'Title',
+        		),
+        ));
+        
+        
+        $this->add(array(
+        		'name' => 'idmzalbum',
+        		'attributes' => array(
+        				'type'  => 'hidden',
+        		),
         ));
         
         $this->add(array(
