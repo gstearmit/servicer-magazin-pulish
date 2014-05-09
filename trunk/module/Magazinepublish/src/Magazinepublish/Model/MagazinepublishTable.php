@@ -41,10 +41,11 @@ class MagazinepublishTable extends AbstractTableGateway {
 //         return $row;
         $sql = new Sql($this->adapter);
         $select = $sql->select();
-        $select->columns(array('img'=>'img','description'=>'description'));
-        $select->from ('mzimg')
-               ->join('magazinepublish', 'mzimg.idmzalbum=magazinepublish.id',array('id'=>'idmzalbum','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey','idmzalbum'=>'id'));
-        $select->where(array('mzimg.id'=>$id));
+        //$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
+        $select->columns(array());
+        $select->from ('magazinepublish')
+               ->join('mzimg', 'mzimg.id=magazinepublish.id',array('id'=>'id','idmzalbum'=>'idmzalbum','img'=>'img','description'=>'description'));
+        $select->where(array('magazinepublish.id'=>$id));
         
         $selectString = $sql->prepareStatementForSqlObject($select);
         $results = $selectString->execute();
