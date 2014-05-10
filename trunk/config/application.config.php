@@ -11,6 +11,8 @@ return array(
     	'Booknews',
 		'Magazinepublish',
 		'MagazinePublishRest',
+		'Mzimg',
+		//'Admin',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
