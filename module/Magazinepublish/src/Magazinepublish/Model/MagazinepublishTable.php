@@ -44,7 +44,7 @@ class MagazinepublishTable extends AbstractTableGateway {
     }
     
     
-    public function getrestMagazinepublish($id) {
+    public function getRestMagazinepublish($id) {
     	$id = (int) $id;
     	//         $rowset = $this->select(array('id' => $id));
     
@@ -58,7 +58,7 @@ class MagazinepublishTable extends AbstractTableGateway {
     	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
     	$select->columns(array());
     	$select->from ('magazinepublish')
-    	->join('mzimg', 'mzimg.id=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	->join('mzimg', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
     	$select->where(array('magazinepublish.id'=>$id));
     
     	$selectString = $sql->prepareStatementForSqlObject($select);

@@ -9,10 +9,10 @@ $this->headTitle($title);
   '<?php echo $this->escapeHtml($mzimg->description); ?>'?
 </p>
 <?php 
-$url = $this->url('mzimg', array('action' => 'delete', 'idmzalbum'=>$this->idmzalbum)); ?>
+$url = $this->url('mzimg', array('action' => 'delete', 'id'=>$this->id)); ?>
 <form action="<?php echo $url; ?>" method="post">
 <div>
-  <input type="hidden" name="idmzalbum" value="<?php echo (int)$mzimg->idmzalbum; ?>" />
+  <input type="hidden" name="id" value="<?php echo (int)$mzimg->id; ?>" />
   <input type="submit" name="del" value="Yes" />
   <input type="submit" name="del" value="No" />
 </div>
