@@ -28,7 +28,7 @@ class MagazinePublishRestController extends AbstractRestfulController
 
     public function get($id)
     {
-        $magazinepublish = $this->getMagazinepublishTable()->getMagazinepublish($id);
+        $magazinepublish = $this->getMagazinepublishTable()->getrestMagazinepublish($id);
         return new JsonModel(array(
             'data' => $magazinepublish,
         ));

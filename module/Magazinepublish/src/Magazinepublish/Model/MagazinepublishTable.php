@@ -32,42 +32,55 @@ class MagazinepublishTable extends AbstractTableGateway {
 
     public function getMagazinepublish($id) {
         $id = (int) $id;
-//         $rowset = $this->select(array('id' => $id));
+        $rowset = $this->select(array('id' => $id));
         
-//         $row = $rowset->current();
-//         if (!$row) {
-//             throw new \Exception("Could not find row $id");
-//         }
-//         return $row;
-        $sql = new Sql($this->adapter);
-        $select = $sql->select();
-        //$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
-        $select->columns(array());
-        $select->from ('magazinepublish')
-               ->join('mzimg', 'mzimg.id=magazinepublish.id',array('id'=>'id','idmzalbum'=>'idmzalbum','img'=>'img','description'=>'description'));
-        $select->where(array('magazinepublish.id'=>$id));
-        
-        $selectString = $sql->prepareStatementForSqlObject($select);
-        $results = $selectString->execute();
-       
-        // swap
-        $array = array();
-        foreach ($results as $result)
-        {
-        	$tmp = array();
-        	$tmp= $result;
-        	$array[] = $tmp;
+        $row = $rowset->current();
+        if (!$row) {
+            throw new \Exception("Could not find row $id");
         }
-        
-        return $array;
+        return $row;
        
+       
+    }
+    
+    
+    public function getrestMagazinepublish($id) {
+    	$id = (int) $id;
+    	//         $rowset = $this->select(array('id' => $id));
+    
+    	//         $row = $rowset->current();
+    	//         if (!$row) {
+    	//             throw new \Exception("Could not find row $id");
+    	//         }
+    	//         return $row;
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
+    	$select->columns(array());
+    	$select->from ('magazinepublish')
+    	->join('mzimg', 'mzimg.id=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('magazinepublish.id'=>$id));
+    
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    	$results = $selectString->execute();
+    	 
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    
+    	return $array;
+    	 
     }
 
     public function saveMagazinepublish(Magazinepublish $magazinepublish) {
         $data = array(
             'descriptionkey' => $magazinepublish->descriptionkey,
         	'imgkey' => $magazinepublish->imgkey,
-        	'idmzalbum' => $magazinepublish->idmzalbum,
             'title' => $magazinepublish->title,
         );
 

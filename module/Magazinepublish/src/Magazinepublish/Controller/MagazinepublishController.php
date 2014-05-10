@@ -47,39 +47,20 @@ class MagazinepublishController extends AbstractActionController {
     	
         $form = new MagazinepublishForm(); // include Form Class
         $form->get('submit')->setAttribute('value', 'Add');
-        
-        
-
+       
         $request = $this->getRequest();
        
-       
-        
-        
         if ($request->isPost()) {
         	
             $magazinepublish = new Magazinepublish();
-            /*
-           echo '<pre>';
-	        print_r($request->getPost());
-	        echo '</pre>';
-	        die();
-	        
-            echo '<pre>';
-            print_r($form->getData());
-            echo '</pre>';
-            die();
-            */
-            
-            
-            
-            $form->setInputFilter($magazinepublish->getInputFilter());  // ? 
-            
+
+            $form->setInputFilter($magazinepublish->getInputFilter());  // check validate
+           
             $form->setData($request->getPost());  // get all post
             
             if ($form->isValid()) {
                 $magazinepublish->exchangeArray($form->getData());
                 $this->getMagazinepublishTable()->saveMagazinepublish($magazinepublish);
-
                 // Redirect to list of magazinepublishs
                 return $this->redirect()->toRoute('magazinepublish');
             }

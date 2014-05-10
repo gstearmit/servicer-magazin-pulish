@@ -6,7 +6,7 @@ $this->headTitle($title);
 
 <p>Are you sure that you want to delete 
   '<?php echo $this->escapeHtml($magazinepublish->title); ?>' by 
-  '<?php echo $this->escapeHtml($magazinepublish->artist); ?>'?
+  '<?php echo $this->escapeHtml($magazinepublish->descriptionkey); ?>'?
 </p>
 <?php 
 $url = $this->url('magazinepublish', array('action' => 'delete', 'id'=>$this->id)); ?>

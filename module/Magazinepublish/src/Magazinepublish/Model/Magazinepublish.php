@@ -12,7 +12,6 @@ class Magazinepublish implements InputFilterAwareInterface
     public $id;
     public $imgkey;
     public $descriptionkey;
-    public $idmzalbum;
     public $title;
 
     protected $inputFilter;
@@ -26,7 +25,7 @@ class Magazinepublish implements InputFilterAwareInterface
         $this->descriptionkey = (isset($data['descriptionkey'])) ? $data['descriptionkey'] : null;
         $this->title  = (isset($data['title'])) ? $data['title'] : null;
         $this->imgkey  = (isset($data['imgkey'])) ? $data['imgkey'] : null;
-        $this->idmzalbum  = (isset($data['idmzalbum'])) ? $data['idmzalbum'] : null;
+      
     }
 
     public function getArrayCopy()
@@ -54,13 +53,6 @@ class Magazinepublish implements InputFilterAwareInterface
                 ),
             )));
             
-            $inputFilter->add($factory->createInput(array(
-            		'name'     => 'idmzalbum',
-            		'required' => true,
-            		'filters'  => array(
-            				array('name' => 'Int'),
-            		),
-            )));
 
             $inputFilter->add($factory->createInput(array(
                 'name'     => 'descriptionkey',

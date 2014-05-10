@@ -24,7 +24,7 @@ class MagazinepublishForm extends Form
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Artist',
+                'label' => 'Description',
             ),
         ));
 
@@ -44,27 +44,13 @@ class MagazinepublishForm extends Form
         				'type'  => 'text',
         		),
         		'options' => array(
-        				'label' => 'Title',
+        				'label' => 'img',
         		),
         ));
         
         
-        $this->add(array(
-        		'name' => 'idmzalbum',
-        		'attributes' => array(
-        				'type'  => 'hidden',
-        		),
-        ));
         
-        $this->add(array(
-        		'name' => 'password',
-        		'attributes' => array(
-        				'type'  => 'password',
-        		),
-        		'options' => array(
-        				'label' => 'password',
-        		),
-        ));
+       
 
         $this->add(array(
             'name' => 'submit',
