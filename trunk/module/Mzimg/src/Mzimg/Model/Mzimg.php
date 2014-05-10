@@ -9,12 +9,12 @@ use Zend\InputFilter\InputFilterInterface;
 
 class Mzimg implements InputFilterAwareInterface
 {
-    public $idmzalbum;
-	public $id; // id Table magazinepublish : 1-1
+    public $id;
+    public $idmz;
     public $img;
-    public $description;
+	public $description;
     public $title;
-    public $page;
+	public $page;
 
     protected $inputFilter;
 
@@ -23,13 +23,13 @@ class Mzimg implements InputFilterAwareInterface
      */
     public function exchangeArray($data)
     {
-        $this->idmzalbum     = (isset($data['idmzalbum'])) ? $data['idmzalbum'] : null;
-        $this->id = (isset($data['id'])) ? $data['id'] : null;
-        $this->img  = (isset($data['img'])) ? $data['img'] : null;
+        $this->id     = (isset($data['id'])) ? $data['id'] : null;
+        $this->idmz = (isset($data['idmz'])) ? $data['idmz'] : null;
+		$this->img = (isset($data['img'])) ? $data['img'] : null;
 		$this->description  = (isset($data['description'])) ? $data['description'] : null;
-		$this->title  = (isset($data['title'])) ? $data['title'] : null;
-		$this->page  = (isset($data['page'])) ? $data['page'] : null;
-			
+        $this->title  = (isset($data['title'])) ? $data['title'] : null;
+        $this->page  = (isset($data['page'])) ? $data['page'] : null;
+      
     }
 
     public function getArrayCopy()
@@ -50,20 +50,21 @@ class Mzimg implements InputFilterAwareInterface
             $factory = new InputFactory();
 
             $inputFilter->add($factory->createInput(array(
-                'name'     => 'idmzalbum',
-                'required' => true,
-                'filters'  => array(
-                    array('name' => 'Int'),
-                ),
-            )));
-
-            $inputFilter->add($factory->createInput(array(
                 'name'     => 'id',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'Int'),
                 ),
             )));
+			
+			$inputFilter->add($factory->createInput(array(
+                'name'     => 'idmz',
+                'required' => true,
+                'filters'  => array(
+                    array('name' => 'Int'),
+                ),
+            )));
+            
 
             $inputFilter->add($factory->createInput(array(
                 'name'     => 'img',
@@ -83,9 +84,68 @@ class Mzimg implements InputFilterAwareInterface
                     ),
                 ),
             )));
+            
+			$inputFilter->add($factory->createInput(array(
+            		'name'     => 'description',
+            		'required' => true,
+            		'filters'  => array(
+            				array('name' => 'StripTags'),
+            				array('name' => 'StringTrim'),
+            		),
+            		'validators' => array(
+            				array(
+            						'name'    => 'StringLength',
+            						'options' => array(
+            								'encoding' => 'UTF-8',
+            								'min'      => 1,
+            								'max'      => 100,
+            						),
+            				),
+            		),
+            )));
 			
-			 $inputFilter->add($factory->createInput(array(
-                'name'     => 'description',
+            $inputFilter->add($factory->createInput(array(
+            		'name'     => 'title',
+            		'required' => true,
+            		'filters'  => array(
+            				array('name' => 'StripTags'),
+            				array('name' => 'StringTrim'),
+            		),
+            		'validators' => array(
+            				array(
+            						'name'    => 'StringLength',
+            						'options' => array(
+            								'encoding' => 'UTF-8',
+            								'min'      => 1,
+            								'max'      => 100,
+            						),
+            				),
+            		),
+            )));
+			
+			$inputFilter->add($factory->createInput(array(
+            		'name'     => 'page',
+            		'required' => true,
+            		'filters'  => array(
+            				array('name' => 'StripTags'),
+            				array('name' => 'StringTrim'),
+            		),
+            		'validators' => array(
+            				array(
+            						'name'    => 'StringLength',
+            						'options' => array(
+            								'encoding' => 'UTF-8',
+            								'min'      => 1,
+            								'max'      => 100,
+            						),
+            				),
+            		),
+            )));
+			
+			
+            
+            $inputFilter->add($factory->createInput(array(
+                'name'     => 'title',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
@@ -102,45 +162,6 @@ class Mzimg implements InputFilterAwareInterface
                     ),
                 ),
             )));
-			 
-			 $inputFilter->add($factory->createInput(array(
-			 		'name'     => 'title',
-			 		'required' => true,
-			 		'filters'  => array(
-			 				array('name' => 'StripTags'),
-			 				array('name' => 'StringTrim'),
-			 		),
-			 		'validators' => array(
-			 				array(
-			 						'name'    => 'StringLength',
-			 						'options' => array(
-			 								'encoding' => 'UTF-8',
-			 								'min'      => 1,
-			 								'max'      => 100,
-			 						),
-			 				),
-			 		),
-			 )));
-			 
-			 
-			 $inputFilter->add($factory->createInput(array(
-			 		'name'     => 'page',
-			 		'required' => true,
-			 		'filters'  => array(
-			 				array('name' => 'StripTags'),
-			 				array('name' => 'StringTrim'),
-			 		),
-			 		'validators' => array(
-			 				array(
-			 						'name'    => 'StringLength',
-			 						'options' => array(
-			 								'encoding' => 'UTF-8',
-			 								'min'      => 1,
-			 								'max'      => 60,
-			 						),
-			 				),
-			 		),
-			 )));
 
             $this->inputFilter = $inputFilter;        
         }

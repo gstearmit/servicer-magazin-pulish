@@ -12,18 +12,21 @@ class MzimgForm extends Form
 
         $this->setAttribute('method', 'post');
         $this->add(array(
-            'name' => 'idmzalbum',
-            'attributes' => array(
-                'type'  => 'hidden',
-            ),
-        ));
-		
-		$this->add(array(
             'name' => 'id',
             'attributes' => array(
                 'type'  => 'hidden',
             ),
         ));
+
+      //  $this->add(array(
+      //      'name' => 'idmz',
+      //      'attributes' => array(
+      //          'type'  => 'text',
+      //      ),
+      //      'options' => array(
+      //          'label' => 'idmz',
+      //      ),
+      //  ));
 
         $this->add(array(
             'name' => 'img',
@@ -31,29 +34,43 @@ class MzimgForm extends Form
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Artist',
+                'label' => 'Thumbnail',
             ),
         ));
-
+        
         $this->add(array(
-            'name' => 'description',
-            'attributes' => array(
-                'type'  => 'text',
-            ),
-            'options' => array(
-                'label' => 'Title',
-            ),
+        		'name' => 'description',
+        		'attributes' => array(
+        				'type'  => 'text',
+        		),
+        		'options' => array(
+        				'label' => 'Description',
+        		),
+        ));
+        
+		
+		  $this->add(array(
+        		'name' => 'title',
+        		'attributes' => array(
+        				'type'  => 'text',
+        		),
+        		'options' => array(
+        				'label' => 'Title',
+        		),
         ));
 		
-		$this->add(array(
-            'name' => 'page',
-            'attributes' => array(
-                'type'  => 'text',
-            ),
-            'options' => array(
-                'label' => 'Title',
-            ),
+		  $this->add(array(
+        		'name' => 'page',
+        		'attributes' => array(
+        				'type'  => 'text',
+        		),
+        		'options' => array(
+        				'label' => 'Page',
+        		),
         ));
+        
+        
+       
 
         $this->add(array(
             'name' => 'submit',
