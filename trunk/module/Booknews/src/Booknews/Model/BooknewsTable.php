@@ -9,7 +9,7 @@ use Zend\Db\Sql\Select;
 
 class BooknewsTable extends AbstractTableGateway
 {
-    protected $table = 'album';
+    protected $table = 'booknew';
 
     public function __construct(Adapter $adapter)
     {

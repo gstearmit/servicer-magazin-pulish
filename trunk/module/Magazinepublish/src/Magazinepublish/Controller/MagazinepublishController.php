@@ -9,14 +9,22 @@ use Magazinepublish\Form\MagazinepublishForm;
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\Iterator as paginatorIterator;
+// check login
+
+use ZfcUser\Service\User as UserService;
+use ZfcUser\Options\UserControllerOptionsInterface;
+
 
 class MagazinepublishController extends AbstractActionController {
-
+    
     protected $magazinepublishTable;
 
     public function indexAction() {
-    	
-    	
+    	// check login
+    	if (!$this->zfcUserAuthentication()->hasIdentity()) {
+    		return $this->redirect()->toRoute('zfcuser/login');
+    	}else 
+    	{
     	
         $select = new Select();
 
@@ -41,6 +49,9 @@ class MagazinepublishController extends AbstractActionController {
                     'page' => $page,
                     'paginator' => $paginator,
                 ));
+    	}//login
+    	
+    	
     }
 
     public function addAction() {

@@ -71,8 +71,12 @@ class UserController extends AbstractActionController
      */
     public function loginAction()
     {
+
+    	// if the user is logged in, we don't need to register
         if ($this->zfcUserAuthentication()->hasIdentity()) {
+        	// redirect to the login redirect route
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
+           
         }
 
         $request = $this->getRequest();
@@ -83,22 +87,27 @@ class UserController extends AbstractActionController
         } else {
             $redirect = false;
         }
-
+ 
         if (!$request->isPost()) {
+        	//echo 'vao day roi nay';die;
             return array(
                 'loginForm' => $form,
                 'redirect'  => $redirect,
                 'enableRegistration' => $this->getOptions()->getEnableRegistration(),
             );
         }
-
+       
+       
         $form->setData($request->getPost());
 
         if (!$form->isValid()) {
             $this->flashMessenger()->setNamespace('zfcuser-login-form')->addMessage($this->failedLoginMessage);
             return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN).($redirect ? '?redirect='. rawurlencode($redirect) : ''));
         }
-
+        
+        // co du lieu nen chuyen huong sang chung thuc
+        echo 'Action login , co du lieu chuyen huong sang chung thuc -- no no';//die;
+        
         // clear adapters
         $this->zfcUserAuthentication()->getAuthAdapter()->resetAdapters();
         $this->zfcUserAuthentication()->getAuthService()->clearIdentity();
@@ -129,6 +138,7 @@ class UserController extends AbstractActionController
      */
     public function authenticateAction()
     {
+    	
         if ($this->zfcUserAuthentication()->hasIdentity()) {
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
         }
@@ -155,16 +165,20 @@ class UserController extends AbstractActionController
         }
 
         if ($this->getOptions()->getUseRedirectParameterIfPresent() && $redirect) {
+        	
             return $this->redirect()->toUrl($redirect);
         }
 
         $route = $this->getOptions()->getLoginRedirectRoute();
-
+        
+      
         if (is_callable($route)) {
+        	
             $route = $route($this->zfcUserAuthentication()->getIdentity());
         }
-
-        return $this->redirect()->toRoute($route);
+      
+       // return $this->redirect()->toRoute($route);          // route --> indexaction UserController : $route = 'zfcuser';
+        return $this->redirect()->toRoute('magazinepublish'); // router Action magazine
     }
 
     /**
