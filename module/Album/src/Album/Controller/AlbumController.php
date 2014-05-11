@@ -25,6 +25,10 @@ class AlbumController extends AbstractActionController
     */
     
     public function indexAction() {
+    	if (!$this->zfcUserAuthentication()->hasIdentity()) {
+    		return $this->redirect()->toRoute('zfcuser/login');
+    	}
+    	
     	$select = new Select();
     	$order_by = $this->params()->fromRoute('order_by') ?
     	$this->params()->fromRoute('order_by') : 'id';

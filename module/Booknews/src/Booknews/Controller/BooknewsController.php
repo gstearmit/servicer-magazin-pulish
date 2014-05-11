@@ -11,6 +11,9 @@ use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\Iterator as paginatorIterator;
 use Zend\Db\Sql\Select;
 
+use ZfcUser\Service\User as UserService;
+use ZfcUser\Options\UserControllerOptionsInterface;
+
 class BooknewsController extends AbstractActionController
 {
     protected $booknewsTable;
@@ -25,6 +28,12 @@ class BooknewsController extends AbstractActionController
     */
     
     public function indexAction() {
+    	
+    	//
+    	if ($this->zfcUserAuthentication()->hasIdentity()) {
+    		return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
+    	}else {
+    	
     	$select = new Select();
     	$order_by = $this->params()->fromRoute('order_by') ?
     	$this->params()->fromRoute('order_by') : 'id';
@@ -52,6 +61,7 @@ class BooknewsController extends AbstractActionController
     			'page' => $page,
     			'paginator' => $paginator,
     	));
+    	}//login
     }
 
     public function addAction()

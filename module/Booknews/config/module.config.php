@@ -1,4 +1,7 @@
 <?php
+// Modul Book New Public
+// every body is edittor
+
 return array(
     'controllers' => array(
         'invokables' => array(

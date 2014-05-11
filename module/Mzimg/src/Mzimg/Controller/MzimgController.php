@@ -15,7 +15,10 @@ class MzimgController extends AbstractActionController {
     protected $mzimgTable;
 
     public function indexAction() {
-    	
+    	// check login
+    	if (!$this->zfcUserAuthentication()->hasIdentity()) {
+    		return $this->redirect()->toRoute('zfcuser/login');
+    	}
     	
     	
         $select = new Select();
