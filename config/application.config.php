@@ -18,6 +18,7 @@ return array(
 		'ZfcFacebook',
 		'ZfcAcl',
 		'BjyAuthorize',
+		'FileUpload',
 		//'ZfcRbac',
 		//'ZfcUserDoctrineORM',
 		//'Admin',

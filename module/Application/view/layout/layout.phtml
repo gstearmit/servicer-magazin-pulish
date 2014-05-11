@@ -11,7 +11,8 @@
     <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
                     ->appendStylesheet($this->basePath() . '/css/bootstrap.min.css')
                     ->appendStylesheet($this->basePath() . '/css/style.css')
-                    ->appendStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css') ?>
+                    ->appendStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
+                    ->appendStylesheet($this->basePath() . '/css/magazine.css') ?>
 
     <!-- Scripts -->
     <?php echo $this->headScript()->appendFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
@@ -34,6 +35,8 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+              <li class="noactive"><a href="<?php echo $this->url('magazinepublish') ?>"><?php echo $this->translate('Magazinepublish') ?></a></li>
+              <li class="noactive"><a href="<?php echo $this->url('mzimg') ?>"><?php echo $this->translate('Mzimg') ?></a></li>
             </ul>
 
           </div><!--/.nav-collapse -->
