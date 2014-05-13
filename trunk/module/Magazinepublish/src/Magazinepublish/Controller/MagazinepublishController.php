@@ -6,6 +6,9 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Magazinepublish\Model\Magazinepublish;
 use Magazinepublish\Form\MagazinepublishForm;
+//use Magazinepublish\Form\magazinepublish;
+//use Magazinepublish\Form\magazinepublishFormValidator;
+//use Magazinepublish\Form\magazinepublishValidator;
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\Iterator as paginatorIterator;
@@ -69,6 +72,15 @@ class MagazinepublishController extends AbstractActionController {
            
             $form->setData($request->getPost());  // get all post
             
+            $data = array_merge_recursive(
+            		$this->getRequest()->getPost()->toArray(),
+            		$this->getRequest()->getFiles()->toArray()
+            );
+			
+            echo '<pre>';
+            print_r($data);
+            echo '<pre>';
+            die;
             if ($form->isValid()) {
                 $magazinepublish->exchangeArray($form->getData());
                 $this->getMagazinepublishTable()->saveMagazinepublish($magazinepublish);

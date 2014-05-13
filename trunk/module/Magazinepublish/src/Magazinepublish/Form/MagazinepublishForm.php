@@ -3,6 +3,12 @@ namespace Magazinepublish\Form;
 
 use Zend\Form\Form;
 
+namespace Magazinepublish\Form;
+
+use Zend\Captcha;
+use Zend\Form\Element;
+use Zend\Form\Form;
+
 class MagazinepublishForm extends Form
 {
     public function __construct($name = null)
@@ -48,6 +54,32 @@ class MagazinepublishForm extends Form
         		),
         ));
         
+        $this->add(array(
+        		'name' => 'imgupload',
+        		'type' => 'file',
+        		'attributes' => array(
+        				'class' => 'imgmagazine',
+        				'id' => 'imgmagazine',
+        				'required' => 'required',
+        		),
+        		'options' => array(
+        				'label' => 'Img upload',
+        		),
+        ));
+        
+        $this->add(array(
+        		'name' => 'namemagazine',
+        		'type' => 'Zend\Form\Element\Text',
+        		'attributes' => array(
+        				'class' => 'namemagazine',
+        				'id' => 'namemagazine',
+        				'placeholder' => 'Name of Magazine public....',
+        				'required' => 'required',
+        		),
+        		'options' => array(
+        				'label' => 'Name Magazine',
+        		),
+        ));
         
         
        

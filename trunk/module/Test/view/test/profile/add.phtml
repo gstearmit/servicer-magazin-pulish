@@ -1,0 +1,15 @@
+<?php
+// filename : module/Test/view/test/profile/add.phtml
+$form = $this->form;
+$form->setAttribute('action',
+                    $this->url('Test/profile', //your route name ...
+                               array('controller'=>'profile', 'action' => 'add'))); 
+$form->prepare();
+ 
+echo $this->form()->openTag($form);
+echo $this->formRow($form->get('profilename'));
+ 
+echo $this->formRow($form->get('fileupload'));
+ 
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();

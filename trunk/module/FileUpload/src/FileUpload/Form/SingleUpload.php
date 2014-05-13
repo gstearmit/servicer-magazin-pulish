@@ -28,7 +28,7 @@ class SingleUpload extends Form
 
         // Text Input
         $text = new Element\Text('text');
-        $text->setLabel('Text Entry');
+        $text->setLabel('Name magazine');
         $this->add($text);
     }
 

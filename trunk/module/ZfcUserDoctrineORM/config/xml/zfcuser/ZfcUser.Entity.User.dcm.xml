@@ -15,6 +15,7 @@
         <field name="displayName" column="display_name" type="string" length="50" nullable="true" />
         <field name="password" type="string" length="128" />
         <field name="state" type="smallint" nullable="true" />
+        <field name="role" type="integer" column="role" length="11"/>
 
     </mapped-superclass>
 
