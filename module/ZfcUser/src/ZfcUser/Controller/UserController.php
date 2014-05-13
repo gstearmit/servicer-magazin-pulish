@@ -105,9 +105,7 @@ class UserController extends AbstractActionController
             return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN).($redirect ? '?redirect='. rawurlencode($redirect) : ''));
         }
         
-        // co du lieu nen chuyen huong sang chung thuc
-        echo 'Action login , co du lieu chuyen huong sang chung thuc -- no no';//die;
-        
+      
         // clear adapters
         $this->zfcUserAuthentication()->getAuthAdapter()->resetAdapters();
         $this->zfcUserAuthentication()->getAuthService()->clearIdentity();

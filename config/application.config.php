@@ -19,9 +19,13 @@ return array(
 		'ZfcAcl',
 		'BjyAuthorize',
 		'FileUpload',
+		'Test',
+		'ZendDeveloperTools',
+		//'ZfcUserList',
 		//'ZfcRbac',
 		//'ZfcUserDoctrineORM',
 		//'Admin',
+		
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(

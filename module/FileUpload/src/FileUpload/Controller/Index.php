@@ -23,6 +23,9 @@ class Index extends AbstractActionController
 
     public function indexAction()
     {
+    	die('Please try again, no file is selected for upload .');
+    	//die('Please try again, no file is selected for upload .<a href='. $this->url('magazinepublish', array('action' => 'add').'/>click here</a>');
+    	
         // NOTE: Instead of using the following code, I'd suggest having a
         // background process/cron clear out old/stale temporary file uploads,
         // such as using "tmpwatch" or "tmpreaper" linux commands.
@@ -69,6 +72,11 @@ class Index extends AbstractActionController
                 //
                 // ...Save the form...
                 //
+                $arr = $this->redirectToSuccessPage($form->getData());
+//                  echo '<pre>';
+// 		          print_r($arr);//die;
+// 		          echo '</pre>';
+//                 die;
                 return $this->redirectToSuccessPage($form->getData());
             }
         }
