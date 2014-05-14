@@ -4,6 +4,7 @@ namespace MagazinePublishRest\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 
+
 use Magazinepublish\Model\Magazinepublish;          // <-- Add this import
 use Magazinepublish\Form\MagazinepublishForm;       // <-- Add this import
 use Magazinepublish\Model\MagazinepublishTable;     // <-- Add this import
@@ -15,7 +16,8 @@ class MagazinePublishRestController extends AbstractRestfulController
 
     public function getList()
     {
-        $results = $this->getMagazinepublishTable()->fetchAll();
+    	//$results = $this->getMagazinepublishTable()->fetchAll(); //ASC id
+    	$results = $this->getMagazinepublishTable()->fetchAllOrderbyiddesc();
         $data = array();
         foreach($results as $result) {
             $data[] = $result;
@@ -29,6 +31,7 @@ class MagazinePublishRestController extends AbstractRestfulController
     public function get($id)
     {
         $magazinepublish = $this->getMagazinepublishTable()->getRestMagazinepublish($id);
+        //var_dump($magazinepublish);die();
         return new JsonModel(array(
             'data' => $magazinepublish,
         ));
