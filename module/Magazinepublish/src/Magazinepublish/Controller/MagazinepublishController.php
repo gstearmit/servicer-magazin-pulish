@@ -77,10 +77,10 @@ class MagazinepublishController extends AbstractActionController {
             		$this->getRequest()->getFiles()->toArray()
             );
 			
-            echo '<pre>';
-            print_r($data);
-            echo '<pre>';
-            die;
+//             echo '<pre>';
+//             print_r($data);
+//             echo '<pre>';
+//             die;
             if ($form->isValid()) {
                 $magazinepublish->exchangeArray($form->getData());
                 $this->getMagazinepublishTable()->saveMagazinepublish($magazinepublish);

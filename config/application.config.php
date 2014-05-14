@@ -21,6 +21,8 @@ return array(
 		'FileUpload',
 		'Test',
 		'ZendDeveloperTools',
+		//'DoctrineModule',
+        //'DoctrineORMModule'
 		//'ZfcUserList',
 		//'ZfcRbac',
 		//'ZfcUserDoctrineORM',

@@ -111,7 +111,7 @@ class Magazinepublish implements InputFilterAwareInterface
                     ),
                 ),
             )));
-            
+        /*    
             $inputFilter->add($factory->createInput(array(
             		'name' => 'imgupload',
             		'filters' => array(
@@ -141,7 +141,7 @@ class Magazinepublish implements InputFilterAwareInterface
             		),
             		)));
             
-            
+           */ 
             
             
             
