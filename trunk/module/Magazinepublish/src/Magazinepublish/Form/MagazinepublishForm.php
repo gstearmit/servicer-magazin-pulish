@@ -53,7 +53,7 @@ class MagazinepublishForm extends Form
         				'label' => 'img',
         		),
         ));
-        
+      /*  
         $this->add(array(
         		'name' => 'imgupload',
         		'type' => 'file',
@@ -81,7 +81,7 @@ class MagazinepublishForm extends Form
         		),
         ));
         
-        
+        */
        
 
         $this->add(array(
