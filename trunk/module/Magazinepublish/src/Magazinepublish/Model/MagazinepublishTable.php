@@ -29,6 +29,19 @@ class MagazinepublishTable extends AbstractTableGateway {
         $resultSet->buffer();
         return $resultSet;
     }
+    
+    public function fetchAllOrderbyiddesc(Select $select = null) {
+    	if (null === $select)
+    		$select = new Select();
+    	$select->from($this->table);
+    	$select->order('id DESC'); 
+       // $sort[] = 'sort_order DESC';
+    	//     	$sort[] = 'value ASC';
+    	//     	$select->order($sort);
+    	$resultSet = $this->selectWith($select);
+    	$resultSet->buffer();
+    	return $resultSet;
+    }
 
     public function getMagazinepublish($id) {
         $id = (int) $id;
@@ -46,13 +59,7 @@ class MagazinepublishTable extends AbstractTableGateway {
     
     public function getRestMagazinepublish($id) {
     	$id = (int) $id;
-    	//         $rowset = $this->select(array('id' => $id));
     
-    	//         $row = $rowset->current();
-    	//         if (!$row) {
-    	//             throw new \Exception("Could not find row $id");
-    	//         }
-    	//         return $row;
     	$sql = new Sql($this->adapter);
     	$select = $sql->select();
     	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
@@ -60,8 +67,12 @@ class MagazinepublishTable extends AbstractTableGateway {
     	$select->from ('magazinepublish')
     	->join('mzimg', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
     	$select->where(array('magazinepublish.id'=>$id));
+ //   	$sort[] = 'id DESC';
+//     	$sort[] = 'value ASC';
+ //    	$select->order($sort);
     
     	$selectString = $sql->prepareStatementForSqlObject($select);
+    	//return $selectString;die;
     	$results = $selectString->execute();
     	 
     	// swap
