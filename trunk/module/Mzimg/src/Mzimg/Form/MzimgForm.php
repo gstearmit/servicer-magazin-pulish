@@ -27,6 +27,30 @@ class MzimgForm extends Form
                'label' => 'idmz',
            ),
        ));
+       
+       $this->add(array(
+       		'type' => 'Zend\Form\Element\Select',
+       		'name' => 'cataloguemagazine',
+       		'options' => array(
+       				'label' => 'Cataloguemagazine',
+       				'value_options' => array(
+       						'1' => 'catalogue',
+       						'2' => 'catalogue 2',
+       						'3' => 'catalogue 3'
+       				),
+       		),
+       		'attributes' => array(
+       				'value' => '1' //set selected to '1'
+       		)
+       ));
+       
+       $this->add(array(
+       		'type' => 'Zend\Form\Element\Date',
+       		'name' => 'date',
+       		'options' => array(
+       				'label' => 'Date'
+       		)
+       ));
 
         $this->add(array(
             'name' => 'img',
