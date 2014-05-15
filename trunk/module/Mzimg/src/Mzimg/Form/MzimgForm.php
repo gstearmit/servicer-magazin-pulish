@@ -11,6 +11,7 @@ class MzimgForm extends Form
         parent::__construct('mzimg');
 
         $this->setAttribute('method', 'post');
+        $this->setAttribute('enctype', 'multipart/form-data');
         $this->add(array(
             'name' => 'id',
             'attributes' => array(

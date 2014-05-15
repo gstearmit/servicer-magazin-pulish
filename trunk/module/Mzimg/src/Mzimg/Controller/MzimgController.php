@@ -47,8 +47,11 @@ class MzimgController extends AbstractActionController {
     }
 
     public function addAction() {
-    	
+    	$idmz =  $this->params ()->fromRoute ( 'idmz', 0 );
+    	echo 'idmz'; var_dump($idmz);
+    	//
         $form = new MzimgForm(); // include Form Class
+        //$form->bind($idmz);
         $form->get('submit')->setAttribute('value', 'Add');
        
         $request = $this->getRequest();
@@ -76,7 +79,10 @@ class MzimgController extends AbstractActionController {
             }
         }
 
-        return array('form' => $form);
+        return array(
+        		'form' => $form,
+        		//'idmz'=>$idmz
+                    );
     }
 
     public function editAction() {

@@ -50,7 +50,8 @@ echo $this->url('magazinepublish', array(
                 <a href="<?php echo $this->url('magazinepublish', array('action' => 'edit', 'id' => $magazinepublish->id));
         ?>">Edit</a> |
                 <a href="<?php echo $this->url('magazinepublish', array('action' => 'delete', 'id' => $magazinepublish->id));
-        ?>">Delete</a>
+        ?>">Delete</a> |
+                <a href="<?php echo WEB_PATH ?>/mzimg/add/<?php echo $magazinepublish->id?>/mz/<?php echo $magazinepublish->id?>">Add Mzimg</a>
             </td>
         </tr>
     <?php endforeach; ?>
