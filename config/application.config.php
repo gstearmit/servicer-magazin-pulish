@@ -11,6 +11,7 @@ return array(
     	'Booknews',
 		'Magazinepublish',
 		'MagazinePublishRest',
+    	'MagazineRest',
 		'Mzimg',
 		'ZfcUser',
 		'ZfcBase',
@@ -26,7 +27,8 @@ return array(
 		//'ZfcUserList',
 		//'ZfcRbac',
 		//'ZfcUserDoctrineORM',
-		//'Admin',
+		'Admin',
+		'Template',
 		
     ),
     'module_listener_options' => array(

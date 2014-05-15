@@ -2,6 +2,7 @@
 
 namespace Mzimg\Controller;
 
+
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Mzimg\Model\Mzimg;
@@ -42,13 +43,13 @@ class MzimgController extends AbstractActionController {
                     'order_by' => $order_by,
                     'order' => $order,
                     'page' => $page,
-                    'paginator' => $paginator,
+                    'paginatorimg' => $paginator,
                 ));
     }
 
     public function addAction() {
-    	$idmz =  $this->params ()->fromRoute ( 'idmz', 0 );
-    	echo 'idmz'; var_dump($idmz);
+//     	$idmz =  $this->params ()->fromRoute ( 'idmz', 0 );
+//     	echo 'idmz'; var_dump($idmz);
     	//
         $form = new MzimgForm(); // include Form Class
         //$form->bind($idmz);

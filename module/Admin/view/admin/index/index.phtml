@@ -1,4 +1,4 @@
-<h1>Danh sách thành viên</h1>
+<h1>List User Manager</h1>
 <div id="body">
 	<div class="add">
 	<?php 
@@ -13,10 +13,10 @@
 	</div>
 	<table id='data'>
 		<tr class="title">
-			<td>ID</td>
+			<td>STT</td>
 			<td>Username</td>	
 			<td>Email</td>
-			<td>Group</td>
+			<td>display_name</td>
 			<td>Control</td>
 		</tr>
 		<?php 
@@ -26,7 +26,7 @@
 										array(
 											 'controller'=>'index',
 											 'action'=>'edit', 
-											 'id' => $user->id
+											 'id' => $user->user_id
 										));
 				$lnkEdit = '<a href="' . $lnkEdit . '">Edit</a>';
 				
@@ -34,16 +34,16 @@
 								array(
 										'controller'=>'index',
 										'action'=>'delete',
-										'id' => $user->id
+										'id' => $user->user_id
 								));
 				$lnkDelete = '<a href="' . $lnkDelete . '">Delete</a>';
 				
 				$str = '';
 				$str .= '<tr>';
-				$str .= '<td class="txtCenter">' . $user->id . '</td>';
+				$str .= '<td class="txtCenter">' . $user->user_id . '</td>';
 				$str .= '<td><b>' . $user->username . '</b></td>';
 				$str .= '<td class="txtCenter">' . $user->email . '</td>';
-				$str .= '<td class="txtCenter">' . $user->group . '</td>';
+				$str .= '<td class="txtCenter">' . $user->display_name . '</td>';
 				$str .= '<td class="txtCenter">' . $lnkEdit . ' | ' . $lnkDelete .'</td>';
 				$str .= '</tr>'; 
 				echo $str;
