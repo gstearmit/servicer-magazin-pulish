@@ -30,7 +30,7 @@ echo $this->url('mzimg', array( 'action' => 'add'));
         
         <th><a href="">Action</a></th>
     </tr>
-    <?php foreach ($paginator as $mzimg) : ?>
+    <?php foreach ($paginatorimg as $mzimg) : ?>
         <tr>
             <td><?php echo $this->escapeHtml($mzimg->title); ?></td>
             <td><?php echo $this->escapeHtml($mzimg->description); ?></td>
@@ -46,7 +46,7 @@ echo $this->url('mzimg', array( 'action' => 'add'));
 </table>
 
 <?php
-   // echo $this->paginationControl(
-   //         $paginator, 'Sliding', 'paginator-mzimg', array('order_by' => $order_by, 'order' => $order)
-   // );
+   echo $this->paginationControl(
+           $paginatorimg, 'Sliding', 'page-mzimg', array('order_by' => $order_by, 'order' => $order)
+   );
     ?>

@@ -1,8 +1,6 @@
 <?php
 return array(
-    
-    //Bat buoc phai co khong thi se co loi
-	//Phần này giúp 
+
     'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
