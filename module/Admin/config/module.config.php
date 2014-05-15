@@ -1,74 +1,54 @@
 <?php
-
 return array(
-    'router' => array(
+    
+    //Bat buoc phai co khong thi se co loi
+	//Phần này giúp 
+    'controllers' => array(
+        'invokables' => array(
+            'Admin\Controller\Index' => 'Admin\Controller\IndexController',
+        	'Admin\Controller\Upload' => 'Admin\Controller\UploadController'
+        ),
+    ),
+	'router' => array(
         'routes' => array(
-            'zfcadmin' => array(
-                'type' => 'literal',
+            'admin' => array(
+                'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/admin',
+                    //'route'    => '/album[/:controller][/:action][/][:id]',
+                	'route'    => '/admin[/][:controller][/][:action][/][id/:id]',
+                    'constraints' => array(
+                    	'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'action' 	 => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     	 => '[0-9]+',
+                    ),
                     'defaults' => array(
-                        'controller' => 'AtAdmin\Controller\Dashboard',
+                    	'__NAMESPACE__' => 'Admin\Controller',//Khong co namespace thi se xay ra loi
+                        'controller' => 'Admin\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'system' => array(
-                        'type' => 'literal',
-                        'options' => array(
-                            'route'    => '/system',
-                            'defaults' => array(
-                                'controller' => 'AtAdmin\Controller\System',
-                                'action'     => 'index',
-                            ),
-                        ),
-                        'may_terminate' => true,
-                        'child_routes' => array(
-                            'settings' => array(
-                                'type' => 'literal',
-                                'options' => array(
-                                    'route'    => '/settings',
-                                    'defaults' => array(
-                                        'controller' => 'AtAdmin\Controller\System',
-                                        'action'     => 'settings',
-                                    ),
-                                )
-                            ),
-                        )
-                    ),
-                )
             ),
+
         ),
     ),
-
-    'controllers' => array(
-        'invokables' => array(
-            'AtAdmin\Controller\Dashboard' => 'AtAdmin\Controller\DashboardController',
-            'AtAdmin\Controller\System'    => 'AtAdmin\Controller\SystemController',
-        ),
-    ),
-
-    'navigation' => array(
-        'admin' => array(
-            'system' => array(
-                'label' => 'System',
-                'id' => 'system-page',
-                'route' => 'zfcadmin/system',
-                'order' => 100,
-                'pages' => array(
-                    'settings' => array(
-                        'label' => 'Settings',
-                        'route' => 'zfcadmin/system/settings'
-                    ),
-                ),
-            ),
-        ),
-    ),
-
-    'view_manager' => array(
+	
+    //Bat buoc phai co thì mới load duoc View
+    'view_manager' => array(    	
+    	/* 'template_map' => array(
+    		'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+    	), */
         'template_path_stack' => array(
-            __DIR__ . '/../view',
+            'admin' => __DIR__ . '/../view'
         ),
     ),
+	'translator' => array(
+		'locale' => 'en_US',
+			'translation_file_patterns' => array(
+				array(
+					'type'     => 'gettext',
+					'base_dir' => __DIR__ . '/../language',
+					'pattern'  => '%s.mo',
+				),
+			),
+		), 
 );

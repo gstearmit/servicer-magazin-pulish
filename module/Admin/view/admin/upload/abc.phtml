@@ -1,0 +1,27 @@
+
+<h1>Upload File</h1>
+<?php 
+//Lấy đối tượng Admin\Form\UploadForm từ trong VIEW ra
+$form = $this->form;
+$form->prepare();
+?>
+
+<!-- Tạo thẻ <form...> và các giá trị thuộc tính của thẻ này -->
+<?php echo $this->form()->openTag($form);?>
+
+<ul>
+	<li>
+		<!--In ra giá trị nhãn  -->
+		<span><?php echo $this->formLabel($form->get('picture')); ?></span>
+		
+		<!--Tạo phần tử HTML cho việc Upload -->
+		<?php echo $this->formElement($form->get('picture')); ?>
+	</li>
+	<li>
+		<!--Tạo nút Submit -->
+		<?php echo $this->formElement($form->get('submit'));?>
+	</li>
+</ul>
+
+<!-- Đóng thẻ </form> -->
+<?php echo $this->form()->closeTag() ?>

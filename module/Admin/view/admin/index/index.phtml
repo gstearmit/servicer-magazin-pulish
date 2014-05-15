@@ -1,0 +1,54 @@
+<h1>Danh sách thành viên</h1>
+<div id="body">
+	<div class="add">
+	<?php 
+		$lnkAdd = $this->url('admin',
+					array(
+							'controller'=>'index',
+							'action'=>'add'
+					));
+		$lnkAdd = '<a href="' . $lnkAdd . '">Add a New User</a>';
+		echo $lnkAdd;
+	?>
+	</div>
+	<table id='data'>
+		<tr class="title">
+			<td>ID</td>
+			<td>Username</td>	
+			<td>Email</td>
+			<td>Group</td>
+			<td>Control</td>
+		</tr>
+		<?php 
+			foreach ($this->users as $user){
+				
+				$lnkEdit = $this->url('admin', 
+										array(
+											 'controller'=>'index',
+											 'action'=>'edit', 
+											 'id' => $user->id
+										));
+				$lnkEdit = '<a href="' . $lnkEdit . '">Edit</a>';
+				
+				$lnkDelete 	= $this->url('admin',
+								array(
+										'controller'=>'index',
+										'action'=>'delete',
+										'id' => $user->id
+								));
+				$lnkDelete = '<a href="' . $lnkDelete . '">Delete</a>';
+				
+				$str = '';
+				$str .= '<tr>';
+				$str .= '<td class="txtCenter">' . $user->id . '</td>';
+				$str .= '<td><b>' . $user->username . '</b></td>';
+				$str .= '<td class="txtCenter">' . $user->email . '</td>';
+				$str .= '<td class="txtCenter">' . $user->group . '</td>';
+				$str .= '<td class="txtCenter">' . $lnkEdit . ' | ' . $lnkDelete .'</td>';
+				$str .= '</tr>'; 
+				echo $str;
+		 
+			} 
+		?>
+	</table>
+</div>
