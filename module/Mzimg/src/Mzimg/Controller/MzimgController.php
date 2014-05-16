@@ -65,13 +65,6 @@ class MzimgController extends AbstractActionController {
            
             $form->setData($request->getPost());  // get all post
             
-            $data = array_merge_recursive(
-            		$this->getRequest()->getPost()->toArray(),
-            		$this->getRequest()->getFiles()->toArray()
-            );
-            
-           // var_dump($data);die;
-            
             if ($form->isValid()) {
                 $mzimg->exchangeArray($form->getData());
                 $this->getMzimgTable()->saveMzimg($mzimg);

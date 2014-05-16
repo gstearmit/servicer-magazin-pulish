@@ -9,7 +9,7 @@
 
             <!-- Numbered page links -->
             <?php foreach ($this->pagesInRange as $page): ?>
-                <li <?php echo $page == $this->current ? 'class="active"' : ''; ?>><a href="<?php echo $this->url('magazinepublish', array('page' => $page, 'order_by' => $order_by, 'order' => $order,)); ?>">
+                <li <?php echo $page == $this->current ? 'class="active"' : ''; ?>><a href="<?php echo $this->url('mzimg', array('page' => $page, 'order_by' => $order_by, 'order' => $order,)); ?>">
                         <?php echo $page; ?>
                     </a></li>
             <?php endforeach; ?>
