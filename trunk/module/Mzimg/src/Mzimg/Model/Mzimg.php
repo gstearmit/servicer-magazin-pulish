@@ -162,36 +162,6 @@ class Mzimg implements InputFilterAwareInterface
                     ),
                 ),
             )));
-            
-            
-            $inputFilter->add($factory->createInput(array(
-            		'name'     => 'cataloguemagazine',
-            		'validators' => array(
-            				array(
-            						'name'    => 'InArray',
-            						'options' => array(
-            								'haystack' => array(2,3),
-            								'messages' => array(
-            										'notInArray' => 'Please select your catalogue magazine !'
-            								),
-            						),
-            				),
-            		),
-            )));
-            
-            
-            $inputFilter->add($factory->createInput(array(
-            		'name'     => 'date',
-            		'validators' => array(
-            				array(
-            						'name'    => 'Between',
-            						'options' => array(
-            								'min' => '1970-01-01',
-            								'max' => date('Y-m-d')
-            						),
-            				),
-            		),
-            )));
 
             $this->inputFilter = $inputFilter;        
         }

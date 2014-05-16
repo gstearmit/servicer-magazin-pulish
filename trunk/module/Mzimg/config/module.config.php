@@ -12,9 +12,10 @@ return array(
             'mzimg' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/mzimg[/][:controller][/][:action][/:id][/page/:page][/order_by/:order_by][/:order][/mz/:idmz]',
+                  //  'route'    => '/mzimg[/][:controller][/][:action][/:id][/page/:page][/order_by/:order_by][/:order][/mz/:idmz]',
+					 'route'    => '/mzimg[/:action][/:id][/page/:page][/order_by/:order_by][/:order][/mz/:idmz]',
                     'constraints' => array(
-                    	'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    	//'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action' => '(?!\bpage\b)(?!\border_by\b)[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                         'page' => '[0-9]+',
