@@ -21,7 +21,7 @@ return array(
 		'BjyAuthorize',
 		'FileUpload',
 		'Test',
-		'ZendDeveloperTools',
+		//'ZendDeveloperTools',
 		//'DoctrineModule',
         //'DoctrineORMModule'
 		//'ZfcUserList',
