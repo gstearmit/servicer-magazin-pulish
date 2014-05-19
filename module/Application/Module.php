@@ -2,9 +2,8 @@
 
 namespace Application;
 
+use Application\Model\Acl;
 use Zend\Mvc\ModuleRouteListener;
-
-//define('SEED_ICONS_PATH', '/perseed/public/images/seed_icons');
 
 class Module
 {
@@ -29,7 +28,21 @@ class Module
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
             ),
+        		
         );
+    }
+    
+    public function getServiceConfig()
+    {
+    	return array(
+    			'factories' => array(
+    					'Acl' => function($sm)
+    					{
+    						$acl = new Acl();
+    						return $acl;
+    					},
+    			),
+    	);
     }
 
 }

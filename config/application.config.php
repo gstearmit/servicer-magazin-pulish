@@ -3,6 +3,7 @@ defined('SERVER_ENVIRONMENT') ||define('SERVER_ENVIRONMENT','servicer_magazin_pu
 defined('WEB_PATH') || define('WEB_PATH','http://servicer_magazin_pulish.localhost:1910');
 defined('WEB_PATH_IMG') || define('WEB_PATH_IMG', WEB_PATH.'/images');
 
+
 return array(
     'modules' => array(
         'Application',
@@ -20,8 +21,10 @@ return array(
 		'ZfcAcl',
 		'BjyAuthorize',
 		'FileUpload',
-		'Test',
-		//'ZendDeveloperTools',
+		'Uploadfilemutil',
+		//'Test',
+		'ZendDeveloperTools',
+		//'ZF2AuthAcl',
 		//'DoctrineModule',
         //'DoctrineORMModule'
 		//'ZfcUserList',

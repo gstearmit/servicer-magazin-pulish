@@ -27,7 +27,7 @@ class MzimgController extends AbstractActionController {
         $order_by = $this->params()->fromRoute('order_by') ?
                 $this->params()->fromRoute('order_by') : 'id';
         $order = $this->params()->fromRoute('order') ?
-                $this->params()->fromRoute('order') : Select::ORDER_ASCENDING;
+                $this->params()->fromRoute('order') : Select::ORDER_DESCENDING;
         $page = $this->params()->fromRoute('page') ? (int) $this->params()->fromRoute('page') : 1;
 
         $mzimgs = $this->getMzimgTable()->fetchAll($select->order($order_by . ' ' . $order));
@@ -51,7 +51,10 @@ class MzimgController extends AbstractActionController {
 //     	$idmz =  $this->params ()->fromRoute ( 'idmz', 0 );
 //     	echo 'idmz'; var_dump($idmz);
     	//
-        $form = new MzimgForm(); // include Form Class
+    	$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+    	//$form = new TestForm ($dbAdapter);
+    	
+        $form = new MzimgForm($dbAdapter); // include Form Class
         //$form->bind($idmz);
         $form->get('submit')->setAttribute('value', 'Add');
        
@@ -64,6 +67,8 @@ class MzimgController extends AbstractActionController {
             $form->setInputFilter($mzimg->getInputFilter());  // check validate
            
             $form->setData($request->getPost());  // get all post
+            var_dump($request->getPost());
+            //die;
             
             if ($form->isValid()) {
                 $mzimg->exchangeArray($form->getData());

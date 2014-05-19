@@ -6,9 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Magazinepublish\Model\Magazinepublish;
 use Magazinepublish\Form\MagazinepublishForm;
-//use Magazinepublish\Form\magazinepublish;
-//use Magazinepublish\Form\magazinepublishFormValidator;
-//use Magazinepublish\Form\magazinepublishValidator;
+
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\Iterator as paginatorIterator;
@@ -16,6 +14,9 @@ use Zend\Paginator\Adapter\Iterator as paginatorIterator;
 
 use ZfcUser\Service\User as UserService;
 use ZfcUser\Options\UserControllerOptionsInterface;
+
+use Zend\Validator\File\Size;
+use Zend\Validator\File\Extension;
 
 
 class MagazinepublishController extends AbstractActionController {
@@ -32,7 +33,7 @@ class MagazinepublishController extends AbstractActionController {
         $select = new Select();
 
         $order_by = $this->params()->fromRoute('order_by') ? $this->params()->fromRoute('order_by') : 'id';
-        $order = $this->params()->fromRoute('order') ? $this->params()->fromRoute('order') : Select::ORDER_ASCENDING;
+        $order = $this->params()->fromRoute('order') ? $this->params()->fromRoute('order') : Select::ORDER_DESCENDING;
         $page = $this->params()->fromRoute('page') ? (int) $this->params()->fromRoute('page') : 1;
 
         $magazinepublishs = $this->getMagazinepublishTable()->fetchAll($select->order($order_by . ' ' . $order));
@@ -67,23 +68,62 @@ class MagazinepublishController extends AbstractActionController {
             $magazinepublish = new Magazinepublish();
 
             $form->setInputFilter($magazinepublish->getInputFilter());  // check validate
-           
-            $form->setData($request->getPost());  // get all post
-            
+         
             $data = array_merge_recursive(
             		$this->getRequest()->getPost()->toArray(),
             		$this->getRequest()->getFiles()->toArray()
             );
-			
-//             echo '<pre>';
-//             print_r($data);
-//             echo '<pre>';
-//             die;
+           
+
+           $form->setData($data);  // get all post
+  
             if ($form->isValid()) {
-                $magazinepublish->exchangeArray($form->getData());
+            	
+            	$size = new Size(array('min'=>2000000)); //minimum bytes filesize
+            	 
+            	$adapter = new \Zend\File\Transfer\Adapter\Http();
+            	$adapter->setValidators(array($size), $data['imgkey']['size']);
+            	$extension = new \Zend\Validator\File\Extension(array('extension' => array('gif', 'jpg', 'png')));
+            	
+            	if (!$adapter->isValid()){
+            		
+            		$dataError = $adapter->getMessages();
+            	
+            		$error = array();
+            		foreach($dataError as $key=>$row)
+            		{
+            			$error[] = $row;
+            		}
+            		
+            		$form->setMessages(array('imgkey'=>$error ));
+            		//die;
+            	} 
+            	if ($adapter->isValid()) {
+            	//	echo 'is valid';
+            	
+//             		var_dump(MZIMG_PATH);
+//             		var_dump($data['imgkey']);
+            		//die;
+            		$adapter->setDestination(MZIMG_PATH);
+            		if ($adapter->receive($data['imgkey']['name'])) {
+            			$profile = new Magazinepublish();
+            			$profile->exchangeArray($form->getData());
+//             		   echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
+//             			die;
+            		}
+            		
+            	}
+            	
+            	
+            	
+                $magazinepublish->dataArray($form->getData());
                 $this->getMagazinepublishTable()->saveMagazinepublish($magazinepublish);
                 // Redirect to list of magazinepublishs
                 return $this->redirect()->toRoute('magazinepublish');
+                
+            }else {
+            	//echo('Magazine is Form Not Validate');
+            	
             }
         }
 
@@ -102,9 +142,53 @@ class MagazinepublishController extends AbstractActionController {
         $form->get('submit')->setAttribute('value', 'Edit');
 
         $request = $this->getRequest();
+        
         if ($request->isPost()) {
-            $form->setData($request->getPost());
+        	$magazinepublish = new Magazinepublish();
+        	$data = array_merge_recursive(
+        			$this->getRequest()->getPost()->toArray(),
+        			$this->getRequest()->getFiles()->toArray()
+        	);
+        	
+            $form->setData($data);
+            
             if ($form->isValid()) {
+            	
+            	$size = new Size(array('min'=>2000000)); //minimum bytes filesize
+            	
+            	$adapter = new \Zend\File\Transfer\Adapter\Http();
+            	$adapter->setValidators(array($size), $data['imgkey']['size']);
+            	$extension = new \Zend\Validator\File\Extension(array('extension' => array('gif', 'jpg', 'png')));
+            	if (!$adapter->isValid()){
+            	
+            		$dataError = $adapter->getMessages();
+            			
+            		$error = array();
+            		foreach($dataError as $key=>$row)
+            		{
+            			$error[] = $row;
+            		}
+            	
+            		$form->setMessages(array('imgkey'=>$error ));
+            		//die;
+            	}
+            	if ($adapter->isValid()) {
+            		//	echo 'is valid';
+            			
+            		//             		var_dump(MZIMG_PATH);
+            		//             		var_dump($data['imgkey']);
+            		//die;
+            		$adapter->setDestination(MZIMG_PATH);
+            		if ($adapter->receive($data['imgkey']['name'])) {
+            			$profile = new Magazinepublish();
+            			$profile->exchangeArray($form->getData());
+            			//             		   echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
+            			//             			die;
+            		}
+            	
+            	}
+            	
+            	$magazinepublish->dataArray($form->getData());
                 $this->getMagazinepublishTable()->saveMagazinepublish($magazinepublish);
 
                 // Redirect to list of magazinepublishs

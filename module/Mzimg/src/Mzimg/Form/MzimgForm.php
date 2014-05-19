@@ -2,11 +2,22 @@
 namespace Mzimg\Form;
 
 use Zend\Form\Form;
+// use Zend\Db\TableGateway\AbstractTableGateway;
+// use Zend\Db\Adapter\Adapter;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\Sql\Select;
+use Zend\Db\Sql\Sql;
+use Zend\Db\Sql\Where;
+
+use Zend\Db\Adapter\AdapterInterface;
+use Zend\Db\Adapter\Adapter;
 
 class MzimgForm extends Form
 {
-    public function __construct($name = null)
+	protected $adapter;
+    public function __construct(AdapterInterface $dbAdapter)
     {
+    	$this->adapter =$dbAdapter;
         // we want to ignore the name passed
         parent::__construct('mzimg');
 
@@ -28,21 +39,35 @@ class MzimgForm extends Form
       //          'label' => 'idmz',
       //      ),
       //  ));
+      
+        $this->add(array(
+        		'type' => 'Zend\Form\Element\Select',
+        		'name' => 'cataloguemagazine',
+        		'options' => array(
+        				'label' => 'Magazine Pblish',
+        				'empty_option' => 'Please select an Magazine',
+        				//'value_options' => $this->fetchAllCatalogue()
+        				'value_options' => $this->getOptionsForSelect()
+        		),
+        		'attributes' => array(
+        				'value' => '1' //set selected to '1'
+        		)
+        ));
 
         $this->add(array(
             'name' => 'img',
             'attributes' => array(
-                'type'  => 'text',
+                'type'  => 'file',
             ),
             'options' => array(
-                'label' => 'Thumbnail',
+                'label' => 'Upload images',
             ),
         ));
         
         $this->add(array(
         		'name' => 'description',
         		'attributes' => array(
-        				'type'  => 'text',
+        				'type'  => 'textarea',
         		),
         		'options' => array(
         				'label' => 'Description',
@@ -82,5 +107,50 @@ class MzimgForm extends Form
             ),
         ));
 
+    }
+    
+    public function getOptionsForSelect()
+    {
+    	$dbAdapter = $this->adapter;
+    	$sql       = 'SELECT * FROM `magazinepublish` WHERE 1';
+    	$statement = $dbAdapter->query($sql);
+    	$result    = $statement->execute();
+    
+    	$selectData = array();
+    
+    	foreach ($result as $res) {
+    		$selectData[$res['id']] = $res['title'];
+    	}
+    	return $selectData;
+    }
+    
+    
+    public function fetchAllCatalogue() {
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
+    	$select->columns(array());
+    	$select->from ('mzimg')
+    	->join('magazinepublish', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','title'=>'title'));
+    	//$select->where(array('magazinepublish.id'=>$id));
+    	//   	$sort[] = 'id DESC';
+    	//     	$sort[] = 'value ASC';
+    	//    	$select->order($sort);
+    
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    	//return $selectString;die;
+    	$results = $selectString->execute();
+    
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp[$result['id']]= $result['title'];
+    		$array[] = $tmp;
+    	}
+
+    	return $array;
+    
     }
 }

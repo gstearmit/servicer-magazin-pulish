@@ -17,6 +17,7 @@ class MagazinepublishForm extends Form
         parent::__construct('magazinepublish');
 
         $this->setAttribute('method', 'post');
+        $this->setAttribute('enctype', 'multipart/form-data');
         $this->add(array(
             'name' => 'id',
             'attributes' => array(
@@ -27,7 +28,7 @@ class MagazinepublishForm extends Form
         $this->add(array(
             'name' => 'descriptionkey',
             'attributes' => array(
-                'type'  => 'text',
+                'type'  => 'textarea',
             ),
             'options' => array(
                 'label' => 'Description',
@@ -47,10 +48,10 @@ class MagazinepublishForm extends Form
         $this->add(array(
         		'name' => 'imgkey',
         		'attributes' => array(
-        				'type'  => 'text',
+        				'type'  => 'file',
         		),
         		'options' => array(
-        				'label' => 'img',
+        				'label' => 'Upload images description ',
         		),
         ));
       /*  
