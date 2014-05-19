@@ -21,10 +21,12 @@ class MagazinepublishTable extends AbstractTableGateway {
         $this->initialize();
     }
 
-    public function fetchAll(Select $select = null) {
+    public function fetchAll(Select $select = null) 
+    {
         if (null === $select)
         $select = new Select();
         $select->from($this->table);
+        $select->order('id ASC');
         $resultSet = $this->selectWith($select);
         $resultSet->buffer();
         return $resultSet;

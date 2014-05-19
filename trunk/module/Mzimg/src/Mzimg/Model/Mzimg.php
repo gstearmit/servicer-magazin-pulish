@@ -24,7 +24,7 @@ class Mzimg implements InputFilterAwareInterface
     public function exchangeArray($data)
     {
         $this->id     = (isset($data['id'])) ? $data['id'] : null;
-        $this->idmz = (isset($data['idmz'])) ? $data['idmz'] : null;
+        $this->idmz = (isset($data['cataloguemagazine'])) ? $data['cataloguemagazine'] : null;
 		$this->img = (isset($data['img'])) ? $data['img'] : null;
 		$this->description  = (isset($data['description'])) ? $data['description'] : null;
         $this->title  = (isset($data['title'])) ? $data['title'] : null;
@@ -66,24 +66,25 @@ class Mzimg implements InputFilterAwareInterface
             )));
             
 
-            $inputFilter->add($factory->createInput(array(
-                'name'     => 'img',
-                'required' => true,
-                'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-                'validators' => array(
-                    array(
-                        'name'    => 'StringLength',
-                        'options' => array(
-                            'encoding' => 'UTF-8',
-                            'min'      => 1,
-                            'max'      => 100,
-                        ),
-                    ),
-                ),
-            )));
+           $inputFilter->add ( $factory->createInput ( array (
+					'name' => 'img',
+					'required' => true,
+					'validators' => array (
+							array (
+									'name' => 'FileExtension',
+									'options' => array (
+											'extension' => 'jpg, jpeg, png' 
+									) 
+							),
+							array (
+									'name' => 'FileSize',
+									'options' => array (
+											'min' => 1000,
+											'max' => 4000000 
+									) 
+							) 
+					) 
+			) ) );
             
 			$inputFilter->add($factory->createInput(array(
             		'name'     => 'description',

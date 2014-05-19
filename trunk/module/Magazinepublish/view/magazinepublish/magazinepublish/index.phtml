@@ -1,4 +1,6 @@
 <?php
+use Zend\Paginator\Paginator;
+
 $title = 'My magazinepublishs';
 $this->headTitle($title);
 $url_order = 'ASC';
@@ -41,18 +43,30 @@ echo $this->url('magazinepublish', array(
         
         <th><a href="">Action</a></th>
     </tr>
-    <?php foreach ($paginator as $magazinepublish) : ?>
+    <?php
+//         echo '<pre>';
+//         print_r($paginator);
+//         echo '</pre>';
+//      die;
+     foreach ($paginator as $magazinepublish) : 
+//     echo '<pre>';
+//      var_dump($magazinepublish);
+//     var_dump($magazinepublish->imgkey);
+//     echo '</pre>';
+    ?>
         <tr>
             <td><?php echo $this->escapeHtml($magazinepublish->title); ?></td>
             <td><?php echo $this->escapeHtml($magazinepublish->descriptionkey); ?></td>
-            <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $this->escapeHtml($magazinepublish->imgkey); ?>" style="width: 100px; height:100px;"/></td>
+            <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $magazinepublish->imgkey;//echo $this->escapeHtml($magazinepublish->imgkey); ?>" style="width: 100px; height:100px;"/></td>
             <td>
                 <a href="<?php echo $this->url('magazinepublish', array('action' => 'edit', 'id' => $magazinepublish->id));
         ?>">Edit</a> |
                 <a href="<?php echo $this->url('magazinepublish', array('action' => 'delete', 'id' => $magazinepublish->id));
-        ?>">Delete</a> |
-                <a href="<?php echo WEB_PATH ?>/mzimg/add/<?php echo $magazinepublish->id?>/mz/<?php echo $magazinepublish->id?>">Add Mzimg</a>
-            </td>
+        ?>">Delete</a> 
+        <!--  |
+                <a href="<?php //echo WEB_PATH ?>/mzimg/add/<?php //echo $magazinepublish->id?>/mz/<?php //echo $magazinepublish->id?>">Add Mzimg</a>
+        --> 
+        </td>
         </tr>
     <?php endforeach; ?>
 </table>
