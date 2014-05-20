@@ -14,6 +14,8 @@ return array(
 		'MagazinePublishRest',
     	'MagazineRest',
 		'Mzimg',
+    	'Manastory',
+		'Storydetail',
 		'ZfcUser',
 		'ZfcBase',
 		'ZfcAdmin',
