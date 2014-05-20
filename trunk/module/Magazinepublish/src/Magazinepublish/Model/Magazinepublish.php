@@ -32,6 +32,14 @@ class Magazinepublish implements InputFilterAwareInterface {
 		$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
 		
 	}
+	
+	public function dataPost($data) {
+		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
+		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
+		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
+		$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
+	
+	}
 	public function getArrayCopy() {
 		return get_object_vars ( $this );
 	}
