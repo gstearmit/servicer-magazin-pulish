@@ -50,7 +50,8 @@ class MzimgForm extends Form
         				'value_options' => $this->getOptionsForSelect()
         		),
         		'attributes' => array(
-        				'value' => '1' //set selected to '1'
+        				'value' => '1', //set selected to '1'
+        				'inarrayvalidator' => true,
         		)
         ));
 
