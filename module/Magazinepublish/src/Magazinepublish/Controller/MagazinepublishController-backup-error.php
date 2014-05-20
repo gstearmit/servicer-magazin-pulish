@@ -137,7 +137,10 @@ class MagazinepublishController extends AbstractActionController {
         }
         $magazinepublish = $this->getMagazinepublishTable()->getMagazinepublish($id);
         
-      
+        echo 'dau tien';
+        var_dump($magazinepublish);
+        //die;
+
         $form = new MagazinepublishForm();
         $form->bind($magazinepublish);
         $form->get('submit')->setAttribute('value', 'Edit');
@@ -146,65 +149,70 @@ class MagazinepublishController extends AbstractActionController {
         
         if ($request->isPost()) {
         	
-        	
+        	//$magazinepublish = new Magazinepublish();
         	$data = array_merge_recursive(
         			$this->getRequest()->getPost()->toArray(),
         			$this->getRequest()->getFiles()->toArray()
         	);
         	
-//         	echo '<pre>';
-//         	print_r($data);
-//         	echo '</pre>';
-        	 
+        	echo '<pre>';
+        	print_r($data);
+        	echo '</pre>';
         	
         	
             $form->setData($data);
             
             if ($form->isValid()) {
             	
-        
+            	echo "vali form";
+   
+            	
             	$size = new Size(array('min'=>2000000)); //minimum bytes filesize
             	
             	$adapter = new \Zend\File\Transfer\Adapter\Http();
             	$adapter->setValidators(array($size), $data['imgkey']['size']);
             	$extension = new \Zend\Validator\File\Extension(array('extension' => array('gif', 'jpg', 'png')));
-//             	if (!$adapter->isValid())
-//             	{
-//             		echo 'is not valid';
-//             		die;
+            	if (!$adapter->isValid())
+            	{
+            		echo 'is not valid';
+            		die;
             		
-//             		$dataError = $adapter->getMessages();
+            		$dataError = $adapter->getMessages();
             			
-//             		$error = array();
-//             		foreach($dataError as $key=>$row)
-//             		{
-//             			$error[] = $row;
-//             		}
+            		$error = array();
+            		foreach($dataError as $key=>$row)
+            		{
+            			$error[] = $row;
+            		}
             	
-//             		$form->setMessages(array('imgkey'=>$error ));
-//             		//die;
-//             	}
+            		$form->setMessages(array('imgkey'=>$error ));
+            		//die;
+            	}
             	if ($adapter->isValid()) 
             	{
-//             			echo 'is valid';
-//             			var_dump(MZIMG_PATH);
-//             		    var_dump($data['imgkey']);
-						//die;
+            			echo 'is valid';
+            			
+            		            		var_dump(MZIMG_PATH);
+            		            		var_dump($data['imgkey']);
+
+            	     	//die;
             		
             		$adapter->setDestination(MZIMG_PATH);
             		if ($adapter->receive($data['imgkey']['name'])) {
             			$profile = new Magazinepublish();
-            			//						$profile->exchangeArray($form->getData());
+            			$profile->exchangeArray($form->getData());
             			//             		   echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
             			//             			die;
             		}
             	
             	}
             	
-
-            	$magazinepublish2 = new Magazinepublish();
-            	$magazinepublish2->dataPost($data);
- 				$this->getMagazinepublishTable()->saveMagazinepublish2($magazinepublish2);
+            	//$magazinepublish2->dataPost($form->getData());
+            	
+            	var_dump($magazinepublish);
+            	die;
+            	
+                $this->getMagazinepublishTable()->saveMagazinepublish($magazinepublish);
 
                 // Redirect to list of magazinepublishs
                 return $this->redirect()->toRoute('magazinepublish');

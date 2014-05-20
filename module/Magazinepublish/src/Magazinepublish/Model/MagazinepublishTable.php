@@ -108,6 +108,82 @@ class MagazinepublishTable extends AbstractTableGateway {
             }
         }
     }
+    
+    
+    public function saveMagazinepublish2(Magazinepublish $magazinepublish) {
+    	
+    	
+    	$data = array(
+    			'descriptionkey' => $magazinepublish->descriptionkey,
+    			'imgkey' => $magazinepublish->imgkey,
+    			'title' => $magazinepublish->title,
+    	);
+    	
+    	$id = (int) $magazinepublish->id;
+    	if ($id == 0) {
+    		$this->insert($data);
+    	} else {
+    		if ($this->getMagazinepublish($id)) {
+    			$this->update($data, array('id' => $id));
+    		} else {
+    			throw new \Exception('Form id does not exist');
+    		}
+    	}
+    	
+//  	die;
+//     	return var_dump(is_array($magazinepublish->imgkey));
+//     	die;
+    	
+    	
+//     	if (is_array($magazinepublish->imgkey)) 
+//     	{
+//     	  	foreach ($magazinepublish->imgkey as $key)
+//     	  	{
+//     	  		$arrayMa_Img = array();
+//     	  		$arrayMa_Img = $key['name'];
+//     	  	}
+    	  	
+//     	  	$data = array(
+//     	  			'descriptionkey' => $magazinepublish->descriptionkey,
+//     	  			'imgkey' =>$arrayMa_Img,
+//     	  			'title' => $magazinepublish->title,
+//     	  	);
+    	  	
+//     	  	$id = (int) $magazinepublish->id;
+//     	  	if ($id == 0) {
+//     	  		$this->insert($data);
+//     	  	} else {
+//     	  		if ($this->getMagazinepublish($id)) {
+//     	  			$this->update($data, array('id' => $id));
+//     	  		} else {
+//     	  			throw new \Exception('Form id does not exist');
+//     	  		}
+//     	  	}
+//     	}else 
+//     	{
+//     		$data = array(
+//     				'descriptionkey' => $magazinepublish->descriptionkey,
+//     				'imgkey' => 'detaa',
+//     				'title' => $magazinepublish->title,
+//     		);
+    		
+//     		$id = (int) $magazinepublish->id;
+//     		if ($id == 0) {
+//     			$this->insert($data);
+//     		} else {
+//     			if ($this->getMagazinepublish($id)) {
+//     				$this->update($data, array('id' => $id));
+//     			} else {
+//     				throw new \Exception('Form id does not exist');
+//     			}
+//     		}
+//     	}
+    	
+    	//return 
+    	
+    	
+    	
+    }
 
     public function deleteMagazinepublish($id) {
         $this->delete(array('id' => $id));
