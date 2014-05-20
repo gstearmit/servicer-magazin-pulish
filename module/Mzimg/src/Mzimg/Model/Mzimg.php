@@ -31,6 +31,28 @@ class Mzimg implements InputFilterAwareInterface
         $this->page  = (isset($data['page'])) ? $data['page'] : null;
       
     }
+    
+    public function dataArray($data)
+    {
+    	$this->id     = (isset($data['id'])) ? $data['id'] : null;
+    	$this->idmz = (isset($data['cataloguemagazine'])) ? $data['cataloguemagazine'] : null;
+    	$this->img = (isset($data['img']['name'])) ? $data['img']['name'] : null;
+    	$this->description  = (isset($data['description'])) ? $data['description'] : null;
+    	$this->title  = (isset($data['title'])) ? $data['title'] : null;
+    	$this->page  = (isset($data['page'])) ? $data['page'] : null;
+    
+    }
+    
+    public function dataPost($data)
+    {
+    	$this->id     = (isset($data['id'])) ? $data['id'] : null;
+    	$this->idmz = (isset($data['cataloguemagazine'])) ? $data['cataloguemagazine'] : null;
+    	$this->img = (isset($data['img']['name'])) ? $data['img']['name'] : null;
+    	$this->description  = (isset($data['description'])) ? $data['description'] : null;
+    	$this->title  = (isset($data['title'])) ? $data['title'] : null;
+    	$this->page  = (isset($data['page'])) ? $data['page'] : null;
+    
+    }
 
     public function getArrayCopy()
     {
@@ -68,7 +90,7 @@ class Mzimg implements InputFilterAwareInterface
 
            $inputFilter->add ( $factory->createInput ( array (
 					'name' => 'img',
-					'required' => true,
+					'required' => false,
 					'validators' => array (
 							array (
 									'name' => 'FileExtension',
@@ -82,8 +104,9 @@ class Mzimg implements InputFilterAwareInterface
 											'min' => 1000,
 											'max' => 4000000 
 									) 
-							) 
-					) 
+							)
+						
+					) ,
 			) ) );
             
 			$inputFilter->add($factory->createInput(array(
