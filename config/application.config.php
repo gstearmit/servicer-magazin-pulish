@@ -16,6 +16,8 @@ return array(
 		'Mzimg',
     	'Manastory',
 		'Storydetail',
+		'ManastoryRest',
+		'MagastoryRestfull',
 		'ZfcUser',
 		'ZfcBase',
 		'ZfcAdmin',
