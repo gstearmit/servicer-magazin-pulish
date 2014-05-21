@@ -122,7 +122,7 @@ class Storydetail implements InputFilterAwareInterface
             						'options' => array(
             								'encoding' => 'UTF-8',
             								'min'      => 1,
-            								'max'      => 100,
+            								'max'      => 4000000,
             						),
             				),
             		),
@@ -149,7 +149,7 @@ class Storydetail implements InputFilterAwareInterface
 			
 			$inputFilter->add($factory->createInput(array(
             		'name'     => 'page',
-            		'required' => true,
+            		'required' => false,
             		'filters'  => array(
             				array('name' => 'StripTags'),
             				array('name' => 'StringTrim'),

