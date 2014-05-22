@@ -39,15 +39,9 @@ echo $this->url('manastory', array(
         <th><a href="">Action</a></th>
     </tr>
     <?php
-//         echo '<pre>';
-//         print_r($paginator);
-//         echo '</pre>';
-//      die;
+
      foreach ($paginatorstory as $manastory) : 
-//     echo '<pre>';
-//      var_dump($manastory);
-//     var_dump($manastory->imgkey);
-//     echo '</pre>';
+
     ?>
         <tr>
             <td><?php echo $this->escapeHtml($manastory->title); ?></td>
@@ -58,9 +52,9 @@ echo $this->url('manastory', array(
         ?>">Edit</a> 
                 <a class="btn " href="<?php echo $this->url('manastory', array('action' => 'delete', 'id' => $manastory->id));
         ?>">Delete</a> 
-        <!--  
-                <a href="<?php //echo WEB_PATH ?>/mzimg/add/<?php //echo $manastory->id?>/mz/<?php //echo $manastory->id?>">Add Mzimg</a>
-        --> 
+       
+                <a class="btn  btn-mini  " href="/storydetail/adddetail/<?php echo $manastory->id?>">Add story</a>
+            
         </td>
         </tr>
     <?php endforeach; ?>

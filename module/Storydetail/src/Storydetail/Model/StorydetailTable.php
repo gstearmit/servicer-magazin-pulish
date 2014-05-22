@@ -103,5 +103,38 @@ class StorydetailTable extends AbstractTableGateway {
     public function deleteStorydetail($id) {
         $this->delete(array('id' => $id));
     }
+    
+    
+    public function fetchAllDetailStory( $id)
+    {
+    	$id = (int) $id;
+    
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey'));
+    	$select->columns(array());
+    	$select->from ('story')
+    	->join('storydetail', 'storydetail.idmz=story.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('story.id'=>$id));
+    	$select->order('id ASC');
+    	
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    
+    	//return $selectString;die;
+    
+    	$results = $selectString->execute();
+    
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    
+    	return $array;
+    
+    }
 
 }
