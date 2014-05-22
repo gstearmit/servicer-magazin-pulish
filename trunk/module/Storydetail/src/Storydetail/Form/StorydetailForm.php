@@ -45,7 +45,7 @@ class StorydetailForm extends Form
         		'name' => 'cataloguemagazine',
         		'options' => array(
         				'label' => 'Magazine Pblish',
-        				'empty_option' => 'Select an Story',
+        				'empty_option' => 'Select an story',
         				//'value_options' => $this->fetchAllCatalogue()
         				'value_options' => $this->getOptionsForSelect()
         		),

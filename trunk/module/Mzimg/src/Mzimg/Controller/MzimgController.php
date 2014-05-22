@@ -141,7 +141,10 @@ class MzimgController extends AbstractActionController {
         		//'idmz'=>$idmz
                     );
     }
-
+    
+   
+  
+  
     public function editAction() {
     	$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
         $id = (int) $this->params('id');
