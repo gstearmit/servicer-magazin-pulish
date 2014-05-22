@@ -47,7 +47,7 @@ var_dump($this->id);
 <?php
 $form = $this->form;
 //$form->prepare();
-$form->setAttribute('action', $this->url('mzimg', array('action' => 'add')));
+$form->setAttribute('action', $this->url('magazinepublish', array('action' => 'adddetail')));
 $form->prepare();
 
 echo $this->form()->openTag($form) . PHP_EOL;

@@ -27,7 +27,7 @@ return array(
 		'FileUpload',
 		'Uploadfilemutil',
 		//'Test',
-		'ZendDeveloperTools',
+		//'ZendDeveloperTools',
 		//'ZF2AuthAcl',
 		//'DoctrineModule',
         //'DoctrineORMModule'
