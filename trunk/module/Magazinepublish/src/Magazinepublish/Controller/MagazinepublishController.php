@@ -6,8 +6,9 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Magazinepublish\Model\Magazinepublish;
 use Magazinepublish\Form\MagazinepublishForm;
+use Magazinepublish\Form\MagazineForm;
+
 use Mzimg\Model\Mzimg;
-use Mzimg\Form\MzimgForm;
 
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
@@ -17,6 +18,7 @@ use ZfcUser\Service\User as UserService;
 use ZfcUser\Options\UserControllerOptionsInterface;
 use Zend\Validator\File\Size;
 use Zend\Validator\File\Extension;
+use Mzimg\Model\MzimgTable;
 
 class MagazinepublishController extends AbstractActionController {
 	protected $magazinepublishTable;
@@ -123,39 +125,24 @@ class MagazinepublishController extends AbstractActionController {
 				'form' => $form 
 		);
 	}
+	
+	
 	public function adddetailAction() {
 		$id = $this->params ()->fromRoute ( 'id', 0 );
-// 		echo 'idmagazine';
-// 		var_dump ( $id );
-		
-		$select = new Select ();
-		
-		$order_by = $this->params ()->fromRoute ( 'order_by' ) ? $this->params ()->fromRoute ( 'order_by' ) : 'id';
-		$order = $this->params ()->fromRoute ( 'order' ) ? $this->params ()->fromRoute ( 'order' ) : Select::ORDER_DESCENDING;
-		$page = $this->params ()->fromRoute ( 'page' ) ? ( int ) $this->params ()->fromRoute ( 'page' ) : 1;
-		
-		//$magazinepublishs = $this->getMagazinepublishTable ()->fetchAllDetailMzimg ($id, $select->order ( $order_by . ' ' . $order ) );
-		$magazinepublishs = $this->getMagazinepublishTable ()->fetchAllDetailMzimg ($id);
+
+		$mzimgArray  = $this->getMagazinepublishTable ()->fetchAllDetailMzimg ($id);
 		
 // 		echo '<pre>';
 // 		print_r($magazinepublishs);
 // 		echo '</pre>';
 // 	die;
-		
-		
-		$itemsPerPage = 10; // is Number record/page
-		
-// 		$magazinepublishs->current ();
-// 		$paginator = new Paginator ( new paginatorIterator ( $magazinepublishs ) );
-// 		$paginator->setCurrentPageNumber ( $page )->setItemCountPerPage ( $itemsPerPage )->setPageRange ( 4 ); // is number page want view
-		
-		
+
 		
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
 		
-		$form = new MzimgForm($dbAdapter); // include Form Class
+		$form2 = new MagazineForm($dbAdapter); // include Form Class
 		 
-		$form->get('submit')->setAttribute('value', 'Add');
+		$form2->get('submit')->setAttribute('value', 'Add');
 		 
 		$request = $this->getRequest();
 		 
@@ -163,32 +150,32 @@ class MagazinepublishController extends AbstractActionController {
 			 
 			$mzimg = new Mzimg();
 		
-			$form->setInputFilter($mzimg->getInputFilter());  // check validate
+			$form2->setInputFilter($mzimg->getInputFilter());  // check validate
 		
-			$data = array_merge_recursive(
+			$data2 = array_merge_recursive(
 					$this->getRequest()->getPost()->toArray(),
 					$this->getRequest()->getFiles()->toArray()
 			);
 		
-			//                     	echo '<pre>';
-			//                     	print_r($data);
-			//                     	echo '</pre>';
+// 	echo '<pre>';
+// 	print_r($data2);
+// 	echo '</pre>';
+// 	  die;
 		
-		
-			$form->setData($data);  // get all post
-			 
-		
-			if ($form->isValid()) {
+			$form2->setData($data2);  // get all post
+			
+			if (!$form2->isValid()) {
+			
 				$size = new Size(array('min'=>2000000)); //minimum bytes filesize
 				 
 				$adapter = new \Zend\File\Transfer\Adapter\Http();
-				$adapter->setValidators(array($size), $data['img']['size']);
+				$adapter->setValidators(array($size), $data2['img']['size']);
 				$extension = new \Zend\Validator\File\Extension(array('extension' => array('gif', 'jpg', 'png')));
 		
 				if (!$adapter->isValid()){
 					 
 					echo 'is not valid';
-		
+		            
 					$dataError = $adapter->getMessages();
 					 
 					$error = array();
@@ -196,49 +183,55 @@ class MagazinepublishController extends AbstractActionController {
 					{
 						$error[] = $row;
 					}
-					 
-					//             		var_dump($error);
-					//             		die;
+				
 		
 					$form->setMessages(array('img'=>$error ));
-					//die;
+					
 				}
 				if ($adapter->isValid()) {
-					//             			echo 'is valid';
-					 
-					//             		            		var_dump(MZIMG_PATH);
-					//             		            		var_dump($data['img']);
-					//             		die;
+
+					
+// 					echo 'is valid';
+// 					 var_dump(MZIMG_PATH);
+// 					 var_dump($data2['img']);
+// 					 die;
+					   
+					   
 					$adapter->setDestination(MZIMG_PATH);
-					if ($adapter->receive($data['img']['name'])) {
+					if ($adapter->receive($data2['img']['name'])) {
 						$profile = new Mzimg();
-						$profile->exchangeArray($form->getData());
-						//             		   echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
-						//             			die;
+						//$profile->exchangeArray($form2->getData());
+						
 					}
 					 
 				}
 				 
-				$mzimg->dataArray($form->getData());
-		
-				//                 var_dump($mzimg);
-				//                 die();
-		
-				$this->getMzimgTable()->saveMzimg($mzimg);
+				$mzimg->dataArray($form2->getData());
+				
+				
+				  die(" Error Connectting  Action save Modul Mzimg ");
+				
+		        $mzimgTable = new MzimgTable();
+		        
+				$mzimgTable->saveMzimg($mzimg);
+				
 				// Redirect to list of Mzimgs
 				return $this->redirect()->toRoute('mzimg');
+			}else 
+			{
+			  die('is not not valid Dedatil');
 			}
 		}
 		
 		return new ViewModel ( array (
-				'order_by' => $order_by,
-				'order' => $order,
-				'page' => $page,
-				'paginatorimg' => $magazinepublishs,
-				'form' => $form,
+				'paginatorimg' => $mzimgArray,
+				'form' => $form2,
 				'id' => $id,
 		) );
 	}
+	
+	
+	
 	public function editAction() {
 		$id = ( int ) $this->params ( 'id' );
 		if (! $id) {
@@ -281,34 +274,13 @@ class MagazinepublishController extends AbstractActionController {
 								'png' 
 						) 
 				) );
-				// if (!$adapter->isValid())
-				// {
-				// echo 'is not valid';
-				// die;
-				
-				// $dataError = $adapter->getMessages();
-				
-				// $error = array();
-				// foreach($dataError as $key=>$row)
-				// {
-				// $error[] = $row;
-				// }
-				
-				// $form->setMessages(array('imgkey'=>$error ));
-				// //die;
-				// }
+			
 				if ($adapter->isValid ()) {
-					// echo 'is valid';
-					// var_dump(MZIMG_PATH);
-					// var_dump($data['imgkey']);
-					// die;
-					
+				
 					$adapter->setDestination ( MZIMG_PATH );
 					if ($adapter->receive ( $data ['imgkey'] ['name'] )) {
 						$profile = new Magazinepublish ();
-						// $profile->exchangeArray($form->getData());
-						// echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
-						// die;
+						
 					}
 				}
 				
@@ -356,4 +328,12 @@ class MagazinepublishController extends AbstractActionController {
 		}
 		return $this->magazinepublishTable;
 	}
+	
+// 	public function getMzimgTable() {
+// 		if (!$this->magazinepublishTable) {
+// 			$sm = $this->getServiceLocator();
+// 			$this->magazinepublishTable = $sm->get('Mzimg\Model\MzimgTable');
+// 		}
+// 		return $this->magazinepublishTable;
+// 	}
 }

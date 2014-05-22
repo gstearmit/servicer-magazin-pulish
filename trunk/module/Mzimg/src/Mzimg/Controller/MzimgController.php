@@ -7,6 +7,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Mzimg\Model\Mzimg;
 use Mzimg\Form\MzimgForm;
+use Mzimg\Form\MagazineForm;
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\Iterator as paginatorIterator;
@@ -142,6 +143,101 @@ class MzimgController extends AbstractActionController {
                     );
     }
     
+    
+    
+    
+    public function adddetailAction() {
+    	
+    	$id = $this->params ()->fromRoute ( 'id', 0 );
+    	$mzimgArray  = $this->getMzimgTable ()->fetchAllDetailMzimg ($id);
+    	
+    	
+    	$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+    
+    	$form = new MzimgForm($dbAdapter); // include Form Class
+    	 
+    	$form->get('submit')->setAttribute('value', 'Add');
+    	 
+    	$request = $this->getRequest();
+    	 
+    	if ($request->isPost()) {
+    	 
+    	$mzimg = new Mzimg();
+    
+    	$form->setInputFilter($mzimg->getInputFilter());  // check validate
+    
+    	$data = array_merge_recursive(
+    			$this->getRequest()->getPost()->toArray(),
+    	$this->getRequest()->getFiles()->toArray()
+    	);
+    
+    	//                     	echo '<pre>';
+    	//                     	print_r($data);
+    	//                     	echo '</pre>';
+    
+    
+    	$form->setData($data);  // get all post
+    	 
+    
+    	if (!$form->isValid()) {
+    	$size = new Size(array('min'=>2000000)); //minimum bytes filesize
+    	 
+    	$adapter = new \Zend\File\Transfer\Adapter\Http();
+    	$adapter->setValidators(array($size), $data['img']['size']);
+    	$extension = new \Zend\Validator\File\Extension(array('extension' => array('gif', 'jpg', 'png')));
+    
+    	if (!$adapter->isValid()){
+    	 
+    	echo 'is not valid';
+    
+    	$dataError = $adapter->getMessages();
+    	 
+    	$error = array();
+    	foreach($dataError as $key=>$row)
+    	{
+    	$error[] = $row;
+    	}
+    	 
+    	//             		var_dump($error);
+    	//             		die;
+    
+    	$form->setMessages(array('img'=>$error ));
+    	//die;
+    	}
+    	if ($adapter->isValid()) {
+    		//             			echo 'is valid';
+        
+//             		            		var_dump(MZIMG_PATH);
+    //             		            		var_dump($data['img']);
+    //             		die;
+    		$adapter->setDestination(MZIMG_PATH);
+    		if ($adapter->receive($data['img']['name'])) {
+    		$profile = new Mzimg();
+    		$profile->exchangeArray($form->getData());
+    		//             		   echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
+    		//             			die;
+    	}
+    		 
+    	}
+    	 
+    	$mzimg->dataArray($form->getData());
+    
+    		//                 var_dump($mzimg);
+    		//                 die();
+    
+    		$this->getMzimgTable()->saveMzimg($mzimg);
+    		// Redirect to list of Mzimgs
+    		return $this->redirect()->toRoute('mzimg');
+    	}
+    	}
+    
+    	return new ViewModel ( array (
+    			'paginatorimg' => $mzimgArray,
+    			'form' => $form,
+    			'id' => $id,
+    	) );
+  	}
+    
    
   
   
@@ -174,35 +270,15 @@ class MzimgController extends AbstractActionController {
             	$adapter = new \Zend\File\Transfer\Adapter\Http();
             	$adapter->setValidators(array($size), $data['img']['size']);
             	$extension = new \Zend\Validator\File\Extension(array('extension' => array('gif', 'jpg', 'png')));
-            	//             	if (!$adapter->isValid())
-            		//             	{
-            		//             		echo 'is not valid';
-            		//             		die;
             	
-            		//             		$dataError = $adapter->getMessages();
-            		 
-            		//             		$error = array();
-            		//             		foreach($dataError as $key=>$row)
-            			//             		{
-            			//             			$error[] = $row;
-            			//             		}
-            			 
-            			//             		$form->setMessages(array('imgkey'=>$error ));
-            			//             		//die;
-            			//             	}
             			if ($adapter->isValid())
             			{
-            				//             			echo 'is valid';
-            				//             			var_dump(MZIMG_PATH);
-            				//             		    var_dump($data['imgkey']);
-            				//die;
+            				
             	
             				$adapter->setDestination(MZIMG_PATH);
             				if ($adapter->receive($data['img']['name'])) {
             					$profile = new Mzimg();
-            					//						$profile->exchangeArray($form->getData());
-            					//             		   echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
-            					//             			die;
+            					
             				}
             				 
             			}

@@ -44,15 +44,9 @@ echo $this->url('magazinepublish', array(
         <th><a href="">Action</a></th>
     </tr>
     <?php
-//         echo '<pre>';
-//         print_r($paginator);
-//         echo '</pre>';
-//      die;
+
      foreach ($paginator as $magazinepublish) : 
-//     echo '<pre>';
-//      var_dump($magazinepublish);
-//     var_dump($magazinepublish->imgkey);
-//     echo '</pre>';
+
     ?>
         <tr>
             <td><?php echo $this->escapeHtml($magazinepublish->title); ?></td>
@@ -64,8 +58,8 @@ echo $this->url('magazinepublish', array(
                 <a href="<?php echo $this->url('magazinepublish', array('action' => 'delete', 'id' => $magazinepublish->id));
         ?>">Delete</a> 
         |
-                <a href="<?php //echo WEB_PATH ?>/magazinepublish/adddetail/<?php echo $magazinepublish->id?>">Add Mzimg</a>
-       
+                <a href="<?php //echo WEB_PATH ?>/mzimg/adddetail/<?php echo $magazinepublish->id?>">Add Mzimg</a>
+               <?php  /* <a href="<?php //echo WEB_PATH ?>/magazinepublish/adddetail/<?php echo $magazinepublish->id?>">Add Mzimg</a>  */ ?>
         </td>
         </tr>
     <?php endforeach; ?>
