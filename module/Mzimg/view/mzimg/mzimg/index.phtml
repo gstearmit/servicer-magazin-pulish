@@ -11,7 +11,7 @@ elseif ($order_by == 'artist')
 
 
 <h1><?php echo $this->escapeHtml($title); ?></h1>
-<p><a href="<?php
+<p><a class="btn "  href="<?php
 echo $this->url('mzimg', array( 'action' => 'add'));
 ?>">Add new mzimg</a></p>
 
@@ -36,9 +36,9 @@ echo $this->url('mzimg', array( 'action' => 'add'));
             <td><?php echo $this->escapeHtml($mzimg->description); ?></td>
             <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $this->escapeHtml($mzimg->img); ?>" style="width: 100px; height:100px;"/></td>
             <td>
-                <a href="<?php echo $this->url('mzimg', array('action' => 'edit', 'id' => $mzimg->id));
-        ?>">Edit</a> |
-                <a href="<?php echo $this->url('mzimg', array('action' => 'delete', 'id' => $mzimg->id));
+                <a class="btn " href="<?php echo $this->url('mzimg', array('action' => 'edit', 'id' => $mzimg->id));
+        ?>">Edit</a> 
+                <a class="btn" href="<?php echo $this->url('mzimg', array('action' => 'delete', 'id' => $mzimg->id));
         ?>">Delete</a>
             </td>
         </tr>
