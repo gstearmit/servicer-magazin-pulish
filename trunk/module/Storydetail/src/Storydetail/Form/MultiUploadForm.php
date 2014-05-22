@@ -44,7 +44,8 @@ class MultiUploadForm extends Form
         		'name' => 'submit',
         		'attributes' => array(
         				'type'  => 'submit',
-        				'value' => 'Send data'
+        				'value' => 'Send data',
+        				'class'=>"btn btn-primary",
         		),
         ));
         

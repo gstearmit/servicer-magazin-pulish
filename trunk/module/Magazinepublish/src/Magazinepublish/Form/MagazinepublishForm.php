@@ -17,6 +17,7 @@ class MagazinepublishForm extends Form
         parent::__construct('magazinepublish');
 
         $this->setAttribute('method', 'post');
+       // $this->setAttribute('class', 'form-horizontal');
         $this->setAttribute('enctype', 'multipart/form-data');
         $this->add(array(
             'name' => 'id',
@@ -54,36 +55,7 @@ class MagazinepublishForm extends Form
         				'label' => 'Upload images description ',
         		),
         ));
-      /*  
-        $this->add(array(
-        		'name' => 'imgupload',
-        		'type' => 'file',
-        		'attributes' => array(
-        				'class' => 'imgmagazine',
-        				'id' => 'imgmagazine',
-        				'required' => 'required',
-        		),
-        		'options' => array(
-        				'label' => 'Img upload',
-        		),
-        ));
-        
-        $this->add(array(
-        		'name' => 'namemagazine',
-        		'type' => 'Zend\Form\Element\Text',
-        		'attributes' => array(
-        				'class' => 'namemagazine',
-        				'id' => 'namemagazine',
-        				'placeholder' => 'Name of Magazine public....',
-        				'required' => 'required',
-        		),
-        		'options' => array(
-        				'label' => 'Name Magazine',
-        		),
-        ));
-        
-        */
-       
+   
 
         $this->add(array(
             'name' => 'submit',
@@ -91,6 +63,7 @@ class MagazinepublishForm extends Form
                 'type'  => 'submit',
                 'value' => 'Go',
                 'id' => 'submitbutton',
+            	'class'=>"btn btn-primary",
             ),
         ));
 

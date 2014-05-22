@@ -17,15 +17,12 @@ elseif ($order_by == 'artist')
 
 <div style="float:left; padding-right:16px;"><?php echo $this->gravatar($this->zfcUserIdentity()->getEmail()) ?></div>
 <h3><?php echo $this->translate('Hello'); ?>, <?php echo $this->zfcUserDisplayName() ?>!</h3>
-<a href="<?php echo $this->url('zfcuser/logout') ?>">[<?php echo $this->translate('Sign Out'); ?>]</a>
+<a class="btn" href="<?php echo $this->url('zfcuser/logout') ?>">[<?php echo $this->translate('Sign Out'); ?>]</a>
 <div style="clear:both;"></div>
 
 
 <h1><?php echo $this->escapeHtml($title); ?></h1>
-<p><a href="<?php
-echo $this->url('magazinepublish', array(
-    'action' => 'add'));
-?>">Add new magazinepublish</a></p>
+<p><a class="btn" href="<?php echo $this->url('magazinepublish', array(  'action' => 'add')); ?>">Add new magazinepublish</a></p>
 
 
 
@@ -53,12 +50,12 @@ echo $this->url('magazinepublish', array(
             <td><?php echo $this->escapeHtml($magazinepublish->descriptionkey); ?></td>
             <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $magazinepublish->imgkey;//echo $this->escapeHtml($magazinepublish->imgkey); ?>" style="width: 100px; height:100px;"/></td>
             <td>
-                <a href="<?php echo $this->url('magazinepublish', array('action' => 'edit', 'id' => $magazinepublish->id));
-        ?>">Edit</a> |
-                <a href="<?php echo $this->url('magazinepublish', array('action' => 'delete', 'id' => $magazinepublish->id));
+                <a class="btn  btn-mini edit-row" href="<?php echo $this->url('magazinepublish', array('action' => 'edit', 'id' => $magazinepublish->id));
+        ?>">Edit</a> 
+                <a  class="btn  btn-mini  " href="<?php echo $this->url('magazinepublish', array('action' => 'delete', 'id' => $magazinepublish->id));
         ?>">Delete</a> 
-        |
-                <a href="<?php //echo WEB_PATH ?>/mzimg/adddetail/<?php echo $magazinepublish->id?>">Add Mzimg</a>
+        
+                <a class="btn  btn-mini  " href="<?php //echo WEB_PATH ?>/mzimg/adddetail/<?php echo $magazinepublish->id?>">Add Mzimg</a>
                <?php  /* <a href="<?php //echo WEB_PATH ?>/magazinepublish/adddetail/<?php echo $magazinepublish->id?>">Add Mzimg</a>  */ ?>
         </td>
         </tr>
