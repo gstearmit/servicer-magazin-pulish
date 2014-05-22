@@ -63,9 +63,9 @@ echo $this->url('magazinepublish', array(
         ?>">Edit</a> |
                 <a href="<?php echo $this->url('magazinepublish', array('action' => 'delete', 'id' => $magazinepublish->id));
         ?>">Delete</a> 
-        <!--  |
-                <a href="<?php //echo WEB_PATH ?>/mzimg/add/<?php //echo $magazinepublish->id?>/mz/<?php //echo $magazinepublish->id?>">Add Mzimg</a>
-        --> 
+        |
+                <a href="<?php //echo WEB_PATH ?>/magazinepublish/adddetail/<?php echo $magazinepublish->id?>">Add Mzimg</a>
+       
         </td>
         </tr>
     <?php endforeach; ?>

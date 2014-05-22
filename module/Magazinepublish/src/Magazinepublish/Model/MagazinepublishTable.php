@@ -32,6 +32,50 @@ class MagazinepublishTable extends AbstractTableGateway {
         return $resultSet;
     }
     
+    //fetchAllDetailMzimg
+   // public function fetchAllDetailMzimg( $id , Select $select = null)
+    public function fetchAllDetailMzimg( $id)
+    {
+    	$id = (int) $id;
+    //	if (null === $select) $select = new Select();
+    	
+//     	$select->from($this->table);
+//     	$select->order('id ASC');
+//     	$resultSet = $this->selectWith($select);
+//     	$resultSet->buffer();
+//     	return $resultSet;
+    	
+    	
+
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey'));
+    	$select->columns(array());
+    	$select->from ('magazinepublish')
+    	       ->join('mzimg', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('magazinepublish.id'=>$id));
+    	$select->order('id ASC');
+       // $resultSet = $this->selectWith($select);
+    	//$resultSet->buffer();
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    	
+    	//return $selectString;die;
+    	
+    	$results = $selectString->execute();
+    	
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    	
+    	return $array;
+    	
+    }
+    
     public function fetchAllOrderbyiddesc(Select $select = null) {
     	if (null === $select)
     		$select = new Select();
