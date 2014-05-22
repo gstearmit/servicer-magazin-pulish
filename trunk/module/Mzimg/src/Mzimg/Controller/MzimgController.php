@@ -148,7 +148,7 @@ class MzimgController extends AbstractActionController {
     	
     	$id = (int)$this->params ()->fromRoute ( 'id', 0 );
 //     	if ($id == 0 ) {
-//     		die('opp Error !');
+//     		die('Oopp Error !');
 //     	}
     	
     	$mzimgArray  = $this->getMzimgTable ()->fetchAllDetailMzimg ($id);
@@ -255,7 +255,8 @@ class MzimgController extends AbstractActionController {
         
         $mzimg = $this->getMzimgTable()->getMzimg($id);
 
-        $form = new MzimgForm($dbAdapter);
+       // $form = new MzimgForm($dbAdapter);
+        $form = new FromClass($dbAdapter,$id);
         
         $form->bind($mzimg);
         
@@ -271,7 +272,7 @@ class MzimgController extends AbstractActionController {
         	
             $form->setData($data);
             
-            if ($form->isValid()) {
+            if (!$form->isValid()) {
             	
             	$size = new Size(array('min'=>2000000)); //minimum bytes filesize
             	 
