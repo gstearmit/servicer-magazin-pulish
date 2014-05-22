@@ -14,10 +14,13 @@ use Zend\Db\Adapter\Adapter;
 class MagazineForm extends Form
 {
 	protected $adapter;
-    public function __construct(AdapterInterface $dbAdapter)
+	protected $id;
+	
+    public function __construct(AdapterInterface $dbAdapter , $id = Null)
     {
     	$this->adapter =$dbAdapter;
-        // we want to ignore the name passed
+    	$this->id = (int)$id;
+       
         parent::__construct('mzimg');
 
         $this->setAttribute('method', 'post');
@@ -30,18 +33,22 @@ class MagazineForm extends Form
             ),
         ));
 
-   
+       $id_default  = ($this->id)== 0 ? '1' : $this->id;
+        
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
         		'name' => 'cataloguemagazine',
         		'options' => array(
-        				'label' => 'Magazine Pblish',
+        				'label' => 'Magazine Publish',
         				'empty_option' => 'Please select an Magazine',
         				//'value_options' => $this->fetchAllCatalogue()
         				'value_options' => $this->getOptionsForSelect()
         		),
         		'attributes' => array(
-        				'value' => '1', //set selected to '1'
+        				//'value' => '1', //set selected to '1'
+        				//'value' => $this->setdefault(), //set selected to '1'
+        				//'value'=> if(!$this->id){ return $id;}else {$result = 1; 	},
+        				'value'=> $id_default,
         				'inarrayvalidator' => true,
         		)
         ));
@@ -116,6 +123,33 @@ class MagazineForm extends Form
     	return $selectData;
     }
     
+    public function setdefault($id)
+    {
+    	$result ;
+    	if(!$id)
+    	{
+    		return $id;
+    	}else {
+    		$result = 1; // default is 1;
+    	}
+    }
+    
+    
+    public function getDefault($id)
+    {
+    	$dbAdapter = $this->adapter;
+    	$sql       = 'SELECT * FROM `magazinepublish` WHERE 1';
+    	$statement = $dbAdapter->query($sql);
+    	$result    = $statement->execute();
+    
+    	$selectData = array();
+    
+    	foreach ($result as $res) {
+    		$selectData[$res['id']] = $res['title'];
+    	}
+    	return $selectData;
+    }
+    
     
     public function fetchAllCatalogue() {
     	$sql = new Sql($this->adapter);
@@ -123,7 +157,7 @@ class MagazineForm extends Form
     	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
     	$select->columns(array());
     	$select->from ('mzimg')
-    	->join('magazinepublish', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','title'=>'title'));
+    	->join('magazinepublish', 'mzimg.idmz = magazinepublish.id',array('id'=>'id','title'=>'title'));
     	//$select->where(array('magazinepublish.id'=>$id));
     
     	$selectString = $sql->prepareStatementForSqlObject($select);

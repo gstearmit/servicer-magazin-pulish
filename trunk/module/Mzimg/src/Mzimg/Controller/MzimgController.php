@@ -7,7 +7,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Mzimg\Model\Mzimg;
 use Mzimg\Form\MzimgForm;
-use Mzimg\Form\MagazineForm;
+use Mzimg\Form\MagazineForm as FromClass;
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\Iterator as paginatorIterator;
@@ -31,10 +31,8 @@ class MzimgController extends AbstractActionController {
     	
         $select = new Select();
 
-        $order_by = $this->params()->fromRoute('order_by') ?
-                $this->params()->fromRoute('order_by') : 'id';
-        $order = $this->params()->fromRoute('order') ?
-                $this->params()->fromRoute('order') : Select::ORDER_DESCENDING;
+        $order_by = $this->params()->fromRoute('order_by') ? $this->params()->fromRoute('order_by') : 'id';
+        $order = $this->params()->fromRoute('order') ?  $this->params()->fromRoute('order') : Select::ORDER_DESCENDING;
         $page = $this->params()->fromRoute('page') ? (int) $this->params()->fromRoute('page') : 1;
 
         $mzimgs = $this->getMzimgTable()->fetchAll($select->order($order_by . ' ' . $order));
@@ -148,13 +146,17 @@ class MzimgController extends AbstractActionController {
     
     public function adddetailAction() {
     	
-    	$id = $this->params ()->fromRoute ( 'id', 0 );
+    	$id = (int)$this->params ()->fromRoute ( 'id', 0 );
+    	if (!$id) {
+    		die('opp Error !');
+    	}
+    	
     	$mzimgArray  = $this->getMzimgTable ()->fetchAllDetailMzimg ($id);
     	
     	
     	$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
     
-    	$form = new MzimgForm($dbAdapter); // include Form Class
+    	$form = new FromClass($dbAdapter,$id); // include Form Class
     	 
     	$form->get('submit')->setAttribute('value', 'Add');
     	 
@@ -168,7 +170,7 @@ class MzimgController extends AbstractActionController {
     
     	$data = array_merge_recursive(
     			$this->getRequest()->getPost()->toArray(),
-    	$this->getRequest()->getFiles()->toArray()
+    	        $this->getRequest()->getFiles()->toArray()
     	);
     
     	//                     	echo '<pre>';
@@ -242,15 +244,21 @@ class MzimgController extends AbstractActionController {
   
   
     public function editAction() {
+    	
     	$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+    	
         $id = (int) $this->params('id');
+        
         if (!$id) {
             return $this->redirect()->toRoute('mzimg', array('action' => 'add'));
         }
+        
         $mzimg = $this->getMzimgTable()->getMzimg($id);
 
         $form = new MzimgForm($dbAdapter);
+        
         $form->bind($mzimg);
+        
         $form->get('submit')->setAttribute('value', 'Edit');
 
         $request = $this->getRequest();

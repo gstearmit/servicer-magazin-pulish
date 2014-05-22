@@ -30,15 +30,7 @@ class MzimgForm extends Form
             ),
         ));
 
-      //  $this->add(array(
-      //      'name' => 'idmz',
-      //      'attributes' => array(
-      //          'type'  => 'text',
-      //      ),
-      //      'options' => array(
-      //          'label' => 'idmz',
-      //      ),
-      //  ));
+    
       
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
