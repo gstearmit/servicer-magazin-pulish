@@ -147,9 +147,9 @@ class MzimgController extends AbstractActionController {
     public function adddetailAction() {
     	
     	$id = (int)$this->params ()->fromRoute ( 'id', 0 );
-    	if (!$id) {
-    		die('opp Error !');
-    	}
+//     	if ($id == 0 ) {
+//     		die('opp Error !');
+//     	}
     	
     	$mzimgArray  = $this->getMzimgTable ()->fetchAllDetailMzimg ($id);
     	
