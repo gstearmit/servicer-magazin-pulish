@@ -31,6 +31,69 @@ class MzimgTable extends AbstractTableGateway {
         $resultSet->buffer();
         return $resultSet;
     }
+    
+    public function fetchAllJoih(Select $select = null)
+    {
+    	
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	
+    	$select->from($this->table);
+    	$select->columns(array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    
+    	$select->join('magazinepublish', 'mzimg.idmz=magazinepublish.id',array('titlemagazinepublish'=>'title','descriptionkeymagazinepublish'=>'descriptionkey'));
+    	$select->order('id ASC');
+    
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    
+    	//return $selectString;die;
+    
+    	$results = $selectString->execute();
+    
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    
+    	return $array;
+    }
+    
+    public function fetchAllDetailMzimg( $id)
+    {
+    	$id = (int) $id;
+    	 
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey'));
+    	//$select->columns(array());
+    	$select->from ('magazinepublish')
+    	->join('mzimg', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('magazinepublish.id'=>$id));
+    	$select->order('id ASC');
+    	// $resultSet = $this->selectWith($select);
+    	//$resultSet->buffer();
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    
+    	//return $selectString;die;
+    
+    	$results = $selectString->execute();
+    
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    
+    	return $array;
+    
+    }
 
     public function getMzimg($id) {
         $id = (int) $id;
@@ -106,37 +169,5 @@ class MzimgTable extends AbstractTableGateway {
         $this->delete(array('id' => $id));
     }
     
-    public function fetchAllDetailMzimg( $id)
-    {
-    	$id = (int) $id;
-    	
-    
-    	$sql = new Sql($this->adapter);
-    	$select = $sql->select();
-    	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey'));
-    	$select->columns(array());
-    	$select->from ('magazinepublish')
-    	->join('mzimg', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
-    	$select->where(array('magazinepublish.id'=>$id));
-    	$select->order('id ASC');
-    	// $resultSet = $this->selectWith($select);
-    	//$resultSet->buffer();
-    	$selectString = $sql->prepareStatementForSqlObject($select);
-    	 
-    	//return $selectString;die;
-    	 
-    	$results = $selectString->execute();
-    	 
-    	// swap
-    	$array = array();
-    	foreach ($results as $result)
-    	{
-    		$tmp = array();
-    		$tmp= $result;
-    		$array[] = $tmp;
-    	}
-    	 
-    	return $array;
-    	 
-    }
+
 }

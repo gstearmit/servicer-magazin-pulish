@@ -20,9 +20,9 @@ class StorydetailController extends AbstractActionController {
 	protected $storydetailTable;
 	public function indexAction() {
 		// check login
-		if (! $this->zfcUserAuthentication ()->hasIdentity ()) {
-			return $this->redirect ()->toRoute ( 'zfcuser/login' );
-		}
+// 		if (! $this->zfcUserAuthentication ()->hasIdentity ()) {
+// 			return $this->redirect ()->toRoute ( 'zfcuser/login' );
+// 		}
 		
 		$select = new Select ();
 		

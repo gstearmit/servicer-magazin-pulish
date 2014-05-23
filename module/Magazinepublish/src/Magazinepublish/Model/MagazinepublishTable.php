@@ -37,14 +37,14 @@ class MagazinepublishTable extends AbstractTableGateway {
     public function fetchAllDetailMzimg( $id)
     {
     	$id = (int) $id;
-    //	if (null === $select) $select = new Select();
-    	
-//     	$select->from($this->table);
-//     	$select->order('id ASC');
-//     	$resultSet = $this->selectWith($select);
-//     	$resultSet->buffer();
-//     	return $resultSet;
-    	
+		    //	if (null === $select) $select = new Select();
+		    	
+		//     	$select->from($this->table);
+		//     	$select->order('id ASC');
+		//     	$resultSet = $this->selectWith($select);
+		//     	$resultSet->buffer();
+		//     	return $resultSet;
+		    	
     	
 
     	$sql = new Sql($this->adapter);
