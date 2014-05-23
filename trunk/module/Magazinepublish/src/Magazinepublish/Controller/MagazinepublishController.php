@@ -24,9 +24,9 @@ class MagazinepublishController extends AbstractActionController {
 	protected $magazinepublishTable;
 	public function indexAction() {
 		// check login
-		if (! $this->zfcUserAuthentication ()->hasIdentity ()) {
-			return $this->redirect ()->toRoute ( 'zfcuser/login' );
-		} else {
+// 		if (! $this->zfcUserAuthentication ()->hasIdentity ()) {
+// 			return $this->redirect ()->toRoute ( 'zfcuser/login' );
+// 		} else {
 			
 			$select = new Select ();
 			
@@ -47,7 +47,7 @@ class MagazinepublishController extends AbstractActionController {
 					'page' => $page,
 					'paginator' => $paginator 
 			) );
-		} // login
+		//} // login
 	}
 	public function addAction() {
 		$form = new MagazinepublishForm (); // include Form Class

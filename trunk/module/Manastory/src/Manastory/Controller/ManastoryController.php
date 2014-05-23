@@ -24,11 +24,11 @@ class ManastoryController extends AbstractActionController {
     protected $manastoryTable;
 
     public function indexAction() {
-    	// check login
-    	if (!$this->zfcUserAuthentication()->hasIdentity()) {
-    		return $this->redirect()->toRoute('zfcuser/login');
-    	}else 
-    	{
+//     	// check login
+//     	if (!$this->zfcUserAuthentication()->hasIdentity()) {
+//     		return $this->redirect()->toRoute('zfcuser/login');
+//     	}else 
+//     	{
     	
         $select = new Select();
 
@@ -51,7 +51,7 @@ class ManastoryController extends AbstractActionController {
                     'page' => $page,
                     'paginatorstory' => $paginator,
                 ));
-    	}//login
+    //	}//login
     	
     	
     }
