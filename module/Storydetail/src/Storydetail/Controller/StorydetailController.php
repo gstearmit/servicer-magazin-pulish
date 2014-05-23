@@ -7,6 +7,7 @@ use Zend\View\Model\ViewModel;
 use Storydetail\Model\Storydetail;
 use Storydetail\Form\StorydetailForm;
 use Storydetail\Form\MagazineForm as FromClass;
+use Storydetail\Form\StorydetailSearchForm as SearchFromStorydetail ;
 
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
@@ -18,30 +19,91 @@ use Zend\Validator\File\Extension;
 
 class StorydetailController extends AbstractActionController {
 	protected $storydetailTable;
+	
+	public function searchAction()
+	{
+	
+		$request = $this->getRequest();
+	
+		$url = 'index';
+	
+		if ($request->isPost()) {
+			$formdata    = (array) $request->getPost();
+			$search_data = array();
+			foreach ($formdata as $key => $value) {
+				if ($key != 'submit') {
+					if (!empty($value)) {
+						$search_data[$key] = $value;
+					}
+				}
+			}
+			if (!empty($search_data)) {
+				$search_by = json_encode($search_data);
+				$url .= '/search_by/' . $search_by;
+			}
+		}
+		$this->redirect()->toUrl($url);
+	}
+	
+	
 	public function indexAction() {
 		// check login
 // 		if (! $this->zfcUserAuthentication ()->hasIdentity ()) {
 // 			return $this->redirect ()->toRoute ( 'zfcuser/login' );
 // 		}
+		//SearchFromStorydetail
+		$searchform = new SearchFromStorydetail();
+		$searchform->get('submit')->setValue('Search');
+		 
 		
 		$select = new Select ();
 		
 		$order_by = $this->params ()->fromRoute ( 'order_by' ) ? $this->params ()->fromRoute ( 'order_by' ) : 'id';
 		$order = $this->params ()->fromRoute ( 'order' ) ? $this->params ()->fromRoute ( 'order' ) : Select::ORDER_DESCENDING;
 		$page = $this->params ()->fromRoute ( 'page' ) ? ( int ) $this->params ()->fromRoute ( 'page' ) : 1;
+		$search_by = $this->params()->fromRoute('search_by') ? $this->params()->fromRoute('search_by') : '';
+		$select->order($order_by . ' ' . $order);
 		
-		$storydetails = $this->getStorydetailTable ()->fetchAll ( $select->order ( $order_by . ' ' . $order ) );
+		$where    = new \Zend\Db\Sql\Where();
+		$formdata = array();
+		if (!empty($search_by)) {
+			$formdata = (array) json_decode($search_by);
+			if (!empty($formdata['description'])) {
+				$where->addPredicate(
+						new \Zend\Db\Sql\Predicate\Like('description', '%' . $formdata['description'] . '%')
+				);
+			}
+			if (!empty($formdata['title'])) {
+				$where->addPredicate(
+						new \Zend\Db\Sql\Predicate\Like('title', '%' . $formdata['title'] . '%')
+				);
+			}
+		
+		}
+		if (!empty($where)) {
+			$select->where($where);
+		}
+		
+		
+		
+		$storydetails = $this->getStorydetailTable ()->fetchAll ( $select );
 		$itemsPerPage = 10; // is Number record/page
 		
+		$totalRecord  = $storydetails->count();
 		$storydetails->current ();
 		$paginator = new Paginator ( new paginatorIterator ( $storydetails ) );
 		$paginator->setCurrentPageNumber ( $page )->setItemCountPerPage ( $itemsPerPage )->setPageRange ( 4 ); // is number page want view
 		
 		return new ViewModel ( array (
+				'search_by'  => $search_by,
+				'order_by' => $order_by,
 				'order_by' => $order_by,
 				'order' => $order,
 				'page' => $page,
-				'paginatorstory' => $paginator 
+				'paginatorstory' => $paginator ,
+				'pageAction' => 'mzimg',
+				'form'       => $searchform,
+				'totalRecord' => $totalRecord,
 		) );
 	}
 	public function addAction() {

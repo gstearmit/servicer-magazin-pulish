@@ -6,6 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Manastory\Model\Manastory;
 use Manastory\Form\ManastoryForm;
+use Manastory\Form\ManaStorySearchForm as SearchFromManastory ;
 
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
@@ -22,23 +23,74 @@ use Zend\Validator\File\Extension;
 class ManastoryController extends AbstractActionController {
     
     protected $manastoryTable;
-
+	
+    public function searchAction()
+    {
+    
+    	$request = $this->getRequest();
+    
+    	$url = 'index';
+    
+    	if ($request->isPost()) {
+    		$formdata    = (array) $request->getPost();
+    		$search_data = array();
+    		foreach ($formdata as $key => $value) {
+    			if ($key != 'submit') {
+    				if (!empty($value)) {
+    					$search_data[$key] = $value;
+    				}
+    			}
+    		}
+    		if (!empty($search_data)) {
+    			$search_by = json_encode($search_data);
+    			$url .= '/search_by/' . $search_by;
+    		}
+    	}
+    	$this->redirect()->toUrl($url);
+    }
+    
     public function indexAction() {
 //     	// check login
 //     	if (!$this->zfcUserAuthentication()->hasIdentity()) {
 //     		return $this->redirect()->toRoute('zfcuser/login');
 //     	}else 
 //     	{
+    	//SearchFromMzimg
+    	$searchform = new SearchFromManastory();
+    	$searchform->get('submit')->setValue('Search');
     	
         $select = new Select();
 
         $order_by = $this->params()->fromRoute('order_by') ? $this->params()->fromRoute('order_by') : 'id';
         $order = $this->params()->fromRoute('order') ? $this->params()->fromRoute('order') : Select::ORDER_DESCENDING;
         $page = $this->params()->fromRoute('page') ? (int) $this->params()->fromRoute('page') : 1;
-
-        $manastorys = $this->getManastoryTable()->fetchAll($select->order($order_by . ' ' . $order));
+        $search_by = $this->params()->fromRoute('search_by') ? $this->params()->fromRoute('search_by') : '';
+        $select->order($order_by . ' ' . $order);
+        
+        $where    = new \Zend\Db\Sql\Where();
+        $formdata = array();
+        if (!empty($search_by)) {
+        	$formdata = (array) json_decode($search_by);
+        	if (!empty($formdata['descriptionkey'])) {
+        		$where->addPredicate(
+        				new \Zend\Db\Sql\Predicate\Like('descriptionkey', '%' . $formdata['descriptionkey'] . '%')
+        		);
+        	}
+        	if (!empty($formdata['title'])) {
+        		$where->addPredicate(
+        				new \Zend\Db\Sql\Predicate\Like('title', '%' . $formdata['title'] . '%')
+        		);
+        	}
+        
+        }
+        if (!empty($where)) {
+        	$select->where($where);
+        }
+        
+        $manastorys = $this->getManastoryTable()->fetchAll($select);
+        
         $itemsPerPage = 10;        // is Number record/page
-
+        $totalRecord  = $manastorys->count();
         $manastorys->current();
         $paginator = new Paginator(new paginatorIterator($manastorys));
         $paginator->setCurrentPageNumber($page)
@@ -46,10 +98,15 @@ class ManastoryController extends AbstractActionController {
                 ->setPageRange(4);  // is number page want view
 
         return new ViewModel(array(
+	        		'search_by'  => $search_by,
+	        		'order_by' => $order_by,
                     'order_by' => $order_by,
                     'order' => $order,
                     'page' => $page,
                     'paginatorstory' => $paginator,
+	        		'pageAction' => 'manastory',
+	        		'form'       => $searchform,
+	        		'totalRecord' => $totalRecord,
                 ));
     //	}//login
     	
