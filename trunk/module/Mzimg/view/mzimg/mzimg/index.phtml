@@ -8,13 +8,6 @@ elseif ($order_by == 'description')
     $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
 ?>
 
-
-
-<h1><?php echo $this->escapeHtml($title); ?></h1>
-<p><a class="btn "  href="<?php
-echo $this->url('mzimg', array( 'action' => 'add'));
-?>">Add new mzimg</a></p>
-
 <?php
 $form  = $this->form;
 $form->setAttribute('action', $this->url('mzimg', array('action' => 'search')));
@@ -41,6 +34,14 @@ endforeach;
 echo $this->form()->closeTag();
 ?>
 
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p><a class="btn "  href="<?php
+echo $this->url('mzimg', array( 'action' => 'add'));
+?>">Add new mzimg</a></p>
+
+
+
+
 <table class="table">
     <tr>
         <th>
@@ -65,10 +66,25 @@ echo $this->form()->closeTag();
         ?>">Edit</a> 
                 <a class="btn" href="<?php echo $this->url('mzimg', array('action' => 'delete', 'id' => $mzimg->id));
         ?>">Delete</a>
+              
+                  <?php
+                    $delurl = $this->url('mzimg', array (
+                        'action' => 'delete',
+                        'id'     => $mzimg->id,
+                    ));
+                    ?>
+                <!--    <div style="display: none;">
+                        <form action="<?php echo $delurl; ?>" method="post" id="post_<?php echo $mzimg->id; ?>" name="post_<?php echo $mzimg->id; ?>">
+                            <input type="hidden" name="id" value="<?php echo (int) $mzimg->id; ?>" />
+                        </form>
+                    </div>
+                    <a onclick="if (confirm('Are you sure you want to delete <?php echo $mzimg->id; ?>?')) {document.<?php echo "post_" . $mzimg->id; ?>.submit();} event.returnValue = false; return false;" href="#" class="btn btn-mini edit-row">Delete</a>
+               -->  
             </td>
         </tr>
     <?php endforeach; ?>
 </table>
+
 
 <?php
    echo $this->paginationControl(

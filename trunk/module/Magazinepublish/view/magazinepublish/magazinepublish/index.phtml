@@ -6,7 +6,7 @@ $this->headTitle($title);
 $url_order = 'ASC';
 if ($order_by == 'title')
     $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
-elseif ($order_by == 'artist')
+elseif ($order_by == 'descriptionkey')
     $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
 ?>
 <?php 
@@ -23,6 +23,33 @@ elseif ($order_by == 'artist')
 <div style="clear:both;"></div>
 */
 ?>
+<h1>Search Magazine </h1>
+<?php
+$form  = $this->form;
+$form->setAttribute('action', $this->url('magazinepublish', array('action' => 'search')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+foreach ($form as $element) :
+    ?>
+    <div class="control-group <?php if ($this->formElementErrors($element)) echo "error" ?>">
+        <label class="control-label"><?php echo $element->getLabel() ?></label>
+        <div class="controls">
+            <?php
+            echo $this->formElement($element);
+            if ($this->formElementErrors($element)):
+                ?>
+                <span class="help-inline"><?php echo $this->formElementErrors($element); ?></span>
+                <?php
+            endif;
+            ?>
+        </div>
+    </div>
+    <?php
+endforeach;
+echo $this->form()->closeTag();
+?>
+
 
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <p><a class="btn" href="<?php echo $this->url('magazinepublish', array(  'action' => 'add')); ?>">Add new magazinepublish</a></p>
@@ -32,13 +59,13 @@ elseif ($order_by == 'artist')
 <table class="table">
     <tr>
         <th>
-            <a href="<?php echo $this->url('magazinepublish', array('order_by' => 'title', 'order' => $url_order)); ?>">Title <?php if ($order_by == 'title'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+            <a href="<?php echo $this->url('magazinepublish', array('order_by' => 'title', 'order' => $url_order,'search_by' => $search_by)); ?>">Title <?php if ($order_by == 'title'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
         </th>
         <th>
-            <a href="<?php echo $this->url('magazinepublish', array('order_by' => 'descriptionkey', 'order' => $url_order)); ?>">description <?php if ($order_by == 'descriptionkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+            <a href="<?php echo $this->url('magazinepublish', array('order_by' => 'descriptionkey', 'order' => $url_order,'search_by' => $search_by)); ?>">description <?php if ($order_by == 'descriptionkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
         </th>
         <th>
-            <a href="<?php echo $this->url('magazinepublish', array('order_by' => 'imgkey', 'order' => $url_order)); ?>">Thumbnail <?php if ($order_by == 'imgkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+            <a href="<?php echo $this->url('magazinepublish', array('order_by' => 'imgkey', 'order' => $url_order,'search_by' => $search_by)); ?>">Thumbnail <?php if ($order_by == 'imgkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
         </th>
         
         <th><a href="">Action</a></th>
@@ -65,8 +92,10 @@ elseif ($order_by == 'artist')
     <?php endforeach; ?>
 </table>
 
+
+
 <?php
     echo $this->paginationControl(
-            $paginator, 'Sliding', 'paginator-slide', array('order_by' => $order_by, 'order' => $order)
+            $paginator, 'Sliding', 'paginator-slide', array('order_by' => $order_by, 'order' => $order , 'search_by' => $search_by, 'pageAction' => $pageAction)
     );
     ?>
