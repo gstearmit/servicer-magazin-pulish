@@ -1,5 +1,5 @@
 <?php
-$title = 'Add New Magazine Publish';
+$title = 'Add New Catalogue';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
@@ -11,6 +11,7 @@ $form->prepare();
 
 echo $this->form()->openTag($form) . PHP_EOL;
 echo $this->formHidden($form->get('id')) . PHP_EOL;
+echo $this->formRow($form->get('patient_id')) . PHP_EOL;
 echo $this->formRow($form->get('title')) . PHP_EOL;
 echo $this->formRow($form->get('url_catalogue')) . PHP_EOL;
 echo $this->formRow($form->get('descriptionkey')) . PHP_EOL;

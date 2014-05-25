@@ -3,17 +3,22 @@ namespace Catalogue\Form;
 
 use Zend\Form\Form;
 
-namespace Catalogue\Form;
+// use Zend\Captcha;
+// use Zend\Form\Element;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\Sql\Select;
+use Zend\Db\Sql\Sql;
+use Zend\Db\Sql\Where;
 
-use Zend\Captcha;
-use Zend\Form\Element;
-use Zend\Form\Form;
+use Zend\Db\Adapter\AdapterInterface;
+use Zend\Db\Adapter\Adapter;
 
 class CatalogueForm extends Form
 {
-    public function __construct($name = null)
+	protected $adapter;
+    public function __construct(AdapterInterface $dbAdapter)
     {
-        // we want to ignore the name passed
+        $this->adapter =$dbAdapter;
         parent::__construct('catalogue');
 
         $this->setAttribute('method', 'post');
@@ -25,6 +30,7 @@ class CatalogueForm extends Form
                 'type'  => 'hidden',
             ),
         ));
+       
 
         $this->add(array(
             'name' => 'descriptionkey',
@@ -57,6 +63,20 @@ class CatalogueForm extends Form
         ));
         
         $this->add(array(
+        		'type' => 'Zend\Form\Element\Select',
+        		'name' => 'patient_id',
+        		'options' => array(
+        				'label' => 'Select a category father ',
+        				'empty_option' => 'Please Select a category father',
+        				'value_options' => $this->getNameCatalogueForSelect()
+        		),
+        		'attributes' => array(
+        				'value' => '1', //set selected to '1'
+        				'inarrayvalidator' => true,
+        				
+        		)
+        ));
+        $this->add(array(
         		'name' => 'imgkey',
         		'attributes' => array(
         				'type'  => 'file',
@@ -66,8 +86,7 @@ class CatalogueForm extends Form
         		),
         ));
    
-        //     public $patient_id;
-        //     public $url_catalogue;
+       
         
         
         $this->add(array(
@@ -80,5 +99,20 @@ class CatalogueForm extends Form
             ),
         ));
 
+    }
+    
+    public function getNameCatalogueForSelect()
+    {
+    	$dbAdapter = $this->adapter;
+    	$sql       = 'SELECT * FROM `catalogue` WHERE 1';
+    	$statement = $dbAdapter->query($sql);
+    	$result    = $statement->execute();
+    
+    	$selectData = array();
+    
+    	foreach ($result as $res) {
+    		$selectData[$res['patient_id']] = $res['title'];
+    	}
+    	return $selectData;
     }
 }
