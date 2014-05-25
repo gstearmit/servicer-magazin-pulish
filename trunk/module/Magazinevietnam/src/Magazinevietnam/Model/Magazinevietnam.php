@@ -1,18 +1,17 @@
 <?php
 
-namespace Magazinepublish\Model;
-// namespace Magazinepublish\Form;
+namespace Magazinevietnam\Model;
+// namespace Magazinevietnam\Form;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
 
-class Magazinepublish implements InputFilterAwareInterface {
+class Magazinevietnam implements InputFilterAwareInterface {
 	public $id;
 	public $imgkey;
 	public $descriptionkey;
 	public $title;
-	public $patient_id;
 	protected $inputFilter;
 	
 	/**
@@ -24,7 +23,6 @@ class Magazinepublish implements InputFilterAwareInterface {
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
 		//$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
 		$this->imgkey = (isset ( $data ['imgkey'] )) ? $data ['imgkey'] : null;
-		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
 	}
 	
 	public function dataArray($data) {
@@ -32,7 +30,6 @@ class Magazinepublish implements InputFilterAwareInterface {
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
 		$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
-		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
 		
 	}
 	
@@ -41,7 +38,6 @@ class Magazinepublish implements InputFilterAwareInterface {
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
 		$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
-		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
 	
 	}
 	public function getArrayCopy() {

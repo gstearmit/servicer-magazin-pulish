@@ -9,11 +9,15 @@ use Zend\Captcha;
 use Zend\Form\Element;
 use Zend\Form\Form;
 
+use Zend\Db\Adapter\AdapterInterface;
+use Zend\Db\Adapter\Adapter;
+
 class MagazinepublishForm extends Form
 {
-    public function __construct($name = null)
+	protected $adapter;
+    public function __construct(AdapterInterface $dbAdapter)
     {
-        // we want to ignore the name passed
+        $this->adapter =$dbAdapter;
         parent::__construct('magazinepublish');
 
         $this->setAttribute('method', 'post');
@@ -24,6 +28,23 @@ class MagazinepublishForm extends Form
             'attributes' => array(
                 'type'  => 'hidden',
             ),
+        ));
+        
+        $defaul = $this->getidcatalogue();
+        
+        $this->add(array(
+        		'type' => 'Zend\Form\Element\Select',
+        		'name' => 'patient_id',
+        		'options' => array(
+        				'label' => 'Select a category father ',
+        				'empty_option' => 'Please Select a category father',
+        				'value_options' => $this->getNameCatalogueForSelect()
+        		),
+        		'attributes' => array(
+        				'value' => $defaul, //set selected to '1'
+        				'inarrayvalidator' => true,
+        
+        		)
         ));
 
         $this->add(array(
@@ -68,4 +89,36 @@ class MagazinepublishForm extends Form
         ));
 
     }
+    
+    public function getNameCatalogueForSelect()
+    {
+    	$dbAdapter = $this->adapter;
+    	$sql       = 'SELECT * FROM catalogue JOIN magazinepublish  ON catalogue.id=magazinepublish.patient_id';
+    	$statement = $dbAdapter->query($sql);
+    	$result    = $statement->execute();
+    
+    	$selectData = array();
+    
+    	foreach ($result as $res) {
+    		$selectData[$res['patient_id']] = $res['id'];
+    	}
+    	return $selectData;
+    }
+    
+    
+    //getidcatalogue
+    public function getidcatalogue()
+    {
+    	$dbAdapter = $this->adapter;
+    	$sql       = 'SELECT * FROM catalogue JOIN magazinepublish  ON catalogue.id=magazinepublish.patient_id';
+    	$statement = $dbAdapter->query($sql);
+    	$result    = $statement->execute();
+    
+    	foreach ($result as $res) {
+    		$id = $res['patient_id'];
+    	}
+    	return $id;
+    }
+    
+    
 }
