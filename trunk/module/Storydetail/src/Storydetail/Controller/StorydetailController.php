@@ -16,6 +16,9 @@ use ZfcUser\Service\User as UserService;
 use ZfcUser\Options\UserControllerOptionsInterface;
 use Zend\Validator\File\Size;
 use Zend\Validator\File\Extension;
+use Zend\Http\Client as Restclient;
+use Zend\Http\Client\Adapter\Curl as RestCurl;
+
 
 class StorydetailController extends AbstractActionController {
 	protected $storydetailTable;
@@ -418,5 +421,37 @@ class StorydetailController extends AbstractActionController {
 			$this->storydetailTable = $sm->get ( 'Storydetail\Model\StorydetailTable' );
 		}
 		return $this->storydetailTable;
+	}
+	
+	public  function restclientAction()
+	{
+		//$client = new Restclient('http://service3.topprinter.org/public/index.php/magazinePublishRest');
+		 /** Start new Zend_Http_Client instance **/
+	    $uri      = 'http://service3.topprinter.org/public/index.php/magazinePublishRest';
+	    $curl_uri =  New RestCurl();
+	  //  $client   = new Zend_Http_Client();
+	    $client   = new Restclient();
+	    $client->setUri($uri);
+	    $client->setAdapter($curl_uri);
+	    $adapter  = $client->getAdapter();
+	    /** This setCurlOption is optional **/
+	    $adapter->setCurlOption(CURLOPT_SSL_VERIFYPEER, false);
+	
+	
+// 	    $session = new Zend_Session_Namespace();
+// 	    $cookies = $session->storedCookies;
+// 	    /** Add Stored Cookie strings to Zend_Http_Client instance **/ 
+// 	    foreach ($cookies as $cookieStr) {
+// 	        $client->setCookie(Zend_Http_Cookie::fromString($cookieStr, $uri));
+// 	    }
+	
+	    /** Perform request using stored cookies **/
+	    $response = $client->request();
+		
+		var_dump($response);
+		return array (
+				'allget' => $response,
+				
+		);
 	}
 }

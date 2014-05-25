@@ -18,6 +18,7 @@ return array(
 		'Storydetail',
 		'ManastoryRest',
 		'MagastoryRestfull',
+		'Catalogue',
 		//'ZfcUser',
 		//'ZfcBase',
 		'ZfcAdmin',

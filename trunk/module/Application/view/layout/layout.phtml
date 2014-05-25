@@ -1,69 +1,108 @@
 <?php echo $this->doctype(); ?>
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <?php echo $this->headTitle('MZ '. $this->translate('Magazin servicer'))->setSeparator(' - ')->setAutoEscape(false) ?>
+<head>
+<meta charset="utf-8">
+    <?php echo $this->headTitle('MZ '. $this->translate('Magazin servicer'))->setSeparator(' - ')->setAutoEscape(false)?>
 
-    <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+    <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0')?>
 
     <!-- Le styles -->
-    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
-                    ->appendStylesheet($this->basePath() . '/css/bootstrap.min.css')
-                  //  ->appendStylesheet($this->basePath() . '/css/bootstrap.css')
-                  //  ->appendStylesheet($this->basePath() . '/css/bootstrap-theme.css')
-                    ->appendStylesheet($this->basePath() . '/css/style.css')
-                    ->appendStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
-                    ->appendStylesheet($this->basePath() . '/css/magazine.css') ?>
+    <?php
+				
+echo $this->headLink ( array (
+						'rel' => 'shortcut icon',
+						'type' => 'image/vnd.microsoft.icon',
+						'href' => $this->basePath () . '/images/favicon.ico' 
+				) )->appendStylesheet ( $this->basePath () . '/css/bootstrap.min.css' )->
+				// ->appendStylesheet($this->basePath() . '/css/bootstrap.css')
+				// ->appendStylesheet($this->basePath() . '/css/bootstrap-theme.css')
+				appendStylesheet ( $this->basePath () . '/css/style.css' )->appendStylesheet ( $this->basePath () . '/css/bootstrap-responsive.min.css' )->appendStylesheet ( $this->basePath () . '/css/magazine.css' )?>
+                    
+   
 
     <!-- Scripts -->
-    <?php echo $this->headScript()->appendFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-                                  ->appendFile($this->basePath() . '/js/jquery.min.js')
-                                  ->appendFile($this->basePath() . '/js/bootstrap.js') ?>
+    <?php
+				
+echo $this->headScript ()->appendFile ( $this->basePath () . '/js/html5.js', 'text/javascript', array (
+						'conditional' => 'lt IE 9' 
+				) )->appendFile ( $this->basePath () . '/js/jquery.min.js' )->appendFile ( $this->basePath () . '/js/bootstrap.js' );
+				?>
                                   
                                   
-     
+      <script type="text/javascript" language="javascript">
+	$(document).ready(function() {		
+		//alert('cho them vao');
+		$("#thumbnail img").hover(function(e){
+			$("#large").css("top",(e.pageY+5)+"px")
+							 .css("left",(e.pageX+5)+"px")					
+							 .html("<img src="+ $(this).attr("alt") +" alt='Large Image' /><br/>"+$(this).attr("rel"))
+							 .fadeIn("slow");
+		}, function(){
+			$("#large").fadeOut("fast");
+		});		
+		
+	});
+</script>
+<style>
+img {
+	border: none;
+}
 
-  </head>
+#thumbnail img {
+	cursor: pointer;
+}
 
-  <body>
+#large {
+	display: none;
+	position: absolute;
+	color: #FFFFFF;
+	background: #333333;
+	padding: 5px;
+}
+</style>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+</head>
 
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Magazin servicer ') ?></a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-              <li class="noactive"><a href="<?php echo $this->url('magazinepublish') ?>"><?php echo $this->translate('Magazinepublish') ?></a></li>
-              <li class="noactive"><a href="<?php echo $this->url('mzimg') ?>"><?php echo $this->translate('Mzimg') ?></a></li>
-			   <li class="noactive"><a href="<?php echo $this->url('manastory') ?>"><?php echo $this->translate('Story') ?></a></li>
-              <li class="noactive"><a href="<?php echo $this->url('storydetail') ?>"><?php echo $this->translate('Story detail') ?></a></li>
-            
-            </ul>
+<body>
 
-          </div><!--/.nav-collapse -->
-       
-        </div>
-      </div>
-    </div>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Magazin servicer ') ?></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+						<li class="noactive"><a
+							href="<?php echo $this->url('magazinepublish') ?>"><?php echo $this->translate('Magazinepublish') ?></a></li>
+						<li class="noactive"><a href="<?php echo $this->url('mzimg') ?>"><?php echo $this->translate('Mzimg') ?></a></li>
+						<li class="noactive"><a
+							href="<?php echo $this->url('manastory') ?>"><?php echo $this->translate('Story') ?></a></li>
+						<li class="noactive"><a
+							href="<?php echo $this->url('storydetail') ?>"><?php echo $this->translate('Story detail') ?></a></li>
 
-    <div class="container">
+					</ul>
+
+				</div>
+				<!--/.nav-collapse -->
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
 
       <?php echo $this->content; ?>
 
       <hr>
 
-      <footer>
-      </footer>
+		<footer> </footer>
 
-    </div> <!-- /container -->
+	</div>
+	<!-- /container -->
 
-  </body>
+</body>
 </html>
