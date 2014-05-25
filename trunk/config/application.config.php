@@ -1,6 +1,6 @@
 <?php
-defined('SERVER_ENVIRONMENT') ||define('SERVER_ENVIRONMENT','servicer_magazin_pulish.localhost:1910'); //servicer_magazin_pulish.localhost:1910
-defined('WEB_PATH') || define('WEB_PATH','http://servicer_magazin_pulish.localhost:1910');//http://192.168.0.33:1910
+defined('SERVER_ENVIRONMENT') ||define('SERVER_ENVIRONMENT','servicer_magazin_pulish.localhost:1913'); //servicer_magazin_pulish.localhost:1910
+defined('WEB_PATH') || define('WEB_PATH','http://servicer_magazin_pulish.localhost:1913');//http://192.168.0.33:1910
 defined('WEB_PATH_IMG') || define('WEB_PATH_IMG', WEB_PATH.'/images');
 
 
@@ -19,6 +19,9 @@ return array(
 		'ManastoryRest',
 		'MagastoryRestfull',
 		'Catalogue',
+		'Magazinevietnam',
+		'Mgvndetail',
+		'Magazinevnrest',
 		//'ZfcUser',
 		//'ZfcBase',
 		'ZfcAdmin',

@@ -99,7 +99,7 @@ class MagazinevietnamController extends AbstractActionController {
 					'order_by' => $order_by,
 					'order' => $order,
 					'page' => $page,
-					'paginator' => $paginator ,
+					'paginatormagazinevietnam' => $paginator ,
 					'pageAction' => 'magazinevietnams ',
 					'form'       => $searchform,
 					'totalRecord' => $totalRecord,
@@ -107,7 +107,8 @@ class MagazinevietnamController extends AbstractActionController {
 		//} // login
 	}
 	public function addAction() {
-		$form = new MagazinevietnamForm (); // include Form Class
+		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+		$form = new MagazinevietnamForm ($dbAdapter); // include Form Class
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Add' );
 		
 		$request = $this->getRequest ();
@@ -297,8 +298,8 @@ class MagazinevietnamController extends AbstractActionController {
 			) );
 		}
 		$magazinevietnam = $this->getMagazinevietnamTable ()->getMagazinevietnam ( $id );
-		
-		$form = new MagazinevietnamForm ();
+		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+		$form = new MagazinevietnamForm ($dbAdapter);
 		$form->bind ( $magazinevietnam );
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Edit' );
 		

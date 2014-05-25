@@ -33,7 +33,7 @@ return array(
             'magazinevietnam' => __DIR__ . '/../view',
         ),
         'template_map' => array(
-            'paginator-slide' => __DIR__ . '/../view/layout/slidePaginator.phtml',
+            'paginator-magazinevietnam' => __DIR__ . '/../view/layout/slidePaginator.phtml',
         ),
     ),
 	'doctrine' => array(
