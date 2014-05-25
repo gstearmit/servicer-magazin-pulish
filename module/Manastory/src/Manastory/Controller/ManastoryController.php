@@ -114,8 +114,8 @@ class ManastoryController extends AbstractActionController {
     }
 
     public function addAction() {
-    	
-        $form = new ManastoryForm(); // include Form Class
+    	$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+        $form = new ManastoryForm($dbAdapter); // include Form Class
         $form->get('submit')->setAttribute('value', 'Add');
        
         $request = $this->getRequest();
@@ -130,7 +130,10 @@ class ManastoryController extends AbstractActionController {
             		$this->getRequest()->getPost()->toArray(),
             		$this->getRequest()->getFiles()->toArray()
             );
-           
+            echo '<pre>';
+            print_r($data);
+            echo '</pre>';
+            	//die;	
 
            $form->setData($data);  // get all post
   
@@ -194,8 +197,8 @@ class ManastoryController extends AbstractActionController {
         }
         $manastory = $this->getManastoryTable()->getManastory($id);
         
-      
-        $form = new ManastoryForm();
+        $dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+        $form = new ManastoryForm($dbAdapter);
         $form->bind($manastory);
         $form->get('submit')->setAttribute('value', 'Edit');
 

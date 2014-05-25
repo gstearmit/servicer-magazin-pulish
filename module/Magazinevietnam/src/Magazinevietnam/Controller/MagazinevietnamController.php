@@ -1,13 +1,13 @@
 <?php
 
-namespace Magazinepublish\Controller;
+namespace Magazinevietnam\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Magazinepublish\Model\Magazinepublish;
-use Magazinepublish\Form\MagazinepublishForm;
-use Magazinepublish\Form\MagazineForm;
-use Magazinepublish\Form\MagazinepublishSearchForm as SearchFromMagazinepublish ;
+use Magazinevietnam\Model\Magazinevietnam;
+use Magazinevietnam\Form\MagazinevietnamForm;
+use Magazinevietnam\Form\MagazineForm;
+use Magazinevietnam\Form\MagazinevietnamSearchForm as SearchFromMagazinevietnam ;
 
 use Mzimg\Model\Mzimg;
 
@@ -21,8 +21,8 @@ use Zend\Validator\File\Size;
 use Zend\Validator\File\Extension;
 use Mzimg\Model\MzimgTable;
 
-class MagazinepublishController extends AbstractActionController {
-	protected $magazinepublishTable;
+class MagazinevietnamController extends AbstractActionController {
+	protected $magazinevietnamTable;
 	
 	public function searchAction()
 	{
@@ -56,7 +56,7 @@ class MagazinepublishController extends AbstractActionController {
 // 			return $this->redirect ()->toRoute ( 'zfcuser/login' );
 // 		} else {
 			
-			$searchform = new SearchFromMagazinepublish();
+			$searchform = new SearchFromMagazinevietnam();
 			$searchform->get('submit')->setValue('Search');
 			
 			$select = new Select ();
@@ -86,11 +86,11 @@ class MagazinepublishController extends AbstractActionController {
 				$select->where($where);
 			}
 			
-			$magazinepublishs = $this->getMagazinepublishTable ()->fetchAll ( $select) ;
+			$magazinevietnams = $this->getMagazinevietnamTable ()->fetchAll ( $select) ;
 			$itemsPerPage = 10; // is Number record/page
-			$totalRecord  = $magazinepublishs->count();
-			$magazinepublishs->current ();
-			$paginator = new Paginator ( new paginatorIterator ( $magazinepublishs ) );
+			$totalRecord  = $magazinevietnams->count();
+			$magazinevietnams->current ();
+			$paginator = new Paginator ( new paginatorIterator ( $magazinevietnams ) );
 			$paginator->setCurrentPageNumber ( $page )->setItemCountPerPage ( $itemsPerPage )->setPageRange ( 4 ); // is number page want view
 			
 			return new ViewModel ( array (
@@ -100,24 +100,23 @@ class MagazinepublishController extends AbstractActionController {
 					'order' => $order,
 					'page' => $page,
 					'paginator' => $paginator ,
-					'pageAction' => 'magazinepublishs ',
+					'pageAction' => 'magazinevietnams ',
 					'form'       => $searchform,
 					'totalRecord' => $totalRecord,
 			) );
 		//} // login
 	}
 	public function addAction() {
-		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
-		$form = new MagazinepublishForm ($dbAdapter); // include Form Class
+		$form = new MagazinevietnamForm (); // include Form Class
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Add' );
 		
 		$request = $this->getRequest ();
 		
 		if ($request->isPost ()) {
 			
-			$magazinepublish = new Magazinepublish ();
+			$magazinevietnam = new Magazinevietnam ();
 			
-			$form->setInputFilter ( $magazinepublish->getInputFilter () ); // check validate
+			$form->setInputFilter ( $magazinevietnam->getInputFilter () ); // check validate
 			
 			$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
 			
@@ -163,17 +162,17 @@ class MagazinepublishController extends AbstractActionController {
 					// die;
 					$adapter->setDestination ( MZIMG_PATH );
 					if ($adapter->receive ( $data ['imgkey'] ['name'] )) {
-						$profile = new Magazinepublish ();
+						$profile = new Magazinevietnam ();
 						$profile->exchangeArray ( $form->getData () );
 						// echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
 						// die;
 					}
 				}
 				
-				$magazinepublish->dataArray ( $form->getData () );
-				$this->getMagazinepublishTable ()->saveMagazinepublish ( $magazinepublish );
-				// Redirect to list of magazinepublishs
-				return $this->redirect ()->toRoute ( 'magazinepublish' );
+				$magazinevietnam->dataArray ( $form->getData () );
+				$this->getMagazinevietnamTable ()->saveMagazinevietnam ( $magazinevietnam );
+				// Redirect to list of magazinevietnams
+				return $this->redirect ()->toRoute ( 'magazinevietnam' );
 			} else {
 				// echo('Magazine is Form Not Validate');
 			}
@@ -188,10 +187,10 @@ class MagazinepublishController extends AbstractActionController {
 	public function adddetailAction() {
 		$id = $this->params ()->fromRoute ( 'id', 0 );
 
-		$mzimgArray  = $this->getMagazinepublishTable ()->fetchAllDetailMzimg ($id);
+		$mzimgArray  = $this->getMagazinevietnamTable ()->fetchAllDetailMzimg ($id);
 		
 // 		echo '<pre>';
-// 		print_r($magazinepublishs);
+// 		print_r($magazinevietnams);
 // 		echo '</pre>';
 // 	die;
 
@@ -293,14 +292,14 @@ class MagazinepublishController extends AbstractActionController {
 	public function editAction() {
 		$id = ( int ) $this->params ( 'id' );
 		if (! $id) {
-			return $this->redirect ()->toRoute ( 'magazinepublish', array (
+			return $this->redirect ()->toRoute ( 'magazinevietnam', array (
 					'action' => 'add' 
 			) );
 		}
-		$magazinepublish = $this->getMagazinepublishTable ()->getMagazinepublish ( $id );
-		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
-		$form = new MagazinepublishForm ($dbAdapter);
-		$form->bind ( $magazinepublish );
+		$magazinevietnam = $this->getMagazinevietnamTable ()->getMagazinevietnam ( $id );
+		
+		$form = new MagazinevietnamForm ();
+		$form->bind ( $magazinevietnam );
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Edit' );
 		
 		$request = $this->getRequest ();
@@ -337,17 +336,17 @@ class MagazinepublishController extends AbstractActionController {
 				
 					$adapter->setDestination ( MZIMG_PATH );
 					if ($adapter->receive ( $data ['imgkey'] ['name'] )) {
-						$profile = new Magazinepublish ();
+						$profile = new Magazinevietnam ();
 						
 					}
 				}
 				
-				$magazinepublish2 = new Magazinepublish ();
-				$magazinepublish2->dataPost ( $data );
-				$this->getMagazinepublishTable ()->saveMagazinepublish2 ( $magazinepublish2 );
+				$magazinevietnam2 = new Magazinevietnam ();
+				$magazinevietnam2->dataPost ( $data );
+				$this->getMagazinevietnamTable ()->saveMagazinevietnam2 ( $magazinevietnam2 );
 				
-				// Redirect to list of magazinepublishs
-				return $this->redirect ()->toRoute ( 'magazinepublish' );
+				// Redirect to list of magazinevietnams
+				return $this->redirect ()->toRoute ( 'magazinevietnam' );
 			}
 		}
 		
@@ -359,7 +358,7 @@ class MagazinepublishController extends AbstractActionController {
 	public function deleteAction() {
 		$id = ( int ) $this->params ( 'id' );
 		if (! $id) {
-			return $this->redirect ()->toRoute ( 'magazinepublish' );
+			return $this->redirect ()->toRoute ( 'magazinevietnam' );
 		}
 		
 		$request = $this->getRequest ();
@@ -367,31 +366,31 @@ class MagazinepublishController extends AbstractActionController {
 			$del = $request->getPost ()->get ( 'del', 'No' );
 			if ($del == 'Yes') {
 				$id = ( int ) $request->getPost ()->get ( 'id' );
-				$this->getMagazinepublishTable ()->deleteMagazinepublish ( $id );
+				$this->getMagazinevietnamTable ()->deleteMagazinevietnam ( $id );
 			}
 			
-			// Redirect to list of magazinepublishs
-			return $this->redirect ()->toRoute ( 'magazinepublish' );
+			// Redirect to list of magazinevietnams
+			return $this->redirect ()->toRoute ( 'magazinevietnam' );
 		}
 		
 		return array (
 				'id' => $id,
-				'magazinepublish' => $this->getMagazinepublishTable ()->getMagazinepublish ( $id ) 
+				'magazinevietnam' => $this->getMagazinevietnamTable ()->getMagazinevietnam ( $id ) 
 		);
 	}
-	public function getMagazinepublishTable() {
-		if (! $this->magazinepublishTable) {
+	public function getMagazinevietnamTable() {
+		if (! $this->magazinevietnamTable) {
 			$sm = $this->getServiceLocator ();
-			$this->magazinepublishTable = $sm->get ( 'Magazinepublish\Model\MagazinepublishTable' );
+			$this->magazinevietnamTable = $sm->get ( 'Magazinevietnam\Model\MagazinevietnamTable' );
 		}
-		return $this->magazinepublishTable;
+		return $this->magazinevietnamTable;
 	}
 	
 // 	public function getMzimgTable() {
-// 		if (!$this->magazinepublishTable) {
+// 		if (!$this->magazinevietnamTable) {
 // 			$sm = $this->getServiceLocator();
-// 			$this->magazinepublishTable = $sm->get('Mzimg\Model\MzimgTable');
+// 			$this->magazinevietnamTable = $sm->get('Mzimg\Model\MzimgTable');
 // 		}
-// 		return $this->magazinepublishTable;
+// 		return $this->magazinevietnamTable;
 // 	}
 }

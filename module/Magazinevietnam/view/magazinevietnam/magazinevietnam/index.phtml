@@ -1,0 +1,101 @@
+<?php
+use Zend\Paginator\Paginator;
+
+$title = 'My magazinevietnams';
+$this->headTitle($title);
+$url_order = 'ASC';
+if ($order_by == 'title')
+    $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
+elseif ($order_by == 'descriptionkey')
+    $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
+?>
+<?php 
+// echo 'hang si '.WEB_PATH_IMG;
+// echo '<br/>';
+?>
+<!-- <img src="<?php echo WEB_PATH_IMG;?>/book1/car_magazine_1.jpg" style="width: 50px;height:40px;">    -->
+<?php 
+/*
+
+<div style="float:left; padding-right:16px;"><?php echo $this->gravatar($this->zfcUserIdentity()->getEmail()) ?></div>
+<h3><?php echo $this->translate('Hello'); ?>, <?php echo $this->zfcUserDisplayName() ?>!</h3>
+<a class="btn" href="<?php echo $this->url('zfcuser/logout') ?>">[<?php echo $this->translate('Sign Out'); ?>]</a>
+<div style="clear:both;"></div>
+*/
+?>
+<h1>Search Magazine </h1>
+<?php
+$form  = $this->form;
+$form->setAttribute('action', $this->url('magazinevietnam', array('action' => 'search')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+foreach ($form as $element) :
+    ?>
+    <div class="control-group <?php if ($this->formElementErrors($element)) echo "error" ?>">
+        <label class="control-label"><?php echo $element->getLabel() ?></label>
+        <div class="controls">
+            <?php
+            echo $this->formElement($element);
+            if ($this->formElementErrors($element)):
+                ?>
+                <span class="help-inline"><?php echo $this->formElementErrors($element); ?></span>
+                <?php
+            endif;
+            ?>
+        </div>
+    </div>
+    <?php
+endforeach;
+echo $this->form()->closeTag();
+?>
+
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p><a class="btn" href="<?php echo $this->url('magazinevietnam', array(  'action' => 'add')); ?>">Add new magazinevietnam</a></p>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            <a href="<?php echo $this->url('magazinevietnam', array('order_by' => 'title', 'order' => $url_order,'search_by' => $search_by)); ?>">Title <?php if ($order_by == 'title'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        <th>
+            <a href="<?php echo $this->url('magazinevietnam', array('order_by' => 'descriptionkey', 'order' => $url_order,'search_by' => $search_by)); ?>">description <?php if ($order_by == 'descriptionkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        <th>
+            <a href="<?php echo $this->url('magazinevietnam', array('order_by' => 'imgkey', 'order' => $url_order,'search_by' => $search_by)); ?>">Thumbnail <?php if ($order_by == 'imgkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        
+        <th><a href="">Action</a></th>
+    </tr>
+    <?php
+
+     foreach ($paginator as $magazinevietnam) : 
+
+    ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($magazinevietnam->title); ?></td>
+            <td><?php echo $this->escapeHtml($magazinevietnam->descriptionkey); ?></td>
+            <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $magazinevietnam->imgkey;//echo $this->escapeHtml($magazinevietnam->imgkey); ?>" style="width: 100px; height:100px;"/></td>
+            <td>
+                <a class="btn  btn-mini edit-row" href="<?php echo $this->url('magazinevietnam', array('action' => 'edit', 'id' => $magazinevietnam->id));
+        ?>">Edit</a> 
+                <a  class="btn  btn-mini  " href="<?php echo $this->url('magazinevietnam', array('action' => 'delete', 'id' => $magazinevietnam->id));
+        ?>">Delete</a> 
+        
+                <a class="btn  btn-mini  " href="<?php //echo WEB_PATH ?>/mzimg/adddetail/<?php echo $magazinevietnam->id?>">Add Mzimg</a>
+               <?php  /* <a href="<?php //echo WEB_PATH ?>/magazinevietnam/adddetail/<?php echo $magazinevietnam->id?>">Add Mzimg</a>  */ ?>
+        </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+
+
+<?php
+    echo $this->paginationControl(
+            $paginator, 'Sliding', 'paginator-slide', array('order_by' => $order_by, 'order' => $order , 'search_by' => $search_by, 'pageAction' => $pageAction)
+    );
+    ?>

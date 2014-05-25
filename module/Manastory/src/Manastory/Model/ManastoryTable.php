@@ -95,6 +95,7 @@ class ManastoryTable extends AbstractTableGateway {
             'descriptionkey' => $manastory->descriptionkey,
         	'imgkey' => $manastory->imgkey,
             'title' => $manastory->title,
+        	'patient_id' => $magazinepublish->patient_id,
         );
 
         $id = (int) $manastory->id;
@@ -117,6 +118,7 @@ class ManastoryTable extends AbstractTableGateway {
     			'descriptionkey' => $manastory->descriptionkey,
     			'imgkey' => $manastory->imgkey,
     			'title' => $manastory->title,
+    			'patient_id' => $magazinepublish->patient_id,
     	);
     	
     	$id = (int) $manastory->id;

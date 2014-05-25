@@ -61,7 +61,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+        	'Application\Controller\Utility' => 'Application\Controller\UtilityController'
         ),
     ),
     'view_manager' => array(
