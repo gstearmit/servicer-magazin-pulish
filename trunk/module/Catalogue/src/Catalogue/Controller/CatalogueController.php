@@ -107,7 +107,9 @@ class CatalogueController extends AbstractActionController {
 		//} // login
 	}
 	public function addAction() {
-		$form = new CatalogueForm (); // include Form Class
+		
+		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+		$form = new CatalogueForm ($dbAdapter); // include Form Class
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Add' );
 		
 		$request = $this->getRequest ();
@@ -197,7 +199,7 @@ class CatalogueController extends AbstractActionController {
 		
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
 		
-		$form2 = new MagazineForm($dbAdapter); // include Form Class
+		$form2 = new CatalogueForm($dbAdapter); // include Form Class
 		 
 		$form2->get('submit')->setAttribute('value', 'Add');
 		 
@@ -297,8 +299,8 @@ class CatalogueController extends AbstractActionController {
 			) );
 		}
 		$catalogue = $this->getCatalogueTable ()->getCatalogue ( $id );
-		
-		$form = new CatalogueForm ();
+		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+		$form = new CatalogueForm ($dbAdapter);
 		$form->bind ( $catalogue );
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Edit' );
 		

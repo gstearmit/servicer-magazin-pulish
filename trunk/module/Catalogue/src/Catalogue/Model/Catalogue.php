@@ -169,9 +169,17 @@ class Catalogue implements InputFilterAwareInterface {
 							)
 					)
 			) ) );
-			/*
-			 * $inputFilter->add($factory->createInput(array( 'name' => 'imgupload', 'filters' => array( array('name' => 'StripTags'), array('name' => 'StringTrim'), ), 'validators' => array( ), ))); $inputFilter->add($factory->createInput(array( 'name' => 'namemagazine', 'required' => true, 'filters' => array( array('name' => 'StripTags'), array('name' => 'StringTrim'), ), 'validators' => array( array ( 'name' => 'StringLength', 'options' => array( 'encoding' => 'UTF-8', 'min' => '1', 'max' => '50', ), ), ), )));
-			 */
+			
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'patient_id',
+					'required' => true,
+					'filters' => array (
+							array (
+									'name' => 'Int'
+							)
+					)
+			) ) );
 			
 			$this->inputFilter = $inputFilter;
 		}
