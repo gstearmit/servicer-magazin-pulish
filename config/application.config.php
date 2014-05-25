@@ -22,6 +22,7 @@ return array(
 		'Magazinevietnam',
 		'Mgvndetail',
 		'Magazinevnrest',
+		'Magazinevnrestfull',
 		//'ZfcUser',
 		//'ZfcBase',
 		'ZfcAdmin',
