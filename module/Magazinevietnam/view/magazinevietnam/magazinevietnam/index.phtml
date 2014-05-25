@@ -72,7 +72,7 @@ echo $this->form()->closeTag();
     </tr>
     <?php
 
-     foreach ($paginator as $magazinevietnam) : 
+     foreach ($paginatormagazinevietnam as $magazinevietnam) : 
 
     ?>
         <tr>
@@ -96,6 +96,6 @@ echo $this->form()->closeTag();
 
 <?php
     echo $this->paginationControl(
-            $paginator, 'Sliding', 'paginator-slide', array('order_by' => $order_by, 'order' => $order , 'search_by' => $search_by, 'pageAction' => $pageAction)
+            $paginatormagazinevietnam, 'Sliding', 'paginator-magazinevietnam', array('order_by' => $order_by, 'order' => $order , 'search_by' => $search_by, 'pageAction' => $pageAction)
     );
     ?>

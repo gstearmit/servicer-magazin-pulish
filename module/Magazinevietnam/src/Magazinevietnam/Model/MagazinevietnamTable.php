@@ -32,7 +32,7 @@ class MagazinevietnamTable extends AbstractTableGateway {
         return $resultSet;
     }
     
-    //fetchAllDetailMzimg
+    //fetchAllDetailmgvndetail
    // public function fetchAllDetailMzimg( $id , Select $select = null)
     public function fetchAllDetailMzimg( $id)
     {
@@ -49,10 +49,10 @@ class MagazinevietnamTable extends AbstractTableGateway {
 
     	$sql = new Sql($this->adapter);
     	$select = $sql->select();
-    	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey'));
+    	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey','patient_id'=>'patient_id'));
     	$select->columns(array());
     	$select->from ('magazinevietnam')
-    	       ->join('mzimg', 'mzimg.idmz=magazinevietnam.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	       ->join('mgvndetail', 'mgvndetail.idmz=magazinevietnam.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
     	$select->where(array('magazinevietnam.id'=>$id));
     	$select->order('id ASC');
        // $resultSet = $this->selectWith($select);
@@ -111,7 +111,7 @@ class MagazinevietnamTable extends AbstractTableGateway {
     	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
     	$select->columns(array());
     	$select->from ('magazinevietnam')
-    	->join('mzimg', 'mzimg.idmz=magazinevietnam.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	->join('mgvndetail', 'mgvndetail.idmz=magazinevietnam.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
     	$select->where(array('magazinevietnam.id'=>$id));
  //   	$sort[] = 'id DESC';
 //     	$sort[] = 'value ASC';
@@ -139,6 +139,8 @@ class MagazinevietnamTable extends AbstractTableGateway {
             'descriptionkey' => $magazinevietnam->descriptionkey,
         	'imgkey' => $magazinevietnam->imgkey,
             'title' => $magazinevietnam->title,
+        	'patient_id' => $magazinevietnam->patient_id,
+        		
         );
 
         $id = (int) $magazinevietnam->id;
@@ -161,6 +163,7 @@ class MagazinevietnamTable extends AbstractTableGateway {
     			'descriptionkey' => $magazinevietnam->descriptionkey,
     			'imgkey' => $magazinevietnam->imgkey,
     			'title' => $magazinevietnam->title,
+    			'patient_id' => $magazinevietnam->patient_id,
     	);
     	
     	$id = (int) $magazinevietnam->id;
