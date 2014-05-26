@@ -1,15 +1,15 @@
 <?php
 
-namespace Magazinevietnam\Controller;
+namespace Librarybooks\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Magazinevietnam\Model\Magazinevietnam;
-use Magazinevietnam\Form\MagazinevietnamForm;
-use Magazinevietnam\Form\MagazineForm;
-use Magazinevietnam\Form\MagazinevietnamSearchForm as SearchFromMagazinevietnam ;
+use Librarybooks\Model\Librarybooks;
+use Librarybooks\Form\LibrarybooksForm;
+use Librarybooks\Form\MagazineForm;
+use Librarybooks\Form\LibrarybooksSearchForm as SearchFromLibrarybooks ;
 
-use Mgvndetail\Model\Mgvndetail;
+use Mzimg\Model\Mzimg;
 
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
@@ -19,10 +19,10 @@ use ZfcUser\Service\User as UserService;
 use ZfcUser\Options\UserControllerOptionsInterface;
 use Zend\Validator\File\Size;
 use Zend\Validator\File\Extension;
-use Mgvndetail\Model\MgvndetailTable;
+use Mzimg\Model\MzimgTable;
 
-class MagazinevietnamController extends AbstractActionController {
-	protected $magazinevietnamTable;
+class LibrarybooksController extends AbstractActionController {
+	protected $librarybooksTable;
 	
 	public function searchAction()
 	{
@@ -56,7 +56,7 @@ class MagazinevietnamController extends AbstractActionController {
 // 			return $this->redirect ()->toRoute ( 'zfcuser/login' );
 // 		} else {
 			
-			$searchform = new SearchFromMagazinevietnam();
+			$searchform = new SearchFromLibrarybooks();
 			$searchform->get('submit')->setValue('Search');
 			
 			$select = new Select ();
@@ -86,11 +86,11 @@ class MagazinevietnamController extends AbstractActionController {
 				$select->where($where);
 			}
 			
-			$magazinevietnams = $this->getMagazinevietnamTable ()->fetchAll ( $select) ;
+			$librarybookss = $this->getLibrarybooksTable ()->fetchAll ( $select) ;
 			$itemsPerPage = 10; // is Number record/page
-			$totalRecord  = $magazinevietnams->count();
-			$magazinevietnams->current ();
-			$paginator = new Paginator ( new paginatorIterator ( $magazinevietnams ) );
+			$totalRecord  = $librarybookss->count();
+			$librarybookss->current ();
+			$paginator = new Paginator ( new paginatorIterator ( $librarybookss ) );
 			$paginator->setCurrentPageNumber ( $page )->setItemCountPerPage ( $itemsPerPage )->setPageRange ( 4 ); // is number page want view
 			
 			return new ViewModel ( array (
@@ -99,8 +99,8 @@ class MagazinevietnamController extends AbstractActionController {
 					'order_by' => $order_by,
 					'order' => $order,
 					'page' => $page,
-					'paginatormagazinevietnam' => $paginator ,
-					'pageAction' => 'magazinevietnams ',
+					'paginator' => $paginator ,
+					'pageAction' => 'librarybookss ',
 					'form'       => $searchform,
 					'totalRecord' => $totalRecord,
 			) );
@@ -108,16 +108,16 @@ class MagazinevietnamController extends AbstractActionController {
 	}
 	public function addAction() {
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
-		$form = new MagazinevietnamForm ($dbAdapter); // include Form Class
+		$form = new LibrarybooksForm ($dbAdapter); // include Form Class
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Add' );
 		
 		$request = $this->getRequest ();
 		
 		if ($request->isPost ()) {
 			
-			$magazinevietnam = new Magazinevietnam ();
+			$librarybooks = new Librarybooks ();
 			
-			$form->setInputFilter ( $magazinevietnam->getInputFilter () ); // check validate
+			$form->setInputFilter ( $librarybooks->getInputFilter () ); // check validate
 			
 			$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
 			
@@ -163,17 +163,17 @@ class MagazinevietnamController extends AbstractActionController {
 					// die;
 					$adapter->setDestination ( MZIMG_PATH );
 					if ($adapter->receive ( $data ['imgkey'] ['name'] )) {
-						$profile = new Magazinevietnam ();
+						$profile = new Librarybooks ();
 						$profile->exchangeArray ( $form->getData () );
 						// echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
 						// die;
 					}
 				}
 				
-				$magazinevietnam->dataArray ( $form->getData () );
-				$this->getMagazinevietnamTable ()->saveMagazinevietnam ( $magazinevietnam );
-				// Redirect to list of magazinevietnams
-				return $this->redirect ()->toRoute ( 'magazinevietnam' );
+				$librarybooks->dataArray ( $form->getData () );
+				$this->getLibrarybooksTable ()->saveLibrarybooks ( $librarybooks );
+				// Redirect to list of librarybookss
+				return $this->redirect ()->toRoute ( 'librarybooks' );
 			} else {
 				// echo('Magazine is Form Not Validate');
 			}
@@ -188,10 +188,10 @@ class MagazinevietnamController extends AbstractActionController {
 	public function adddetailAction() {
 		$id = $this->params ()->fromRoute ( 'id', 0 );
 
-		$MgvndetailArray  = $this->getMagazinevietnamTable ()->fetchAllDetailMgvndetail ($id);
+		$mzimgArray  = $this->getLibrarybooksTable ()->fetchAllDetailMzimg ($id);
 		
 // 		echo '<pre>';
-// 		print_r($magazinevietnams);
+// 		print_r($librarybookss);
 // 		echo '</pre>';
 // 	die;
 
@@ -206,9 +206,9 @@ class MagazinevietnamController extends AbstractActionController {
 		 
 		if ($request->isPost()) {
 			 
-			$Mgvndetail = new Mgvndetail();
+			$mzimg = new Mzimg();
 		
-			$form2->setInputFilter($Mgvndetail->getInputFilter());  // check validate
+			$form2->setInputFilter($mzimg->getInputFilter());  // check validate
 		
 			$data2 = array_merge_recursive(
 					$this->getRequest()->getPost()->toArray(),
@@ -257,24 +257,24 @@ class MagazinevietnamController extends AbstractActionController {
 					   
 					$adapter->setDestination(MZIMG_PATH);
 					if ($adapter->receive($data2['img']['name'])) {
-						$profile = new Mgvndetail();
+						$profile = new Mzimg();
 						//$profile->exchangeArray($form2->getData());
 						
 					}
 					 
 				}
 				 
-				$Mgvndetail->dataArray($form2->getData());
+				$mzimg->dataArray($form2->getData());
 				
 				
-				  die(" Error Connectting  Action save Modul Mgvndetail ");
+				  die(" Error Connectting  Action save Modul Mzimg ");
 				
-		        $MgvndetailTable = new MgvndetailTable();
+		        $mzimgTable = new MzimgTable();
 		        
-				$MgvndetailTable->saveMgvndetail($Mgvndetail);
+				$mzimgTable->saveMzimg($mzimg);
 				
-				// Redirect to list of Mgvndetails
-				return $this->redirect()->toRoute('mgvndetail');
+				// Redirect to list of Mzimgs
+				return $this->redirect()->toRoute('mzimg');
 			}else 
 			{
 			  die('is not not valid Dedatil');
@@ -282,7 +282,7 @@ class MagazinevietnamController extends AbstractActionController {
 		}
 		
 		return new ViewModel ( array (
-				'paginatorimg' => $MgvndetailArray,
+				'paginatorimg' => $mzimgArray,
 				'form' => $form2,
 				'id' => $id,
 		) );
@@ -293,14 +293,14 @@ class MagazinevietnamController extends AbstractActionController {
 	public function editAction() {
 		$id = ( int ) $this->params ( 'id' );
 		if (! $id) {
-			return $this->redirect ()->toRoute ( 'magazinevietnam', array (
+			return $this->redirect ()->toRoute ( 'librarybooks', array (
 					'action' => 'add' 
 			) );
 		}
-		$magazinevietnam = $this->getMagazinevietnamTable ()->getMagazinevietnam ( $id );
+		$librarybooks = $this->getLibrarybooksTable ()->getLibrarybooks ( $id );
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
-		$form = new MagazinevietnamForm ($dbAdapter);
-		$form->bind ( $magazinevietnam );
+		$form = new LibrarybooksForm ($dbAdapter);
+		$form->bind ( $librarybooks );
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Edit' );
 		
 		$request = $this->getRequest ();
@@ -337,17 +337,17 @@ class MagazinevietnamController extends AbstractActionController {
 				
 					$adapter->setDestination ( MZIMG_PATH );
 					if ($adapter->receive ( $data ['imgkey'] ['name'] )) {
-						$profile = new Magazinevietnam ();
+						$profile = new Librarybooks ();
 						
 					}
 				}
 				
-				$magazinevietnam2 = new Magazinevietnam ();
-				$magazinevietnam2->dataPost ( $data );
-				$this->getMagazinevietnamTable ()->saveMagazinevietnam2 ( $magazinevietnam2 );
+				$librarybooks2 = new Librarybooks ();
+				$librarybooks2->dataPost ( $data );
+				$this->getLibrarybooksTable ()->saveLibrarybooks2 ( $librarybooks2 );
 				
-				// Redirect to list of magazinevietnams
-				return $this->redirect ()->toRoute ( 'magazinevietnam' );
+				// Redirect to list of librarybookss
+				return $this->redirect ()->toRoute ( 'librarybooks' );
 			}
 		}
 		
@@ -359,7 +359,7 @@ class MagazinevietnamController extends AbstractActionController {
 	public function deleteAction() {
 		$id = ( int ) $this->params ( 'id' );
 		if (! $id) {
-			return $this->redirect ()->toRoute ( 'magazinevietnam' );
+			return $this->redirect ()->toRoute ( 'librarybooks' );
 		}
 		
 		$request = $this->getRequest ();
@@ -367,25 +367,31 @@ class MagazinevietnamController extends AbstractActionController {
 			$del = $request->getPost ()->get ( 'del', 'No' );
 			if ($del == 'Yes') {
 				$id = ( int ) $request->getPost ()->get ( 'id' );
-				$this->getMagazinevietnamTable ()->deleteMagazinevietnam ( $id );
+				$this->getLibrarybooksTable ()->deleteLibrarybooks ( $id );
 			}
 			
-			// Redirect to list of magazinevietnams
-			return $this->redirect ()->toRoute ( 'magazinevietnam' );
+			// Redirect to list of librarybookss
+			return $this->redirect ()->toRoute ( 'librarybooks' );
 		}
 		
 		return array (
 				'id' => $id,
-				'magazinevietnam' => $this->getMagazinevietnamTable ()->getMagazinevietnam ( $id ) 
+				'librarybooks' => $this->getLibrarybooksTable ()->getLibrarybooks ( $id ) 
 		);
 	}
-	public function getMagazinevietnamTable() {
-		if (! $this->magazinevietnamTable) {
+	public function getLibrarybooksTable() {
+		if (! $this->librarybooksTable) {
 			$sm = $this->getServiceLocator ();
-			$this->magazinevietnamTable = $sm->get ( 'Magazinevietnam\Model\MagazinevietnamTable' );
+			$this->librarybooksTable = $sm->get ( 'Librarybooks\Model\LibrarybooksTable' );
 		}
-		return $this->magazinevietnamTable;
+		return $this->librarybooksTable;
 	}
 	
-
+// 	public function getMzimgTable() {
+// 		if (!$this->librarybooksTable) {
+// 			$sm = $this->getServiceLocator();
+// 			$this->librarybooksTable = $sm->get('Mzimg\Model\MzimgTable');
+// 		}
+// 		return $this->librarybooksTable;
+// 	}
 }

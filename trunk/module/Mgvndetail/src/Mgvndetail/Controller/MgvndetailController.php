@@ -6,6 +6,7 @@ namespace Mgvndetail\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Mgvndetail\Model\Mgvndetail;
+use Mgvndetail\Model\MgvndetailTable;
 use Mgvndetail\Form\MgvndetailForm;
 use Mgvndetail\Form\MagazineForm as FromClass;
 use Mgvndetail\Form\MgvndetailSearchForm as SearchFromMgvndetail ;
@@ -294,7 +295,7 @@ class MgvndetailController extends AbstractActionController {
     		$adapter->setDestination(MZIMG_PATH);
     		if ($adapter->receive($data['img']['name'])) {
     		$profile = new Mgvndetail();
-    		$profile->exchangeArray($form->getData());
+    		//$profile->exchangeArray($form->getData());
     		//             		   echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
     		//             			die;
     	}
