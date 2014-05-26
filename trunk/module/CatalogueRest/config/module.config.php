@@ -2,22 +2,22 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Magazinevnrestfull\Controller\Magazinevnrestfull' => 'Magazinevnrestfull\Controller\MagazinevnrestfullController',
+            'CatalogueRest\Controller\CatalogueRest' => 'CatalogueRest\Controller\CatalogueRestController',
         ),
     ),
 
     // The following section is new` and should be added to your file
     'router' => array(
         'routes' => array(
-            'magazinevn-restfull' => array(
+            'catalogue-rest' => array(
                 'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/magazinevnrestfull[/:id]',
+                    'route'    => '/catalogue-rest[/:id]',
                     'constraints' => array(
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Magazinevnrestfull\Controller\Magazinevnrestfull',
+                        'controller' => 'CatalogueRest\Controller\CatalogueRest',
                     ),
                 ),
             ),

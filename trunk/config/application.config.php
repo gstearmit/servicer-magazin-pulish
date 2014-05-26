@@ -19,6 +19,8 @@ return array(
 		'ManastoryRest',
 		'MagastoryRestfull',
 		'Catalogue',
+		'CatalogueRest',
+		'Cataloguerestfull',
 		'Magazinevietnam',
 		'Mgvndetail',
 		'Magazinevnrest',

@@ -1,6 +1,6 @@
 <?php
 
-namespace magazinevnrestfull\Controller;
+namespace Magazinevnrestfull\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 
@@ -10,7 +10,7 @@ use Magazinevietnam\Form\MagazinevietnamForm;       // <-- Add this import
 use Magazinevietnam\Model\MagazinevietnamTable;     // <-- Add this import
 use Zend\View\Model\JsonModel;
 
-class magazinevnrestfullController extends AbstractRestfulController
+class MagazinevnrestfullController extends AbstractRestfulController
 {
     protected $magazinevietnamTable;
 
