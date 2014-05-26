@@ -143,6 +143,7 @@ class CatalogueTable extends AbstractTableGateway {
             'title' => $catalogue->title,
         	'patient_id' => $catalogue->patient_id,
         	'url_catalogue' => $catalogue->url_catalogue,
+        	'url_rest' => $catalogue->url_rest,
         );
 
         $id = (int) $catalogue->id;
@@ -167,6 +168,7 @@ class CatalogueTable extends AbstractTableGateway {
     			'title' => $catalogue->title,
     			'patient_id' => $catalogue->patient_id,
     			'url_catalogue' => $catalogue->url_catalogue,
+    			'url_rest' => $catalogue->url_rest,
     	);
     	
     	$id = (int) $catalogue->id;
