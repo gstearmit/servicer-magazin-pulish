@@ -1,5 +1,5 @@
 <?php
-$title = 'Add New Mzimg Detail';
+$title = 'Add New librarybooks Detail';
 $this->headTitle($title);
 
 echo 'Idmazinge';
@@ -47,7 +47,7 @@ var_dump($this->id);
 <?php
 $form = $this->form;
 //$form->prepare();
-$form->setAttribute('action', $this->url('magazinepublish', array('action' => 'adddetail')));
+$form->setAttribute('action', $this->url('librarybooks', array('action' => 'adddetail')));
 $form->prepare();
 
 echo $this->form()->openTag($form) . PHP_EOL;

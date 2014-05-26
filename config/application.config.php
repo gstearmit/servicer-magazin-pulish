@@ -23,6 +23,7 @@ return array(
 		'Mgvndetail',
 		'Magazinevnrest',
 		'Magazinevnrestfull',
+		'Librarybooks',
 		//'ZfcUser',
 		//'ZfcBase',
 		'ZfcAdmin',
