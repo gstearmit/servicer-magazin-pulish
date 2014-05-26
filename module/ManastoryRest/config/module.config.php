@@ -9,10 +9,10 @@ return array(
     // The following section is new` and should be added to your file
     'router' => array(
         'routes' => array(
-            'manastoryrest' => array(
+            'manastory-rest' => array(
                 'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/manastoryrest[/:id]',
+                    'route'    => '/manastory-rest[/:id]',
                     'constraints' => array(
                         'id'     => '[0-9]+',
                     ),
