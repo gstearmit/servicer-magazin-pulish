@@ -9,7 +9,7 @@ use Librarybooks\Form\LibrarybooksForm;
 use Librarybooks\Form\MagazineForm;
 use Librarybooks\Form\LibrarybooksSearchForm as SearchFromLibrarybooks ;
 
-use Mzimg\Model\Mzimg;
+use librarydetail\Model\librarydetail;
 
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
@@ -19,7 +19,7 @@ use ZfcUser\Service\User as UserService;
 use ZfcUser\Options\UserControllerOptionsInterface;
 use Zend\Validator\File\Size;
 use Zend\Validator\File\Extension;
-use Mzimg\Model\MzimgTable;
+use librarydetail\Model\librarydetailTable;
 
 class LibrarybooksController extends AbstractActionController {
 	protected $librarybooksTable;
@@ -188,7 +188,7 @@ class LibrarybooksController extends AbstractActionController {
 	public function adddetailAction() {
 		$id = $this->params ()->fromRoute ( 'id', 0 );
 
-		$mzimgArray  = $this->getLibrarybooksTable ()->fetchAllDetailMzimg ($id);
+		$librarydetailArray  = $this->getLibrarybooksTable ()->fetchAllDetaillibrarydetail ($id);
 		
 // 		echo '<pre>';
 // 		print_r($librarybookss);
@@ -206,9 +206,9 @@ class LibrarybooksController extends AbstractActionController {
 		 
 		if ($request->isPost()) {
 			 
-			$mzimg = new Mzimg();
+			$librarydetail = new librarydetail();
 		
-			$form2->setInputFilter($mzimg->getInputFilter());  // check validate
+			$form2->setInputFilter($librarydetail->getInputFilter());  // check validate
 		
 			$data2 = array_merge_recursive(
 					$this->getRequest()->getPost()->toArray(),
@@ -257,24 +257,24 @@ class LibrarybooksController extends AbstractActionController {
 					   
 					$adapter->setDestination(MZIMG_PATH);
 					if ($adapter->receive($data2['img']['name'])) {
-						$profile = new Mzimg();
+						$profile = new librarydetail();
 						//$profile->exchangeArray($form2->getData());
 						
 					}
 					 
 				}
 				 
-				$mzimg->dataArray($form2->getData());
+				$librarydetail->dataArray($form2->getData());
 				
 				
-				  die(" Error Connectting  Action save Modul Mzimg ");
+				  die(" Error Connectting  Action save Modul librarydetail ");
 				
-		        $mzimgTable = new MzimgTable();
+		        $librarydetailTable = new librarydetailTable();
 		        
-				$mzimgTable->saveMzimg($mzimg);
+				$librarydetailTable->savelibrarydetail($librarydetail);
 				
-				// Redirect to list of Mzimgs
-				return $this->redirect()->toRoute('mzimg');
+				// Redirect to list of librarydetails
+				return $this->redirect()->toRoute('librarydetail');
 			}else 
 			{
 			  die('is not not valid Dedatil');
@@ -282,7 +282,7 @@ class LibrarybooksController extends AbstractActionController {
 		}
 		
 		return new ViewModel ( array (
-				'paginatorimg' => $mzimgArray,
+				'paginatorimg' => $librarydetailArray,
 				'form' => $form2,
 				'id' => $id,
 		) );
@@ -387,10 +387,10 @@ class LibrarybooksController extends AbstractActionController {
 		return $this->librarybooksTable;
 	}
 	
-// 	public function getMzimgTable() {
+// 	public function getlibrarydetailTable() {
 // 		if (!$this->librarybooksTable) {
 // 			$sm = $this->getServiceLocator();
-// 			$this->librarybooksTable = $sm->get('Mzimg\Model\MzimgTable');
+// 			$this->librarybooksTable = $sm->get('librarydetail\Model\librarydetailTable');
 // 		}
 // 		return $this->librarybooksTable;
 // 	}

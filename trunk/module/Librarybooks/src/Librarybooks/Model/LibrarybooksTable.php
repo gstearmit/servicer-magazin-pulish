@@ -32,9 +32,9 @@ class LibrarybooksTable extends AbstractTableGateway {
         return $resultSet;
     }
     
-    //fetchAllDetailMzimg
-   // public function fetchAllDetailMzimg( $id , Select $select = null)
-    public function fetchAllDetailMzimg( $id)
+    //fetchAllDetaillibrarydetail
+   // public function fetchAllDetaillibrarydetail( $id , Select $select = null)
+    public function fetchAllDetaillibrarydetail( $id)
     {
     	$id = (int) $id;
 		    //	if (null === $select) $select = new Select();
@@ -52,7 +52,7 @@ class LibrarybooksTable extends AbstractTableGateway {
     	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey','patient_id'=>'patient_id'));
     	$select->columns(array());
     	$select->from ('librarybooks')
-    	       ->join('mzimg', 'mzimg.idmz=librarybooks.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	       ->join('librarydetail', 'librarydetail.idmz=librarybooks.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
     	$select->where(array('librarybooks.id'=>$id));
     	$select->order('id ASC');
        // $resultSet = $this->selectWith($select);
@@ -111,7 +111,7 @@ class LibrarybooksTable extends AbstractTableGateway {
     	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
     	$select->columns(array());
     	$select->from ('librarybooks')
-    	->join('mzimg', 'mzimg.idmz=librarybooks.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	->join('librarydetail', 'librarydetail.idmz=librarybooks.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
     	$select->where(array('librarybooks.id'=>$id));
  //   	$sort[] = 'id DESC';
 //     	$sort[] = 'value ASC';
