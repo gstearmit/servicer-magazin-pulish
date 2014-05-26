@@ -1,6 +1,6 @@
 <?php
 
-namespace Magazinepublish\Model;
+namespace Librarybooks\Model;
 
 use Zend\Db\TableGateway\AbstractTableGateway;
 use Zend\Db\Adapter\Adapter;
@@ -9,14 +9,14 @@ use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Sql;
 use Zend\Db\Sql\Where;
 
-class MagazinepublishTable extends AbstractTableGateway {
+class LibrarybooksTable extends AbstractTableGateway {
 
-    protected $table = 'magazinepublish';
+    protected $table = 'librarybooks';
 
     public function __construct(Adapter $adapter) {
         $this->adapter = $adapter;
         $this->resultSetPrototype = new ResultSet();
-        $this->resultSetPrototype->setArrayObjectPrototype(new Magazinepublish());
+        $this->resultSetPrototype->setArrayObjectPrototype(new Librarybooks());
 
         $this->initialize();
     }
@@ -51,9 +51,9 @@ class MagazinepublishTable extends AbstractTableGateway {
     	$select = $sql->select();
     	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey','patient_id'=>'patient_id'));
     	$select->columns(array());
-    	$select->from ('magazinepublish')
-    	       ->join('mzimg', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
-    	$select->where(array('magazinepublish.id'=>$id));
+    	$select->from ('librarybooks')
+    	       ->join('mzimg', 'mzimg.idmz=librarybooks.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('librarybooks.id'=>$id));
     	$select->order('id ASC');
        // $resultSet = $this->selectWith($select);
     	//$resultSet->buffer();
@@ -89,7 +89,7 @@ class MagazinepublishTable extends AbstractTableGateway {
     	return $resultSet;
     }
 
-    public function getMagazinepublish($id) {
+    public function getLibrarybooks($id) {
         $id = (int) $id;
         $rowset = $this->select(array('id' => $id));
         
@@ -103,16 +103,16 @@ class MagazinepublishTable extends AbstractTableGateway {
     }
     
     
-    public function getRestMagazinepublish($id) {
+    public function getRestLibrarybooks($id) {
     	$id = (int) $id;
     
     	$sql = new Sql($this->adapter);
     	$select = $sql->select();
     	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
     	$select->columns(array());
-    	$select->from ('magazinepublish')
-    	->join('mzimg', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
-    	$select->where(array('magazinepublish.id'=>$id));
+    	$select->from ('librarybooks')
+    	->join('mzimg', 'mzimg.idmz=librarybooks.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('librarybooks.id'=>$id));
  //   	$sort[] = 'id DESC';
 //     	$sort[] = 'value ASC';
  //    	$select->order($sort);
@@ -134,20 +134,20 @@ class MagazinepublishTable extends AbstractTableGateway {
     	 
     }
 
-    public function saveMagazinepublish(Magazinepublish $magazinepublish) {
+    public function saveLibrarybooks(Librarybooks $librarybooks) {
         $data = array(
-            'descriptionkey' => $magazinepublish->descriptionkey,
-        	'imgkey' => $magazinepublish->imgkey,
-            'title' => $magazinepublish->title,
-        	'patient_id' => $magazinepublish->patient_id,
+            'descriptionkey' => $librarybooks->descriptionkey,
+        	'imgkey' => $librarybooks->imgkey,
+            'title' => $librarybooks->title,
+        	'patient_id' => $librarybooks->patient_id,
         		
         );
 
-        $id = (int) $magazinepublish->id;
+        $id = (int) $librarybooks->id;
         if ($id == 0) {
             $this->insert($data);
         } else {
-            if ($this->getMagazinepublish($id)) {
+            if ($this->getLibrarybooks($id)) {
                 $this->update($data, array('id' => $id));
             } else {
                 throw new \Exception('Form id does not exist');
@@ -156,21 +156,21 @@ class MagazinepublishTable extends AbstractTableGateway {
     }
     
     
-    public function saveMagazinepublish2(Magazinepublish $magazinepublish) {
+    public function saveLibrarybooks2(Librarybooks $librarybooks) {
     	
     	
     	$data = array(
-    			'descriptionkey' => $magazinepublish->descriptionkey,
-    			'imgkey' => $magazinepublish->imgkey,
-    			'title' => $magazinepublish->title,
-    			'patient_id' => $magazinepublish->patient_id,
+    			'descriptionkey' => $librarybooks->descriptionkey,
+    			'imgkey' => $librarybooks->imgkey,
+    			'title' => $librarybooks->title,
+    			'patient_id' => $librarybooks->patient_id,
     	);
     	
-    	$id = (int) $magazinepublish->id;
+    	$id = (int) $librarybooks->id;
     	if ($id == 0) {
     		$this->insert($data);
     	} else {
-    		if ($this->getMagazinepublish($id)) {
+    		if ($this->getLibrarybooks($id)) {
     			$this->update($data, array('id' => $id));
     		} else {
     			throw new \Exception('Form id does not exist');
@@ -178,29 +178,29 @@ class MagazinepublishTable extends AbstractTableGateway {
     	}
     	
 //  	die;
-//     	return var_dump(is_array($magazinepublish->imgkey));
+//     	return var_dump(is_array($librarybooks->imgkey));
 //     	die;
     	
     	
-//     	if (is_array($magazinepublish->imgkey)) 
+//     	if (is_array($librarybooks->imgkey)) 
 //     	{
-//     	  	foreach ($magazinepublish->imgkey as $key)
+//     	  	foreach ($librarybooks->imgkey as $key)
 //     	  	{
 //     	  		$arrayMa_Img = array();
 //     	  		$arrayMa_Img = $key['name'];
 //     	  	}
     	  	
 //     	  	$data = array(
-//     	  			'descriptionkey' => $magazinepublish->descriptionkey,
+//     	  			'descriptionkey' => $librarybooks->descriptionkey,
 //     	  			'imgkey' =>$arrayMa_Img,
-//     	  			'title' => $magazinepublish->title,
+//     	  			'title' => $librarybooks->title,
 //     	  	);
     	  	
-//     	  	$id = (int) $magazinepublish->id;
+//     	  	$id = (int) $librarybooks->id;
 //     	  	if ($id == 0) {
 //     	  		$this->insert($data);
 //     	  	} else {
-//     	  		if ($this->getMagazinepublish($id)) {
+//     	  		if ($this->getLibrarybooks($id)) {
 //     	  			$this->update($data, array('id' => $id));
 //     	  		} else {
 //     	  			throw new \Exception('Form id does not exist');
@@ -209,16 +209,16 @@ class MagazinepublishTable extends AbstractTableGateway {
 //     	}else 
 //     	{
 //     		$data = array(
-//     				'descriptionkey' => $magazinepublish->descriptionkey,
+//     				'descriptionkey' => $librarybooks->descriptionkey,
 //     				'imgkey' => 'detaa',
-//     				'title' => $magazinepublish->title,
+//     				'title' => $librarybooks->title,
 //     		);
     		
-//     		$id = (int) $magazinepublish->id;
+//     		$id = (int) $librarybooks->id;
 //     		if ($id == 0) {
 //     			$this->insert($data);
 //     		} else {
-//     			if ($this->getMagazinepublish($id)) {
+//     			if ($this->getLibrarybooks($id)) {
 //     				$this->update($data, array('id' => $id));
 //     			} else {
 //     				throw new \Exception('Form id does not exist');
@@ -232,7 +232,7 @@ class MagazinepublishTable extends AbstractTableGateway {
     	
     }
 
-    public function deleteMagazinepublish($id) {
+    public function deleteLibrarybooks($id) {
         $this->delete(array('id' => $id));
     }
 

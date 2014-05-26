@@ -1,14 +1,14 @@
 <?php
-namespace Magazinepublish\Form;
+namespace Librarybooks\Form;
 
 use Zend\Form\Form;
 use \Zend\Form\Element;
 
-class MagazinepublishSearchForm extends Form
+class LibrarybooksSearchForm extends Form
 {
     public function __construct($name = null)
     {
-        parent::__construct('magazinepublish');
+        parent::__construct('librarybooks');
         $this->setAttribute('class', 'form-horizontal');
         $this->setAttribute('method', 'post');
 

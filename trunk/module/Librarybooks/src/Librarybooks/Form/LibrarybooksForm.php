@@ -1,9 +1,9 @@
 <?php
-namespace Magazinepublish\Form;
+namespace Librarybooks\Form;
 
 use Zend\Form\Form;
 
-namespace Magazinepublish\Form;
+namespace Librarybooks\Form;
 
 use Zend\Captcha;
 use Zend\Form\Element;
@@ -12,13 +12,13 @@ use Zend\Form\Form;
 use Zend\Db\Adapter\AdapterInterface;
 use Zend\Db\Adapter\Adapter;
 
-class MagazinepublishForm extends Form
+class LibrarybooksForm extends Form
 {
 	protected $adapter;
     public function __construct(AdapterInterface $dbAdapter)
     {
         $this->adapter =$dbAdapter;
-        parent::__construct('magazinepublish');
+        parent::__construct('librarybooks');
 
         $this->setAttribute('method', 'post');
        // $this->setAttribute('class', 'form-horizontal');
@@ -93,7 +93,7 @@ class MagazinepublishForm extends Form
     public function getNameCatalogueForSelect()
     {
     	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM catalogue JOIN magazinepublish  ON catalogue.id=magazinepublish.patient_id';
+    	$sql       = 'SELECT * FROM catalogue JOIN librarybooks  ON catalogue.id=librarybooks.patient_id';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     
@@ -110,7 +110,7 @@ class MagazinepublishForm extends Form
     public function getidcatalogue()
     {
     	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM catalogue JOIN magazinepublish  ON catalogue.id=magazinepublish.patient_id';
+    	$sql       = 'SELECT * FROM catalogue JOIN librarybooks  ON catalogue.id=librarybooks.patient_id';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     

@@ -1,13 +1,13 @@
 <?php
 
-namespace Magazinepublish\Model;
-// namespace Magazinepublish\Form;
+namespace Librarybooks\Model;
+// namespace Librarybooks\Form;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
 
-class Magazinepublish implements InputFilterAwareInterface {
+class Librarybooks implements InputFilterAwareInterface {
 	public $id;
 	public $imgkey;
 	public $descriptionkey;
