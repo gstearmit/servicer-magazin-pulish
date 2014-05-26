@@ -173,7 +173,7 @@ class MgvndetailController extends AbstractActionController {
             $form->setData($data);  // get all post
            
             
-            if ($form->isValid()) {
+            if (!$form->isValid()) {
             	$size = new Size(array('min'=>2000000)); //minimum bytes filesize
             	
             	$adapter = new \Zend\File\Transfer\Adapter\Http();

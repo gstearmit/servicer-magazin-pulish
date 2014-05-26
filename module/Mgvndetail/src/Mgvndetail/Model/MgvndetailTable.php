@@ -68,7 +68,7 @@ class MgvndetailTable extends AbstractTableGateway {
     	 
     	$sql = new Sql($this->adapter);
     	$select = $sql->select();
-    	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey','patient_id'=>patient_id));
+    	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey'));//,'patient_id'=>'patient_id'
     	//$select->columns(array());
     	$select->from ('magazinevietnam')
     	->join('mgvndetail', 'mgvndetail.idmz=magazinevietnam.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
