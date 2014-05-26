@@ -14,6 +14,7 @@ class Catalogue implements InputFilterAwareInterface {
 	public $title;
 	public $patient_id;
 	public $url_catalogue;
+	public $url_rest;
 	protected $inputFilter;
 	
 	
@@ -27,6 +28,7 @@ class Catalogue implements InputFilterAwareInterface {
 		$this->imgkey = (isset ( $data ['imgkey'] )) ? $data ['imgkey'] : null;
 		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
 		$this->url_catalogue = (isset ( $data ['url_catalogue'])) ? $data ['url_catalogue'] : null;
+		$this->url_rest = (isset ( $data ['url_rest'])) ? $data ['url_rest'] : null;
 	}
 	
 	public function dataArray($data) {
@@ -36,6 +38,7 @@ class Catalogue implements InputFilterAwareInterface {
 		$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
 		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
 		$this->url_catalogue = (isset ( $data ['url_catalogue'])) ? $data ['url_catalogue'] : null;
+		$this->url_rest = (isset ( $data ['url_rest'])) ? $data ['url_rest'] : null;
 		
 	}
 	
@@ -46,6 +49,7 @@ class Catalogue implements InputFilterAwareInterface {
 		$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
 		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
 		$this->url_catalogue = (isset ( $data ['url_catalogue'])) ? $data ['url_catalogue'] : null;
+		$this->url_rest = (isset ( $data ['url_rest'])) ? $data ['url_rest'] : null;
 	
 	}
 	public function getArrayCopy() {
@@ -150,6 +154,30 @@ class Catalogue implements InputFilterAwareInterface {
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'url_catalogue',
 					'required' => true,
+					'filters' => array (
+							array (
+									'name' => 'StripTags'
+							),
+							array (
+									'name' => 'StringTrim'
+							)
+					),
+					'validators' => array (
+							array (
+									'name' => 'StringLength',
+									'options' => array (
+											'encoding' => 'UTF-8',
+											'min' => 1,
+											'max' => 100
+									)
+							)
+					)
+			) ) );
+			
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'url_rest',
+					'required' => flase,
 					'filters' => array (
 							array (
 									'name' => 'StripTags'
