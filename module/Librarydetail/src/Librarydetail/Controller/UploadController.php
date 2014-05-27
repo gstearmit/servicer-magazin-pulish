@@ -48,7 +48,8 @@ class UploadController extends AbstractActionController
     }
     
 
-    public function multiAction(){
+    public function multiAction()
+    {
     	 
     	$form = new \Librarydetail\Form\MultiUploadForm();
     	$view = new ViewModel(array('form'=>$form));
@@ -65,6 +66,11 @@ class UploadController extends AbstractActionController
     	}
     	 
     	return $view;
+    }
+    
+    public function uploadnewAction()
+    {
+    	
     }
     
 
