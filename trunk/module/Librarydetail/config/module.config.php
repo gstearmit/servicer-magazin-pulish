@@ -30,6 +30,21 @@ return array(
                 ),
             ),
         ),
+    		'uploadlib' => array (
+    				'type' => 'segment',
+    				'options' => array (
+    						'route'    => '/uploadlibrarydetail[/:action][/:id]',
+    						'constraints' => array(
+    								'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+    								'id'     => '[0-9]+',
+    						),
+    						'defaults' => array (
+    								'__NAMESPACE__' => 'Librarydetail\Controller',
+    								'controller' => 'Librarydetail\Controller\Upload',
+    								'action' => 'uploadnew'
+    						)
+    				)
+    		),
     ),
 
     'view_manager' => array(

@@ -29,6 +29,7 @@ return array(
 		'LibrarybooksRest',
 		'Librarybooksrestfull',
 		'Librarydetail',
+		'Upload',
 		//'ZfcUser',
 		//'ZfcBase',
 		'ZfcAdmin',
