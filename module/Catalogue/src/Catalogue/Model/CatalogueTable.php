@@ -79,14 +79,14 @@ class CatalogueTable extends AbstractTableGateway {
     public function fetchAllOrderbyiddesc(Select $select = null) {
     	if (null === $select)
     		$select = new Select();
-    	$select->from($this->table);
-    	$select->order('id DESC'); 
-       // $sort[] = 'sort_order DESC';
-    	//     	$sort[] = 'value ASC';
-    	//     	$select->order($sort);
-    	$resultSet = $this->selectWith($select);
-    	$resultSet->buffer();
-    	return $resultSet;
+	    	$select->from($this->table);
+	    	$select->order('id DESC'); 
+	       // $sort[] = 'sort_order DESC';
+	    	//     	$sort[] = 'value ASC';
+	    	//     	$select->order($sort);
+	    	$resultSet = $this->selectWith($select);
+	    	$resultSet->buffer();
+	    	return $resultSet;
     }
 
     public function getCatalogue($id) {
@@ -103,22 +103,25 @@ class CatalogueTable extends AbstractTableGateway {
     }
     
     
-    public function getRestCatalogue($id) {
+    public function getRestCatalogueNewsReport($id)
+     {
+    	
+    	//die("die o dađê lam tiep ");
+    	
     	$id = (int) $id;
-    
     	$sql = new Sql($this->adapter);
     	$select = $sql->select();
-    	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
-    	$select->columns(array());
-    	$select->from ('catalogue')
-    	->join('mzimg', 'mzimg.idmz=catalogue.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
-    	$select->where(array('catalogue.id'=>$id));
- //   	$sort[] = 'id DESC';
-//     	$sort[] = 'value ASC';
- //    	$select->order($sort);
+    	$select->columns(array('id'=>'id','name'=>'name','brief'=>'brief','description'=>'description'));
+    	$select->from (array('e' => 'news'))
+    	       ->join(array('r' => 'news'), 'e.category_id= r.id',array(),'left'); //->group('e.id');
+    	$select->where(array('e.category_id'=>$id));
+  	    $sort = 'e.id DESC';
+     	$select->order($sort);
     
     	$selectString = $sql->prepareStatementForSqlObject($select);
+    	
     	//return $selectString;die;
+    	
     	$results = $selectString->execute();
     	 
     	// swap

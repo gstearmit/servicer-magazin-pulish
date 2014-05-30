@@ -16,7 +16,7 @@ class CatalogueRestController extends AbstractRestfulController
 
     public function getList()
     {
-    	//$results = $this->getCatalogueTable()->fetchAll(); //ASC id
+    	//echo 'get list';
     	$results = $this->getCatalogueTable()->fetchAllOrderbyiddesc();
         $data = array();
         foreach($results as $result) {
@@ -30,8 +30,11 @@ class CatalogueRestController extends AbstractRestfulController
 
     public function get($id)
     {
-        $catalogue = $this->getCatalogueTable()->getRestCatalogue($id);
-        //var_dump($catalogue);die();
+//     	echo "Get Id tra ve";
+//     	echo "</br>";
+    	
+        $catalogue = $this->getCatalogueTable()->getRestCatalogueNewsReport($id);
+       // var_dump($catalogue);die();
         return new JsonModel(array(
             'data' => $catalogue,
         ));
