@@ -113,7 +113,8 @@ class CatalogueTable extends AbstractTableGateway {
     	$select = $sql->select();
     	$select->columns(array('id'=>'id','name'=>'name','brief'=>'brief','description'=>'description'));
     	$select->from (array('e' => 'news'))
-    	       ->join(array('r' => 'news'), 'e.category_id= r.id',array(),'left'); //->group('e.id');
+    	       ->join(array('r' => 'news'), 'e.category_id= r.id',array(),'left')//; //->group('e.id');
+    	       ->join(array('c' => 'catalogue'), 'e.category_id= c.id',array('name_category'=>'title'),'right'); //->group('e.id');
     	$select->where(array('e.category_id'=>$id));
   	    $sort = 'e.id DESC';
      	$select->order($sort);

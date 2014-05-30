@@ -33,8 +33,9 @@ class CatalogueRestController extends AbstractRestfulController
 //     	echo "Get Id tra ve";
 //     	echo "</br>";
     	
+       // $catalogue = $this->getCatalogueTable()->getRestCatalogue($id);
         $catalogue = $this->getCatalogueTable()->getRestCatalogueNewsReport($id);
-       // var_dump($catalogue);die();
+        //var_dump($catalogue);die();
         return new JsonModel(array(
             'data' => $catalogue,
         ));
