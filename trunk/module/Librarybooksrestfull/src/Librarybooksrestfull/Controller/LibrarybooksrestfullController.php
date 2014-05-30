@@ -6,8 +6,14 @@ use Zend\Mvc\Controller\AbstractRestfulController;
 
 
 use Librarybooks\Model\Librarybooks;          // <-- Add this import
-use Librarybooks\Form\LibrarybooksForm;       // <-- Add this import
+use Librarybooks\Form\LibrarybooksForm ;       // <-- Add this import
 use Librarybooks\Model\LibrarybooksTable;     // <-- Add this import
+
+use Zend\Validator\File\Size;
+use Zend\Validator\File\Extension;
+use Zend\Db\Adapter\AdapterInterface;
+use Zend\Db\Adapter\Adapter;
+
 use Zend\View\Model\JsonModel;
 
 class LibrarybooksrestfullController extends AbstractRestfulController
@@ -39,7 +45,8 @@ class LibrarybooksrestfullController extends AbstractRestfulController
 
     public function create($data)
     {
-        $form = new LibrarybooksForm();
+    	$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+        $form = new LibrarybooksForm($dbAdapter);
         $librarybooks = new Librarybooks();
         $form->setInputFilter($librarybooks->getInputFilter());
         $form->setData($data);
@@ -57,7 +64,8 @@ class LibrarybooksrestfullController extends AbstractRestfulController
     {
         $data['id'] = $id;
         $librarybooks = $this->getLibrarybooksTable()->getLibrarybooks($id);
-        $form  = new LibrarybooksForm();
+        $dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
+        $form  = new LibrarybooksForm($dbAdapter);
         $form->bind($librarybooks);
         $form->setInputFilter($librarybooks->getInputFilter());
         $form->setData($data);
