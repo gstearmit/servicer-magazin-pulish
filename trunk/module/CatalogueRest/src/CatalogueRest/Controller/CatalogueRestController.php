@@ -19,7 +19,8 @@ class CatalogueRestController extends AbstractRestfulController
     	//echo 'get list';
     	$results = $this->getCatalogueTable()->fetchAllOrderbyiddesc();
         $data = array();
-        foreach($results as $result) {
+        foreach($results as $result) 
+        {
             $data[] = $result;
         }
 
@@ -40,6 +41,8 @@ class CatalogueRestController extends AbstractRestfulController
             'data' => $catalogue,
         ));
     }
+    
+    
 
     public function create($data)
     {

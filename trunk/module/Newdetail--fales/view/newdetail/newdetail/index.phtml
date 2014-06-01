@@ -1,0 +1,105 @@
+<?php
+use Zend\Paginator\Paginator;
+
+$title = 'My newdetails';
+$this->headTitle($title);
+$url_order = 'ASC';
+if ($order_by == 'title')
+    $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
+elseif ($order_by == 'descriptionkey')
+    $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
+?>
+<?php 
+// echo 'hang si '.WEB_PATH_IMG;
+// echo '<br/>';
+?>
+<!-- <img src="<?php echo WEB_PATH_IMG;?>/book1/car_magazine_1.jpg" style="width: 50px;height:40px;">    -->
+<?php 
+/*
+
+<div style="float:left; padding-right:16px;"><?php echo $this->gravatar($this->zfcUserIdentity()->getEmail()) ?></div>
+<h3><?php echo $this->translate('Hello'); ?>, <?php echo $this->zfcUserDisplayName() ?>!</h3>
+<a class="btn" href="<?php echo $this->url('zfcuser/logout') ?>">[<?php echo $this->translate('Sign Out'); ?>]</a>
+<div style="clear:both;"></div>
+*/
+?>
+<h1>Search newdetail </h1>
+<?php
+$form  = $this->form;
+$form->setAttribute('action', $this->url('newdetail', array('action' => 'search')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+foreach ($form as $element) :
+    ?>
+    <div class="control-group <?php if ($this->formElementErrors($element)) echo "error" ?>">
+        <label class="control-label"><?php echo $element->getLabel() ?></label>
+        <div class="controls">
+            <?php
+            echo $this->formElement($element);
+            if ($this->formElementErrors($element)):
+                ?>
+                <span class="help-inline"><?php echo $this->formElementErrors($element); ?></span>
+                <?php
+            endif;
+            ?>
+        </div>
+    </div>
+    <?php
+endforeach;
+echo $this->form()->closeTag();
+?>
+
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p><a class="btn" href="<?php echo $this->url('newdetail', array(  'action' => 'add')); ?>">Add new newdetail</a></p>
+
+<?php // echo $this->formRow($form->get('url_newdetail')) . PHP_EOL; ?>
+
+<table class="table">
+    <tr>
+        <th>
+            <a href="<?php echo $this->url('newdetail', array('order_by' => 'title', 'order' => $url_order,'search_by' => $search_by)); ?>">Name <?php if ($order_by == 'title'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        <th>
+            <a href="<?php echo $this->url('newdetail', array('order_by' => 'url_newdetail', 'order' => $url_order,'search_by' => $search_by)); ?>">Url newdetail <?php if ($order_by == 'url_newdetail'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        <th>
+            <a href="<?php echo $this->url('newdetail', array('order_by' => 'descriptionkey', 'order' => $url_order,'search_by' => $search_by)); ?>">description <?php if ($order_by == 'descriptionkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        <th>
+            <a href="<?php echo $this->url('newdetail', array('order_by' => 'imgkey', 'order' => $url_order,'search_by' => $search_by)); ?>">Thumbnail <?php if ($order_by == 'imgkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        
+        <th><a href="">Action</a></th>
+    </tr>
+    <?php
+
+     foreach ($paginator as $newdetail) : 
+
+    ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($newdetail->title); ?></td>
+            <td><?php echo $this->escapeHtml($newdetail->url_newdetail); ?></td>
+            <td><?php echo $this->escapeHtml($newdetail->descriptionkey); ?></td>
+            <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $newdetail->imgkey;//echo $this->escapeHtml($newdetail->imgkey); ?>" style="width: 100px; height:100px;"/></td>
+            <td>
+                <a class="btn  btn-mini edit-row" href="<?php echo $this->url('newdetail', array('action' => 'edit', 'id' => $newdetail->id));
+        ?>">Edit</a> 
+                <a  class="btn  btn-mini  " href="<?php echo $this->url('newdetail', array('action' => 'delete', 'id' => $newdetail->id));
+        ?>">Delete</a> 
+        
+                <a class="btn  btn-mini  " href="<?php echo '/'.$newdetail->url_newdetail.'/adddetail/'?><?php echo $newdetail->id?>">Add <?php echo $newdetail->title ;?></a>
+               
+        </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+
+
+<?php
+    echo $this->paginationControl(
+            $paginator, 'Sliding', 'paginator-slide', array('order_by' => $order_by, 'order' => $order , 'search_by' => $search_by, 'pageAction' => $pageAction)
+    );
+    ?>

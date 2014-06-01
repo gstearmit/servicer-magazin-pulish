@@ -1,0 +1,21 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+// header('Content-Type: text/html;charset=UTF-8');
+// var_dump('1111111111111');
+if (is_array($this->news) and !empty($this->news))
+ {
+	foreach ($this->news as $new)
+	{
+        ?>
+        <h1><?php echo $new['name'];?></h1>
+		<p><strong><?php echo $new['brief'];?></strong></p>
+		<div><?php echo $new['description'];?></div>
+		<?php
+	}
+}else 
+{
+	die("Not Found Record ! ");
+}
+
+?>
+
