@@ -60,7 +60,7 @@ echo $this->url('news', array( 'action' => 'add'));
         <tr>
             <td><?php echo $this->escapeHtml($news->name); ?></td>
             <td><?php echo $this->escapeHtml($news->description); ?></td>
-            <td><img src="<?php echo WEB_PATH2.'/';?><?php echo $this->escapeHtml($news->image_url); ?>" style="width: 100px; height:100px;"/></td>
+            <td><img src="<?php echo Upload_NEWS.'/';?><?php echo $this->escapeHtml($news->image_url); ?>" style="width: 100px; height:100px;"/></td>
             <td>
                 <a class="btn " href="<?php echo $this->url('news', array('action' => 'edit', 'id' => $news->id));
         ?>">Edit</a> 
