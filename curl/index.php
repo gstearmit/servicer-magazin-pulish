@@ -5,6 +5,7 @@ $path_to_file ="E:\xampp\htdocs\alastca-tester-vn\build_v3\appmagazine.zip";
 // ... curl setup lines .... 
 //$data="{\"title\":\"API V1 App\",\"package\":\"com.alunny.apiv1\",\"version":\"0.1.0\",\"create_method\":\"file\"}";
 //$data="{"title":"API V1 App","package":"com.alunny.apiv1","version":"0.1.0","create_method":"file"}";
+
 curl_setopt($ch, CURLOPT_URL, $url); 
 curl_setopt($ch,CURLOPT_USERPWD,"gstearmitphuca4@gmail.com:ngoc8750phuca4");
 //curl_setopt($data, CURLOPT_HTTPHEADER,
