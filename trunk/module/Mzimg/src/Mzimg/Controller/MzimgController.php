@@ -181,7 +181,7 @@ class MzimgController extends AbstractActionController {
             	 
             	if (!$adapter->isValid()){
             	    
-            		echo 'is not valid';
+            		//echo 'is not valid';
             		
             		$dataError = $adapter->getMessages();
             		 
