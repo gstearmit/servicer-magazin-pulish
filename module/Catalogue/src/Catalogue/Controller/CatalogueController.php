@@ -1,8 +1,10 @@
 <?php
 
 namespace Catalogue\Controller;
-
 use Zend\Mvc\Controller\AbstractActionController;
+use Mylibrary\Feed;
+
+//use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Catalogue\Model\Catalogue;
 use Catalogue\Form\CatalogueForm;
@@ -20,6 +22,7 @@ use ZfcUser\Options\UserControllerOptionsInterface;
 use Zend\Validator\File\Size;
 use Zend\Validator\File\Extension;
 use Mzimg\Model\MzimgTable;
+
 
 class CatalogueController extends AbstractActionController {
 	protected $catalogueTable;
@@ -56,6 +59,15 @@ class CatalogueController extends AbstractActionController {
 // 			return $this->redirect ()->toRoute ( 'zfcuser/login' );
 // 		} else {
 			
+		
+// 		$crawler = new  Feed();
+// 		$arr = "phuc";
+// 		$crawler->phuc();
+// 		die;
+		
+		
+		
+		
 			$searchform = new SearchFromCatalogue();
 			$searchform->get('submit')->setValue('Search');
 			
@@ -99,7 +111,7 @@ class CatalogueController extends AbstractActionController {
 					'order_by' => $order_by,
 					'order' => $order,
 					'page' => $page,
-					'paginator' => $paginator ,
+					'paginatorcatalogue' => $paginator ,
 					'pageAction' => 'catalogues ',
 					'form'       => $searchform,
 					'totalRecord' => $totalRecord,
