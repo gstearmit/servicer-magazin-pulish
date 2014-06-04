@@ -1,4 +1,5 @@
 <?php
+// test : http://localhost/servicer_magazin_pulish_dev/public/san-restful/client?method=get-list
 
 namespace SanRestful\Controller;
 
