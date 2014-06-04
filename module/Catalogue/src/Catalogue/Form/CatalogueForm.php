@@ -81,7 +81,7 @@ class CatalogueForm extends Form
         				'value_options' => $this->getNameCatalogueForSelect()
         		),
         		'attributes' => array(
-        				'value' => '1', //set selected to '1'
+        				'value' => '0', //set selected to '1'
         				'inarrayvalidator' => true,
         				
         		)
@@ -114,14 +114,14 @@ class CatalogueForm extends Form
     public function getNameCatalogueForSelect()
     {
     	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM `catalogue` WHERE 1';
+    	$sql       = 'SELECT * FROM `catalogue`';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     
     	$selectData = array();
     
     	foreach ($result as $res) {
-    		$selectData[$res['patient_id']] = $res['title'];
+    		$selectData[$res['id']] = $res['title'];
     	}
     	return $selectData;
     }
