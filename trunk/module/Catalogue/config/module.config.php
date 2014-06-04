@@ -33,7 +33,7 @@ return array(
             'catalogue' => __DIR__ . '/../view',
         ),
         'template_map' => array(
-            'paginator-slide' => __DIR__ . '/../view/layout/slidePaginator.phtml',
+            'paginator-catalogue' => __DIR__ . '/../view/layout/slidePaginator.phtml',
         ),
     ),
 	'doctrine' => array(

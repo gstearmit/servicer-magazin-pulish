@@ -177,7 +177,7 @@ class Catalogue implements InputFilterAwareInterface {
 			
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'url_rest',
-					'required' => flase,
+					'required' => false,
 					'filters' => array (
 							array (
 									'name' => 'StripTags'

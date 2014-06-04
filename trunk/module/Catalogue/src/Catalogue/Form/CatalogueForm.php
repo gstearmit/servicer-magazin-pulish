@@ -43,6 +43,16 @@ class CatalogueForm extends Form
         ));
         
         $this->add(array(
+        		'name' => 'url_rest',
+        		'attributes' => array(
+        				'type'  => 'text',
+        		),
+        		'options' => array(
+        				'label' => 'url Rest ',
+        		),
+        ));
+        
+        $this->add(array(
         		'name' => 'url_catalogue',
         		'attributes' => array(
         				'type'  => 'text',
