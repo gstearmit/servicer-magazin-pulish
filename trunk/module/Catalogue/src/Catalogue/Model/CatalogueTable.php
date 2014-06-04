@@ -79,7 +79,8 @@ class CatalogueTable extends AbstractTableGateway {
     public function fetchAllOrderbyiddesc(Select $select = null) {
     	if (null === $select)
     		$select = new Select();
-	    	$select->from($this->table);
+	    	$select->from('catalogue');
+	    	$select->where(array('url_rest = \'\''));
 	    	$select->order('id DESC'); 
 	       // $sort[] = 'sort_order DESC';
 	    	//     	$sort[] = 'value ASC';
@@ -87,6 +88,20 @@ class CatalogueTable extends AbstractTableGateway {
 	    	$resultSet = $this->selectWith($select);
 	    	$resultSet->buffer();
 	    	return $resultSet;
+    }
+    
+    public function fetchAllOrderbyidDESCUrlRest(Select $select = null) {
+    	if (null === $select)
+    		$select = new Select();
+    	$select->from('catalogue');
+    	$select->where(array('url_rest != \'\''));
+    	$select->order('id DESC');
+    	// $sort[] = 'sort_order DESC';
+    	//     	$sort[] = 'value ASC';
+    	//     	$select->order($sort);
+    	$resultSet = $this->selectWith($select);
+    	$resultSet->buffer();
+    	return $resultSet;
     }
 
     public function getCatalogue($id) {
@@ -138,6 +153,33 @@ class CatalogueTable extends AbstractTableGateway {
     	 
     }
     
+    
+    public function getRestCatalogue($id) {
+    	$id = (int) $id;
+        $url_rest = 'url_rest != \'\' ';
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	
+    	$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey','url_catalogue'=>'url_catalogue','url_rest'=>'url_rest','patient_id'=>'patient_id'));
+    	$select->from ('Catalogue');
+    	$select->where(array('Catalogue.id'=>$id,'url_rest != \'\''));
+    
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    	//return $selectString;die;
+    	$results = $selectString->execute();
+    
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    
+    	return $array;
+    
+    }
 
 
     public function saveCatalogue(Catalogue $catalogue) {
