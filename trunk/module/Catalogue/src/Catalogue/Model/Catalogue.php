@@ -26,7 +26,7 @@ class Catalogue implements InputFilterAwareInterface {
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
 		$this->imgkey = (isset ( $data ['imgkey'] )) ? $data ['imgkey'] : null;
-		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
+		$this->patient_id = (isset (  $data ['id'] )) ? $data ['patient_id'] : null;
 		$this->url_catalogue = (isset ( $data ['url_catalogue'])) ? $data ['url_catalogue'] : null;
 		$this->url_rest = (isset ( $data ['url_rest'])) ? $data ['url_rest'] : null;
 	}
@@ -36,7 +36,7 @@ class Catalogue implements InputFilterAwareInterface {
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
 		$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
-		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
+		$this->patient_id = (isset (  $data ['id'] )) ? $data ['patient_id'] : null;
 		$this->url_catalogue = (isset ( $data ['url_catalogue'])) ? $data ['url_catalogue'] : null;
 		$this->url_rest = (isset ( $data ['url_rest'])) ? $data ['url_rest'] : null;
 		
@@ -47,7 +47,7 @@ class Catalogue implements InputFilterAwareInterface {
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
 		$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
-		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
+		$this->patient_id = (isset (  $data ['id'] )) ? $data ['patient_id'] : null;
 		$this->url_catalogue = (isset ( $data ['url_catalogue'])) ? $data ['url_catalogue'] : null;
 		$this->url_rest = (isset ( $data ['url_rest'])) ? $data ['url_rest'] : null;
 	
@@ -66,7 +66,7 @@ class Catalogue implements InputFilterAwareInterface {
 			
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'id',
-					'required' => true,
+					'required' => false,
 					'filters' => array (
 							array (
 									'name' => 'Int' 
