@@ -15,6 +15,14 @@ class AlbumRestController extends AbstractRestfulController
 
     public function getList()
     {
+    	
+//     	$response = $this->getResponseWithHeader()
+//     	->setContent( __METHOD__.' get the list of data');
+//     	return $response;
+    	 
+    	
+    	
+    	
         $results = $this->getAlbumTable()->fetchAll();
         $data = array();
         foreach($results as $result) {
@@ -84,5 +92,18 @@ class AlbumRestController extends AbstractRestfulController
             $this->albumTable = $sm->get('Album\Model\AlbumTable');
         }
         return $this->albumTable;
+    }
+    
+    // configure response
+    public function getResponseWithHeader()
+    {
+    	$response = $this->getResponse();
+    	$response->getHeaders()
+    	//make can accessed by *
+    	->addHeaderLine('Access-Control-Allow-Origin','*')
+    	//set allow methods
+    	->addHeaderLine('Access-Control-Allow-Methods','POST PUT DELETE GET');
+    
+    	return $response;
     }
 }
