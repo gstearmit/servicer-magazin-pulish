@@ -186,11 +186,11 @@ class UtilityController extends AbstractActionController
 		return date('d.m', strtotime($dateTime));
 	}
 	
-		if (!$logFile) {
-			$logFile = $_SERVER['SERVER_NAME'].date(' Y-m-d');
-		}
-		return error_log(date('[Y-m-d H:i:s] ').$message."\n", 3, JPATH_ROOT.'/logs/'.$logFile);
-	}
+// 		if (!$logFile) {
+// 			$logFile = $_SERVER['SERVER_NAME'].date(' Y-m-d');
+// 		}
+// 		return error_log(date('[Y-m-d H:i:s] ').$message."\n", 3, JPATH_ROOT.'/logs/'.$logFile);
+// 	}
 	
 	function logImport($message)
 	{
