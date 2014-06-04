@@ -2,7 +2,7 @@
 $ch = curl_init(); // Initialize Curl
 $url="https://build.phonegap.com/api/v1/me"; //API url to view applications.
 
-$username = 'gstearmit@gmail.com';
+$username = 'gstearmitphuca4@gmail.com';
 $password = 'ngoc8750phuca4';
 
 // Set CURL options
@@ -19,5 +19,7 @@ $obj = json_decode($output);
 // 	echo '<pre>'.$app->title.'</pre>';
 // }
 
-// curl_close($ch); // close the curl 
+curl_close($ch); // close the curl 
+
+var_dump($obj) ;
 ?>

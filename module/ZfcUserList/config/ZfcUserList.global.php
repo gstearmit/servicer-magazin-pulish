@@ -22,13 +22,11 @@ $settings = array(
     /**
      * an array with as first the label and as second the fielsname in the database
      */
-    'userListElements' => array('Id' => 'id', 'Email address' => 'email', 'Display name' => 'display_name')
-
+    'userListElements' => array('Id' => 'id', 'Email address' => 'email', 'Display name' => 'display_name'),
     /**
      * The amount of elements(users) shown per page.
      */
     'elementsPerPage' => '10',
-
 
     /**
      * [WIP]

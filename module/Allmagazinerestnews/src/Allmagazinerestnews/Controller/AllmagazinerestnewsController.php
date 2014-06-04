@@ -1,6 +1,6 @@
 <?php
 
-namespace CatalogueRest\Controller;
+namespace Allmagazinerestnews\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 
@@ -10,14 +10,14 @@ use Catalogue\Form\CatalogueForm;       // <-- Add this import
 use Catalogue\Model\CatalogueTable;     // <-- Add this import
 use Zend\View\Model\JsonModel;
 
-class CatalogueRestController extends AbstractRestfulController
+class AllmagazinerestnewsController extends AbstractRestfulController
 {
     protected $catalogueTable;
 
     public function getList()
     {
     	//echo 'get list';
-    	$results = $this->getCatalogueTable()->fetchAllOrderbyiddesc();
+    	$results = $this->getCatalogueTable()->fetchAllOrderbyidDESCUrlRest();
         $data = array();
         foreach($results as $result) 
         {
@@ -31,12 +31,9 @@ class CatalogueRestController extends AbstractRestfulController
 
     public function get($id)
     {
-//     	echo "Get Id tra ve";
-//     	echo "</br>";
-    	
-        //$catalogue = $this->getCatalogueTable()->getRestCatalogue($id);
-        $catalogue = $this->getCatalogueTable()->getRestCatalogueNewsReport($id);
-        //var_dump($catalogue);die();
+ 
+        $catalogue = $this->getCatalogueTable()->getRestCatalogue($id);
+       // var_dump($catalogue);die();
         return new JsonModel(array(
             'data' => $catalogue,
         ));
