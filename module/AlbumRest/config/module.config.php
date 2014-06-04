@@ -3,6 +3,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'AlbumRest\Controller\AlbumRest' => 'AlbumRest\Controller\AlbumRestController',
+        	'AlbumRest\Controller\AlbumClient' => 'AlbumRest\Controller\AlbumClientController',
         ),
     ),
 
@@ -22,6 +23,25 @@ return array(
                 ),
             ),
         ),
+    	
+    		'may_terminate' => true,
+    		'child_routes' => array(
+    				'client' => array(
+    						'type'    => 'Segment',
+    						'options' => array(
+    								'route'    => '/client[/:action]',
+    								'constraints' => array(
+    										'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+    								),
+    								'defaults' => array(
+    										'controller' => 'AlbumClient',
+    										'action'     => 'index'
+    								),
+    						),
+    				),
+    		),
+    		
+    		
     ),
     'view_manager' => array(
         'strategies' => array(
