@@ -89,8 +89,8 @@ echo $this->form()->closeTag();
         ?>">Delete</a> 
         
                 <a class="btn  btn-mini  " href="<?php //echo WEB_PATH ?>/librarydetail/adddetail/<?php echo $librarybooks->id?>">Add Librarydetail</a>
-               <?php  /* <a href="<?php //echo WEB_PATH ?>/librarybooks/adddetail/<?php echo $librarybooks->id?>">Add Mzimg</a>  */ ?>
-        </td>
+                <a class="btn  btn-mini  " href="<?php //echo WEB_PATH ?>/librarybooks/readdetail/<?php echo $librarybooks->id?>">Read <?php echo $librarybooks->title?> </a>
+         </td>
         </tr>
     <?php endforeach; ?>
 </table>

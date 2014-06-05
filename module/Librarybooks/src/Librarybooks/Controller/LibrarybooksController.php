@@ -379,6 +379,23 @@ class LibrarybooksController extends AbstractActionController {
 				'librarybooks' => $this->getLibrarybooksTable ()->getLibrarybooks ( $id ) 
 		);
 	}
+	
+	
+	public function readdetailAction()
+	{
+		$id = ( int ) $this->params ( 'id' );
+		if (! $id) {
+			return $this->redirect ()->toRoute ( 'librarybooks' );
+		}
+	
+		$read = $this->getLibrarybooksTable ()->getReadLibrarybooks( $id ) ;
+		return array (
+				'id' => $id,
+				'readdetail' => $read,
+		);
+	}
+	
+	
 	public function getLibrarybooksTable() {
 		if (! $this->librarybooksTable) {
 			$sm = $this->getServiceLocator ();
@@ -387,11 +404,5 @@ class LibrarybooksController extends AbstractActionController {
 		return $this->librarybooksTable;
 	}
 	
-// 	public function getlibrarydetailTable() {
-// 		if (!$this->librarybooksTable) {
-// 			$sm = $this->getServiceLocator();
-// 			$this->librarybooksTable = $sm->get('librarydetail\Model\librarydetailTable');
-// 		}
-// 		return $this->librarybooksTable;
-// 	}
+
 }

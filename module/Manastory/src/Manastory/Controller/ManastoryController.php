@@ -310,5 +310,19 @@ class ManastoryController extends AbstractActionController {
         }
         return $this->manastoryTable;
     }
+    
+    public function readdetailAction()
+    {
+    	$id = ( int ) $this->params ( 'id' );
+    	if (! $id) {
+    		return $this->redirect ()->toRoute ( 'manastory' );
+    	}
+    
+    	$read = $this->getManastoryTable ()->getReadManastory( $id ) ;
+    	return array (
+    			'id' => $id,
+    			'readdetail' => $read,
+    	);
+    }
 
 }

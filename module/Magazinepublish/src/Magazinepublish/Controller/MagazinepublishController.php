@@ -400,4 +400,6 @@ class MagazinepublishController extends AbstractActionController {
    			'readdetail' => $read,
    	);
    }
+   
+   
 }
