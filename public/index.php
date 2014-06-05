@@ -3,6 +3,8 @@
  * This makes our life easier when dealing with paths. Everything is relative
  * to the application root now.
  */
+define('ROOT_PATH', dirname(dirname(__DIR__)));
+define('PROFILE_IMAGE_PATH', '/servicer_magazin_pulish_dev/public/images/profile');
 include 'define.php'; 
 chdir(dirname(__DIR__));
 

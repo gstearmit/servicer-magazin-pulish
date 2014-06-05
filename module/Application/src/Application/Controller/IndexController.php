@@ -35,6 +35,10 @@ class IndexController extends AbstractActionController
 //     		echo "ban co quyen de truy cap vao action nay";
 //     	}
     	
+    	
+//     	var_dump($this->commonHelper()->uploadImage($data = Null));
+//     	die;
+    	
         return new ViewModel();
     }
     

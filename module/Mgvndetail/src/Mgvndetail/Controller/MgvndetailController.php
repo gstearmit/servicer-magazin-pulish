@@ -173,7 +173,7 @@ class MgvndetailController extends AbstractActionController {
             $form->setData($data);  // get all post
            
             
-            if (!$form->isValid()) {
+            if ($form->isValid()) {
             	$size = new Size(array('min'=>2000000)); //minimum bytes filesize
             	
             	$adapter = new \Zend\File\Transfer\Adapter\Http();
@@ -192,8 +192,6 @@ class MgvndetailController extends AbstractActionController {
             			$error[] = $row;
             		}
             	
-
-            		
             		$form->setMessages(array('img'=>$error ));
             		//die;
             	}
@@ -213,7 +211,16 @@ class MgvndetailController extends AbstractActionController {
                 // Redirect to list of mgvndetails
                 return $this->redirect()->toRoute('mgvndetail');
             }
+            
+            if (!$form->isValid()) {
+            	 
+            	die('loi ko validate duoc form');
+            }
+            
+            
         }
+        
+       
 
         return array(
         		'form' => $form,

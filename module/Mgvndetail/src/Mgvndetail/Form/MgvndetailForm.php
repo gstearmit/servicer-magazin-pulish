@@ -30,7 +30,13 @@ class MgvndetailForm extends Form
             ),
         ));
 
-    
+    //
+        $this->add(array(
+        		'name' => 'idmz',
+        		'attributes' => array(
+        				'type'  => 'hidden',
+        		),
+        ));
       
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',

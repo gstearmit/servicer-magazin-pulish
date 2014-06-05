@@ -43,6 +43,19 @@ class Mzimg implements InputFilterAwareInterface
     
     }
     
+    
+    public function dataArraySwap($data , $Renamefile)
+    {
+    	
+	    	$this->id     = (isset($data['id'])) ? $data['id'] : null;
+	    	$this->idmz = (isset($data['cataloguemagazine'])) ? $data['cataloguemagazine'] : null;
+	    	$this->img =   $Renamefile ? $data['img']['name'] : null;
+	    	$this->description  = (isset($data['description'])) ? $data['description'] : null;
+	    	$this->title  = (isset($data['title'])) ? $data['title'] : null;
+	    	$this->page  = (isset($data['page'])) ? $data['page'] : null;
+    	
+    }
+    
     public function dataPost($data)
     {
     	$this->id     = (isset($data['id'])) ? $data['id'] : null;

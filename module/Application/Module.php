@@ -45,5 +45,15 @@ class Module
     			),
     	);
     }
+    
+    public function getControllerPluginConfig() {
+    	return array(
+    			'invokables' => array(
+    					//'changeConnection' => 'PerseedApplication\Controller\Plugin\ChangeConnection',
+    					'commonHelper' => 'Application\Controller\Plugin\CommonHelper',
+    			),
+    	);
+    }
+    
 
 }
