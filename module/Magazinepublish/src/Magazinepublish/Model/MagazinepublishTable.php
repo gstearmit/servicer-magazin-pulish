@@ -33,7 +33,7 @@ class MagazinepublishTable extends AbstractTableGateway {
     }
     
     //fetchAllDetailMzimg
-   // public function fetchAllDetailMzimg( $id , Select $select = null)
+       // public function fetchAllDetailMzimg( $id , Select $select = null)
     public function fetchAllDetailMzimg( $id)
     {
     	$id = (int) $id;
@@ -132,6 +132,35 @@ class MagazinepublishTable extends AbstractTableGateway {
     
     	return $array;
     	 
+    }
+    
+    public function getReadMagazinepublish($id)
+    {
+    	$id = (int) $id;
+    	
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
+    	$select->columns(array());
+    	$select->from ('magazinepublish')
+    	->join('mzimg', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('magazinepublish.id'=>$id));
+    	$sort = 'id ASC';
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    	//return $selectString;die;
+    	$results = $selectString->execute();
+    	
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    	
+    	return $array;
+    	
     }
 
     public function saveMagazinepublish(Magazinepublish $magazinepublish) {
