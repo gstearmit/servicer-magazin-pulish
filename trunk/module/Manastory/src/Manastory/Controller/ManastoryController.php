@@ -130,12 +130,14 @@ class ManastoryController extends AbstractActionController {
             		$this->getRequest()->getPost()->toArray(),
             		$this->getRequest()->getFiles()->toArray()
             );
-            echo '<pre>';
-            print_r($data);
-            echo '</pre>';
-            	//die;	
+//             echo '<pre>';
+//             print_r($data);
+//             echo '</pre>';
+//             	//die;	
 
            $form->setData($data);  // get all post
+//            var_dump($form->isValid());
+//            die;
   
             if ($form->isValid()) {
             	

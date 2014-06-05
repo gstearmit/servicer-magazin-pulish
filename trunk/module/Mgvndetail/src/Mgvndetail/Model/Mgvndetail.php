@@ -73,7 +73,7 @@ class Mgvndetail implements InputFilterAwareInterface
 
             $inputFilter->add($factory->createInput(array(
                 'name'     => 'id',
-                'required' => true,
+                'required' => false,
                 'filters'  => array(
                     array('name' => 'Int'),
                 ),
@@ -81,7 +81,7 @@ class Mgvndetail implements InputFilterAwareInterface
 			
 			$inputFilter->add($factory->createInput(array(
                 'name'     => 'idmz',
-                'required' => true,
+                'required' => false,
                 'filters'  => array(
                     array('name' => 'Int'),
                 ),

@@ -181,7 +181,7 @@ class StorydetailController extends AbstractActionController {
 		
 		return array (
 				'form' => $form 
-		// 'idmz'=>$idmz
+		        // 'idmz'=>$idmz
 				);
 	}
 	public function adddetailAction() {
