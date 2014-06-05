@@ -30,21 +30,18 @@ class StorydetailForm extends Form
             ),
         ));
 
-      //  $this->add(array(
-      //      'name' => 'idmz',
-      //      'attributes' => array(
-      //          'type'  => 'text',
-      //      ),
-      //      'options' => array(
-      //          'label' => 'idmz',
-      //      ),
-      //  ));
+       $this->add(array(
+        		'name' => 'idmz',
+        		'attributes' => array(
+        				'type'  => 'hidden',
+        		),
+        ));
       
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
         		'name' => 'cataloguemagazine',
         		'options' => array(
-        				'label' => 'Magazine Pblish',
+        				'label' => 'Story Name: ',
         				'empty_option' => 'Select an story',
         				//'value_options' => $this->fetchAllCatalogue()
         				'value_options' => $this->getOptionsForSelect()
@@ -61,7 +58,7 @@ class StorydetailForm extends Form
                 'type'  => 'file',
             ),
             'options' => array(
-                'label' => 'Upload images',
+                'label' => 'Upload images ',
             ),
         ));
         

@@ -13,11 +13,11 @@ $form->prepare();
 
 echo $this->form()->openTag($form) . PHP_EOL;
 echo $this->formHidden($form->get('id')) . PHP_EOL;
-//echo $this->formRow($form->get('idmz')) . PHP_EOL;
+//echo $this->formHidden($form->get('idmz')) . PHP_EOL;
 if($this->id){
     echo $this->formRow($form->get('cataloguemagazine')) . PHP_EOL;
     }else {
-    	echo 'Ko Ton Tai ai';
+    	//echo 'Ko Ton Tai ai';
     }
     
 echo $this->formRow($form->get('img')) . PHP_EOL;

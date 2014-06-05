@@ -1,5 +1,5 @@
 <?php
-namespace ManaStory\Form;
+namespace Manastory\Form;
 
 use Zend\Form\Form;
 
@@ -21,6 +21,7 @@ class ManastoryForm extends Form
         parent::__construct('manastory');
 
         $this->setAttribute('method', 'post');
+       // $this->setAttribute('class', 'form-horizontal');
         $this->setAttribute('enctype', 'multipart/form-data');
         $this->add(array(
             'name' => 'id',
@@ -30,6 +31,7 @@ class ManastoryForm extends Form
         ));
         
         $defaul = $this->getidcatalogue();
+        
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
         		'name' => 'patient_id',
@@ -44,8 +46,7 @@ class ManastoryForm extends Form
         
         		)
         ));
-        
-        
+
         $this->add(array(
             'name' => 'descriptionkey',
             'attributes' => array(
@@ -75,7 +76,7 @@ class ManastoryForm extends Form
         				'label' => 'Upload images description ',
         		),
         ));
-     
+   
 
         $this->add(array(
             'name' => 'submit',
@@ -89,7 +90,7 @@ class ManastoryForm extends Form
 
     }
     
- public function getNameCatalogueForSelect()
+    public function getNameCatalogueForSelect()
     {
     	$dbAdapter = $this->adapter;
     	$sql       = 'SELECT * FROM catalogue JOIN story  ON catalogue.id=story.patient_id';
