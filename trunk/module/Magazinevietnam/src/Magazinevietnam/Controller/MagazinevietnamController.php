@@ -379,6 +379,23 @@ class MagazinevietnamController extends AbstractActionController {
 				'magazinevietnam' => $this->getMagazinevietnamTable ()->getMagazinevietnam ( $id ) 
 		);
 	}
+	
+	
+	public function readdetailAction()
+	{
+		$id = ( int ) $this->params ( 'id' );
+		if (! $id) {
+			return $this->redirect ()->toRoute ( 'magazinevietnam' );
+		}
+	
+		$read = $this->getMagazinevietnamTable ()->getReadMagazinevietnam( $id ) ;
+		return array (
+				'id' => $id,
+				'readdetail' => $read,
+		);
+	}
+	
+	
 	public function getMagazinevietnamTable() {
 		if (! $this->magazinevietnamTable) {
 			$sm = $this->getServiceLocator ();

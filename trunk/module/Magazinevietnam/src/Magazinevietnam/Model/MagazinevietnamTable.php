@@ -133,6 +133,37 @@ class MagazinevietnamTable extends AbstractTableGateway {
     	return $array;
     	 
     }
+    
+    
+    public function getReadMagazinevietnam($id)
+    {
+    	$id = (int) $id;
+    
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	$select->columns(array());
+    	$select->from ('magazinevietnam')
+    	->join('mgvndetail', 'mgvndetail.idmz=magazinevietnam.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('magazinevietnam.id'=>$id));
+        $sort = 'id ASC';
+
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    	//return $selectString;die;
+    	$results = $selectString->execute();
+    	 
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    
+    	return $array;
+    	 
+    }
+    
 
     public function saveMagazinevietnam(Magazinevietnam $magazinevietnam) {
         $data = array(

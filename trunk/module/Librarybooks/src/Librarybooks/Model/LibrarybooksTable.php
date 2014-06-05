@@ -133,6 +133,35 @@ class LibrarybooksTable extends AbstractTableGateway {
     	return $array;
     	 
     }
+    
+    public function getReadLibrarybooks($id)
+    {
+    	$id = (int) $id;
+    
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	$select->columns(array());
+    	$select->from ('librarybooks')
+    	->join('librarydetail', 'librarydetail.idmz=librarybooks.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('librarybooks.id'=>$id));
+        $sort[] = 'id ASC';
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    	//return $selectString;die;
+    	$results = $selectString->execute();
+    	 
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    
+    	return $array;
+    	 
+    }
+    
 
     public function saveLibrarybooks(Librarybooks $librarybooks) {
         $data = array(

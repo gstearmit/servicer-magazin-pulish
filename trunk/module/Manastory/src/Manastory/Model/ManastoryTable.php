@@ -89,6 +89,36 @@ class ManastoryTable extends AbstractTableGateway {
     	return $array;
     	 
     }
+    
+    
+    public function getReadManastory($id)
+    {
+    	$id = (int) $id;
+    
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	$select->columns(array());
+    	$select->from ('story')
+    	->join('storydetail', 'storydetail.idmz=story.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('story.id'=>$id));
+    	$sort = 'id ASC';
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    	//return $selectString;die;
+    	$results = $selectString->execute();
+    	 
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    
+    	return $array;
+    	 
+    }
+    
 
     public function saveManastory(Manastory $manastory) {
         $data = array(
@@ -190,5 +220,7 @@ class ManastoryTable extends AbstractTableGateway {
     public function deleteManastory($id) {
         $this->delete(array('id' => $id));
     }
+    
+    
 
 }
