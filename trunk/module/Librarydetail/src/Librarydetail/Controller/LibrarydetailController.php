@@ -181,7 +181,7 @@ class LibrarydetailController extends AbstractActionController {
             	 
             	if (!$adapter->isValid()){
             	    
-            		echo 'is not valid';
+            		//echo 'is not valid';
             		
             		$dataError = $adapter->getMessages();
             		 
@@ -269,7 +269,7 @@ class LibrarydetailController extends AbstractActionController {
     
     	if (!$adapter->isValid()){
     	 
-    	echo 'is not valid';
+    	//echo 'is not valid';
     
     	$dataError = $adapter->getMessages();
     	 

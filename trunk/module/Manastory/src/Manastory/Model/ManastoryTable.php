@@ -32,6 +32,50 @@ class ManastoryTable extends AbstractTableGateway {
         return $resultSet;
     }
     
+    //fetchAllDetailstorydetail
+   // public function fetchAllDetailstorydetail( $id , Select $select = null)
+    public function fetchAllDetailstorydetail( $id)
+    {
+    	$id = (int) $id;
+		    //	if (null === $select) $select = new Select();
+		    	
+		//     	$select->from($this->table);
+		//     	$select->order('id ASC');
+		//     	$resultSet = $this->selectWith($select);
+		//     	$resultSet->buffer();
+		//     	return $resultSet;
+		    	
+    	
+
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey','patient_id'=>'patient_id'));
+    	$select->columns(array());
+    	$select->from ('story')
+    	       ->join('storydetail', 'storydetail.idmz=story.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('story.id'=>$id));
+    	$select->order('id ASC');
+       // $resultSet = $this->selectWith($select);
+    	//$resultSet->buffer();
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    	
+    	//return $selectString;die;
+    	
+    	$results = $selectString->execute();
+    	
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    	
+    	return $array;
+    	
+    }
+    
     public function fetchAllOrderbyiddesc(Select $select = null) {
     	if (null === $select)
     		$select = new Select();
@@ -90,7 +134,6 @@ class ManastoryTable extends AbstractTableGateway {
     	 
     }
     
-    
     public function getReadManastory($id)
     {
     	$id = (int) $id;
@@ -101,7 +144,7 @@ class ManastoryTable extends AbstractTableGateway {
     	$select->from ('story')
     	->join('storydetail', 'storydetail.idmz=story.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
     	$select->where(array('story.id'=>$id));
-    	$sort = 'id ASC';
+        $sort[] = 'id ASC';
     	$selectString = $sql->prepareStatementForSqlObject($select);
     	//return $selectString;die;
     	$results = $selectString->execute();
@@ -125,7 +168,8 @@ class ManastoryTable extends AbstractTableGateway {
             'descriptionkey' => $manastory->descriptionkey,
         	'imgkey' => $manastory->imgkey,
             'title' => $manastory->title,
-        	'patient_id' => $magazinepublish->patient_id,
+        	'patient_id' => $manastory->patient_id,
+        		
         );
 
         $id = (int) $manastory->id;
@@ -148,7 +192,7 @@ class ManastoryTable extends AbstractTableGateway {
     			'descriptionkey' => $manastory->descriptionkey,
     			'imgkey' => $manastory->imgkey,
     			'title' => $manastory->title,
-    			'patient_id' => $magazinepublish->patient_id,
+    			'patient_id' => $manastory->patient_id,
     	);
     	
     	$id = (int) $manastory->id;
@@ -220,7 +264,5 @@ class ManastoryTable extends AbstractTableGateway {
     public function deleteManastory($id) {
         $this->delete(array('id' => $id));
     }
-    
-    
 
 }

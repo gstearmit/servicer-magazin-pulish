@@ -128,7 +128,7 @@ class StorydetailController extends AbstractActionController {
 			
 			$form->setData ( $data ); // get all post
 			
-			if ($form->isValid ()) {
+			if (!$form->isValid ()) {
 				$size = new Size ( array (
 						'min' => 2000000 
 				) ); // minimum bytes filesize
@@ -185,6 +185,9 @@ class StorydetailController extends AbstractActionController {
 				);
 	}
 	public function adddetailAction() {
+		
+		//echo 'skdskhkdshskd';die;
+		
 		$id = ( int ) $this->params ()->fromRoute ( 'id', 0 );
 		
 		$select = new Select ();
@@ -254,7 +257,7 @@ class StorydetailController extends AbstractActionController {
 				
 				if (! $adapter->isValid ()) {
 					
-					echo 'is not valid';
+					//echo 'is not valid';
 					
 					$dataError = $adapter->getMessages ();
 					

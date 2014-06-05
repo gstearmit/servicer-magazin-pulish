@@ -1,0 +1,92 @@
+<?php
+use Zend\Paginator\Paginator;
+
+$title = 'My ManaStorys';
+$this->headTitle($title);
+$url_order = 'ASC';
+if ($order_by == 'title')
+    $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
+elseif ($order_by == 'artist')
+    $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
+?>
+<?php 
+// echo 'hang si '.WEB_PATH_IMG;
+// echo '<br/>';
+?>
+<h1>Search Storys </h1>
+<?php
+$form  = $this->form;
+$form->setAttribute('action', $this->url('manastory', array('action' => 'search')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+foreach ($form as $element) :
+    ?>
+    <div class="control-group <?php if ($this->formElementErrors($element)) echo "error" ?>">
+        <label class="control-label"><?php echo $element->getLabel() ?></label>
+        <div class="controls">
+            <?php
+            echo $this->formElement($element);
+            if ($this->formElementErrors($element)):
+                ?>
+                <span class="help-inline"><?php echo $this->formElementErrors($element); ?></span>
+                <?php
+            endif;
+            ?>
+        </div>
+    </div>
+    <?php
+endforeach;
+echo $this->form()->closeTag();
+?>
+
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p><a class="btn " href="<?php
+echo $this->url('manastory', array(
+    'action' => 'add'));
+?>">Add new ManaStory</a></p>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            <a href="<?php echo $this->url('manastory', array('order_by' => 'title', 'order' => $url_order)); ?>">Title <?php if ($order_by == 'title'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        <th>
+            <a href="<?php echo $this->url('manastory', array('order_by' => 'descriptionkey', 'order' => $url_order)); ?>">description <?php if ($order_by == 'descriptionkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        <th>
+            <a href="<?php echo $this->url('manastory', array('order_by' => 'imgkey', 'order' => $url_order)); ?>">Thumbnail <?php if ($order_by == 'imgkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        
+        <th><a href="">Action</a></th>
+    </tr>
+    <?php
+
+     foreach ($paginatorstory as $manastory) : 
+
+    ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($manastory->title); ?></td>
+            <td><?php echo $this->escapeHtml($manastory->descriptionkey); ?></td>
+            <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $manastory->imgkey;//echo $this->escapeHtml($manastory->imgkey); ?>" style="width: 100px; height:100px;"/></td>
+            <td>
+                <a class="btn " href="<?php echo $this->url('manastory', array('action' => 'edit', 'id' => $manastory->id));
+        ?>">Edit</a> 
+                <a class="btn " href="<?php echo $this->url('manastory', array('action' => 'delete', 'id' => $manastory->id));
+        ?>">Delete</a> 
+       
+                <a class="btn  btn-mini  " href="/storydetail/adddetail/<?php echo $manastory->id?>">Add story</a>
+                <a class="btn  btn-mini  " href="<?php //echo WEB_PATH ?>/manastory/readdetail/<?php echo $manastory->id?>">Read <?php echo $manastory->title?> </a>
+        </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<?php
+    echo $this->paginationControl(
+            $paginatorstory, 'Sliding', 'paginatorstory', array('order_by' => $order_by, 'order' => $order, 'search_by' => $search_by, 'pageAction' => $pageAction)
+    );
+    ?>

@@ -39,7 +39,7 @@ class MagazineForm extends Form
         		'type' => 'Zend\Form\Element\Select',
         		'name' => 'cataloguemagazine',
         		'options' => array(
-        				'label' => 'Magazine Pblish',
+        				'label' => 'Story Name',
         				'empty_option' => 'Select an story',
         				//'value_options' => $this->fetchAllCatalogue()
         				'value_options' => $this->getOptionsForSelect()
