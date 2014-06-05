@@ -387,11 +387,17 @@ class MagazinepublishController extends AbstractActionController {
 		return $this->magazinepublishTable;
 	}
 	
-// 	public function getMzimgTable() {
-// 		if (!$this->magazinepublishTable) {
-// 			$sm = $this->getServiceLocator();
-// 			$this->magazinepublishTable = $sm->get('Mzimg\Model\MzimgTable');
-// 		}
-// 		return $this->magazinepublishTable;
-// 	}
+   public function readdetailAction()
+   {
+   	$id = ( int ) $this->params ( 'id' );
+   	if (! $id) {
+   		return $this->redirect ()->toRoute ( 'magazinepublish' );
+   	}
+   	
+   	$read = $this->getMagazinepublishTable ()->getReadMagazinepublish( $id ) ;
+   	return array (
+   			'id' => $id,
+   			'readdetail' => $read,
+   	);
+   }
 }
