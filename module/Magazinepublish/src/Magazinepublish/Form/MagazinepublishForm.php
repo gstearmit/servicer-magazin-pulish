@@ -3,7 +3,7 @@ namespace Magazinepublish\Form;
 
 use Zend\Form\Form;
 
-namespace Magazinepublish\Form;
+//namespace Magazinepublish\Form;
 
 use Zend\Captcha;
 use Zend\Form\Element;
