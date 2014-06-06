@@ -41,7 +41,7 @@ class UploadTable extends AbstractTableGateway {
     	$select->from($this->table);
     	$select->columns(array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
     
-    	$select->join('librarybooks', 'upload.idmz=librarybooks.id',array('titlelibrarybooks'=>'title','descriptionkeylibrarybooks'=>'descriptionkey'));
+    	$select->join('uploaddetail', 'upload.idmz=uploaddetail.id',array('titleuploaddetail'=>'title','descriptionkeyuploaddetail'=>'descriptionkey'));
     	$select->order('id ASC');
     
     	$selectString = $sql->prepareStatementForSqlObject($select);
@@ -70,9 +70,9 @@ class UploadTable extends AbstractTableGateway {
     	$select = $sql->select();
     	$select->columns(array('title'=>'title','descriptionkey'=>'descriptionkey'));
     	//$select->columns(array());
-    	$select->from ('librarybooks')
-    	->join('upload', 'upload.idmz=librarybooks.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
-    	$select->where(array('librarybooks.id'=>$id));
+    	$select->from ('uploaddetail')
+    	->join('upload', 'upload.idmz=uploaddetail.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('uploaddetail.id'=>$id));
     	$select->order('id ASC');
     	// $resultSet = $this->selectWith($select);
     	//$resultSet->buffer();
@@ -122,9 +122,9 @@ class UploadTable extends AbstractTableGateway {
     	$select = $sql->select();
     	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
     	$select->columns(array());
-    	$select->from ('librarybooks')
-    	->join('upload', 'upload.id=librarybooks.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
-    	$select->where(array('librarybooks.id'=>$id));
+    	$select->from ('uploaddetail')
+    	->join('upload', 'upload.id=uploaddetail.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('uploaddetail.id'=>$id));
     
     	$selectString = $sql->prepareStatementForSqlObject($select);
     	$results = $selectString->execute();

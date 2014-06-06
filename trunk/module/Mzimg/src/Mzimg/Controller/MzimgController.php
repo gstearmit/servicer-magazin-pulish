@@ -168,14 +168,23 @@ class MzimgController extends AbstractActionController {
             );
             
 
-            
-            $form->setData($data);  // get all post
+           $form->setData($data);  // get all post
            
+          // $form->setData($request->getPost());
 
             
             if (!$form->isValid()) 
             {
-				
+            	
+            		$messages = $form->getMessages();
+            	//var_dump($messages);
+            	
+            	echo '<pre>';
+            	print_r($form->getData());
+            	echo '</pre>';
+            	
+            	
+            	echo 'loi ';
             	die('Error . Not validate Form . ');
             	
             	
