@@ -35,6 +35,7 @@ class UploadForm extends Form
         		'name' => 'id',
         		'attributes' => array(
         				'type'  => 'hidden',
+        				//'required' => 'required',
         		),
         ));
         
@@ -59,6 +60,7 @@ class UploadForm extends Form
         		'name' => 'descriptionkey',
         		'attributes' => array(
         				'type'  => 'textarea',
+        				'required' => 'required',
         		),
         		'options' => array(
         				'label' => 'Description',
@@ -69,6 +71,7 @@ class UploadForm extends Form
         		'name' => 'title',
         		'attributes' => array(
         				'type'  => 'text',
+        				'required' => 'required',
         		),
         		'options' => array(
         				'label' => 'Title',
@@ -79,6 +82,7 @@ class UploadForm extends Form
         		'name' => 'imgkey',
         		'attributes' => array(
         				'type'  => 'file',
+        				'required' => 'required',
         		),
         		'options' => array(
         				'label' => 'Upload images description ',

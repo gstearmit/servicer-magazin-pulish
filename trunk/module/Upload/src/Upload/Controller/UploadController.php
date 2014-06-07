@@ -9,6 +9,7 @@ use Zend\Filter\Compress\zip;
 
 use Zend\Filter\Exception;
 use ZipArchive;
+use Upload\Model\Upload;
 
 class UploadController extends AbstractActionController {
 	public function indexAction() {
@@ -59,9 +60,9 @@ class UploadController extends AbstractActionController {
 			echo 'Tap tin vua upload len server la: ';
 			$files = $form->upload ( $request->getFiles ()->toArray (), FILES_PATH );
 			
-			echo "<pre>";
-			print_r ( $files );
-			echo "</pre>";
+// 			echo "<pre>";
+// 			print_r ( $files );
+// 			echo "</pre>";
 		}
 		
 		return $view;
@@ -70,23 +71,6 @@ class UploadController extends AbstractActionController {
 	{
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
 		$form = new UploadForm ($dbAdapter);
-		$view = new ViewModel ( array (
-				'form' => $form 
-		) );
-		// 		$request = $this->getRequest ();
-				
-		// 		if ($request->isPost ()) {
-					
-		// 			$files = $request->getFiles ()->toArray ();
-		// 			$fileName = $files ['picture'] ['name'];
-					
-		// 			$uploadObj = new \Zend\File\Transfer\Adapter\Http ();
-		// 			$uploadObj->setDestination ( MZIMG_PATH );
-					
-		// 			if ($uploadObj->receive ( $fileName )) {
-		// 				echo "<br>Upload success";
-		// 			}
-		// 		}
 		
 		
 	 if (!empty($_FILES))
@@ -96,13 +80,7 @@ class UploadController extends AbstractActionController {
 			$source = $_FILES ["zip_file"] ["tmp_name"];
 			$type = $_FILES ["zip_file"] ["type"];
 		
-		echo '<pre>';
-		print_r($_FILES);
-		echo '</pre>';
-		var_dump($filename);
-		
-		
-		
+	
 			$name = explode ( ".", $filename );
 			$accepted_types = array (
 					'application/zip',
@@ -120,9 +98,7 @@ class UploadController extends AbstractActionController {
 			//check file zip
 			$continue = strtolower ( $name [1] ) == 'zip' ? true : false;
 			
-// 		var_dump($name[0]);	
-// 		die;
-			
+
 			if (! $continue) {
 				$myMsg = "Please upload a valid .zip file.";
 				$backUrl = $this->url()->fromRoute('upload', array('action' => 'uploadnew', 'id' => null), array(), true);
@@ -143,17 +119,17 @@ class UploadController extends AbstractActionController {
 				$this->recursive_dir ( $myDir );
 			    mkdir ( $myDir, 0777 );
 			}
-			elseif(is_dir ( $myDir ) === false)
-			{
-				die("Oop ! Error , Directoty of Project upload  is Exits !");
-			}
+// 			elseif(is_dir ( $myDir ) === false)
+// 			{
+// 				//var_dump($path);
+// 				die("Oop ! Error , Directoty of Project upload  is Exits !");
+// 			}
 			
 			
 			$dirimg = $path.$name[0];
-// 			var_dump($dirimg);
-// 			die;
-			
-			if (move_uploaded_file ( $source, $myFile )) {
+
+			if (move_uploaded_file ( $source, $myFile ))
+			 {
 				$zip = new ZipArchive ();
 				
 				$x = $zip->open ( $myFile ); // open the zip file to extract
@@ -175,13 +151,65 @@ class UploadController extends AbstractActionController {
 // 				die;
 				
 				// save file in database
-				foreach ($imgArray as $keyimg)
-				{
+// 				foreach ($imgArray as $keyimg)
+// 				{
 					
+// 				}
+
+				
+				
+				//Upload
+				$form->get ( 'submit' )->setAttribute ( 'value', 'Upload' );
+				
+				$request = $this->getRequest ();
+				
+				if ($request->isPost ())
+				{
+		
+					$upload = new Upload();
+				
+					$form->setInputFilter ( $upload->getInputFilter () ); // check validate
+				
+					$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
+				
+					$form->setData ( $data ); // get all post
+					
+					
+					echo 'data';
+					echo '<pre>';
+					print_r($data);
+					echo '</pre>';
+					
+					echo 'validtae form';
+					var_dump($form->isValid());
+					die;
+					
+					
+					// Validate the form
+					if ($form->isValid()) {
+						$validatedData = $form->getData();
+						
+						echo 'Validate';
+						echo '<pre>';
+						print_r($validatedData);
+						echo '</pre>';
+						die;
+						
+					} else {
+						$messages = $form->getMessages();
+						//die($messages);
+					}	
+					
+					
+				
 				}
 				
 				
+				
+				
 				echo $myMsg = "Your .zip file uploaded and unziped.";
+				
+				
 			} else {
 				echo $myMsg = "There was a problem with the upload.";
 			}
@@ -189,7 +217,30 @@ class UploadController extends AbstractActionController {
 		
 	 }//end if empty	
 		
-		return $view;
+	 $view = new ViewModel ( array (
+	 		'form' => $form
+	 ) );
+	 
+		
+		 return $view;
+		
+		
+		
+		// 		$request = $this->getRequest ();
+		
+		// 		if ($request->isPost ()) {
+			
+		// 			$files = $request->getFiles ()->toArray ();
+		// 			$fileName = $files ['picture'] ['name'];
+			
+		// 			$uploadObj = new \Zend\File\Transfer\Adapter\Http ();
+		// 			$uploadObj->setDestination ( MZIMG_PATH );
+			
+		// 			if ($uploadObj->receive ( $fileName )) {
+		// 				echo "<br>Upload success";
+		// 			}
+		// 		}
+		
 	}
 	
 	public function recursive_dir($dir) {

@@ -3,11 +3,10 @@ namespace Magazinepublish\Form;
 
 use Zend\Form\Form;
 
-//namespace Magazinepublish\Form;
 
 use Zend\Captcha;
 use Zend\Form\Element;
-use Zend\Form\Form;
+
 
 use Zend\Db\Adapter\AdapterInterface;
 use Zend\Db\Adapter\Adapter;
@@ -51,6 +50,7 @@ class MagazinepublishForm extends Form
             'name' => 'descriptionkey',
             'attributes' => array(
                 'type'  => 'textarea',
+            		'required' => 'required',
             ),
             'options' => array(
                 'label' => 'Description',
@@ -61,6 +61,7 @@ class MagazinepublishForm extends Form
             'name' => 'title',
             'attributes' => array(
                 'type'  => 'text',
+            		'required' => 'required',
             ),
             'options' => array(
                 'label' => 'Title',
@@ -71,6 +72,7 @@ class MagazinepublishForm extends Form
         		'name' => 'imgkey',
         		'attributes' => array(
         				'type'  => 'file',
+        				'required' => 'required',
         		),
         		'options' => array(
         				'label' => 'Upload images description ',

@@ -156,11 +156,7 @@ class MagazinepublishController extends AbstractActionController {
 					// die;
 				}
 				if ($adapter->isValid ()) {
-					// echo 'is valid';
 					
-					// var_dump(MZIMG_PATH);
-					// var_dump($data['imgkey']);
-					// die;
 					$adapter->setDestination ( MZIMG_PATH );
 					if ($adapter->receive ( $data ['imgkey'] ['name'] )) {
 						$profile = new Magazinepublish ();
