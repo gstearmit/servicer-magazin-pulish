@@ -3,7 +3,8 @@ $title = 'Add New '.$this->namestory;
 $this->headTitle($title);
 ?>
 
-<?php if($this->id !== Null) 
+<?php 
+if($this->id !== 0) 
  {?>
 
 <h1><?php echo $this->escapeHtml($title); ?></h1>
@@ -19,7 +20,7 @@ echo $this->formHidden($form->get('id')) . PHP_EOL;
 echo $this->formHidden($form->get('idmz')) . PHP_EOL;
 echo $this->formRow($form->get('title')) . PHP_EOL;
 echo $this->formRow($form->get('img')) . PHP_EOL;
-//echo $this->formRow($form->get('description')) . PHP_EOL;
+
 
 $template_content = $form->get('description');
 $tbl_template_content = $template_content->getOption('label');
@@ -83,10 +84,10 @@ if (is_array($paginatorstory) and !empty($paginatorstory))
 ?>
 <?php }// end check empty($paginatorstory)
    else
-   { echo '<h3 style ="color: red;text-align: center;font-style: italic;"> No Story Is Views in detail </h3>';} ?>
+   { echo '<h3 style ="color: red;text-align: center;font-style: italic;"> Not have any books to display</h3>';} ?>
 <?php 
  }
- else {
+ else{
  	die('Oop! Error . ');
  }
 ?>

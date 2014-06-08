@@ -71,16 +71,17 @@ class StorydetailController extends AbstractActionController {
 		$formdata = array();
 		if (!empty($search_by)) {
 			$formdata = (array) json_decode($search_by);
-			if (!empty($formdata['description'])) {
-				$where->addPredicate(
-						new \Zend\Db\Sql\Predicate\Like('description', '%' . $formdata['description'] . '%')
-				);
-			}
 			if (!empty($formdata['title'])) {
 				$where->addPredicate(
 						new \Zend\Db\Sql\Predicate\Like('title', '%' . $formdata['title'] . '%')
 				);
 			}
+			if (!empty($formdata['description'])) {
+				$where->addPredicate(
+						new \Zend\Db\Sql\Predicate\Like('description', '%' . $formdata['description'] . '%')
+				);
+			}
+			
 		
 		}
 		if (!empty($where)) {
@@ -315,7 +316,7 @@ class StorydetailController extends AbstractActionController {
 				
 				$this->getStorydetailTable ()->saveStorydetail ( $storydetail );
 				// Redirect to list of Storydetails
-				return $this->redirect ()->toRoute ( 'storydetail' );
+				return $this->redirect ()->toRoute ( 'storydetail');
 			}
 		}
 		return new ViewModel ( array (
@@ -338,7 +339,11 @@ class StorydetailController extends AbstractActionController {
 					'action' => 'add' 
 			) );
 		}
-		$storydetail = $this->getStorydetailTable ()->getStorydetail ( $id );
+		$storydetail = $this->getStorydetailTable()->getStorydetail ( $id );
+		
+		
+// 		var_dump($storydetail);
+// 		die;
 		
 		//$form = new StorydetailForm ( $dbAdapter );
 		$form = new FromClass ( $dbAdapter,$id );

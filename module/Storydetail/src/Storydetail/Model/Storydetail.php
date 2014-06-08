@@ -111,7 +111,7 @@ class Storydetail implements InputFilterAwareInterface
             
 			$inputFilter->add($factory->createInput(array(
             		'name'     => 'description',
-            		'required' => true,
+            		'required' => false,
             		'filters'  => array(
             				array('name' => 'StripTags'),
             				array('name' => 'StringTrim'),

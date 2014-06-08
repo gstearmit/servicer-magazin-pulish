@@ -162,6 +162,19 @@ class ManastoryTable extends AbstractTableGateway {
     	 
     }
     
+    
+    public function getTableByIdDelete($id)
+    {
+    	$id = (int) $id;
+    	$dbAdapter = $this->adapter;
+    	$sql       = 'DELETE FROM storydetail WHERE idmz ='.$id;
+    	$statement = $dbAdapter->query($sql);
+    	$result    = $statement->execute();
+    	//return $result;
+
+    
+    }
+    
 
     public function saveManastory(Manastory $manastory) {
         $data = array(
@@ -206,59 +219,7 @@ class ManastoryTable extends AbstractTableGateway {
     		}
     	}
     	
-//  	die;
-//     	return var_dump(is_array($manastory->imgkey));
-//     	die;
-    	
-    	
-//     	if (is_array($manastory->imgkey)) 
-//     	{
-//     	  	foreach ($manastory->imgkey as $key)
-//     	  	{
-//     	  		$arrayMa_Img = array();
-//     	  		$arrayMa_Img = $key['name'];
-//     	  	}
-    	  	
-//     	  	$data = array(
-//     	  			'descriptionkey' => $manastory->descriptionkey,
-//     	  			'imgkey' =>$arrayMa_Img,
-//     	  			'title' => $manastory->title,
-//     	  	);
-    	  	
-//     	  	$id = (int) $manastory->id;
-//     	  	if ($id == 0) {
-//     	  		$this->insert($data);
-//     	  	} else {
-//     	  		if ($this->getManastory($id)) {
-//     	  			$this->update($data, array('id' => $id));
-//     	  		} else {
-//     	  			throw new \Exception('Form id does not exist');
-//     	  		}
-//     	  	}
-//     	}else 
-//     	{
-//     		$data = array(
-//     				'descriptionkey' => $manastory->descriptionkey,
-//     				'imgkey' => 'detaa',
-//     				'title' => $manastory->title,
-//     		);
-    		
-//     		$id = (int) $manastory->id;
-//     		if ($id == 0) {
-//     			$this->insert($data);
-//     		} else {
-//     			if ($this->getManastory($id)) {
-//     				$this->update($data, array('id' => $id));
-//     			} else {
-//     				throw new \Exception('Form id does not exist');
-//     			}
-//     		}
-//     	}
-    	
-    	//return 
-    	
-    	
-    	
+
     }
 
     public function deleteManastory($id) {

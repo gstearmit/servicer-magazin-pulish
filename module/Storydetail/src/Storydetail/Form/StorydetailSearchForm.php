@@ -29,9 +29,9 @@ class StorydetailSearchForm extends Form
         $submit->setValue('Search')
                 ->setAttribute('class', 'btn btn-primary');
 
-
+        $this->add($title);
         $this->add($description);
-	    $this->add($title);
+	   
 	
         $this->add($submit);
 
