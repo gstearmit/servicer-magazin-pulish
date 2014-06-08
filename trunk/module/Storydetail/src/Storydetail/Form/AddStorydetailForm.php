@@ -77,6 +77,7 @@ class AddStorydetailForm extends Form
         		'name' => 'title',
         		'attributes' => array(
         				'type'  => 'text',
+        				'required' => 'required',
         		),
         		'options' => array(
         				'label' => 'Title',

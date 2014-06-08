@@ -63,8 +63,9 @@ echo $this->url('storydetail', array( 'action' => 'add'));
             <td><?php echo $this->escapeHtml($storydetail->description); ?></td>
             <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $this->escapeHtml($storydetail->img); ?>" style="width: 100px; height:100px;"/></td>
             <td>
-                <a class="btn " href="<?php echo $this->url('storydetail', array('action' => 'edit', 'id' => $storydetail->id));
+            <!--   <a class="btn " href="<?php echo $this->url('storydetail', array('action' => 'edit', 'id' => $storydetail->id));
         ?>">Edit</a> 
+          --> 
                 <a class="btn " href="<?php echo $this->url('storydetail', array('action' => 'delete', 'id' => $storydetail->id));
         ?>">Delete</a>
             </td>

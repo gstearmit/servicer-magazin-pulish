@@ -10,6 +10,7 @@ use Manastory\Form\MagazineForm;
 use Manastory\Form\ManastorySearchForm as SearchFromManastory ;
 
 use Storydetail\Model\Storydetail;
+use Storydetail\Model\StorydetailTable;
 
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
@@ -19,7 +20,7 @@ use ZfcUser\Service\User as UserService;
 use ZfcUser\Options\UserControllerOptionsInterface;
 use Zend\Validator\File\Size;
 use Zend\Validator\File\Extension;
-use Storydetail\Model\StorydetailTable;
+
 
 class ManastoryController extends AbstractActionController {
 	protected $manastoryTable;
@@ -107,6 +108,7 @@ class ManastoryController extends AbstractActionController {
 		//} // login
 	}
 	public function addAction() {
+		
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
 		$form = new ManastoryForm ($dbAdapter); // include Form Class
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Add' );
@@ -259,12 +261,16 @@ class ManastoryController extends AbstractActionController {
 			return $this->redirect ()->toRoute ( 'manastory' );
 		}
 		
+		
+		
 		$request = $this->getRequest ();
 		if ($request->isPost ()) {
 			$del = $request->getPost ()->get ( 'del', 'No' );
 			if ($del == 'Yes') {
 				$id = ( int ) $request->getPost ()->get ( 'id' );
 				$this->getManastoryTable ()->deleteManastory ( $id );
+				// delete table con cua no
+				$this->getManastoryTable()->getTableByIdDelete($id);
 			}
 			
 			// Redirect to list of manastorys

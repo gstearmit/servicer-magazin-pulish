@@ -37,6 +37,7 @@ class StorydetailForm extends Form
         		),
         ));
       
+       // catalogue = idmz
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
         		'name' => 'idmz',
