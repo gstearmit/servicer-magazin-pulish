@@ -123,6 +123,13 @@ class MagazinepublishController extends AbstractActionController {
 			
 			$form->setData ( $data ); // get all post
 			
+			echo 'validate ';
+			var_dump($form->isValid());
+			echo '<pre>';
+			print_r($form->getData());
+			echo '</pre>';
+			die;
+			
 			if ($form->isValid ()) {
 				
 				$size = new Size ( array (

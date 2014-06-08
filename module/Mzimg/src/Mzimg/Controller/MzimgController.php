@@ -153,6 +153,9 @@ class MzimgController extends AbstractActionController {
         $form = new MzimgForm($dbAdapter); // include Form Class
        
         $form->get('submit')->setAttribute('value', 'Add');
+        
+        
+        
        
         $request = $this->getRequest();
        
@@ -171,7 +174,8 @@ class MzimgController extends AbstractActionController {
            $form->setData($data);  // get all post
            
           // $form->setData($request->getPost());
-
+            echo 'validate ';
+			var_dump($form->isValid());
             
             if (!$form->isValid()) 
             {
@@ -202,9 +206,14 @@ class MzimgController extends AbstractActionController {
                 return $this->redirect()->toRoute('mzimg');
             }
             
-        if ($form->isValid ()) 
+        if ($form->isValid()) 
         {
-				
+
+        	echo '<pre>';
+        	print_r($form->getData());
+        	echo '</pre>';
+		 die('validata');die;
+		 		
 				$size = new Size ( array (
 						'min' => 2000000 
 				) ); // minimum bytes filesize

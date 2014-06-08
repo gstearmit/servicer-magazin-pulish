@@ -6,7 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Storydetail\Model\Storydetail;
 use Storydetail\Form\StorydetailForm;
-use Storydetail\Form\MagazineForm as FromClass;
+use Storydetail\Form\AddStorydetailForm as FromClass;
 use Storydetail\Form\StorydetailSearchForm as SearchFromStorydetail ;
 
 use Zend\Db\Sql\Select;
@@ -128,7 +128,10 @@ class StorydetailController extends AbstractActionController {
 			
 			$form->setData ( $data ); // get all post
 			
-			if (!$form->isValid ()) {
+			if ($form->isValid ()) {
+				
+				
+				
 				$size = new Size ( array (
 						'min' => 2000000 
 				) ); // minimum bytes filesize
@@ -200,6 +203,8 @@ class StorydetailController extends AbstractActionController {
 		//$storyArray  = $this->getStorydetailTable()->fetchAllDetailStory ($id ,$select->order ( $order_by . ' ' . $order ));
 		$storyArray  = $this->getStorydetailTable()->fetchAllDetailStory ($id);
 		
+		
+		
 		$itemsPerPage = 10; // is Number record/page
 		
 // 		$storydetails->current ();
@@ -218,27 +223,41 @@ class StorydetailController extends AbstractActionController {
 		
 		$dbAdapter = $this->getServiceLocator ()->get ( 'Zend\Db\Adapter\Adapter' );
 		
-		$form = new FromClass ( $dbAdapter,$id ); // include Form Class
+		$form = new FromClass($dbAdapter,$id ); // include Form Class
+		
+		$namestoryArray = $this->getStorydetailTable()->getNameStory($id); // name story
+		if( !empty($namestoryArray) and is_array($namestoryArray)) 
+		{ 
+			$namestory = $namestoryArray[0]['titlestory']; // name story
+		}else $namestory = 'Not Exits';
 		
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Add' );
 		
-		$request = $this->getRequest ();
+		$request = $this->getRequest();
 		
 		if ($request->isPost ()) {
 			
 			$storydetail = new Storydetail ();
 			
-			$form->setInputFilter ( $storydetail->getInputFilter () ); // check validate
+			$form->setInputFilter ( $storydetail->getInputFilter() ); // check validate
 			
-			$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
+			$data = array_merge_recursive ( $this->getRequest()->getPost ()->toArray(), $this->getRequest()->getFiles()->toArray() );
+		
+			$form->setData( $data ); // get all post
 			
-			// echo '<pre>';
-			// print_r($data);
-			// echo '</pre>';
+// 			echo 'validate ';
+// 			var_dump($form->isValid());
 			
-			$form->setData ( $data ); // get all post
 			
-			if (!$form->isValid ()) {
+			if ($form->isValid()) {
+				
+// 				echo '<pre>';
+// 				print_r($form->getData());
+// 				echo '</pre>';
+// 				die('validata');die;
+				
+				
+				
 				$size = new Size ( array (
 						'min' => 2000000 
 				) ); // minimum bytes filesize
@@ -306,6 +325,7 @@ class StorydetailController extends AbstractActionController {
 				'paginatorstory' => $storyArray,
 				'form' => $form,
 				'id' => $id,
+				'namestory'=>$namestory,
 		) );
 	}
 	

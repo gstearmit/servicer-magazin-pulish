@@ -34,9 +34,9 @@ class MzimgForm extends Form
       
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
-        		'name' => 'cataloguemagazine',
+        		'name' => 'idmz',
         		'options' => array(
-        				'label' => 'Magazine Pblish',
+        				//'label' => 'Mzimg ',
         				'empty_option' => 'Please select an Magazine',
         				//'value_options' => $this->fetchAllCatalogue()
         				'value_options' => $this->getOptionsForSelect()

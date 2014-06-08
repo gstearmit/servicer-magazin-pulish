@@ -22,27 +22,23 @@ class Upload implements InputFilterAwareInterface {
 		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
-		//$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
+		// $this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
 		$this->imgkey = (isset ( $data ['imgkey'] )) ? $data ['imgkey'] : null;
-		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
+		$this->patient_id = (isset ( $data ['patient_id'] )) ? $data ['patient_id'] : null;
 	}
-	
 	public function dataArray($data) {
 		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
-		$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
-		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
-		
+		$this->imgkey = (isset ( $data ['imgkey'] ['name'] )) ? $data ['imgkey'] ['name'] : null;
+		$this->patient_id = (isset ( $data ['patient_id'] )) ? $data ['patient_id'] : null;
 	}
-	
 	public function dataPost($data) {
 		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
-		$this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
-		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
-	
+		$this->imgkey = (isset ( $data ['imgkey'] ['name'] )) ? $data ['imgkey'] ['name'] : null;
+		$this->patient_id = (isset ( $data ['patient_id'] )) ? $data ['patient_id'] : null;
 	}
 	public function getArrayCopy() {
 		return get_object_vars ( $this );
@@ -88,10 +84,10 @@ class Upload implements InputFilterAwareInterface {
 							) 
 					) 
 			) ) );
-	
+			
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'imgkey',
-					'required' =>false,
+					'required' => false,
 					'validators' => array (
 							array (
 									'name' => 'FileExtension',
@@ -110,34 +106,33 @@ class Upload implements InputFilterAwareInterface {
 											'options' => array (
 													'encoding' => 'UTF-8',
 													'min' => 1,
-													'max' => 100
-											),
+													'max' => 100 
+											) 
+									) 
 							) 
 					) 
-			) ) )
-			);
-			
+			) ) );
 			
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'zip_file',
-					'required' =>false,
+					'required' => false,
 					'validators' => array (
 							array (
 									'name' => 'FileExtension',
 									'options' => array (
-											'extension' => 'zip,ZIP,rar'
-									)
+											'extension' => 'zip,ZIP,rar' 
+									) 
 							),
-							array(
+							array (
 									'name' => 'FileSize',
-									'options' => array(
+									'options' => array (
 											'min' => 1000,
-											'max' => 4000000,
-									),
-							),
-							
-					) ) )
-			);
+											'max' => 4000000 
+									) 
+							) 
+					)
+					 
+			) ) );
 			
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'title',
@@ -170,31 +165,32 @@ class Upload implements InputFilterAwareInterface {
 		
 		return $this->inputFilter;
 	}
-	
-	public function getInputFilteruploaddetail()
-	{
-		if (!$this->inputFilter) {
-			$inputFilter = new InputFilter();
-	
-			$factory = new InputFactory();
-	
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'id',
+	public function getInputFilteruploaddetail() {
+		if (! $this->inputFilter) {
+			$inputFilter = new InputFilter ();
+			
+			$factory = new InputFactory ();
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'id',
 					'required' => true,
-					'filters'  => array(
-							array('name' => 'Int'),
-					),
-			)));
-				
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'idmz',
+					'filters' => array (
+							array (
+									'name' => 'Int' 
+							) 
+					) 
+			) ) );
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'idmz',
 					'required' => true,
-					'filters'  => array(
-							array('name' => 'Int'),
-					),
-			)));
-	
-	
+					'filters' => array (
+							array (
+									'name' => 'Int' 
+							) 
+					) 
+			) ) );
+			
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'img',
 					'required' => false,
@@ -202,104 +198,138 @@ class Upload implements InputFilterAwareInterface {
 							array (
 									'name' => 'FileExtension',
 									'options' => array (
-											'extension' => 'jpg, jpeg, png'
-									)
+											'extension' => 'jpg, jpeg, png' 
+									) 
 							),
 							array (
 									'name' => 'FileSize',
 									'options' => array (
 											'min' => 1000,
-											'max' => 4000000
-									)
-							)
-	
-					) ,
+											'max' => 4000000 
+									) 
+							) 
+					)
+					 
 			) ) );
-	
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'description',
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'description',
 					'required' => true,
-					'filters'  => array(
-							array('name' => 'StripTags'),
-							array('name' => 'StringTrim'),
-					),
-					'validators' => array(
-							array(
-									'name'    => 'StringLength',
-									'options' => array(
-											'encoding' => 'UTF-8',
-											'min'      => 1,
-											'max'      => 100,
-									),
+					'filters' => array (
+							array (
+									'name' => 'StripTags' 
 							),
+							array (
+									'name' => 'StringTrim' 
+							) 
 					),
-			)));
-				
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'title',
+					'validators' => array (
+							array (
+									'name' => 'StringLength',
+									'options' => array (
+											'encoding' => 'UTF-8',
+											'min' => 1,
+											'max' => 100 
+									) 
+							) 
+					) 
+			) ) );
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'title',
 					'required' => true,
-					'filters'  => array(
-							array('name' => 'StripTags'),
-							array('name' => 'StringTrim'),
-					),
-					'validators' => array(
-							array(
-									'name'    => 'StringLength',
-									'options' => array(
-											'encoding' => 'UTF-8',
-											'min'      => 1,
-											'max'      => 100,
-									),
+					'filters' => array (
+							array (
+									'name' => 'StripTags' 
 							),
+							array (
+									'name' => 'StringTrim' 
+							) 
 					),
-			)));
-				
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'page',
+					'validators' => array (
+							array (
+									'name' => 'StringLength',
+									'options' => array (
+											'encoding' => 'UTF-8',
+											'min' => 1,
+											'max' => 100 
+									) 
+							) 
+					) 
+			) ) );
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'page',
 					'required' => true,
-					'filters'  => array(
-							array('name' => 'StripTags'),
-							array('name' => 'StringTrim'),
-					),
-					'validators' => array(
-							array(
-									'name'    => 'StringLength',
-									'options' => array(
-											'encoding' => 'UTF-8',
-											'min'      => 1,
-											'max'      => 100,
-									),
+					'filters' => array (
+							array (
+									'name' => 'StripTags' 
 							),
+							array (
+									'name' => 'StringTrim' 
+							) 
 					),
-			)));
-				
-				
-	
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'title',
+					'validators' => array (
+							array (
+									'name' => 'StringLength',
+									'options' => array (
+											'encoding' => 'UTF-8',
+											'min' => 1,
+											'max' => 100 
+									) 
+							) 
+					) 
+			) ) );
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'title',
 					'required' => true,
-					'filters'  => array(
-							array('name' => 'StripTags'),
-							array('name' => 'StringTrim'),
-					),
-					'validators' => array(
-							array(
-									'name'    => 'StringLength',
-									'options' => array(
-											'encoding' => 'UTF-8',
-											'min'      => 1,
-											'max'      => 100,
-									),
+					'filters' => array (
+							array (
+									'name' => 'StripTags' 
 							),
+							array (
+									'name' => 'StringTrim' 
+							) 
 					),
-			)));
-	
+					'validators' => array (
+							array (
+									'name' => 'StringLength',
+									'options' => array (
+											'encoding' => 'UTF-8',
+											'min' => 1,
+											'max' => 100 
+									) 
+							) 
+					) 
+			) ) );
+			
 			$this->inputFilter = $inputFilter;
 		}
-	
+		
 		return $this->inputFilter;
 	}
-	
-	
-	
 }
+
+/*
+
+<VirtualHost *:8080>
+		ServerAdmin webmaster@localhost
+		DocumentRoot /var/www/html
+		DirectoryIndex index.php
+		ServerName project.com
+		ServerAlias project.com
+		Options FollowSymLinks
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride All
+	</Directory>
+	<Directory "/var/www/html">
+		Options Indexes FollowSymLinks
+		AllowOverride All
+		#        AllowOverride All
+		#	Options Indexes FollowSymLink
+	</Directory>
+</VirtualHost>
+*/
+
