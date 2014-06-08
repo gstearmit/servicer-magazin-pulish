@@ -12,7 +12,7 @@ use Zend\Db\Sql\Where;
 use Zend\Db\Adapter\AdapterInterface;
 use Zend\Db\Adapter\Adapter;
 
-class MagazineForm extends Form
+class AddStorydetailForm extends Form
 {
 	protected $adapter;
 	protected $id;
@@ -33,11 +33,11 @@ class MagazineForm extends Form
             ),
         ));
 
-        $id_default  = ($this->id)== 0 ? '1' : $this->id;
+        $id_default  = ($this->id)== Null ? '1' : $this->id;
       
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
-        		'name' => 'cataloguemagazine',
+        		'name' => 'idmz',
         		'options' => array(
         				'label' => 'Story Name',
         				'empty_option' => 'Select an story',
@@ -47,6 +47,7 @@ class MagazineForm extends Form
         		'attributes' => array(
         				'value' => $id_default, //set selected to '1'
         				'inarrayvalidator' => true,
+        				//'required' => 'required',
         		)
         ));
 
@@ -54,6 +55,7 @@ class MagazineForm extends Form
             'name' => 'img',
             'attributes' => array(
                 'type'  => 'file',
+            	'required' => 'required',
             ),
             'options' => array(
                 'label' => 'Upload images',

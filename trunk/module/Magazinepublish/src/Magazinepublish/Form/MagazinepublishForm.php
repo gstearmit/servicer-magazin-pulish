@@ -75,7 +75,7 @@ class MagazinepublishForm extends Form
         				'required' => 'required',
         		),
         		'options' => array(
-        				'label' => 'Upload images description ',
+        				'label' => 'Upload images  ',
         		),
         ));
    

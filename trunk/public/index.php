@@ -6,6 +6,7 @@
 define('ROOT_PATH', dirname(dirname(__DIR__)));
 define('PROFILE_IMAGE_PATH', '/servicer_magazin_pulish_dev/public/images/profile');
 define('PATH_ZIP', '/servicer_magazin_pulish_dev/public/images/');
+
 include 'define.php'; 
 chdir(dirname(__DIR__));
 
