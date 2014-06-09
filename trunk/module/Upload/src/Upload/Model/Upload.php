@@ -133,26 +133,26 @@ class Upload implements InputFilterAwareInterface {
 					) 
 			) ) );
 			
-// 			$inputFilter->add ( $factory->createInput ( array (
-// 					'name' => 'zip_file',
-// 					'required' => true,
-// 					'validators' => array (
-// 							array (
-// 									'name' => 'FileExtension',
-// 									'options' => array (
-// 											'extension' => 'zip, ZIP' 
-// 									) 
-// 							),
-// 							array (
-// 									'name' => 'FileSize',
-// 									'options' => array (
-// 											'min' => 1000,
-// 											'max' => 4000000 
-// 									) 
-// 							) 
-// 					)
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'zip_file',
+					'required' => true,
+					'validators' => array (
+							array (
+									'name' => 'FileExtension',
+									'options' => array (
+											'extension' => 'zip, ZIP' 
+									) 
+							),
+							array (
+									'name' => 'FileSize',
+									'options' => array (
+											'min' => 1000,
+											'max' => 4000000 
+									) 
+							) 
+					)
 					 
-// 			) ) );
+			) ) );
 			
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'title',
