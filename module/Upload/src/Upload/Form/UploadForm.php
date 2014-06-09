@@ -39,6 +39,14 @@ class UploadForm extends Form
         		),
         ));
         
+        $this->add(array(
+        		'name' => 'patient_id',
+        		'attributes' => array(
+        				'type'  => 'hidden',
+        				//'required' => 'required',
+        		),
+        ));
+        
 //         $defaul = $this->getidcatalogue();
         
 //         $this->add(array(
@@ -60,7 +68,7 @@ class UploadForm extends Form
         		'name' => 'descriptionkey',
         		'attributes' => array(
         				'type'  => 'textarea',
-        				'required' => 'required',
+        				//'required' => 'required',
         		),
         		'options' => array(
         				'label' => 'Description',
@@ -85,7 +93,7 @@ class UploadForm extends Form
         				'required' => 'required',
         		),
         		'options' => array(
-        				'label' => 'Upload images description ',
+        				'label' => 'Upload images',
         		),
         ));
          
@@ -119,14 +127,14 @@ class UploadForm extends Form
     public function getNameCatalogueForSelect()
     {
     	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM upload JOIN uploaddetail  ON upload.id=uploaddetail.idmz';
+    	$sql       = 'SELECT * FROM catalogue ';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     
     	$selectData = array();
     
     	foreach ($result as $res) {
-    		$selectData[$res['idmz']] = $res['id'];
+    		$selectData[$res['id']] = $res['title'];
     	}
     	return $selectData;
     }

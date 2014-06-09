@@ -13,6 +13,7 @@ class Upload implements InputFilterAwareInterface {
 	public $descriptionkey;
 	public $title;
 	public $patient_id;
+	public $zip_file;
 	protected $inputFilter;
 	
 	/**
@@ -22,7 +23,6 @@ class Upload implements InputFilterAwareInterface {
 		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
-		// $this->imgkey = (isset ( $data ['imgkey']['name'] )) ? $data ['imgkey']['name'] : null;
 		$this->imgkey = (isset ( $data ['imgkey'] )) ? $data ['imgkey'] : null;
 		$this->patient_id = (isset ( $data ['patient_id'] )) ? $data ['patient_id'] : null;
 	}
@@ -54,12 +54,22 @@ class Upload implements InputFilterAwareInterface {
 			
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'id',
-					'required' => true,
+					//'required' => true,
 					'filters' => array (
 							array (
 									'name' => 'Int' 
 							) 
 					) 
+			) ) );
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'patient_id',
+					//'required' => true,
+					'filters' => array (
+							array (
+									'name' => 'Int'
+							)
+					)
 			) ) );
 			
 			$inputFilter->add ( $factory->createInput ( array (
@@ -113,26 +123,26 @@ class Upload implements InputFilterAwareInterface {
 					) 
 			) ) );
 			
-			$inputFilter->add ( $factory->createInput ( array (
-					'name' => 'zip_file',
-					'required' => false,
-					'validators' => array (
-							array (
-									'name' => 'FileExtension',
-									'options' => array (
-											'extension' => 'zip,ZIP,rar' 
-									) 
-							),
-							array (
-									'name' => 'FileSize',
-									'options' => array (
-											'min' => 1000,
-											'max' => 4000000 
-									) 
-							) 
-					)
+// 			$inputFilter->add ( $factory->createInput ( array (
+// 					'name' => 'zip_file',
+// 					'required' => true,
+// 					'validators' => array (
+// 							array (
+// 									'name' => 'FileExtension',
+// 									'options' => array (
+// 											'extension' => 'zip, ZIP' 
+// 									) 
+// 							),
+// 							array (
+// 									'name' => 'FileSize',
+// 									'options' => array (
+// 											'min' => 1000,
+// 											'max' => 4000000 
+// 									) 
+// 							) 
+// 					)
 					 
-			) ) );
+// 			) ) );
 			
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'title',

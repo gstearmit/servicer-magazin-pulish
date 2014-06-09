@@ -129,6 +129,9 @@ class StorydetailController extends AbstractActionController {
 			
 			$form->setData ( $data ); // get all post
 			
+			//var_dump($form->isValid ());
+			//die;
+			
 			if ($form->isValid ()) {
 				
 				

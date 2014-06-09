@@ -71,138 +71,138 @@ class UploadController extends AbstractActionController {
 	{
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
 		$form = new UploadForm ($dbAdapter);
-		//Upload
-		$form->get( 'submit' )->setAttribute( 'value', 'Upload' );
-			
-		$request = $this->getRequest ();
-			
-		if ($request->isPost ())
-		{
-				
-			$upload = new Upload();
-				
-			$form->setInputFilter( $upload->getInputFilter() ); // check validate
-				
-			$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
-				
-			$form->setData ( $data ); // get all post
-				
-				
-			
-				
-			echo 'validtae form';
-			var_dump($form->isValid());
-				
-				
-				
-			// Validate the form
-			if ($form->isValid()) {
-				//$validatedData = $form->getData();
-// 				echo 'Validate';
-// 				echo '<pre>';
-// 				print_r($validatedData);
-// 				echo '</pre>';
-				echo 'data';
-				echo '<pre>';
-				print_r($data);
-				echo '</pre>';
-				die;
-					
-				 if (!empty($_FILES))
-					 { 		
-						if ($_FILES ["zip_file"] ["name"]) {
-							$filename = $_FILES ["zip_file"] ["name"];
-							$source = $_FILES ["zip_file"] ["tmp_name"];
-							$type = $_FILES ["zip_file"] ["type"];
-						
-					
-							$name = explode ( ".", $filename );
-							$accepted_types = array (
-									'application/zip',
-									'application/x-zip-compressed',
-									'multipart/x-zip',
-									'application/x-compressed' 
-							);
-							foreach ( $accepted_types as $mime_type ) {
-								if ($mime_type == $type) 
-								{
-									$okay = true;
-									break;
-								}
-							}
-							//check file zip
-							$continue = strtolower ( $name [1] ) == 'zip' ? true : false;
-							
-				
-							if (! $continue) {
-								$myMsg = "Please upload a valid .zip file.";
-								$backUrl = $this->url()->fromRoute('upload', array('action' => 'uploadnew', 'id' => null), array(), true);
-								die("Please upload a valid .zip file. Oops! This project has not Support!" );
-							}
-							
-						
-							$path = ROOT_PATH.PATH_ZIP;
-						
-							$filenoext = basename ( $filename, '.zip' );
-							$filenoext = basename ( $filenoext, '.ZIP' );
-							
-							$myDir = $path . $filenoext; // target directory
-							$myFile = $path . $filename; // target zip file
-							
-							if (is_dir ( $myDir ))
-							{
-								$this->recursive_dir ( $myDir );
-							    mkdir ( $myDir, 0777 );
-							}
-				// 			elseif(is_dir ( $myDir ) === false)
-				// 			{
-				// 				//var_dump($path);
-				// 				die("Oop ! Error , Directoty of Project upload  is Exits !");
-				// 			}
-							
-							
-							$dirimg = $path.$name[0];
-				
-							if (move_uploaded_file ( $source, $myFile ))
-							 {
-								$zip = new ZipArchive ();
-								
-								$x = $zip->open ( $myFile ); // open the zip file to extract
-								if ($x === true) {
-									$zip->extractTo ( $myDir ); // place in the directory with same name
-									$zip->close ();
-									unlink ( $myFile );
-								}
-							
-								//Rename All 
-								$rename = $this->sequentialImages($dirimg,false);
-							
-								// Read File 
-								$imgArray = $this->readallimg($dirimg);
-								
-								
-				
-								
-								echo $myMsg = "Your .zip file uploaded and unziped.";
-								
-								
-							} else {
-								echo $myMsg = "There was a problem with the upload.";
-							}
-						}
-						
-					 }//end if empty	
-					
-					
-			} else {
-				$messages = $form->getMessages();
-				//die($messages);
-			}
-				
-				
-		}
-	
 		
+	
+		 if (!empty($_FILES))
+		 { 		
+			if ($_FILES ["zip_file"] ["name"]) {
+				$filename = $_FILES ["zip_file"] ["name"];
+				$source = $_FILES ["zip_file"] ["tmp_name"];
+				$type = $_FILES ["zip_file"] ["type"];
+			
+		
+				$name = explode ( ".", $filename );
+				$accepted_types = array (
+						'application/zip',
+						'application/x-zip-compressed',
+						'multipart/x-zip',
+						'application/x-compressed' 
+				);
+				foreach ( $accepted_types as $mime_type ) {
+					if ($mime_type == $type) 
+					{
+						$okay = true;
+						break;
+					}
+				}
+				//check file zip
+				$continue = strtolower ( $name [1] ) == 'zip' ? true : false;
+				
+	
+				if (! $continue) {
+					$myMsg = "Please upload a valid .zip file.";
+					$backUrl = $this->url()->fromRoute('upload', array('action' => 'uploadnew', 'id' => null), array(), true);
+					die("Please upload a valid .zip file. Oops! This project has not Support!" );
+				}
+				
+			
+				$path = ROOT_PATH.PATH_ZIP;
+			
+				$filenoext = basename ( $filename, '.zip' );
+				$filenoext = basename ( $filenoext, '.ZIP' );
+				
+				$myDir = $path . $filenoext; // target directory
+				$myFile = $path . $filename; // target zip file
+				
+				if (is_dir ( $myDir ))
+				{
+					$this->recursive_dir ( $myDir );
+				    mkdir ( $myDir, 0777 );
+				}
+	// 			elseif(is_dir ( $myDir ) === false)
+	// 			{
+	// 				//var_dump($path);
+	// 				die("Oop ! Error , Directoty of Project upload  is Exits !");
+	// 			}
+				
+				
+				$dirimg = $path.$name[0];
+	
+				if (move_uploaded_file ( $source, $myFile ))
+				 {
+					$zip = new ZipArchive ();
+					
+					$x = $zip->open ( $myFile ); // open the zip file to extract
+					if ($x === true) {
+						$zip->extractTo ( $myDir ); // place in the directory with same name
+						$zip->close ();
+						unlink ( $myFile );
+					}
+				
+					//Rename All 
+					$rename = $this->sequentialImages($dirimg,false);
+				
+					// Read File 
+					$imgArray = $this->readallimg($dirimg);
+					
+					//Upload
+					$form->get( 'submit' )->setAttribute( 'value', 'Upload' );
+					
+					$request = $this->getRequest ();
+					
+					if ($request->isPost ())
+					{
+					
+						$upload = new Upload();
+					
+						$form->setInputFilter( $upload->getInputFilter() ); // check validate
+					
+						$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
+					
+						$form->setData ( $data ); // get all post
+					
+					
+						echo 'data';
+						echo '<pre>';
+						print_r($data);
+						echo '</pre>';
+					
+						echo 'validtae form';
+						var_dump($form->isValid());
+							
+					
+					
+						// Validate the form
+						if ($form->isValid()) {
+							$validatedData = $form->getData();
+					
+					
+							echo 'Validate';
+							echo '<pre>';
+							print_r($validatedData);
+							echo '</pre>';
+					
+							die;
+					
+					
+						} else {
+							$messages = $form->getMessages();
+							//die($messages);
+						}
+					
+					
+					}
+	
+					
+					echo $myMsg = "Your .zip file uploaded and unziped.";
+					
+					
+				} else {
+					echo $myMsg = "There was a problem with the upload.";
+				}
+			}
+			
+		 }//end if empty	
 		
 	 $view = new ViewModel ( array (
 	 		'form' => $form
