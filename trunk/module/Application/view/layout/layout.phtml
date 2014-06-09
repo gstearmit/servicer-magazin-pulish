@@ -93,27 +93,73 @@ img {
 						<li class="noactive"><a
 							href="<?php echo $this->url('catalogue') ?>"><?php echo $this->translate('Catalogue') ?></a>
 					    </li>
+						<li class="noactive">
+						   <div class="dropdown">
+							  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenuMagazine" data-toggle="dropdown">
+							   Magazinepublish
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuMagazine">
+							    <li class="noactive"><a href="<?php echo $this->url('magazinepublish') ?>"><?php echo $this->translate('Magazinepublish') ?></a></li>
+						        <li class="noactive"><a href="<?php echo $this->url('mzimg') ?>"><?php echo $this->translate('Mzimg') ?></a></li>
 						
-						<li class="noactive"><a
-							href="<?php echo $this->url('magazinepublish') ?>"><?php echo $this->translate('Magazinepublish') ?></a></li>
-						<li class="noactive"><a href="<?php echo $this->url('mzimg') ?>"><?php echo $this->translate('Mzimg') ?></a></li>
-						<li class="noactive"><a
-							href="<?php echo $this->url('manastory') ?>"><?php echo $this->translate('Story') ?></a></li>
-						<li class="noactive"><a
-							href="<?php echo $this->url('storydetail') ?>"><?php echo $this->translate('Story detail') ?></a></li>
+							  </ul>
+							</div>
+						</li>
 						
-						<li class="noactive"><a
-							href="<?php echo $this->url('magazinevietnam') ?>"><?php echo $this->translate('Magazinevn') ?>
-						</a></li>
-						<li class="noactive"><a
-							href="<?php echo $this->url('mgvndetail') ?>"><?php echo $this->translate('Mgvn detail') ?>
-						</a></li>
-						<li class="noactive"><a
-							href="<?php echo $this->url('librarybooks') ?>"><?php echo $this->translate('Librarybooks') ?>
-						</a></li>
-						<li class="noactive"><a
-							href="<?php echo $this->url('librarydetail') ?>"><?php echo $this->translate('Librarydetail') ?>
-						</a></li>
+						
+						<li class="noactive">
+						   <div class="dropdown">
+							  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenuStory" data-toggle="dropdown">
+							   Story
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuStory">
+									<li class="noactive"><a
+										href="<?php echo $this->url('manastory') ?>"><?php echo $this->translate('Story') ?></a></li>
+									<li class="noactive"><a
+										href="<?php echo $this->url('storydetail') ?>"><?php echo $this->translate('Story detail') ?></a></li>
+							  </ul>
+							</div>
+						</li>
+						
+						<li class="noactive">
+						   <div class="dropdown">
+							  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenuMagazinevn" data-toggle="dropdown">
+							   Magazinevn
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuMagazinevn">
+									<li class="noactive"><a
+										href="<?php echo $this->url('magazinevietnam') ?>"><?php echo $this->translate('Magazinevn') ?>
+									</a></li>
+									<li class="noactive"><a
+										href="<?php echo $this->url('mgvndetail') ?>"><?php echo $this->translate('Mgvn detail') ?>
+									</a></li>
+						
+							  </ul>
+							</div>
+						</li>
+						
+						<li class="noactive">
+						   <div class="dropdown">
+							  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenuLibrarybooks" data-toggle="dropdown">
+							   Librarybooks
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuLibrarybooks">
+								<li class="noactive"><a
+									href="<?php echo $this->url('librarybooks') ?>"><?php echo $this->translate('Librarybooks') ?>
+								</a></li>
+								<li class="noactive"><a
+									href="<?php echo $this->url('librarydetail') ?>"><?php echo $this->translate('Librarydetail') ?>
+								</a></li>
+						
+						  </ul>
+							</div>
+						</li>
+						
+						
 		                <li class="noactive">
 							<div class="dropdown">
 							  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
@@ -122,13 +168,17 @@ img {
 							  </button>
 							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 							    <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo $this->url('news') ?>"><?php echo $this->translate('news') ?></a></li>
+							    <!-- 
 							    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
 							    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
 							    <li role="presentation" class="divider"></li>
 							    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+							    -->
 							  </ul>
 							</div>
 						  </a></li>
+						  
+						  <li class="noactive"><a href="<?php echo $this->url('upload') ?>"><?php echo $this->translate('Upload One library') ?></a></li>
 					</ul>
 
 				</div>
