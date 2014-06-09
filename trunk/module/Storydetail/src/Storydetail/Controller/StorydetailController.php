@@ -88,8 +88,7 @@ class StorydetailController extends AbstractActionController {
 			$select->where($where);
 		}
 		
-		
-		
+				
 		$storydetails = $this->getStorydetailTable ()->fetchAll ( $select );
 		$itemsPerPage = 10; // is Number record/page
 		

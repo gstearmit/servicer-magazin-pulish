@@ -160,6 +160,7 @@ class UploadTable extends AbstractTableGateway {
         $id = (int) $upload->id;
         if ($id == 0) {
             $this->insert($data);
+            return $this->lastInsertValue;    
         } else {
             if ($this->getUpload($id)) {
                 $this->update($data, array('id' => $id));
@@ -199,4 +200,58 @@ class UploadTable extends AbstractTableGateway {
         $this->delete(array('id' => $id));
     }
 
+    
+    public function getInsertUploadDetail($arrayImages = Array() , $id , $namefolder)
+    {
+    	$id = (int) $id;
+    	if (is_array($arrayImages) and !empty($arrayImages))
+    	{
+    		$i = 1;
+    		foreach ($arrayImages as $key => $imgvalue)
+    		{
+    			$img = '/'.$namefolder.'/'.$imgvalue;
+    			$dbAdapter = $this->adapter;
+    			$sql       = "INSERT INTO uploaddetail (idmz,img,description,title,page)
+                              VALUES ('".$id."','".$img."','','','".$i."')";
+                          
+    		    $statement = $dbAdapter->query($sql);
+    			//return $statement; die; 
+    			$result    = $statement->execute();
+    			$i++;
+    		}
+    		
+    		return $result = 1;
+    	}else 
+    		return $result = Null;
+    
+    }
+    
+    public function getReadUploaddetail($id)
+    {
+    	$id = (int) $id;
+    
+    	$sql = new Sql($this->adapter);
+    	$select = $sql->select();
+    	$select->columns(array());
+    	$select->from ('upload')
+    	->join('uploaddetail', 'uploaddetail.idmz=upload.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('upload.id'=>$id));
+    	$sort[] = 'id ASC';
+    	$selectString = $sql->prepareStatementForSqlObject($select);
+    	//return $selectString;die;
+    	$results = $selectString->execute();
+    
+    	// swap
+    	$array = array();
+    	foreach ($results as $result)
+    	{
+    		$tmp = array();
+    		$tmp= $result;
+    		$array[] = $tmp;
+    	}
+    
+    	return $array;
+    
+    }
+    
 }
