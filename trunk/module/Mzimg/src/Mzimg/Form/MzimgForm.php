@@ -36,7 +36,7 @@ class MzimgForm extends Form
         		'type' => 'Zend\Form\Element\Select',
         		'name' => 'idmz',
         		'options' => array(
-        				//'label' => 'Mzimg ',
+        				'label' => 'Mzimg Select ',
         				'empty_option' => 'Please select an Magazine',
         				//'value_options' => $this->fetchAllCatalogue()
         				'value_options' => $this->getOptionsForSelect()
@@ -44,6 +44,7 @@ class MzimgForm extends Form
         		'attributes' => array(
         				'value' => '1', //set selected to '1'
         				'inarrayvalidator' => true,
+        				'required' => 'required',
         		)
         ));
 

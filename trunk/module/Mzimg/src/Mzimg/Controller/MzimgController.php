@@ -7,7 +7,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Mzimg\Model\Mzimg;
 use Mzimg\Form\MzimgForm;
-use Mzimg\Form\MagazineForm as FromClass;
+use Mzimg\Form\Mzimgdetail as FromClass;
 use Mzimg\Form\MzimgSearchForm as SearchFromMzimg ;
 
 
@@ -161,7 +161,6 @@ class MzimgController extends AbstractActionController {
         $request = $this->getRequest();
        
         if ($request->isPost()) {
-        	
        
             $mzimg = new Mzimg();
 
@@ -171,93 +170,17 @@ class MzimgController extends AbstractActionController {
             		$this->getRequest()->getPost()->toArray(),
             		$this->getRequest()->getFiles()->toArray()
             );
-            
-
-           $form->setData($data);  // get all post
-           
-          // $form->setData($request->getPost());
-            echo 'validate ';
-			var_dump($form->isValid());
-            
-            if (!$form->isValid()) 
-            {
-            	
-            	$messages = $form->getMessages();
-            	//var_dump($messages);
-            	
-            	echo '<pre>';
-            	print_r($form->getData());
-            	echo '</pre>';
-            	
-            	
-            	echo 'loi ';
-            	die('Error . Not validate Form . ');
-            	
-            	
-            	// upload + creat thumbnail
-            	$renamefile = $this->uploadImageAlatca($data['img']);
-  
-            	var_dump($renamefile);
-            	die;
-            	
-            	
-                $mzimg->dataArraySwap($form->getData(),$renamefile);
-                $this->getMzimgTable()->saveMzimg($mzimg);
-            
-                // Redirect to list of Mzimgs
-                return $this->redirect()->toRoute('mzimg');
-            }
-            
+       
+           $form->setData($data);  // get all post 
         if ($form->isValid()) 
         {
 
-        	echo '<pre>';
-        	print_r($form->getData());
-        	echo '</pre>';
-		 die('validata');die;
-		 		
-				$size = new Size ( array (
-						'min' => 2000000 
-				) ); // minimum bytes filesize
-				
-				$adapter = new \Zend\File\Transfer\Adapter\Http ();
-				$adapter->setValidators ( array (
-						$size 
-				), $data ['img'] ['size'] );
-				$extension = new \Zend\Validator\File\Extension ( array (
-						'extension' => array (
-								'gif',
-								'jpg',
-								'png' 
-						) 
-				) );
-				
-				if (! $adapter->isValid ()) {
-					
-					$dataError = $adapter->getMessages ();
-					
-					$error = array ();
-					foreach ( $dataError as $key => $row ) {
-						$error [] = $row;
-					}
-					
-					$form->setMessages ( array (
-							'img' => $error 
-					) );
-					// die;
-				}
-				if ($adapter->isValid ()) {
-					$adapter->setDestination ( MZIMG_PATH );
-					if ($adapter->receive ( $data ['img'] ['name'] )) {
-						
-					}
-				}
-				
-		    	$mzimg->dataArray($form->getData());
+               $renamefile = $this->uploadImageAlatca($data['img']);
+                $mzimg->dataArraySwap($form->getData(),$renamefile);
                 $this->getMzimgTable()->saveMzimg($mzimg);
 				// Redirect to list of magazinevietnams
 				return $this->redirect ()->toRoute ( 'mzimg' );
-			}
+		}
         
          }
         return array(
@@ -297,61 +220,12 @@ class MzimgController extends AbstractActionController {
     			$this->getRequest()->getPost()->toArray(),
     	        $this->getRequest()->getFiles()->toArray()
     	);
-    
-    	//                     	echo '<pre>';
-    	//                     	print_r($data);
-    	//                     	echo '</pre>';
-    
-    
+
     	$form->setData($data);  // get all post
-    	 
-    
-    	if (!$form->isValid()) {
-    	$size = new Size(array('min'=>2000000)); //minimum bytes filesize
-    	 
-    	$adapter = new \Zend\File\Transfer\Adapter\Http();
-    	$adapter->setValidators(array($size), $data['img']['size']);
-    	$extension = new \Zend\Validator\File\Extension(array('extension' => array('gif', 'jpg', 'png')));
-    
-    	if (!$adapter->isValid()){
-    	 
-    	echo 'is not valid';
-    
-    	$dataError = $adapter->getMessages();
-    	 
-    	$error = array();
-    	foreach($dataError as $key=>$row)
-    	{
-    	$error[] = $row;
-    	}
-    	 
-    	//             		var_dump($error);
-    	//             		die;
-    
-    	$form->setMessages(array('img'=>$error ));
-    	//die;
-    	}
-    	if ($adapter->isValid()) {
-    		//             			echo 'is valid';
-        
-//             		            		var_dump(MZIMG_PATH);
-    //             		            		var_dump($data['img']);
-    //             		die;
-    		$adapter->setDestination(MZIMG_PATH);
-    		if ($adapter->receive($data['img']['name'])) {
-    		$profile = new Mzimg();
-    		$profile->exchangeArray($form->getData());
-    		//             		   echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
-    		//             			die;
-    	}
-    		 
-    	}
-    	 
-    	$mzimg->dataArray($form->getData());
-    
-    		//                 var_dump($mzimg);
-    		//                 die();
-    
+
+    	if ($form->isValid()) {
+    		$renamefile = $this->uploadImageAlatca($data['img']);
+    		$mzimg->dataArraySwap($form->getData(),$renamefile);
     		$this->getMzimgTable()->saveMzimg($mzimg);
     		// Redirect to list of Mzimgs
     		return $this->redirect()->toRoute('mzimg');
@@ -557,7 +431,7 @@ class MzimgController extends AbstractActionController {
     public function uploadImageAlatca($imageData = array()) {
     	if (!empty($imageData)) {
     		$fileName = time() . '.jpg';
-    		$dir = ROOT_PATH . PROFILE_IMAGE_PATH;
+    		$dir = ROOT_PATH . UPLOAD_PATH_IMG;
     		$dirFileName = $dir .'/'. $fileName;
     			
     		$filter = new \Zend\Filter\File\RenameUpload($dirFileName);
