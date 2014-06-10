@@ -362,12 +362,47 @@ class MagazinevietnamController extends AbstractActionController {
 			return $this->redirect ()->toRoute ( 'magazinevietnam' );
 		}
 		
+		$dir = ROOT_PATH . UPLOAD_PATH_IMG;
+		// getname- img
+		$image_array_all = $this->getMagazinevietnamTable()->getReadMagazinevietnam($id);
+		
+		echo '<pre>';
+		print_r($image_array_all);
+		echo '</pre>';
+	
+		$image_array = array();
+		if (is_array($image_array_all) and !empty($image_array_all))
+			{
+						foreach ($image_array_all as $result)
+							{
+								$tmp = array();
+								$tmp= $result['img'];
+								$image_array[] = $tmp;
+							}
+				
+			}else { Echo 'Not get name Imges'; die;}
+		
+			echo '</br>';
+			echo '<pre>';
+			print_r($image_array);
+			echo '</pre>';
+			//die;
+
+		
 		$request = $this->getRequest ();
 		if ($request->isPost ()) {
 			$del = $request->getPost ()->get ( 'del', 'No' );
 			if ($del == 'Yes') {
 				$id = ( int ) $request->getPost ()->get ( 'id' );
 				$this->getMagazinevietnamTable ()->deleteMagazinevietnam ( $id );
+				// delete table con cua no
+				$this->getMagazinevietnamTable()->getTableByIdDelete($id);
+				
+				// delete img 
+				foreach ( $image_array as $image)
+				{
+				   $this->deleteImage($image, $dir);
+				}
 			}
 			
 			// Redirect to list of magazinevietnams

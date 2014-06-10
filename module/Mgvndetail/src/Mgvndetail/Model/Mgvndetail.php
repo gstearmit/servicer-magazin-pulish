@@ -24,7 +24,7 @@ class Mgvndetail implements InputFilterAwareInterface
     public function exchangeArray($data)
     {
         $this->id     = (isset($data['id'])) ? $data['id'] : null;
-        $this->idmz = (isset($data['cataloguemagazine'])) ? $data['cataloguemagazine'] : null;
+       $this->idmz = (isset($data['idmz'])) ? $data['idmz'] : null;
 		$this->img = (isset($data['img'])) ? $data['img'] : null;
 		$this->description  = (isset($data['description'])) ? $data['description'] : null;
         $this->title  = (isset($data['title'])) ? $data['title'] : null;
@@ -35,7 +35,7 @@ class Mgvndetail implements InputFilterAwareInterface
     public function dataArray($data)
     {
     	$this->id     = (isset($data['id'])) ? $data['id'] : null;
-    	$this->idmz = (isset($data['cataloguemagazine'])) ? $data['cataloguemagazine'] : null;
+    	$this->idmz = (isset($data['idmz'])) ? $data['idmz'] : null;
     	$this->img = (isset($data['img']['name'])) ? $data['img']['name'] : null;
     	$this->description  = (isset($data['description'])) ? $data['description'] : null;
     	$this->title  = (isset($data['title'])) ? $data['title'] : null;
@@ -43,10 +43,24 @@ class Mgvndetail implements InputFilterAwareInterface
     
     }
     
+    public function dataArraySwap($data , $Renamefile)
+    {
+    	$this->id     = (isset($data['id'])) ? $data['id'] : null;
+    	$this->idmz = (isset($data['idmz'])) ? $data['idmz'] : null;
+    	$this->img = $Renamefile;
+    	$this->description  = (isset($data['description'])) ? $data['description'] : null;
+    	$this->title  = (isset($data['title'])) ? $data['title'] : null;
+    	$this->page  = (isset($data['page'])) ? $data['page'] : null;
+    }
+    
+    
+ 
+    
+    
     public function dataPost($data)
     {
     	$this->id     = (isset($data['id'])) ? $data['id'] : null;
-    	$this->idmz = (isset($data['cataloguemagazine'])) ? $data['cataloguemagazine'] : null;
+    	$this->idmz = (isset($data['idmz'])) ? $data['idmz'] : null;
     	$this->img = (isset($data['img']['name'])) ? $data['img']['name'] : null;
     	$this->description  = (isset($data['description'])) ? $data['description'] : null;
     	$this->title  = (isset($data['title'])) ? $data['title'] : null;
@@ -81,7 +95,7 @@ class Mgvndetail implements InputFilterAwareInterface
 			
 			$inputFilter->add($factory->createInput(array(
                 'name'     => 'idmz',
-                'required' => false,
+                  'required' => true,
                 'filters'  => array(
                     array('name' => 'Int'),
                 ),
