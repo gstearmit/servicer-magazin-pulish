@@ -11,6 +11,7 @@ use Mzimg\Form\MagazineForm as FromClass;
 use Mzimg\Form\MzimgSearchForm as SearchFromMzimg ;
 
 
+
 use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\Iterator as paginatorIterator;
@@ -161,6 +162,7 @@ class MzimgController extends AbstractActionController {
        
         if ($request->isPost()) {
         	
+       
             $mzimg = new Mzimg();
 
             $form->setInputFilter($mzimg->getInputFilter());  // check validate
@@ -180,7 +182,7 @@ class MzimgController extends AbstractActionController {
             if (!$form->isValid()) 
             {
             	
-            		$messages = $form->getMessages();
+            	$messages = $form->getMessages();
             	//var_dump($messages);
             	
             	echo '<pre>';

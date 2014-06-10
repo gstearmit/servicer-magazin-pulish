@@ -65,6 +65,11 @@ return array(
         	'Application\Controller\Utility' => 'Application\Controller\UtilityController'
         ),
     ),
+	'controller_plugins' => array(
+				'invokables' => array(
+						'commonHelper' => 'Application\Controller\Plugin\CommonHelper'
+				)
+	),
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions'       => true,

@@ -60,7 +60,7 @@ echo $this->url('storydetail', array( 'action' => 'add'));
     <?php foreach ($paginatorstory as $storydetail) : ?>
         <tr>
             <td><?php echo $this->escapeHtml($storydetail->title); ?></td>
-            <td><?php echo $this->escapeHtml($storydetail->description); ?></td>
+            <td><div> <?php echo $storydetail->description; ?></div></td>
             <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $this->escapeHtml($storydetail->img); ?>" style="width: 100px; height:100px;"/></td>
             <td>
             <!--   <a class="btn " href="<?php echo $this->url('storydetail', array('action' => 'edit', 'id' => $storydetail->id));

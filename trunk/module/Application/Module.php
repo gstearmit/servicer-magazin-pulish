@@ -4,6 +4,7 @@ namespace Application;
 
 use Application\Model\Acl;
 use Zend\Mvc\ModuleRouteListener;
+use Application\Controller\Plugin;
 
 class Module
 {
@@ -46,14 +47,14 @@ class Module
     	);
     }
     
-    public function getControllerPluginConfig() {
-    	return array(
-    			'invokables' => array(
-    					//'changeConnection' => 'PerseedApplication\Controller\Plugin\ChangeConnection',
-    					'commonHelper' => 'Application\Controller\Plugin\CommonHelper',
-    			),
-    	);
-    }
+//     public function getControllerPluginConfig() {
+//     	return array(
+//     			'invokables' => array(
+//     					//'changeConnection' => 'PerseedApplication\Controller\Plugin\ChangeConnection',
+//     					'commonHelper' => 'Application\Controller\Plugin\CommonHelper',
+//     			),
+//     	);
+//     }
     
 
 }

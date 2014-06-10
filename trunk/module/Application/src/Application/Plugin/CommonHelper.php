@@ -16,31 +16,7 @@ use Zend\Form\View\Helper\FormMultiCheckbox as FormMultiCheckboxHelper;
 /** 
  * System Models
  */
-// use PerseedUser\Model\Role as RoleModel;
-// use PerseedUser\Model\User as UserModel;
-// use PerseedApplication\Model\Seed as SeedModel;
-// use PerseedApplication\Model\Ecosystem as EcosystemModel;
-// use PerseedApplication\Model\Project as ProjectModel;
-// use PerseedUser\Model\Project as UserProjectModel;
-// use PerseedUser\Model\Profile as ProfileModel;
-// //use PerseedApplication\Model\Privilege as PrivilegeModel;
-// use PerseedApplication\Model\Profiling as ProfilingModel;
-// use PerseedApplication\Model\SeedPrivilege as SeedPrivilegeModel;
-// use PerseedApplication\Model\Clinic as ClinicModel;
-// use PerseedApplication\Model\Country as CountryModel;
-// use PerseedApplication\Model\Division as DivisionModel;
-// use PerseedApplication\Model\Contract as ContractModel;
-// use PerseedApplication\Model\SeedEcosystem as SeedEcosystemModel;
-// use PerseedApplication\Model\SeedProject as SeedProjectModel;
-// use PerseedApplication\Model\DivisionProject as DivisionProjectModel;
-// use PerseedPrototype\Model\Prototype as PrototypeModel;
-// use PerseedPrototype\Model\PScreen as PScreenModel;
-// use PerseedApplication\Model\ProjectApproval as ProjectApprovalModel;
-// use PerseedApplication\Model\UserClinic as UserClinicModel;
-// use PerseedApplication\Model\UserProfiling as UserProfilingModel;
-// use PerseedApplication\Model\ProjectHitSession as ProjectHitSessionModel;
 
-//use PerseedUtils\Services\Context;
 
 class CommonHelper extends AbstractPlugin {
 	protected $helper;
@@ -72,7 +48,21 @@ class CommonHelper extends AbstractPlugin {
         return false;
     }
 	
- 
+    public function uploadImageAlatca($imageData = array()) {
+    	if (!empty($imageData)) {
+    		$fileName = time() . '.jpg';
+    		$dir = ROOT_PATH . UPLOAD_PATH_IMG;
+    		$dirFileName = $dir .'/'. $fileName;
+    
+    		$filter = new \Zend\Filter\File\RenameUpload($dirFileName);
+    		if ($filter->filter($imageData)) {
+    			$options = array('max_width' => 102, 'max_height' => 102, 'jpeg_quality' => 100);
+    			$this->createImageThumbnail($dirFileName, $dir . '/thumb_', $options);
+    			return $fileName;
+    		}
+    	}
+    	return false;
+    }
 	
 	public function createDatabase($dbName) {
         
