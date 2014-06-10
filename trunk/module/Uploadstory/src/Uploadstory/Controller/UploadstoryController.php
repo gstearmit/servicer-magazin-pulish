@@ -1,12 +1,12 @@
 <?php
 
-namespace Uploadmagazine\Controller;
+namespace Uploadstory\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Uploadmagazine\Model\Uploadmagazine as UploadmagazineModel;
-use Uploadmagazine\Model\UploadmagazineTable;
-use Uploadmagazine\Form\UploadmagazineForm;
+use Uploadstory\Model\Uploadstory as UploadstoryModel;
+use Uploadstory\Model\UploadstoryTable;
+use Uploadstory\Form\UploadstoryForm;
 use Zend\Filter\Compress\zip;
 use Storydetail\Model\Storydetail;
 use Zend\Filter\Exception;
@@ -15,7 +15,7 @@ use Zend\Db\Sql\Select;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\Iterator as paginatorIterator;
 
-class UploadmagazineController extends AbstractActionController {
+class UploadstoryController extends AbstractActionController {
 	protected $magazinepublish;
 	
 	public function indexAction() {
@@ -77,7 +77,7 @@ class UploadmagazineController extends AbstractActionController {
 	public function uploadnewAction() 
 	{
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
-		$form = new UploadmagazineForm ($dbAdapter);
+		$form = new UploadstoryForm ($dbAdapter);
 		//Upload
 		$form->get( 'submit' )->setAttribute( 'value', 'Upload' );
 		$backUrl = Null;
@@ -86,7 +86,7 @@ class UploadmagazineController extends AbstractActionController {
 		if ($request->isPost ())
 		{
 				
-			$upload = new UploadmagazineModel();
+			$upload = new UploadstoryModel();
 				
 			$form->setInputFilter( $upload->getInputFilter() ); // check validate
 				
@@ -113,7 +113,7 @@ class UploadmagazineController extends AbstractActionController {
 				    $renamefile = $this->uploadImageAlatca($data['imgkey']); // Name  imgkey i s renmane
 				  // Save Database 
 				    $upload->dataArraySwap($form->getData(),$renamefile);
-					$id_curent_row_upload = $this->getUploadmagazineTable()->saveUploadmagazine($upload);
+					$id_curent_row_upload = $this->getUploadstoryTable()->saveUploadstory($upload);
 					
 				  if($id_curent_row_upload == Null)
 				  {
@@ -204,11 +204,11 @@ class UploadmagazineController extends AbstractActionController {
 // 								echo '</pre>';
 							   
 								// save data base Upload detail 
-								$returnResult = $this->getUploadmagazineTable()->getInsertUploadDetail($imgArray , $id_curent_row_upload, $name[0]);
+								$returnResult = $this->getUploadstoryTable()->getInsertUploadDetail($imgArray , $id_curent_row_upload, $name[0]);
 								
 							    if($returnResult === 1)
 							    {
-							    	$backUrl = $this->url()->fromRoute('uploadmagazine', array('action' => 'readdetail', 'id' => $id_curent_row_upload), array(), true);
+							    	$backUrl = $this->url()->fromRoute('uploadstory', array('action' => 'readdetail', 'id' => $id_curent_row_upload), array(), true);
 							    }else {
 							    	die('Oop! Error . Please try again');
 							    	
@@ -251,20 +251,20 @@ class UploadmagazineController extends AbstractActionController {
 	{
 		$id = ( int ) $this->params ( 'id' );
 		if (! $id) {
-			return $this->redirect ()->toRoute ( 'uploadmagazine' );
+			return $this->redirect ()->toRoute ( 'uploadstory' );
 		}
 	
-		$read = $this->getUploadmagazineTable ()->getReadUploadmagazinedetail( $id ) ;
+		$read = $this->getUploadstoryTable ()->getReadUploadstorydetail( $id ) ;
 		return array (
 				'id' => $id,
 				'readdetail' => $read,
 		);
 	}
 	
-	public function getUploadmagazineTable() {
+	public function getUploadstoryTable() {
 		if (! $this->magazinepublish) {
 			$sm = $this->getServiceLocator ();
-			$this->magazinepublish = $sm->get ( 'Uploadmagazine\Model\UploadmagazineTable' );
+			$this->magazinepublish = $sm->get ( 'Uploadstory\Model\UploadstoryTable' );
 		}
 		return $this->magazinepublish;
 	}

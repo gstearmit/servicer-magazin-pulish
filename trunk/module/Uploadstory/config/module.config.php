@@ -2,16 +2,16 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-           'Uploadmagazine\Controller\Uploadmagazine' => 'Uploadmagazine\Controller\UploadmagazineController'
+           'Uploadstory\Controller\Uploadstory' => 'Uploadstory\Controller\UploadstoryController'
         ),
     ),
 
     'router' => array(
         'routes' => array(
-            'uploadmagazine' => array(
+            'uploadstory' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/uploadmagazinepublish[/:action][/:id][/page/:page][/order_by/:order_by][/:order][/search_by/:search_by]',
+                    'route'    => '/uploadstory[/:action][/:id][/page/:page][/order_by/:order_by][/:order][/search_by/:search_by]',
                     'constraints' => array(
                     	'action' => '(?!\bpage\b)(?!\border_by\b)(?!\bsearch_by\b)[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
@@ -20,8 +20,8 @@ return array(
                         'order' => 'ASC|DESC',
                     ),
                     'defaults' => array(
-                    	'__NAMESPACE__' => 'Uploadmagazine\Controller',
-                        'controller' => 'Uploadmagazine\Controller\Uploadmagazine',
+                    	'__NAMESPACE__' => 'Uploadstory\Controller',
+                        'controller' => 'Uploadstory\Controller\Uploadstory',
                         'action'     => 'uploadnew',
                     ),
                 ),
@@ -32,7 +32,7 @@ return array(
 
     'view_manager' => array(
         'template_path_stack' => array(
-            'Uploadmagazine' => __DIR__ . '/../view',
+            'Uploadstory' => __DIR__ . '/../view',
         ),
         'template_map' => array(
             'page-upload' => __DIR__ . '/../view/layout/slidePaginator.phtml',

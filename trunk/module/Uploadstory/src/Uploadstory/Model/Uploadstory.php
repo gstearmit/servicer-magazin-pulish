@@ -1,12 +1,12 @@
 <?php
 
-namespace Uploadmagazine\Model;
+namespace Uploadstory\Model;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
 
-class Uploadmagazine implements InputFilterAwareInterface {
+class Uploadstory implements InputFilterAwareInterface {
 	public $id;
 	public $imgkey;
 	public $descriptionkey;
@@ -118,7 +118,7 @@ class Uploadmagazine implements InputFilterAwareInterface {
 									'name' => 'FileSize',
 									'options' => array (
 											'min' => 1000,
-											'max' => 4000000 
+											'max' => 10485760 
 									),
 									array (
 											'name' => 'StringLength',
@@ -146,7 +146,7 @@ class Uploadmagazine implements InputFilterAwareInterface {
 									'name' => 'FileSize',
 									'options' => array (
 											'min' => 1000,
-											'max' => 4000000 
+											'max' => 104857600 
 									) 
 							) 
 					)
