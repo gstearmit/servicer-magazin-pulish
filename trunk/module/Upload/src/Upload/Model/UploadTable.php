@@ -209,7 +209,7 @@ class UploadTable extends AbstractTableGateway {
     		$i = 1;
     		foreach ($arrayImages as $key => $imgvalue)
     		{
-    			$img = '/'.$namefolder.'/'.$imgvalue;
+    			$img = $namefolder.'/'.$imgvalue;
     			$dbAdapter = $this->adapter;
     			$sql       = "INSERT INTO uploaddetail (idmz,img,description,title,page)
                               VALUES ('".$id."','".$img."','','','".$i."')";
