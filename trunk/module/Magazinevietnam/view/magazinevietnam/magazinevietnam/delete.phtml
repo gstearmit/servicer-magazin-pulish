@@ -4,10 +4,7 @@ $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 
-<p>Are you sure that you want to delete 
-  '<?php echo $this->escapeHtml($magazinevietnam->title); ?>' by 
-  '<?php echo $this->escapeHtml($magazinevietnam->descriptionkey); ?>'?
-</p>
+<p> <h3 style="color: red;font-style: italic;text-align: center;">Are you sure that you want to delete .If you delete the data related to it will be deleted and can not be recovered ?</h3></p>
 <?php 
 $url = $this->url('magazinevietnam', array('action' => 'delete', 'id'=>$this->id)); ?>
 <form action="<?php echo $url; ?>" method="post">

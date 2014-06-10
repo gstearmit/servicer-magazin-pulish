@@ -38,18 +38,20 @@ class MgvndetailForm extends Form
         		),
         ));
       
+        // catalogue = idmz
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
-        		'name' => 'cataloguemagazine',
+        		'name' => 'idmz',
         		'options' => array(
-        				'label' => 'Magazine Pblish',
-        				'empty_option' => 'Please select an Magazine',
+        				'label' => 'Magazine Name: ',
+        				'empty_option' => 'Please Select a Magazine father',
         				//'value_options' => $this->fetchAllCatalogue()
         				'value_options' => $this->getOptionsForSelect()
         		),
         		'attributes' => array(
-        				'value' => '1', //set selected to '1'
+        				'value' => '0', //set selected to '1'
         				'inarrayvalidator' => true,
+        				'required' => 'required',
         		)
         ));
 
@@ -57,6 +59,7 @@ class MgvndetailForm extends Form
             'name' => 'img',
             'attributes' => array(
                 'type'  => 'file',
+            	'required' => 'required',
             ),
             'options' => array(
                 'label' => 'Upload images',

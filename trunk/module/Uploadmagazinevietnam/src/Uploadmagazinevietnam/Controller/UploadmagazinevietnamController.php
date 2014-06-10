@@ -97,18 +97,6 @@ class UploadmagazinevietnamController extends AbstractActionController {
 			// Validate the form
 			if ($form->isValid()) {
 
-// 				echo 'data';
-// 				echo '<pre>';
-// 				print_r($data);
-// 				echo '</pre>';
-				
-// 				echo '</br>';
-// 				echo 'data zip';
-// 				echo '<pre>';
-// 				print_r($data['zip_file']);
-// 				echo '</pre>';
-				
-
 				   // Move and Upload Imgkey ,upload + creat thumbnail
 				    $renamefile = $this->uploadImageAlatca($data['imgkey']); // Name  imgkey i s renmane
 				  // Save Database 
@@ -197,12 +185,6 @@ class UploadmagazinevietnamController extends AbstractActionController {
 								// Read File 
 								$imgArray = $this->readallimg($dirimg);
 								
-// 								echo '</br>';
-// 								echo 'All Img';
-// 								echo '<pre>';
-// 								print_r($imgArray);
-// 								echo '</pre>';
-							   
 								// save data base Upload detail 
 								$returnResult = $this->getUploadmagazinevietnamTable()->getInsertUploadDetail($imgArray , $id_curent_row_upload, $name[0]);
 								

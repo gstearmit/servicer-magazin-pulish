@@ -207,64 +207,23 @@ class MagazinevietnamTable extends AbstractTableGateway {
     			throw new \Exception('Form id does not exist');
     		}
     	}
-    	
-//  	die;
-//     	return var_dump(is_array($magazinevietnam->imgkey));
-//     	die;
-    	
-    	
-//     	if (is_array($magazinevietnam->imgkey)) 
-//     	{
-//     	  	foreach ($magazinevietnam->imgkey as $key)
-//     	  	{
-//     	  		$arrayMa_Img = array();
-//     	  		$arrayMa_Img = $key['name'];
-//     	  	}
-    	  	
-//     	  	$data = array(
-//     	  			'descriptionkey' => $magazinevietnam->descriptionkey,
-//     	  			'imgkey' =>$arrayMa_Img,
-//     	  			'title' => $magazinevietnam->title,
-//     	  	);
-    	  	
-//     	  	$id = (int) $magazinevietnam->id;
-//     	  	if ($id == 0) {
-//     	  		$this->insert($data);
-//     	  	} else {
-//     	  		if ($this->getMagazinevietnam($id)) {
-//     	  			$this->update($data, array('id' => $id));
-//     	  		} else {
-//     	  			throw new \Exception('Form id does not exist');
-//     	  		}
-//     	  	}
-//     	}else 
-//     	{
-//     		$data = array(
-//     				'descriptionkey' => $magazinevietnam->descriptionkey,
-//     				'imgkey' => 'detaa',
-//     				'title' => $magazinevietnam->title,
-//     		);
-    		
-//     		$id = (int) $magazinevietnam->id;
-//     		if ($id == 0) {
-//     			$this->insert($data);
-//     		} else {
-//     			if ($this->getMagazinevietnam($id)) {
-//     				$this->update($data, array('id' => $id));
-//     			} else {
-//     				throw new \Exception('Form id does not exist');
-//     			}
-//     		}
-//     	}
-    	
-    	//return 
-    	
-    	
-    	
+
     }
 
     public function deleteMagazinevietnam($id) {
         $this->delete(array('id' => $id));
     }
 
+    public function getTableByIdDelete($id)
+    {
+    	
+    	$id = (int) $id;
+    	$dbAdapter = $this->adapter;
+    	$sql       = 'DELETE FROM mgvndetail WHERE idmz ='.$id;
+    	$statement = $dbAdapter->query($sql);
+    	$result    = $statement->execute();
+    	//return $result;
+    
+    
+    }
 }
