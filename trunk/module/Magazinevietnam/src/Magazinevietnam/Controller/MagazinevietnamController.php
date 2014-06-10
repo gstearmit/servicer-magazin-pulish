@@ -366,10 +366,11 @@ class MagazinevietnamController extends AbstractActionController {
 		// getname- img
 		$image_array_all = $this->getMagazinevietnamTable()->getReadMagazinevietnam($id);
 		
-		echo '<pre>';
-		print_r($image_array_all);
-		echo '</pre>';
-	
+// 		echo '<pre>';
+// 		print_r($image_array_all);
+// 		echo '</pre>';
+	    
+		
 		$image_array = array();
 		if (is_array($image_array_all) and !empty($image_array_all))
 			{
@@ -380,29 +381,57 @@ class MagazinevietnamController extends AbstractActionController {
 								$image_array[] = $tmp;
 							}
 				
-			}else { Echo 'Not get name Imges'; die;}
+			}//else { Echo 'Not get name Imges'; die;}
+			
+			
+			
+			$array = array();
+			if(is_array($image_array) and !empty($image_array))
+			{
+			
+				foreach ($image_array as $result)
+				{
+					$arr_temp = explode('/', $result);
+					$dir_name = $arr_temp[0];
+					$tmp = array();
+					$tmp= $arr_temp[1];
+					$array[] = $tmp;
+				}
+			}
+			
 		
-			echo '</br>';
-			echo '<pre>';
-			print_r($image_array);
-			echo '</pre>';
-			//die;
-
+// 			echo '</br>';
+// 			echo '<pre>';
+// 			print_r($image_array);
+// 			echo '</pre>';
+			
+// 			echo '</br>';
+// 			var_dump($dir.$dir_name);
+// 			echo '<pre>';
+// 			print_r($array);
+// 			echo '</pre>';
+// 			//die;
 		
+			
+			
+			
 		$request = $this->getRequest ();
 		if ($request->isPost ()) {
 			$del = $request->getPost ()->get ( 'del', 'No' );
 			if ($del == 'Yes') {
+				
 				$id = ( int ) $request->getPost ()->get ( 'id' );
 				$this->getMagazinevietnamTable ()->deleteMagazinevietnam ( $id );
 				// delete table con cua no
 				$this->getMagazinevietnamTable()->getTableByIdDelete($id);
 				
-				// delete img 
-				foreach ( $image_array as $image)
-				{
-				   $this->deleteImage($image, $dir);
-				}
+// 				// delete img 
+// 				foreach ( $array as $image)
+// 				{
+// 				   $result = $this->deleteImage($image, $dir.$dir_name);
+				  
+// 				}
+				
 			}
 			
 			// Redirect to list of magazinevietnams
@@ -439,5 +468,19 @@ class MagazinevietnamController extends AbstractActionController {
 		return $this->magazinevietnamTable;
 	}
 	
-
+	public function deleteImage($image, $dir) {
+		
+		
+		try {
+			$this->deleteFile($dir .'/'. $image);
+			$this->deleteFile($dir .'/thumb_/thumb_'. $image);
+	         
+			//$logger->writeLog("DEBUG", $userEmail, $arrLog[0], $arrLog[1], "Delete image, file : " . $dir .'/'. $image, ">>");
+			//$logger->writeLog("INFO", $userEmail, $arrLog[0], $arrLog[1], "Delete image, file : " . $dir .'/thumb_/thumb_'. $image, ">>");
+		} catch (\Exception $exc) {
+			$this->errorMessage = $exc->getMessage();
+		}
+	
+	
+	}
 }
