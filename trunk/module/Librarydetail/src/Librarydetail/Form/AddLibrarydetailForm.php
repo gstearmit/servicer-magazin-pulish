@@ -11,7 +11,7 @@ use Zend\Db\Sql\Where;
 use Zend\Db\Adapter\AdapterInterface;
 use Zend\Db\Adapter\Adapter;
 
-class MagazineForm extends Form
+class AddLibrarydetailForm extends Form
 {
 	protected $adapter;
 	protected $id;
@@ -35,28 +35,27 @@ class MagazineForm extends Form
 
        $id_default  = ($this->id)== 0 ? '1' : $this->id;
         
-        $this->add(array(
-        		'type' => 'Zend\Form\Element\Select',
-        		'name' => 'cataloguemagazine',
-        		'options' => array(
-        				'label' => 'Magazine Publish',
-        				'empty_option' => 'Please select an Magazine',
-        				//'value_options' => $this->fetchAllCatalogue()
-        				'value_options' => $this->getOptionsForSelect()
-        		),
-        		'attributes' => array(
-        				//'value' => '1', //set selected to '1'
-        				//'value' => $this->setdefault(), //set selected to '1'
-        				//'value'=> if(!$this->id){ return $id;}else {$result = 1; 	},
-        				'value'=> $id_default,
-        				'inarrayvalidator' => true,
-        		)
-        ));
+       $this->add(array(
+       		'type' => 'Zend\Form\Element\Select',
+       		'name' => 'idmz',
+       		'options' => array(
+       				'label' => 'Ebooks Name',
+       				'empty_option' => 'Select an Ebooks',
+       				//'value_options' => $this->fetchAllCatalogue()
+       				'value_options' => $this->getOptionsForSelect()
+       		),
+       		'attributes' => array(
+       				'value' => $id_default, //set selected to '1'
+       				'inarrayvalidator' => true,
+       				//'required' => 'required',
+       		)
+       ));
 
         $this->add(array(
             'name' => 'img',
             'attributes' => array(
                 'type'  => 'file',
+            	'required' => 'required',
             ),
             'options' => array(
                 'label' => 'Upload images',
@@ -78,6 +77,7 @@ class MagazineForm extends Form
         		'name' => 'title',
         		'attributes' => array(
         				'type'  => 'text',
+        				'required' => 'required',
         		),
         		'options' => array(
         				'label' => 'Title',

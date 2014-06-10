@@ -31,19 +31,20 @@ class librarydetailForm extends Form
         ));
 
     
-      
+        // catalogue = idmz
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
-        		'name' => 'cataloguemagazine',
+        		'name' => 'idmz',
         		'options' => array(
-        				'label' => 'Magazine Pblish',
-        				'empty_option' => 'Please select an Magazine',
+        				'label' => 'Story Name: ',
+        				'empty_option' => 'Please Select a Story father',
         				//'value_options' => $this->fetchAllCatalogue()
         				'value_options' => $this->getOptionsForSelect()
         		),
         		'attributes' => array(
-        				'value' => '1', //set selected to '1'
+        				'value' => '0', //set selected to '1'
         				'inarrayvalidator' => true,
+        				'required' => 'required',
         		)
         ));
 
@@ -51,6 +52,7 @@ class librarydetailForm extends Form
             'name' => 'img',
             'attributes' => array(
                 'type'  => 'file',
+            	'required' => 'required',
             ),
             'options' => array(
                 'label' => 'Upload images',
@@ -61,6 +63,7 @@ class librarydetailForm extends Form
         		'name' => 'description',
         		'attributes' => array(
         				'type'  => 'textarea',
+        				'required' => 'required',
         		),
         		'options' => array(
         				'label' => 'Description',
@@ -72,6 +75,7 @@ class librarydetailForm extends Form
         		'name' => 'title',
         		'attributes' => array(
         				'type'  => 'text',
+        				'required' => 'required',
         		),
         		'options' => array(
         				'label' => 'Title',

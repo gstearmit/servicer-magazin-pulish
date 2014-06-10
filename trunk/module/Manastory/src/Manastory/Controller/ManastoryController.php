@@ -269,6 +269,7 @@ class ManastoryController extends AbstractActionController {
 			if ($del == 'Yes') {
 				$id = ( int ) $request->getPost ()->get ( 'id' );
 				$this->getManastoryTable ()->deleteManastory ( $id );
+				
 				// delete table con cua no
 				$this->getManastoryTable()->getTableByIdDelete($id);
 			}

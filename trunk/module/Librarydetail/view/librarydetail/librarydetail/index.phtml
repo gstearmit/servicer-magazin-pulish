@@ -59,7 +59,7 @@ echo $this->url('librarydetail', array( 'action' => 'add'));
     <?php foreach ($paginatorimg as $librarydetail) : ?>
         <tr>
             <td><?php echo $this->escapeHtml($librarydetail->title); ?></td>
-            <td><?php echo $this->escapeHtml($librarydetail->description); ?></td>
+            <td><div><?php echo $librarydetail->description; ?></div></td>
             <td>
             <div id="thumbnail" >
                  <img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $this->escapeHtml($librarydetail->img); ?>" style="width: 100px; height:100px;"/>
@@ -68,8 +68,10 @@ echo $this->url('librarydetail', array( 'action' => 'add'));
             </td>
             
             <td>
+            <!--  
                 <a class="btn " href="<?php echo $this->url('librarydetail', array('action' => 'edit', 'id' => $librarydetail->id));
         ?>">Edit</a> 
+            -->
                 <a class="btn" href="<?php echo $this->url('librarydetail', array('action' => 'delete', 'id' => $librarydetail->id));
         ?>">Delete</a>
               

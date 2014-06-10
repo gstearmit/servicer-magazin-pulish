@@ -264,5 +264,17 @@ class LibrarybooksTable extends AbstractTableGateway {
     public function deleteLibrarybooks($id) {
         $this->delete(array('id' => $id));
     }
+    
+    public function getTableByIdDelete($id)
+    {
+    	$id = (int) $id;
+    	$dbAdapter = $this->adapter;
+    	$sql       = 'DELETE FROM librarydetail WHERE idmz ='.$id;
+    	$statement = $dbAdapter->query($sql);
+    	$result    = $statement->execute();
+    	//return $result;
+    
+    
+    }
 
 }

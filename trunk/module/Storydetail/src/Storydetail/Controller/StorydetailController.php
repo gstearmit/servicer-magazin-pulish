@@ -318,12 +318,27 @@ class StorydetailController extends AbstractActionController {
 			return $this->redirect ()->toRoute ( 'storydetail' );
 		}
 		
+		$dir = ROOT_PATH . UPLOAD_PATH_IMG;
+		// getname- img
+		$image_object = $this->getStorydetailTable()->getStorydetail($id);
+		if(is_object($image_object))
+		{
+			$image_array = (Array)$image_object;
+			if (is_array($image_array) and !empty($image_array))
+			{
+				$image = $image_array['img'];
+			}
+		}
+		else { Echo 'Not get name Imges'; die;}
+		
 		$request = $this->getRequest ();
 		if ($request->isPost ()) {
 			$del = $request->getPost ()->get ( 'del', 'No' );
 			if ($del == 'Yes') {
 				$id = ( int ) $request->getPost ()->get ( 'id' );
 				$this->getStorydetailTable ()->deleteStorydetail ( $id );
+				// delete img
+				$del = $this->deleteImage($image, $dir);
 			}
 			
 			// Redirect to list of Storydetails
@@ -404,8 +419,8 @@ class StorydetailController extends AbstractActionController {
 			$this->deleteFile($dir .'/'. $image);
 			$this->deleteFile($dir .'/thumb_/thumb_'. $image);
 	
-			$logger->writeLog("DEBUG", $userEmail, $arrLog[0], $arrLog[1], "Delete image, file : " . $dir .'/'. $image, ">>");
-			$logger->writeLog("INFO", $userEmail, $arrLog[0], $arrLog[1], "Delete image, file : " . $dir .'/thumb_/thumb_'. $image, ">>");
+			//$logger->writeLog("DEBUG", $userEmail, $arrLog[0], $arrLog[1], "Delete image, file : " . $dir .'/'. $image, ">>");
+			//$logger->writeLog("INFO", $userEmail, $arrLog[0], $arrLog[1], "Delete image, file : " . $dir .'/thumb_/thumb_'. $image, ">>");
 		} catch (\Exception $exc) {
 			$this->errorMessage = $exc->getMessage();
 		}
