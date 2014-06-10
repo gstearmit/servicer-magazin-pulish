@@ -1,18 +1,18 @@
 <?php
-namespace Uploadmagazine\Form;
+namespace uploadstory\Form;
 
 
 use Zend\Form\Form;
 use Zend\Db\Adapter\AdapterInterface;
 use Zend\Db\Adapter\Adapter;
 
-class UploadmagazineForm extends Form
+class uploadstoryForm extends Form
 {  
     protected $adapter;
     public function __construct(AdapterInterface $dbAdapter)
     {
     	$this->adapter =$dbAdapter;
-        parent::__construct('uploadmagazine');
+        parent::__construct('uploadstory');
 		
         $this->setAttribute('method', 'post');       
         //$this->setAttribute('class', 'form-horizontal');
@@ -144,7 +144,7 @@ class UploadmagazineForm extends Form
     public function getidcatalogue()
     {
     	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM magazinepublish JOIN mzimg  ON magazinepublish.id=mzimg.idmz';
+    	$sql       = 'SELECT * FROM story JOIN storydetail  ON story.id=storydetail.idmz';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     

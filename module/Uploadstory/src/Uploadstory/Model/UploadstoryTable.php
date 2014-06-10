@@ -1,6 +1,6 @@
 <?php
 
-namespace Uploadmagazine\Model;
+namespace Uploadstory\Model;
 
 use Zend\Db\TableGateway\AbstractTableGateway;
 use Zend\Db\Adapter\Adapter;
@@ -9,14 +9,14 @@ use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Sql;
 use Zend\Db\Sql\Where;
 
-class UploadmagazineTable extends AbstractTableGateway {
+class UploadstoryTable extends AbstractTableGateway {
 
-    protected $table = 'magazinepublish';
+    protected $table = 'story';
 
     public function __construct(Adapter $adapter) {
         $this->adapter = $adapter;
         $this->resultSetPrototype = new ResultSet();
-        $this->resultSetPrototype->setArrayObjectPrototype(new Uploadmagazine());
+        $this->resultSetPrototype->setArrayObjectPrototype(new Uploadstory());
 
         $this->initialize();
     }
@@ -119,7 +119,7 @@ class UploadmagazineTable extends AbstractTableGateway {
     	 
     }
     
-    public function getReadUploadmagazinedetail($id)
+    public function getReadUploadstorydetail($id)
     {
     	$id = (int) $id;
     	
@@ -127,9 +127,9 @@ class UploadmagazineTable extends AbstractTableGateway {
     	$select = $sql->select();
     	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
     	$select->columns(array());
-    	$select->from ('magazinepublish')
-    	->join('mzimg', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
-    	$select->where(array('magazinepublish.id'=>$id));
+    	$select->from ('story')
+    	->join('storydetail', 'storydetail.idmz=story.id',array('id'=>'id','img'=>'img','description'=>'description','title'=>'title','page'=>'page'));
+    	$select->where(array('story.id'=>$id));
     	$sort = 'id ASC';
     	$selectString = $sql->prepareStatementForSqlObject($select);
     	//return $selectString;die;
@@ -148,7 +148,7 @@ class UploadmagazineTable extends AbstractTableGateway {
     	
     }
 
-    public function saveUploadmagazine(Uploadmagazine $upload) {
+    public function saveUploadstory(Uploadstory $upload) {
         $data = array(
             'descriptionkey' => $upload->descriptionkey,
         	'imgkey' => $upload->imgkey,
@@ -211,7 +211,7 @@ class UploadmagazineTable extends AbstractTableGateway {
     		{
     			$img = '/'.$namefolder.'/'.$imgvalue;
     			$dbAdapter = $this->adapter;
-    			$sql       = "INSERT INTO mzimg (idmz,img,description,title,page)
+    			$sql       = "INSERT INTO storydetail (idmz,img,description,title,page)
                               VALUES ('".$id."','".$img."','','','".$i."')";
                           
     		    $statement = $dbAdapter->query($sql);

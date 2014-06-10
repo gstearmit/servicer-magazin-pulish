@@ -1,8 +1,8 @@
 <?php
 
-namespace Uploadmagazine;
+namespace Uploadstory;
 
-use Uploadmagazine\Model\UploadmagazineTable;
+use Uploadstory\Model\UploadstoryTable;
 
 class Module
 {
@@ -24,9 +24,9 @@ class Module
     {
         return array(
             'factories' => array(
-                'Uploadmagazine\Model\UploadmagazineTable' =>  function($sm) {
+                'Uploadstory\Model\UploadstoryTable' =>  function($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-                    $table = new UploadmagazineTable($dbAdapter);
+                    $table = new UploadstoryTable($dbAdapter);
                     return $table;
                 },
             ),
