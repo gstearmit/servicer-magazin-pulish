@@ -368,6 +368,9 @@ class LibrarybooksController extends AbstractActionController {
 			if ($del == 'Yes') {
 				$id = ( int ) $request->getPost ()->get ( 'id' );
 				$this->getLibrarybooksTable ()->deleteLibrarybooks ( $id );
+				
+				// delete table con cua no
+				$this->getLibrarybooksTable()->getTableByIdDelete($id);
 			}
 			
 			// Redirect to list of librarybookss
