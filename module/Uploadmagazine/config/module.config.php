@@ -32,7 +32,7 @@ return array(
 
     'view_manager' => array(
         'template_path_stack' => array(
-            'Upload' => __DIR__ . '/../view',
+            'Uploadmagazine' => __DIR__ . '/../view',
         ),
         'template_map' => array(
             'page-upload' => __DIR__ . '/../view/layout/slidePaginator.phtml',

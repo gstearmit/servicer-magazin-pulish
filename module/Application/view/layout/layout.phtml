@@ -160,6 +160,8 @@ img {
 						</li>
 						
 						
+						
+						
 		                <li class="noactive">
 							<div class="dropdown">
 							  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
@@ -178,7 +180,31 @@ img {
 							</div>
 						  </a></li>
 						  
-						  <li class="noactive"><a href="<?php echo $this->url('upload') ?>"><?php echo $this->translate('Upload One library') ?></a></li>
+						 
+						  
+						  	<li class="noactive">
+						   <div class="dropdown">
+							  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenuLibrarybooks" data-toggle="dropdown">
+							   Upload Modul
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuLibrarybooks">
+								 <li class="noactive"><a href="<?php echo $this->url('upload') ?>"><?php echo $this->translate('Upload One library') ?></a></li>
+								<li class="noactive"><a
+									href="<?php echo $this->url('uploadmagazine') ?>"><?php echo $this->translate('Uploadmagazine') ?>
+								</a></li>
+								
+								<li class="noactive"><a
+									href="<?php echo $this->url('uploadmagazinevietnam') ?>"><?php echo $this->translate('Uploadmagazinevietnam') ?>
+								</a></li>
+								
+								<li class="noactive"><a
+									href="<?php echo $this->url('uploadlibrarybooks') ?>"><?php echo $this->translate('Uploadlibrarybooks') ?>
+								</a></li>
+						
+						  </ul>
+							</div>
+						</li>
 					</ul>
 
 				</div>
