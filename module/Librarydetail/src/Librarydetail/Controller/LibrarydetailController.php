@@ -1,7 +1,7 @@
 <?php
 
 namespace Librarydetail\Controller;
-
+//use Application\Controller\Plugin;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -170,7 +170,7 @@ class LibrarydetailController extends AbstractActionController {
 
             
             $form->setData($data);  // get all post
-           
+        
             
             if (!$form->isValid()) {
             	$size = new Size(array('min'=>2000000)); //minimum bytes filesize
@@ -205,6 +205,9 @@ class LibrarydetailController extends AbstractActionController {
             		}
             	
             	}
+            	
+//             	$renname_file_img = $this->uploadImageAlatca($data ['img']);
+//             	$librarydetail->dataArraySwap($data,$renname_file_img);
             	
                 $librarydetail->dataArray($form->getData());
 
