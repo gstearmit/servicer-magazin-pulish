@@ -118,7 +118,7 @@ class Uploadmagazine implements InputFilterAwareInterface {
 									'name' => 'FileSize',
 									'options' => array (
 											'min' => 1000,
-											'max' => 4000000 
+											'max' => 10485760 
 									),
 									array (
 											'name' => 'StringLength',
@@ -131,7 +131,7 @@ class Uploadmagazine implements InputFilterAwareInterface {
 							) 
 					) 
 			) ) );
-			
+			//100Mb
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'zip_file',
 					'required' => true,
@@ -146,7 +146,7 @@ class Uploadmagazine implements InputFilterAwareInterface {
 									'name' => 'FileSize',
 									'options' => array (
 											'min' => 1000,
-											'max' => 4000000 
+											'max' => 104857600 
 									) 
 							) 
 					)

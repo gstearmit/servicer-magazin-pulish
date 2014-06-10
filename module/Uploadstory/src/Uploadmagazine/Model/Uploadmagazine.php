@@ -1,12 +1,12 @@
 <?php
 
-namespace uploadlibrarybooks\Model;
+namespace Uploadmagazine\Model;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
 
-class uploadlibrarybooks implements InputFilterAwareInterface {
+class Uploadmagazine implements InputFilterAwareInterface {
 	public $id;
 	public $imgkey;
 	public $descriptionkey;
@@ -146,7 +146,7 @@ class uploadlibrarybooks implements InputFilterAwareInterface {
 									'name' => 'FileSize',
 									'options' => array (
 											'min' => 1000,
-											'max' => 104857600 
+											'max' => 4000000 
 									) 
 							) 
 					)
@@ -224,7 +224,7 @@ class uploadlibrarybooks implements InputFilterAwareInterface {
 									'name' => 'FileSize',
 									'options' => array (
 											'min' => 1000,
-											'max' => 10485760 
+											'max' => 4000000 
 									) 
 							) 
 					)
