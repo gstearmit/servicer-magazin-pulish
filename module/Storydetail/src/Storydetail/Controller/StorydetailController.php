@@ -238,12 +238,6 @@ class StorydetailController extends AbstractActionController {
 			) );
 		}
 		$storydetail = $this->getStorydetailTable()->getStorydetail ( $id );
-		
-		
-// 		var_dump($storydetail);
-// 		die;
-		
-		//$form = new StorydetailForm ( $dbAdapter );
 		$form = new FromClass ( $dbAdapter,$id );
 		
 		$form->bind ( $storydetail );
