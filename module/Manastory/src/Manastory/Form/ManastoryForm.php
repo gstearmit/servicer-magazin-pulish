@@ -93,14 +93,14 @@ class ManastoryForm extends Form
     public function getNameCatalogueForSelect()
     {
     	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM catalogue JOIN story  ON catalogue.id=story.patient_id';
+    	$sql       = 'SELECT * FROM catalogue';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     
     	$selectData = array();
     
     	foreach ($result as $res) {
-    		$selectData[$res['patient_id']] = $res['id'];
+    		$selectData[$res['id']] = $res['title'];
     	}
     	return $selectData;
     }
@@ -110,13 +110,16 @@ class ManastoryForm extends Form
     public function getidcatalogue()
     {
     	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM catalogue JOIN story  ON catalogue.id=story.patient_id';
+    	$sql       = 'SELECT * FROM catalogue  JOIN story  ON catalogue.id = story.patient_id';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     
-    	foreach ($result as $res) {
-    		$id = $res['patient_id'];
-    	}
+    	if( is_array($result) and !empty($result))
+    	{
+    		foreach ($result as $res) {
+    			$id = $res['patient_id'];
+    		}
+    	}else $id = 0;
     	return $id;
     }
     

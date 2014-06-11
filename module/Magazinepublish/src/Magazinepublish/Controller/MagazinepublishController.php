@@ -158,8 +158,11 @@ class MagazinepublishController extends AbstractActionController {
 			) );
 		}
 		$magazinepublish = $this->getMagazinepublishTable ()->getMagazinepublish ( $id );
+		
+		$nameimg = $magazinepublish->imgkey;
+		
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
-		$form = new MagazinepublishForm ($dbAdapter);
+		$form = new MagazinepublishForm ($dbAdapter,$id);
 		$form->bind ( $magazinepublish );
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Edit' );
 		
@@ -169,29 +172,23 @@ class MagazinepublishController extends AbstractActionController {
 			
 			$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
 			
-// 			echo '<pre>';
-// 			print_r($data);
-// 			echo '</pre>';
-			
-			
 			$form->setData ( $data );
-			
-// 			echo 'hihi';
-// 			var_dump($form->isValid());
-// 			die;
 		
 			if ($form->isValid()) {
 				
-				if($data['imgkeyedit'] !== Null)
+				if( $data['imgkeyedit']['name'] !== '')
 				{
+					
 					$magazinepublish2 = new Magazinepublish ();
 					$renname_file_img = $this->uploadImageAlatca($data['imgkeyedit']);
 					$magazinepublish2->dataArraySwap($data,$renname_file_img);
 					$this->getMagazinepublishTable ()->saveMagazinepublish2 ( $magazinepublish2 );
 				}else 
 				{
+					
+					
 					$magazinepublish2 = new Magazinepublish ();
-					$magazinepublish2->dataPost( $data );
+					$magazinepublish2->dataArraySwap($data,$nameimg);
 					$this->getMagazinepublishTable ()->saveMagazinepublish2 ( $magazinepublish2 );
 				}
 				
@@ -202,7 +199,8 @@ class MagazinepublishController extends AbstractActionController {
 		
 		return array (
 				'id' => $id,
-				'form' => $form 
+				'form' => $form ,
+				'nameimg'=>$nameimg,
 		);
 	}
 	public function deleteAction() {
