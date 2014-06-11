@@ -14,10 +14,12 @@ use Zend\Db\Adapter\Adapter;
 
 class ManastoryForm extends Form
 {
+	protected $id;
 	protected $adapter;
-    public function __construct(AdapterInterface $dbAdapter)
+    public function __construct(AdapterInterface $dbAdapter , $id = Null)
     {
         $this->adapter =$dbAdapter;
+        $this->id = (int)$id;
         parent::__construct('manastory');
 
         $this->setAttribute('method', 'post');
@@ -30,7 +32,7 @@ class ManastoryForm extends Form
             ),
         ));
         
-        $defaul = $this->getidcatalogue();
+       $id_default  = ($this->id)== 0 ? '1' : $this->id;
         
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
@@ -41,7 +43,7 @@ class ManastoryForm extends Form
         				'value_options' => $this->getNameCatalogueForSelect()
         		),
         		'attributes' => array(
-        				'value' => $defaul, //set selected to '1'
+        				'value' => $id_default, //set selected to '1'
         				'inarrayvalidator' => true,
         
         		)
@@ -77,7 +79,19 @@ class ManastoryForm extends Form
         		),
         ));
    
-
+        //imgkeyedit
+        $this->add(array(
+        		'name' => 'imgkeyedit',
+        		'attributes' => array(
+        				'type'  => 'file',
+        				//'required' => 'required',
+        		),
+        		'options' => array(
+        				'label' => 'Upload images  ',
+        		),
+        ));
+        
+        
         $this->add(array(
             'name' => 'submit',
             'attributes' => array(
@@ -106,22 +120,6 @@ class ManastoryForm extends Form
     }
     
     
-    //getidcatalogue
-    public function getidcatalogue()
-    {
-    	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM catalogue  JOIN story  ON catalogue.id = story.patient_id';
-    	$statement = $dbAdapter->query($sql);
-    	$result    = $statement->execute();
-    
-    	if( is_array($result) and !empty($result))
-    	{
-    		foreach ($result as $res) {
-    			$id = $res['patient_id'];
-    		}
-    	}else $id = 0;
-    	return $id;
-    }
     
     
 }

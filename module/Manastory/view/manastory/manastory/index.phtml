@@ -82,7 +82,9 @@ echo $this->form()->closeTag();
         <tr>
             <td><?php echo $this->escapeHtml($manastory->title); ?></td>
             <td><div><?php echo $manastory->descriptionkey; ?></div></td>
-            <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $manastory->imgkey;//echo $this->escapeHtml($manastory->imgkey); ?>" style="width: 100px; height:100px;"/></td>
+            <td>
+            <?php if($manastory->imgkey !== '') { ?><img alt="" src="<?php echo Thumb_.$manastory->imgkey;; ?>" > <?php }?>
+           </td>
             <td>
                 <a class="btn  btn-mini edit-row" href="<?php echo $this->url('manastory', array('action' => 'edit', 'id' => $manastory->id));
         ?>">Edit</a> 

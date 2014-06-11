@@ -78,7 +78,7 @@ echo $this->form()->closeTag();
         <tr>
             <td><?php echo $this->escapeHtml($magazinepublish->title); ?></td>
             <td><div><?php echo $magazinepublish->descriptionkey; ?></div></td>
-            <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $magazinepublish->imgkey;//echo $this->escapeHtml($magazinepublish->imgkey); ?>" style="width: 100px; height:100px;"/></td>
+            <td><?php if($magazinepublish->imgkey !== '') { ?><img alt="" src="<?php echo Thumb_.$magazinepublish->imgkey;; ?>" > <?php }?></td>
             <td>
                 <a class="btn  btn-mini edit-row" href="<?php echo $this->url('magazinepublish', array('action' => 'edit', 'id' => $magazinepublish->id));
         ?>">Edit</a> 

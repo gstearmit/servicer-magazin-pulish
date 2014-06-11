@@ -125,14 +125,6 @@ class ManastoryController extends AbstractActionController {
 			
 			$form->setData ( $data ); // get all post
 			
-// 						echo '<pre>';
-// 						print_r($data);
-// 						echo '</pre>';
-
-// 						echo 'hihi';
-// 						var_dump($form->isValid());
-// 						die;
-			
 			if ($form->isValid ()) {
 				
 				$renname_file_img = $this->uploadImageAlatca($data ['imgkey']);
@@ -161,8 +153,10 @@ class ManastoryController extends AbstractActionController {
 			) );
 		}
 		$manastory = $this->getManastoryTable ()->getManastory ( $id );
+		$nameimg = $manastory->imgkey;
+		
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
-		$form = new ManastoryForm ($dbAdapter);
+		$form = new ManastoryForm ($dbAdapter,$id);
 		$form->bind ( $manastory );
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Edit' );
 		
@@ -171,48 +165,26 @@ class ManastoryController extends AbstractActionController {
 		if ($request->isPost ()) {
 			
 			$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
-			
-			echo '<pre>';
-			print_r($data);
-			echo '</pre>';
-			
-			
+		
 			$form->setData ( $data );
-			
-			echo 'hihi';
-			var_dump($form->isValid());
-			die;
-			
+		
 			if ($form->isValid ()) {
 				
-				$size = new Size ( array (
-						'min' => 2000000 
-				) ); // minimum bytes filesize
+				if( $data['imgkeyedit']['name'] !== '')
+				{
+					
+					$manastory2 = new Manastory ();
+					$renname_file_img = $this->uploadImageAlatca($data['imgkeyedit']);
+					$manastory2->dataArraySwap($data,$renname_file_img);
+					$this->getManastoryTable ()->saveManastory2 ( $manastory2 );
+				}else
+				{
 				
-				$adapter = new \Zend\File\Transfer\Adapter\Http ();
-				$adapter->setValidators ( array (
-						$size 
-				), $data ['imgkey'] ['size'] );
-				$extension = new \Zend\Validator\File\Extension ( array (
-						'extension' => array (
-								'gif',
-								'jpg',
-								'png' 
-						) 
-				) );
-			
-				if ($adapter->isValid ()) {
-				
-					$adapter->setDestination ( MZIMG_PATH );
-					if ($adapter->receive ( $data ['imgkey'] ['name'] )) {
-						$profile = new Manastory ();
-						
-					}
+					$manastory2 = new Manastory ();
+					$manastory2->dataArraySwap($data,$nameimg);
+					$this->getManastoryTable ()->saveManastory2 ( $manastory2 );
 				}
 				
-				$manastory2 = new Manastory ();
-				$manastory2->dataPost ( $data );
-				$this->getManastoryTable ()->saveManastory2 ( $manastory2 );
 				
 				// Redirect to list of manastorys
 				return $this->redirect ()->toRoute ( 'manastory' );
@@ -221,7 +193,8 @@ class ManastoryController extends AbstractActionController {
 		
 		return array (
 				'id' => $id,
-				'form' => $form 
+				'form' => $form ,
+				'nameimg'=>$nameimg,
 		);
 	}
 	public function deleteAction() {
