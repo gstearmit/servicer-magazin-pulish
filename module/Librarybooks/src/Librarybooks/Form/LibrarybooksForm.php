@@ -14,10 +14,12 @@ use Zend\Db\Adapter\Adapter;
 
 class LibrarybooksForm extends Form
 {
+	protected $id;
 	protected $adapter;
-    public function __construct(AdapterInterface $dbAdapter)
+    public function __construct(AdapterInterface $dbAdapter ,$id = Null)
     {
         $this->adapter =$dbAdapter;
+        $this->id = (int)$id;
         parent::__construct('librarybooks');
 
         $this->setAttribute('method', 'post');
@@ -30,7 +32,7 @@ class LibrarybooksForm extends Form
             ),
         ));
         
-        $defaul = $this->getidcatalogue();
+        $id_default  = ($this->id)== 0 ? '1' : $this->id;
         
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
@@ -41,7 +43,7 @@ class LibrarybooksForm extends Form
         				'value_options' => $this->getNameCatalogueForSelect()
         		),
         		'attributes' => array(
-        				'value' => $defaul, //set selected to '1'
+        				'value' => $id_default, //set selected to '1'
         				'inarrayvalidator' => true,
         
         		)
@@ -51,6 +53,7 @@ class LibrarybooksForm extends Form
             'name' => 'descriptionkey',
             'attributes' => array(
                 'type'  => 'textarea',
+            		'required' => 'required',
             ),
             'options' => array(
                 'label' => 'Description',
@@ -61,6 +64,7 @@ class LibrarybooksForm extends Form
             'name' => 'title',
             'attributes' => array(
                 'type'  => 'text',
+            		'required' => 'required',
             ),
             'options' => array(
                 'label' => 'Title',
@@ -71,12 +75,24 @@ class LibrarybooksForm extends Form
         		'name' => 'imgkey',
         		'attributes' => array(
         				'type'  => 'file',
+        				'required' => 'required',
         		),
         		'options' => array(
         				'label' => 'Upload images description ',
         		),
         ));
-   
+        
+        //imgkeyedit
+        $this->add(array(
+        		'name' => 'imgkeyedit',
+        		'attributes' => array(
+        				'type'  => 'file',
+        				//'required' => 'required',
+        		),
+        		'options' => array(
+        				'label' => 'Upload images  ',
+        		),
+        ));
 
         $this->add(array(
             'name' => 'submit',
@@ -93,14 +109,14 @@ class LibrarybooksForm extends Form
     public function getNameCatalogueForSelect()
     {
     	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM catalogue JOIN librarybooks  ON catalogue.id=librarybooks.patient_id';
+    	$sql       = 'SELECT * FROM catalogue ';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     
     	$selectData = array();
     
     	foreach ($result as $res) {
-    		$selectData[$res['patient_id']] = $res['id'];
+    		$selectData[$res['id']] = $res['title'];
     	}
     	return $selectData;
     }

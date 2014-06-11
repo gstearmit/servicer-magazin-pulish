@@ -122,55 +122,13 @@ class LibrarybooksController extends AbstractActionController {
 			$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
 			
 			$form->setData ( $data ); // get all post
+	
 			
 			if ($form->isValid ()) {
 				
-				$size = new Size ( array (
-						'min' => 2000000 
-				) ); // minimum bytes filesize
+				$renname_file_img = $this->uploadImageAlatca($data ['imgkey']);
+				$librarybooks->dataArraySwap($data,$renname_file_img);
 				
-				$adapter = new \Zend\File\Transfer\Adapter\Http ();
-				$adapter->setValidators ( array (
-						$size 
-				), $data ['imgkey'] ['size'] );
-				$extension = new \Zend\Validator\File\Extension ( array (
-						'extension' => array (
-								'gif',
-								'jpg',
-								'png' 
-						) 
-				) );
-				
-				if (! $adapter->isValid ()) {
-					
-					$dataError = $adapter->getMessages ();
-					
-					$error = array ();
-					foreach ( $dataError as $key => $row ) {
-						$error [] = $row;
-					}
-					
-					$form->setMessages ( array (
-							'imgkey' => $error 
-					) );
-					// die;
-				}
-				if ($adapter->isValid ()) {
-					// echo 'is valid';
-					
-					// var_dump(MZIMG_PATH);
-					// var_dump($data['imgkey']);
-					// die;
-					$adapter->setDestination ( MZIMG_PATH );
-					if ($adapter->receive ( $data ['imgkey'] ['name'] )) {
-						$profile = new Librarybooks ();
-						$profile->exchangeArray ( $form->getData () );
-						// echo 'Profile Name '.$profile->title.' upload '.$profile->imgkey;
-						// die;
-					}
-				}
-				
-				$librarybooks->dataArray ( $form->getData () );
 				$this->getLibrarybooksTable ()->saveLibrarybooks ( $librarybooks );
 				// Redirect to list of librarybookss
 				return $this->redirect ()->toRoute ( 'librarybooks' );
@@ -185,109 +143,7 @@ class LibrarybooksController extends AbstractActionController {
 	}
 	
 	
-	public function adddetailAction() {
-		$id = $this->params ()->fromRoute ( 'id', 0 );
 
-		$librarydetailArray  = $this->getLibrarybooksTable ()->fetchAllDetaillibrarydetail ($id);
-		
-// 		echo '<pre>';
-// 		print_r($librarybookss);
-// 		echo '</pre>';
-// 	die;
-
-		
-		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
-		
-		$form2 = new MagazineForm($dbAdapter); // include Form Class
-		 
-		$form2->get('submit')->setAttribute('value', 'Add');
-		 
-		$request = $this->getRequest();
-		 
-		if ($request->isPost()) {
-			 
-			$librarydetail = new librarydetail();
-		
-			$form2->setInputFilter($librarydetail->getInputFilter());  // check validate
-		
-			$data2 = array_merge_recursive(
-					$this->getRequest()->getPost()->toArray(),
-					$this->getRequest()->getFiles()->toArray()
-			);
-		
-// 	echo '<pre>';
-// 	print_r($data2);
-// 	echo '</pre>';
-// 	  die;
-		
-			$form2->setData($data2);  // get all post
-			
-			if (!$form2->isValid()) {
-			
-				$size = new Size(array('min'=>2000000)); //minimum bytes filesize
-				 
-				$adapter = new \Zend\File\Transfer\Adapter\Http();
-				$adapter->setValidators(array($size), $data2['img']['size']);
-				$extension = new \Zend\Validator\File\Extension(array('extension' => array('gif', 'jpg', 'png')));
-		
-				if (!$adapter->isValid()){
-					 
-					echo 'is not valid';
-		            
-					$dataError = $adapter->getMessages();
-					 
-					$error = array();
-					foreach($dataError as $key=>$row)
-					{
-						$error[] = $row;
-					}
-				
-		
-					$form->setMessages(array('img'=>$error ));
-					
-				}
-				if ($adapter->isValid()) {
-
-					
-// 					echo 'is valid';
-// 					 var_dump(MZIMG_PATH);
-// 					 var_dump($data2['img']);
-// 					 die;
-					   
-					   
-					$adapter->setDestination(MZIMG_PATH);
-					if ($adapter->receive($data2['img']['name'])) {
-						$profile = new librarydetail();
-						//$profile->exchangeArray($form2->getData());
-						
-					}
-					 
-				}
-				 
-				$librarydetail->dataArray($form2->getData());
-				
-				
-				  die(" Error Connectting  Action save Modul librarydetail ");
-				
-		        $librarydetailTable = new librarydetailTable();
-		        
-				$librarydetailTable->savelibrarydetail($librarydetail);
-				
-				// Redirect to list of librarydetails
-				return $this->redirect()->toRoute('librarydetail');
-			}else 
-			{
-			  die('is not not valid Dedatil');
-			}
-		}
-		
-		return new ViewModel ( array (
-				'paginatorimg' => $librarydetailArray,
-				'form' => $form2,
-				'id' => $id,
-		) );
-	}
-	
 	
 	
 	public function editAction() {
@@ -298,8 +154,10 @@ class LibrarybooksController extends AbstractActionController {
 			) );
 		}
 		$librarybooks = $this->getLibrarybooksTable ()->getLibrarybooks ( $id );
+		$nameimg = $librarybooks->imgkey;
+		
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
-		$form = new LibrarybooksForm ($dbAdapter);
+		$form = new LibrarybooksForm ($dbAdapter,$id);
 		$form->bind ( $librarybooks );
 		$form->get ( 'submit' )->setAttribute ( 'value', 'Edit' );
 		
@@ -309,42 +167,28 @@ class LibrarybooksController extends AbstractActionController {
 			
 			$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
 			
-			// echo '<pre>';
-			// print_r($data);
-			// echo '</pre>';
 			
 			$form->setData ( $data );
 			
 			if ($form->isValid ()) {
 				
-				$size = new Size ( array (
-						'min' => 2000000 
-				) ); // minimum bytes filesize
-				
-				$adapter = new \Zend\File\Transfer\Adapter\Http ();
-				$adapter->setValidators ( array (
-						$size 
-				), $data ['imgkey'] ['size'] );
-				$extension = new \Zend\Validator\File\Extension ( array (
-						'extension' => array (
-								'gif',
-								'jpg',
-								'png' 
-						) 
-				) );
-			
-				if ($adapter->isValid ()) {
-				
-					$adapter->setDestination ( MZIMG_PATH );
-					if ($adapter->receive ( $data ['imgkey'] ['name'] )) {
-						$profile = new Librarybooks ();
+				if( $data['imgkeyedit']['name'] !== '')
+				{
 						
-					}
+					$librarybooks2 = new Librarybooks ();
+					$renname_file_img = $this->uploadImageAlatca($data['imgkeyedit']);
+					$librarybooks2->dataArraySwap($data,$renname_file_img);
+					$this->getLibrarybooksTable ()->saveLibrarybooks2 ( $librarybooks2 );
+				}else
+				{
+						
+						
+					$librarybooks2 = new Librarybooks ();
+					$librarybooks2->dataArraySwap($data,$nameimg);
+				    $this->getLibrarybooksTable ()->saveLibrarybooks2 ( $librarybooks2 );
 				}
 				
-				$librarybooks2 = new Librarybooks ();
-				$librarybooks2->dataPost ( $data );
-				$this->getLibrarybooksTable ()->saveLibrarybooks2 ( $librarybooks2 );
+			
 				
 				// Redirect to list of librarybookss
 				return $this->redirect ()->toRoute ( 'librarybooks' );
@@ -353,7 +197,8 @@ class LibrarybooksController extends AbstractActionController {
 		
 		return array (
 				'id' => $id,
-				'form' => $form 
+				'form' => $form ,
+				'nameimg'=>$nameimg,
 		);
 	}
 	public function deleteAction() {
@@ -407,5 +252,121 @@ class LibrarybooksController extends AbstractActionController {
 		return $this->librarybooksTable;
 	}
 	
-
+ 
+	public function createImageThumbnail($filePathName, $destinationPath, $options) {
+		$arr = explode('/', $filePathName);
+		$file_name = end($arr);
+		 
+		$new_file_name = 'thumb_' . $file_name;
+		$new_file_path = $destinationPath . '/' . $new_file_name;
+		 
+		list($img_width, $img_height) = @getimagesize($filePathName);
+		if (!$img_width || !$img_height) {
+			return false;
+		}
+		$scale = min(
+				$options['max_width'] / $img_width, $options['max_height'] / $img_height
+		);
+		$new_width = $img_width * $scale;
+		$new_height = $img_height * $scale;
+		$new_img = @imagecreatetruecolor($new_width, $new_height);
+		switch (strtolower(substr(strrchr($file_name, '.'), 1))) {
+			case 'jpg':
+			case 'jpeg':
+				$src_img = @imagecreatefromjpeg($filePathName);
+				$write_image = 'imagejpeg';
+				$image_quality = isset($options['jpeg_quality']) ?
+				$options['jpeg_quality'] : 75;
+				break;
+			case 'gif':
+				@imagecolortransparent($new_img, @imagecolorallocate($new_img, 0, 0, 0));
+				$src_img = @imagecreatefromgif($filePathName);
+				$write_image = 'imagegif';
+				$image_quality = null;
+				break;
+			case 'png':
+				@imagecolortransparent($new_img, @imagecolorallocate($new_img, 0, 0, 0));
+				@imagealphablending($new_img, false);
+				@imagesavealpha($new_img, true);
+				$src_img = @imagecreatefrompng($filePathName);
+				$write_image = 'imagepng';
+				$image_quality = isset($options['png_quality']) ?
+				$options['png_quality'] : 9;
+				break;
+			default:
+				$src_img = null;
+		}
+		$success = $src_img && @imagecopyresampled(
+				$new_img, $src_img, 0, 0, 0, 0, $new_width, $new_height, $img_width, $img_height
+		) && $write_image($new_img, $new_file_path, $image_quality);
+		// Free up memory (imagedestroy does not delete files):
+		@imagedestroy($src_img);
+		@imagedestroy($new_img);
+		if ($success)
+			return $new_file_name;
+		return $success;
+	}
+	 
+	 
+	public function deleteImage($image, $dir)
+	{
+		try {
+			$this->deleteFile($dir .'/'. $image);
+			$this->deleteFile($dir .'/thumb_/thumb_'. $image);
+			 
+			//$logger->writeLog("DEBUG", $userEmail, $arrLog[0], $arrLog[1], "Delete image, file : " . $dir .'/'. $image, ">>");
+			//$logger->writeLog("INFO", $userEmail, $arrLog[0], $arrLog[1], "Delete image, file : " . $dir .'/thumb_/thumb_'. $image, ">>");
+		} catch (\Exception $exc) {
+		$this->errorMessage = $exc->getMessage();
+		}
+		 
+		 
+		}
+		public function uploadImage($imageData = array(), $dir, $createThumb = true, $options = array()) {
+		 
+		if (!empty($imageData)) {
+		$fileName = time() . '.jpg';
+		$dirFileName = $dir .'/'. $fileName;
+		 
+		$filter = new \Zend\Filter\File\RenameUpload($dirFileName);
+		if ($filter->filter($imageData)) {
+		if($createThumb){
+		$options = (!empty($options)) ? $options : array('max_width' => 65, 'max_height' => 65, 'jpeg_quality' => 100);
+   		$this->createImageThumbnail($dirFileName, $dir . '/thumb_', $options);
+		}
+		 
+		 
+		return $fileName;
+		}
+		}
+		 
+		return false;
+		}
+		 
+		public function uploadImageAlatca($imageData = array()) {
+		if (!empty($imageData)) {
+		$fileName = time() . '.jpg';
+		$dir = ROOT_PATH . UPLOAD_PATH_IMG;
+		$dirFileName = $dir .'/'. $fileName;
+		 
+		$filter = new \Zend\Filter\File\RenameUpload($dirFileName);
+		if ($filter->filter($imageData)) {
+		$options = array('max_width' => 102, 'max_height' => 102, 'jpeg_quality' => 100);
+		$this->createImageThumbnail($dirFileName, $dir . '/thumb_', $options);
+		return $fileName;
+		}
+		}
+   				return false;
+		}
+		 
+		public function deleteFile($file_path) {
+		if (!empty($file_path) && file_exists($file_path)) {
+		return @unlink($file_path);
+		}
+		return false;
+		}
+		 
+	
+	
+	
 }
