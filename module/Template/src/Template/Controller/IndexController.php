@@ -1,11 +1,8 @@
 <?php
-//Khai bao namespace 
 namespace Template\Controller;
 
-//Load lớp AbstractActionController vào CONTROLLER
 use Zend\Mvc\Controller\AbstractActionController;
 
-//Load lớp ViewModel vào CONTROLLER
 use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController

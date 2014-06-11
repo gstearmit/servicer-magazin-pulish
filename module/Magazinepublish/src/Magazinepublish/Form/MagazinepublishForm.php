@@ -79,7 +79,21 @@ class MagazinepublishForm extends Form
         		),
         ));
    
-
+  //imgkeyedit 
+        $this->add(array(
+        		'name' => 'imgkeyedit',
+        		'attributes' => array(
+        				'type'  => 'file',
+        				//'required' => 'required',
+        		),
+        		'options' => array(
+        				'label' => 'Upload images  ',
+        		),
+        ));
+        
+        
+        
+        
         $this->add(array(
             'name' => 'submit',
             'attributes' => array(

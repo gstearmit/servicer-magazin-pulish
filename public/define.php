@@ -9,6 +9,8 @@
 	define('LIBRARY_PATH', realpath(APPLICATION_PATH . '/library/'));
 	define('PUBLIC_PATH'	, realpath(APPLICATION_PATH . '/public'));
 	define('TEMPLATE_PATH'	, realpath(PUBLIC_PATH . '/templates'));
+	define('PORTCMS_PATH'	, realpath(PUBLIC_PATH . '/portcms'));
+	define('TEMPLATE_ISSUS'	, realpath(PUBLIC_PATH . '/Page_Bottom_Issus'));
 	define('FILES_PATH'	, realpath(PUBLIC_PATH . '/files'));
 	define('MZIMG_PATH'	, realpath(PUBLIC_PATH . '/images'));
 	
