@@ -23,9 +23,10 @@ elseif ($order_by == 'descriptionkey')
 <div style="clear:both;"></div>
 */
 ?>
-<?php
-/*
-<h1>Search Magazine </h1>
+
+
+<h1>Search Story </h1>
+
 <?php
 $form  = $this->form;
 $form->setAttribute('action', $this->url('manastory', array('action' => 'search')));
@@ -50,7 +51,7 @@ foreach ($form as $element) :
     <?php
 endforeach;
 echo $this->form()->closeTag();
-*/
+
 ?>
 
 
@@ -80,7 +81,7 @@ echo $this->form()->closeTag();
     ?>
         <tr>
             <td><?php echo $this->escapeHtml($manastory->title); ?></td>
-            <td><?php echo $this->escapeHtml($manastory->descriptionkey); ?></td>
+            <td><div><?php echo $manastory->descriptionkey; ?></div></td>
             <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $manastory->imgkey;//echo $this->escapeHtml($manastory->imgkey); ?>" style="width: 100px; height:100px;"/></td>
             <td>
                 <a class="btn  btn-mini edit-row" href="<?php echo $this->url('manastory', array('action' => 'edit', 'id' => $manastory->id));

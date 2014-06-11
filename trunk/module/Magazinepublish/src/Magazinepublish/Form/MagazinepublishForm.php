@@ -13,10 +13,13 @@ use Zend\Db\Adapter\Adapter;
 
 class MagazinepublishForm extends Form
 {
+	protected $id;
 	protected $adapter;
-    public function __construct(AdapterInterface $dbAdapter)
+    public function __construct(AdapterInterface $dbAdapter,$id = Null)
     {
         $this->adapter =$dbAdapter;
+        $this->id = (int)$id;
+        
         parent::__construct('magazinepublish');
 
         $this->setAttribute('method', 'post');
@@ -29,7 +32,7 @@ class MagazinepublishForm extends Form
             ),
         ));
         
-        $defaul = $this->getidcatalogue();
+      $id_default  = ($this->id)== 0 ? '1' : $this->id;
         
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
@@ -40,7 +43,7 @@ class MagazinepublishForm extends Form
         				'value_options' => $this->getNameCatalogueForSelect()
         		),
         		'attributes' => array(
-        				'value' => $defaul, //set selected to '1'
+        				'value' => $id_default, //set selected to '1'
         				'inarrayvalidator' => true,
         
         		)
@@ -122,22 +125,7 @@ class MagazinepublishForm extends Form
     }
     
     
-    //getidcatalogue
-    public function getidcatalogue()
-    {
-    	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM catalogue JOIN magazinepublish  ON catalogue.id=magazinepublish.patient_id';
-    	$statement = $dbAdapter->query($sql);
-    	$result    = $statement->execute();
-    
-    	if( is_array($result) and !empty($result))
-    	{
-	    	foreach ($result as $res) {
-	    		$id = $res['patient_id'];
-	    	}
-    	}else $id = 0;
-    	return $id;
-    }
+   
     
     
 }
