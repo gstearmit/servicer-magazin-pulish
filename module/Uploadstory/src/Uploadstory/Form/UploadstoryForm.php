@@ -47,22 +47,22 @@ class uploadstoryForm extends Form
         		),
         ));
         
-//         $defaul = $this->getidcatalogue();
+        $defaul = $this->getidcatalogue();
         
-//         $this->add(array(
-//         		'type' => 'Zend\Form\Element\Select',
-//         		'name' => 'patient_id',
-//         		'options' => array(
-//         				'label' => 'Select a category father ',
-//         				'empty_option' => 'Please Select a category father',
-//         				'value_options' => $this->getNameCatalogueForSelect()
-//         		),
-//         		'attributes' => array(
-//         				'value' => $defaul, //set selected to '1'
-//         				'inarrayvalidator' => true,
+        $this->add(array(
+        		'type' => 'Zend\Form\Element\Select',
+        		'name' => 'patient_id',
+        		'options' => array(
+        				'label' => 'Select a category father ',
+        				'empty_option' => 'Please Select a category father',
+        				'value_options' => $this->getNameCatalogueForSelect()
+        		),
+        		'attributes' => array(
+        				'value' => $defaul, //set selected to '1'
+        				'inarrayvalidator' => true,
         
-//         		)
-//         ));
+        		)
+        ));
         
         $this->add(array(
         		'name' => 'descriptionkey',
