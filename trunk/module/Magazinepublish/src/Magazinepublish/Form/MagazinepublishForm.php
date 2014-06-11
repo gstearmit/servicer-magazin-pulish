@@ -109,14 +109,14 @@ class MagazinepublishForm extends Form
     public function getNameCatalogueForSelect()
     {
     	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM catalogue JOIN magazinepublish  ON catalogue.id=magazinepublish.patient_id';
+    	$sql       = 'SELECT * FROM catalogue';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     
     	$selectData = array();
     
     	foreach ($result as $res) {
-    		$selectData[$res['patient_id']] = $res['id'];
+    		$selectData[$res['id']] = $res['title'];
     	}
     	return $selectData;
     }
