@@ -130,9 +130,12 @@ class MagazinepublishForm extends Form
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     
-    	foreach ($result as $res) {
-    		$id = $res['patient_id'];
-    	}
+    	if( is_array($result) and !empty($result))
+    	{
+	    	foreach ($result as $res) {
+	    		$id = $res['patient_id'];
+	    	}
+    	}else $id = 0;
     	return $id;
     }
     
