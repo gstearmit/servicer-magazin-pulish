@@ -36,6 +36,16 @@ class Librarybooks implements InputFilterAwareInterface {
 		
 	}
 	
+	public function dataArraySwap($data , $Renamefile)
+	{
+		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
+		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
+		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
+		$this->imgkey = $Renamefile;
+		$this->patient_id = (isset ( $data ['patient_id'])) ? $data ['patient_id'] : null;
+	
+	}
+	
 	public function dataPost($data) {
 		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
@@ -118,6 +128,36 @@ class Librarybooks implements InputFilterAwareInterface {
 			);
 			
 			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'imgkeyedit',
+					'required' =>false,
+					'validators' => array (
+							array (
+									'name' => 'FileExtension',
+									'options' => array (
+											'extension' => 'jpg, jpeg, png'
+									)
+							),
+							array (
+									'name' => 'FileSize',
+									'options' => array (
+											'min' => 1000,
+											'max' => 4000000
+									),
+									array (
+											'name' => 'StringLength',
+											'options' => array (
+													'encoding' => 'UTF-8',
+													'min' => 1,
+													'max' => 100
+											),
+									)
+							)
+					) ) )
+			);
+			
+			
+			
+			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'title',
 					'required' => true,
 					'filters' => array (
@@ -149,134 +189,7 @@ class Librarybooks implements InputFilterAwareInterface {
 		return $this->inputFilter;
 	}
 	
-	public function getInputFiltermzimg()
-	{
-		if (!$this->inputFilter) {
-			$inputFilter = new InputFilter();
 	
-			$factory = new InputFactory();
-	
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'id',
-					'required' => true,
-					'filters'  => array(
-							array('name' => 'Int'),
-					),
-			)));
-				
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'idmz',
-					'required' => true,
-					'filters'  => array(
-							array('name' => 'Int'),
-					),
-			)));
-	
-	
-			$inputFilter->add ( $factory->createInput ( array (
-					'name' => 'img',
-					'required' => false,
-					'validators' => array (
-							array (
-									'name' => 'FileExtension',
-									'options' => array (
-											'extension' => 'jpg, jpeg, png'
-									)
-							),
-							array (
-									'name' => 'FileSize',
-									'options' => array (
-											'min' => 1000,
-											'max' => 4000000
-									)
-							)
-	
-					) ,
-			) ) );
-	
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'description',
-					'required' => true,
-					'filters'  => array(
-							array('name' => 'StripTags'),
-							array('name' => 'StringTrim'),
-					),
-					'validators' => array(
-							array(
-									'name'    => 'StringLength',
-									'options' => array(
-											'encoding' => 'UTF-8',
-											'min'      => 1,
-											'max'      => 100,
-									),
-							),
-					),
-			)));
-				
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'title',
-					'required' => true,
-					'filters'  => array(
-							array('name' => 'StripTags'),
-							array('name' => 'StringTrim'),
-					),
-					'validators' => array(
-							array(
-									'name'    => 'StringLength',
-									'options' => array(
-											'encoding' => 'UTF-8',
-											'min'      => 1,
-											'max'      => 100,
-									),
-							),
-					),
-			)));
-				
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'page',
-					'required' => true,
-					'filters'  => array(
-							array('name' => 'StripTags'),
-							array('name' => 'StringTrim'),
-					),
-					'validators' => array(
-							array(
-									'name'    => 'StringLength',
-									'options' => array(
-											'encoding' => 'UTF-8',
-											'min'      => 1,
-											'max'      => 100,
-									),
-							),
-					),
-			)));
-				
-				
-	
-			$inputFilter->add($factory->createInput(array(
-					'name'     => 'title',
-					'required' => true,
-					'filters'  => array(
-							array('name' => 'StripTags'),
-							array('name' => 'StringTrim'),
-					),
-					'validators' => array(
-							array(
-									'name'    => 'StringLength',
-									'options' => array(
-											'encoding' => 'UTF-8',
-											'min'      => 1,
-											'max'      => 100,
-									),
-							),
-					),
-			)));
-	
-			$this->inputFilter = $inputFilter;
-		}
-	
-		return $this->inputFilter;
-	}
 	
 	
 	

@@ -23,9 +23,8 @@ elseif ($order_by == 'descriptionkey')
 <div style="clear:both;"></div>
 */
 ?>
-<?php
-/*
-<h1>Search Magazine </h1>
+
+<h1>Search Librarybook </h1>
 <?php
 $form  = $this->form;
 $form->setAttribute('action', $this->url('librarybooks', array('action' => 'search')));
@@ -50,7 +49,6 @@ foreach ($form as $element) :
     <?php
 endforeach;
 echo $this->form()->closeTag();
-*/
 ?>
 
 
@@ -80,8 +78,8 @@ echo $this->form()->closeTag();
     ?>
         <tr>
             <td><?php echo $this->escapeHtml($librarybooks->title); ?></td>
-            <td><?php echo $this->escapeHtml($librarybooks->descriptionkey); ?></td>
-            <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $librarybooks->imgkey;//echo $this->escapeHtml($librarybooks->imgkey); ?>" style="width: 100px; height:100px;"/></td>
+            <td><div><?php echo $librarybooks->descriptionkey; ?></div></td>
+            <td><?php if($librarybooks->imgkey !== '') { ?><img alt="" src="<?php echo Thumb_.$librarybooks->imgkey;; ?>" > <?php }?></td>
             <td>
                 <a class="btn  btn-mini edit-row" href="<?php echo $this->url('librarybooks', array('action' => 'edit', 'id' => $librarybooks->id));
         ?>">Edit</a> 
