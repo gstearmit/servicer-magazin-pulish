@@ -5,4 +5,5 @@
                 <li><a  href="<?php echo $this->url() . '/index/ebook';?>">Ebook</a></li>
                 <li><a  href="<?php echo $this->url() . '/index/appmobile';?>">App Mobile</a>
                 <li><a  href="<?php echo $this->url() . '/index/buildapp';?>">Build App Mobile</a>
+                <li><a  href="/user/login">login</a>
  </li>
