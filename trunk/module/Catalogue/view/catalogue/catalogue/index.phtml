@@ -88,7 +88,7 @@ echo $this->form()->closeTag();
         ?>">Edit</a> 
                 <a  class="btn  btn-mini  " href="<?php echo $this->url('catalogue', array('action' => 'delete', 'id' => $catalogue->id));
         ?>">Delete</a> 
-            <?php if ($catalogue->url_catalogue !== '') {
+            <?php if ($catalogue->url_catalogue !== '' and $catalogue->url_rest !== '') {
             	?>
             
                 <a class="btn  btn-mini  " href="<?php echo '/'.$catalogue->url_catalogue.'/adddetail/'?><?php echo $catalogue->id?>">Add <?php echo $catalogue->title ;?></a>
