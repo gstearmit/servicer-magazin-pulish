@@ -53,19 +53,18 @@ echo $this->url('librarydetail', array( 'action' => 'add'));
         <th>
             <a href="<?php echo $this->url('librarydetail', array('order_by' => 'img', 'order' => $url_order, 'search_by' => $search_by)); ?>">Thumbnail <?php if ($order_by == 'img'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
         </th>
-        
+          <th>
+            <a href="<?php echo $this->url('librarydetail', array('order_by' => 'page', 'order' => $url_order,'search_by' => $search_by)); ?>">Page <?php if ($order_by == 'page'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
         <th><a href="">Action</a></th>
     </tr>
     <?php foreach ($paginatorimg as $librarydetail) : ?>
         <tr>
             <td><?php echo $this->escapeHtml($librarydetail->title); ?></td>
             <td><div><?php echo $librarydetail->description; ?></div></td>
-            <td>
-            <div id="thumbnail" >
-                 <img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $this->escapeHtml($librarydetail->img); ?>" style="width: 100px; height:100px;"/>
-                 <p id="large"></p>
-            </div>
-            </td>
+            <td> <div id="thumbnail" > <img  src="<?php echo WEB_PATH_IMG.'/';?><?php echo $this->escapeHtml($librarydetail->img); ?>" style="width: 100px; height:100px;"/><p id="large"></p></div></td>
+            <td><?php if($librarydetail->page !== '') { ?><div>Page : <?php echo $librarydetail->page; ?></div><?php }?></td>
+            
             
             <td>
             <!--  

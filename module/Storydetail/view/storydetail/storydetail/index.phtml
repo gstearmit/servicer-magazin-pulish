@@ -54,7 +54,9 @@ echo $this->url('storydetail', array( 'action' => 'add'));
         <th>
             <a href="<?php echo $this->url('storydetail', array('order_by' => 'img', 'order' => $url_order, 'search_by' => $search_by)); ?>">Thumbnail <?php if ($order_by == 'img'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
         </th>
-        
+          <th>
+            <a href="<?php echo $this->url('storydetail', array('order_by' => 'page', 'order' => $url_order,'search_by' => $search_by)); ?>">Page <?php if ($order_by == 'page'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
         <th><a href="">Action</a></th>
     </tr>
     <?php foreach ($paginatorstory as $storydetail) : ?>
@@ -62,6 +64,7 @@ echo $this->url('storydetail', array( 'action' => 'add'));
             <td><?php echo $this->escapeHtml($storydetail->title); ?></td>
             <td><div> <?php echo $storydetail->description; ?></div></td>
             <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $this->escapeHtml($storydetail->img); ?>" style="width: 100px; height:100px;"/></td>
+             <td><?php if($storydetail->page !== '') { ?><div>Page : <?php echo $storydetail->page; ?></div><?php }?></td>
             <td>
             <!--   <a class="btn " href="<?php echo $this->url('storydetail', array('action' => 'edit', 'id' => $storydetail->id));
         ?>">Edit</a> 
