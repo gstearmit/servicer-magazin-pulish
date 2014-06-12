@@ -15,10 +15,12 @@ use Zend\Db\Adapter\Adapter;
 
 class CatalogueForm extends Form
 {
+	protected $id;
 	protected $adapter;
-    public function __construct(AdapterInterface $dbAdapter)
+    public function __construct(AdapterInterface $dbAdapter ,$id = Null)
     {
         $this->adapter =$dbAdapter;
+        $this->id = (int)$id;
         parent::__construct('catalogue');
 
         $this->setAttribute('method', 'post');
@@ -46,6 +48,7 @@ class CatalogueForm extends Form
         		'name' => 'url_rest',
         		'attributes' => array(
         				'type'  => 'text',
+        				'readonly' => TRUE,
         		),
         		'options' => array(
         				'label' => 'url Rest ',
@@ -96,6 +99,15 @@ class CatalogueForm extends Form
         		),
         ));
    
+        $this->add(array(
+        		'name' => 'imgkeyedit',
+        		'attributes' => array(
+        				'type'  => 'file',
+        		),
+        		'options' => array(
+        				'label' => 'Upload images description ',
+        		),
+        ));
        
         
         

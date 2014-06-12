@@ -42,6 +42,19 @@ class Catalogue implements InputFilterAwareInterface {
 		
 	}
 	
+	public function dataArraySwap($data , $Renamefile)
+	{
+	
+		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
+		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
+		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
+		$this->imgkey = $Renamefile;
+		$this->patient_id = (isset (  $data ['id'] )) ? $data ['patient_id'] : null;
+		$this->url_catalogue = (isset ( $data ['url_catalogue'])) ? $data ['url_catalogue'] : null;
+		$this->url_rest = (isset ( $data ['url_rest'])) ? $data ['url_rest'] : null;
+	
+	}
+	
 	public function dataPost($data) {
 		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
 		$this->descriptionkey = (isset ( $data ['descriptionkey'] )) ? $data ['descriptionkey'] : null;
