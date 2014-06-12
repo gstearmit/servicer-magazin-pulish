@@ -125,12 +125,11 @@ class MzimgForm extends Form
     	$result    = $statement->execute();
     
     	$selectData = array();
-    	if(is_array($result) and !empty($result))
-    	{
+    	
 	    	foreach ($result as $res) {
 	    		$selectData[$res['id']] = $res['title'];
 	    	}
-	    }else  $selectData = 0;
+	    
     	return $selectData;
     }
     
