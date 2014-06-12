@@ -122,8 +122,6 @@ class MagazinepublishController extends AbstractActionController {
 				
 				
 				$renname_file_img = $this->uploadImageAlatca ( $data ['imgkey'] );
-				
-				
 				$magazinepublish->dataArraySwap ( $data, $renname_file_img );
 				
 				$this->getMagazinepublishTable ()->saveMagazinepublish ( $magazinepublish );
@@ -220,6 +218,7 @@ class MagazinepublishController extends AbstractActionController {
 		}
 		return $this->magazinepublishTable;
 	}
+	
 	public function readdetailAction() {
 		$id = ( int ) $this->params ( 'id' );
 		if (! $id) {
@@ -232,6 +231,8 @@ class MagazinepublishController extends AbstractActionController {
 				'readdetail' => $read 
 		);
 	}
+	
+	
 	public function createImageThumbnail($filePathName, $destinationPath, $options) {
 		$arr = explode ( '/', $filePathName );
 		$file_name = end ( $arr );
