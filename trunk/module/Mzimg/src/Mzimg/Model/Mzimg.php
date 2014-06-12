@@ -103,7 +103,7 @@ class Mzimg implements InputFilterAwareInterface
 
            $inputFilter->add ( $factory->createInput ( array (
 					'name' => 'img',
-					'required' => false,
+					'required' => true,
 					'validators' => array (
 							array (
 									'name' => 'FileExtension',
@@ -121,6 +121,31 @@ class Mzimg implements InputFilterAwareInterface
 						
 					) ,
 			) ) );
+           
+           
+           
+           $inputFilter->add ( $factory->createInput ( array (
+           		'name' => 'imgedit',
+           		'required' => false,
+           		'validators' => array (
+           				array (
+           						'name' => 'FileExtension',
+           						'options' => array (
+           								'extension' => 'jpg, jpeg, png'
+           						)
+           				),
+           				array (
+           						'name' => 'FileSize',
+           						'options' => array (
+           								'min' => 1000,
+           								'max' => 4000000
+           						)
+           				)
+           
+           		) ,
+           ) ) );
+           
+           
             
 			$inputFilter->add($factory->createInput(array(
             		'name'     => 'description',

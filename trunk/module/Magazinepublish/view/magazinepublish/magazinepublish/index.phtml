@@ -67,7 +67,7 @@ echo $this->form()->closeTag();
         <th>
             <a href="<?php echo $this->url('magazinepublish', array('order_by' => 'imgkey', 'order' => $url_order,'search_by' => $search_by)); ?>">Thumbnail <?php if ($order_by == 'imgkey'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
         </th>
-        
+       
         <th><a href="">Action</a></th>
     </tr>
     <?php
@@ -79,6 +79,7 @@ echo $this->form()->closeTag();
             <td><?php echo $this->escapeHtml($magazinepublish->title); ?></td>
             <td><div><?php echo $magazinepublish->descriptionkey; ?></div></td>
             <td><?php if($magazinepublish->imgkey !== '') { ?><img alt="" src="<?php echo Thumb_.$magazinepublish->imgkey;; ?>" > <?php }?></td>
+            
             <td>
                 <a class="btn  btn-mini edit-row" href="<?php echo $this->url('magazinepublish', array('action' => 'edit', 'id' => $magazinepublish->id));
         ?>">Edit</a> 

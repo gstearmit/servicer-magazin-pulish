@@ -1504,9 +1504,11 @@ a.list-group-item.active:focus {
 .pager li.next small .fa {
   margin: 0 0 0 5px;
 }
+
 .pagination-wrapper {
-  margin: 0 auto 30px;
-  clear: both;
+margin: 0 auto 30px;
+clear: both;
+text-align: center;
 }
 .pagination-wrapper ul.pagination {
   background: #1abc9c;
