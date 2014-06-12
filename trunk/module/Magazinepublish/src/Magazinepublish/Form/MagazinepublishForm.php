@@ -33,6 +33,8 @@ class MagazinepublishForm extends Form
         ));
         
       $id_default  = ($this->id)== 0 ? '1' : $this->id;
+     
+    //    var_dump($this->getNameCatalogueForSelect());
         
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
@@ -115,16 +117,28 @@ class MagazinepublishForm extends Form
     	$sql       = 'SELECT * FROM catalogue';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
-    
     	$selectData = array();
-        if(is_array($result) and !empty($result))
-        {
-	    	foreach ($result as $res) 
-	    	{
-	    		$selectData[$res['id']] = $res['title'];
-	    	}
+    	foreach ($result as $res)
+    	{
+    		$selectData[$res['id']] = $res['title'];
+    	}
+    
+//     	return $selectData ;
+//     	die; 
+//     	$Arr = (array)$result;
+    	
+    	
+    	
+//         if(is_array($Arr) and !empty($Arr))
+//         {
+// 	    	foreach ($Arr as $res) 
+// 	    	{
+// 	    		$selectData[$res['id']] = $res['title'];
+// 	    	}
 	    	
-        }else  $selectData = 0;
+//         }else  return $selectData = 0;
+
+    	
     	return $selectData;
     }
     

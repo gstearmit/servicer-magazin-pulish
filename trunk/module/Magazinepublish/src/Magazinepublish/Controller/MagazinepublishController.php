@@ -107,9 +107,10 @@ class MagazinepublishController extends AbstractActionController {
 		//} // login
 	}
 	public function addAction() {
+		
 		$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
-		$form = new MagazinepublishForm ($dbAdapter); // include Form Class
-		$form->get ( 'submit' )->setAttribute ( 'value', 'Add' );
+		$form = new MagazinepublishForm($dbAdapter); // include Form Class
+		$form->get('submit' )->setAttribute ( 'value', 'Add' );
 		
 		$request = $this->getRequest ();
 		
