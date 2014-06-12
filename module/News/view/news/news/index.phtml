@@ -59,7 +59,7 @@ echo $this->url('news', array( 'action' => 'add'));
     <?php foreach ($paginatorimg as $news) : ?>
         <tr>
             <td><?php echo $this->escapeHtml($news->name); ?></td>
-            <td><?php echo $this->escapeHtml($news->description); ?></td>
+            <td><div><?php echo $news->description; ?></div></td>
             <td><img src="<?php echo Upload_NEWS.'/';?><?php echo $this->escapeHtml($news->image_url); ?>" style="width: 100px; height:100px;"/></td>
             <td>
                 <a class="btn " href="<?php echo $this->url('news', array('action' => 'edit', 'id' => $news->id));
