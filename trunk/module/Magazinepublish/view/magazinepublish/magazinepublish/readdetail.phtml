@@ -1,15 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?php
-// echo '<pre>';
-// print_r($this->readdetail) ;
-// echo '</pre>';
-
-?>
-
 
 <?php
-// header('Content-Type: text/html;charset=UTF-8');
-// var_dump('1111111111111');
+
 if (is_array($this->readdetail) and !empty($this->readdetail))
  {
 	foreach ($this->readdetail as $new)
@@ -23,7 +15,7 @@ if (is_array($this->readdetail) and !empty($this->readdetail))
 	}
 }else 
 {
-	die("Not Found Record ! ");
+	die("The contents have not been entered ! ");
 }
 
 ?>
