@@ -1,0 +1,1324 @@
+ul {
+	list-style-type: decimal-leading-zero;
+}
+html, body, div, span ,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, em, font, img, 
+small, strike, strong,
+b, u, i, center,
+dl, dt, dd, ol, , li,
+fieldset, form  {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+	font-size:100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body{
+	font-family:small Arial,Helvetica,sans-serif;
+	font-size:62.5%;
+    line-height:1.5;
+		
+     }
+
+a{
+text-decoration:none;
+}
+:focus{
+outline: 0;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+.clear{
+clear:left;
+}
+
+a img {
+border:none;
+}
+/*......................................end reset..............................*/
+
+header .container-fluid {
+	background:#1c1c1c;
+        
+	/* position: absolute; */
+     
+}
+header .container-fluid nav.navbar.navbar-default {
+background: none;
+}
+header {
+    position:fixed;
+    width: 100%;
+    z-index:999;
+}
+
+div.navbar-header {
+    margin-right: 30px;
+}
+header div.navbar-header a {
+	height:32px;
+	padding:0px;
+}
+#bs-example-navbar-collapse-1 ul li.active  a {
+	padding:0px;
+}
+body header nav div div.navbar-header  a {
+	padding:5px 45px 0px 15px;
+}
+#bs-example-navbar-collapse-1  ul li.active a:hover {
+	background:url(images/h4.png) no-repeat;
+}
+#bs-example-navbar-collapse-1  ul li a:active {
+	background:url(images/h4.png) no-repeat;
+}
+
+#bs-example-navbar-collapse-1 ul li a {
+	padding:0px;
+	margin-right:5px;
+}
+#bs-example-navbar-collapse-1 ul li.dt-active a {
+	margin-right:30px;
+}
+#bs-example-navbar-collapse-1  ul li a:hover {
+	background:url(images/h3.png) no-repeat;
+}
+#bs-example-navbar-collapse-1 ul li a:active {
+	background:url(images/h3.png) no-repeat;
+}
+#bs-example-navbar-collapse-1 ul li p {
+	color:white;
+	margin:0px ;
+	padding:0px;
+	margin-top: 10px;
+    padding-right: 5px;
+}
+#bs-example-navbar-collapse-1 ul li.dropdown {
+	margin-top: 6px;
+	margin-left: 5px;
+}
+#bs-example-navbar-collapse-1 ul li.dropdown a {
+	padding:2px 15px;
+	color:whie;
+}
+#bs-example-navbar-collapse-1 ul li.dropdown a:active {
+	color:#000;
+}
+
+#bs-example-navbar-collapse-1 ul li.dropdown a  b {
+margin-left: 10px;
+}
+#bs-example-navbar-collapse-1 ul li.dropdown a {
+padding: 2px 15px;
+color: white;
+background: #282828;
+margin-left:0px;
+line-height:1.5;
+border:solid 1px #0f0f0f;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+-webkit-box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
+-moz-box-shadow:    0px 1px 1px 0px rgba(50, 50, 50, 0.1);
+box-shadow:         0px 1px 1px 0px rgba(50, 50, 50, 0.1);
+}
+#bs-example-navbar-collapse-1 ul li.dropdown ul li a {
+	background:none;
+	border:none;
+	color:#000;
+}
+#bs-example-navbar-collapse-1 ul li.dropdown ul li a:hover {
+	background:#dedbce;
+}
+#bs-example-navbar-collapse-1 ul li.dropdown ul {
+	background:#fff;
+}
+ul.navbar-right button.undo-righ, ul.navbar-right button.redo-right, ul.navbar-right button.rulers-right, ul.navbar-right button.gril-right, ul.navbar-right button.snap-right, ul.navbar-right button.layout-right, ul.navbar-right button.edit-right, ul.navbar-right button.save-right, ul.navbar-right button.download-right, ul.navbar-right button.delete-right, ul.navbar-right button.share-right{	
+	width:26px;
+	height:26px;
+	border:none;
+	margin: 6px 0px 0px 0px;
+}
+.navbar {
+min-height: 32px !important;
+margin-bottom:0px !important;
+border:none !important;
+}
+ul.navbar-right button.undo-righ{
+background: url(images/h7.png) top center no-repeat;	
+}
+ul.navbar-right button.undo-righ:hover {
+	background:url(images/h7-1.png);
+}
+
+ul.navbar-right button.redo-right{
+background: url(images/h8.png) top center no-repeat;	
+}
+ul.navbar-right button.redo-right:hover {
+	background:url(images/h8-1.png);
+}
+
+ul.navbar-right button.rulers-right{
+background: url(images/h9.png) top center no-repeat;	
+}
+ul.navbar-right button.rulers-right:hover {
+	background:url(images/h9-1.png);
+}
+
+ul.navbar-right button.gril-right{
+background: url(images/h10.png) top center no-repeat;	
+}
+ul.navbar-right button.gril-right:hover {
+	background:url(images/h10-1.png);
+}
+
+ul.navbar-right button.snap-right{
+background: url(images/h11.png) top center no-repeat;
+}
+ul.navbar-right button.snap-right:hover {
+	background:url(images/h11-1.png);
+}
+ul.navbar-right button.layout-right{
+background: url(images/layout.png) top center no-repeat;
+}
+ul.navbar-right button.layout-right:hover {
+	background:url(images/layout-1.png);
+}
+ul.navbar-right button.edit-right{
+background: url(images/edit.png) top center no-repeat;
+}
+ul.navbar-right button.edit-right:hover {
+	background: url(images/edit-1.png);
+}
+ul.navbar-right button.save-right{
+background: url(images/save.png) top center no-repeat;
+}
+ul.navbar-right button.save-right:hover {
+	background: url(images/save-1.png);
+}
+ul.navbar-right button.download-right{
+background: url(images/download.png) top center no-repeat;
+}
+ul.navbar-right button.download-right:hover {
+	background: url(images/download-1.png);
+}
+ul.navbar-right button.delete-right{
+background: url(images/detele.png) top center no-repeat;
+margin-right:20px;
+}
+ul.navbar-right button.delete-right:hover {
+	background: url(images/delete-1.png);
+}
+ul.navbar-right button.share-right{
+background: url(images/share.png) top center no-repeat;
+}
+ul.navbar-right button.share-right:hover {
+	background: url(images/share-1.png);
+}
+
+
+ul.navbar-right button.Preview-righ{
+	border:none;
+	margin: 7px 0px 5px 4px;
+	color:#ececec;
+	text-shadow:none;
+	box-shadow:none;
+	webkit-box-shadow:none;
+	background:url(images/line.png) right center no-repeat;
+	padding: 0px 12px 0px 0px;
+}
+ul.navbar-right button.Preview-righ:hover {
+	color:#fff;
+}
+
+ul.navbar-right button.Save-right{
+	border:none;
+	margin: 7px 0px 5px 4px;
+	color:#ececec;
+	text-shadow:none;
+	box-shadow:none;
+	webkit-box-shadow:none;
+	background:url(images/line.png) right center no-repeat;
+	padding: 0px 12px 0px 0px;
+}
+ul.navbar-right button.Save-right:hover {
+	color:#fff;
+}
+
+ul.navbar-right button.Publish-right{	
+	border:none;
+	margin: 7px 0px 5px 4px;
+	color:#ececec;
+	text-shadow:none;
+	box-shadow:none;
+	webkit-box-shadow:none;
+	background:url(images/line.png) right center no-repeat;
+	padding: 0px 12px 0px 0px;
+}
+ul.navbar-right button.Publish-right:hover {
+	color:#fff;
+}
+ul.navbar-right button.Upgrade-right{
+background: none;	
+	border:none;
+	margin: 7px 0px 5px 4px;
+	color:#ececec;
+	text-shadow:none;
+	box-shadow:none;
+	webkit-box-shadow:none;
+	background:none;
+	padding: 0px 12px 0px 0px;
+}
+ul.navbar-right button.Upgrade-right:hover {
+	color:#fff;
+}
+button.help-right {
+	background:url(images/h12.png) top left no-repeat;
+	height:17px;
+	width:17px;
+	border:none;
+	text-shadow:none;
+	box-shadow:none;
+	webkit-box-shadow:none;
+}
+button.help-right:hover {
+	background:url(images/h12-1.png) no-repeat;
+}
+
+/*...............................................content.........................................*/
+
+.content {
+	background: url(images/h1.png);
+	min-height: 748px;
+}
+
+.wrapper{ margin: 58px 20px 20px 20px; }
+ul.tab_nav li a{padding: 5px 10px; display: block;}
+
+#tabContaier ul{
+	overflow:hidden;
+	
+	z-index:100;
+	float:left;
+	} 
+
+#tabContaier {
+	padding: 0px;
+}	
+.clearfix:after {
+   content: " "; 
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+#tabContaier .tab_content {
+	padding: 0px;
+}
+
+
+#tabContaier li{
+	
+	margin-bottom:5px;
+}
+
+#tabContaier .ul-content ul li a{
+	background:#ddd;
+	width:48px;
+	border-right:0;
+	color:#333;
+	cursor:pointer;
+	display:block;
+	height:41px;
+	font-weight:700;
+	line-height:35px;
+	padding:0 30px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+#tabContaier .ul-content ul li.page-topprin a {
+	background:url(images/page_1.png) top left no-repeat;	
+}
+
+#tabContaier .ul-content ul li.page-topprin a.active{
+	background:url(images/page.png) top left no-repeat;
+}
+#tabContaier .ul-content ul li.page-topprin a:hover{
+	background:url(images/page.png) top left no-repeat;
+}
+#tabContaier .ul-content ul li.design-topprin a {
+	background:url(images/design_1.png) top left no-repeat;	
+}
+
+#tabContaier .ul-content ul li.design-topprin a.active{
+	background:url(images/design.png) top left no-repeat;
+}
+#tabContaier .ul-content ul li.design-topprin a:hover{
+	background:url(images/design.png) top left no-repeat;
+}
+#tabContaier .ul-content ul li.add-topprin a {
+	background:url(images/add_1.png) top left no-repeat;	
+}
+
+#tabContaier .ul-content ul li.add-topprin a.active{
+	background:url(images/add.png) top left no-repeat;
+}
+#tabContaier .ul-content ul li.add-topprin a:hover{
+	background:url(images/add.png) top left no-repeat;
+}
+
+
+
+
+#tabContaier .ul-content ul li.app-topprin a {
+	background:url(images/app_1.png) top left no-repeat;	
+}
+
+#tabContaier .ul-content ul li.app-topprin a.active{
+	background:url(images/app.png) top left no-repeat;
+}
+#tabContaier .ul-content ul li.app-topprin a:hover{
+	background:url(images/app.png) top left no-repeat;
+}
+
+
+#tabContaier .ul-content ul li.setting-topprin a {
+	background: url(images/setting_1.png) top left no-repeat;	
+}
+
+#tabContaier .ul-content ul li.setting-topprin a.active{
+	background:url(images/setting.png) top left no-repeat;
+}
+#tabContaier .ul-content ul li.setting-topprin a:hover{
+	background:url(images/setting.png) top left no-repeat;
+}
+
+.content .container-fluid {
+	padding:0px;
+	margin:0px;
+}
+.content {
+	background:url(images/h1.png) top left ;
+	margin:0px;
+	padding:0px;
+	min-height:748px;
+}
+
+
+
+
+
+
+
+/*..............................................css page......................................*/
+.ul-center-content-page .center-tabs-page{
+background:#4b89dc;
+padding:3px 3px 3px 4px;
+}
+.ul-center-content-page {
+	background: url(images/page_t.png) left no-repeat;
+	background-position:0px 10px;
+	padding:0px 0px 0px 20px !important;
+}
+.cn-content-page h3 {
+background:#5d9cec;
+margin:0px 0px 3px 0px ;
+line-height:1.5;
+}
+ 
+.cn-content-page .text-bosung-page {
+	 background:#fff;
+-webkit-box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+-moz-box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+padding:0px 15px;
+ }
+.cn-content-page .text-bosung-page .text-note-page {
+	border-bottom:solid 1px #dadada;
+	padding:5px 0px;
+}
+.cn-content-page .text-bosung-page .text-drag-page {
+	background:url(images/drag.png) left top no-repeat;
+	padding:0px 0px 0px 28px;
+	background-position:0px 3px;
+	line-height:1.6;
+}
+.cn-content-page .text-bosung-page .text-righ-page {
+	background:url(images/drag-right.png) left center no-repeat;
+	padding:0px 0px 0px 28px;
+	background-position:0px 3px;
+	line-height:1.6;
+}
+.cn-content-page .text-bosung-page  a {
+	float:left;
+	color:#10ba8f;
+	font-size:13px;
+	margin-bottom:10px;
+}
+.cn-content-page .bs-docs-sidenav-page  {
+	width:100%;
+}
+.cn-content-page .bs-docs-sidenav-page .sidenav-trong {
+	margin-left:10px !important;
+	padding-left:0px;
+	width:100%;
+}
+.cn-content-page .bs-docs-sidenav-page li.nav-home-page {
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+}
+.cn-content-page .bs-docs-sidenav-page li  {
+background:#fff;
+-webkit-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+-moz-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+margin:0px;
+}
+.cn-content-page .bs-docs-sidenav-page li:hover {
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);		
+}
+.cn-content-page .bs-docs-sidenav-page li:active{
+background:#b2d4ff;
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);		
+}
+
+.cn-content.page .bs-docs-sidenav.page li {
+	padding:0px ;
+	margin:0px;
+}
+/*..........................................scrollbar............................*/
+.scrollbar{
+height:246px;
+background-color:lightgray;
+overflow-y:scroll;
+float:left;
+width:100%;
+}
+#scrollbar::-webkit-scrollbar-thumb{
+background-color:#B03C3F;
+border-radius:10px;
+}
+#scrollbar::-webkit-scrollbar-thumb:hover{
+background-color:#BF4649;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx	
+border:1px solid #333333;
+}
+#scrollbar::-webkit-scrollbar-thumb:active{
+background-color:#A6393D;
+border:1px solid #333333;
+} 
+#scrollbar::-webkit-scrollbar-track{
+display:none;
+} 
+/*...........................................end scrollbar.........................................*/
+	
+.c-content-page div.scrollbar ul li {
+	margin:0px !important;
+}
+.cn-content-page .bs-docs-sidenav-page li a{
+	border-bottom:solid 1px #cfcfcf;
+	background:url(images/list.png) top left no-repeat;
+	background-position:10px 12px;
+	padding-left:56px;
+	font-size:14px;
+	text-transform:uppercase;
+	color:#2e2e2e;
+}
+.cn-content-page .bs-docs-sidenav-page li a:hover{
+	border-bottom:solid 1px #cfcfcf;
+	background:url(images/list.png) top left no-repeat;
+	background-position:10px 12px;
+}
+.cn-content-page .bs-docs-sidenav-page li a.active{
+	border-bottom:solid 1px #cfcfcf;
+	background:url(images/list.png) top left no-repeat;
+	background-position:10px 12px;
+}
+.cn-content-page .bs-docs-sidenav-page li ul {
+	background:#e6e6e6;
+	padding-left:20px;
+}
+.cn-content-page .bs-docs-sidenav-page li a .setting-page {
+	width:18px;
+	height:18px;
+	background:url(images/setting_a.png) top left no-repeat;
+	float:right;
+	display:none;
+}
+.cn-content-page .bs-docs-sidenav-page li.nav-home-page a .setting-page {
+	width:18px;
+	height:18px;
+	background:url(images/setting_a.png) top left no-repeat;
+	float:right;
+	display:block;	
+}
+.cn-content-page .bs-docs-sidenav-page li a:hover .setting-page {
+	display:block;
+}
+.cn-content-page .bs-docs-sidenav-page li a:active .setting-page {
+	display:block;
+}
+.cn-content-page .add-page-page {
+	margin-right:18px;
+	text-align:right;
+	padding-right:15px;
+margin-top:12px;
+}
+.cn-content-page .add-page-page a {
+	background:url(images/tro-page.png) right center no-repeat;
+padding-right:14px;
+color:#10ba8f;
+}	
+.cn-content-page .setting-seo-page {
+	margin-right:18px;
+	text-align:right;
+	padding-right:15px;
+margin-top:5px;
+}
+
+.cn-content-page .setting-seo-page a {
+	background:url(images/tro-page.png) right center no-repeat;
+padding-right:14px;
+color:#10ba8f;
+}
+.cn-content-page .setting-seo-page a:hover {
+padding-right:16px;
+text-decoration:none;
+}
+.cn-content-page .add-page-page a:hover {
+padding-right:16px;
+text-decoration:none;
+}
+.cn-content-page .c-content-page {
+	background:#fff;
+	padding:0px;
+}
+.cn-content-page .text-Page-transtions {
+	font-size:13px;
+	color:#2e2e2e;
+	padding:10px 0px 0px 15px;
+	margin:0px;
+	
+}
+.cn-content-page .text-Page-transtions a {
+	font-size:13px;
+	color:#10ba8f;
+}
+.cn-content-page .text-Page-transtions div p {
+	margin-bottom:0px;
+	font-size:13px;
+}
+.cn-content-page .text-Page-transtions .gh-transtions {
+	float:left;
+	padding:0px;
+}
+.cn-content-page .text-Page-transtions .link-transtions{
+	padding:0px;
+}
+.cn-content-page .btn-group-page {
+	padding:0px 15px 8px 15px;
+	margin:0px;
+}
+.cn-content-page .btn-group-page select {
+	width:100%;
+	height:25px;
+	
+}
+
+
+
+#tabContaier .ul-content ul li a:hover{
+	background:#ccc;
+	}
+#tabContaier .ul-content ul li a.active{
+	background:red;
+	border-right:0;
+	color:#333;}
+	
+#tabContaier .tabDetails{
+	float:left;
+	position:relative;
+	padding:0px;
+	margin:0px;
+}
+	
+.tabContents h1{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	font-size:18px;
+	padding:0 0 10px;}
+
+.tabContents p{
+	padding:0 0 10px;
+	text-align:justify;}
+	
+#tabContaier .ul-content {
+	padding:0px ;
+	margin:0px;
+	width:48px;
+}
+
+/*..........................css design.....................................*/
+
+.content .ul-center-content-design {
+	margin-top:0px;
+	padding:0px 0px 0px 20px;
+}
+ .ul-center-content-design .center-tabs-design{
+background:#3aafda;
+margin-left:0px;
+padding:3px 3px 3px 4px;
+}
+.cn-content-design h3 {
+background:#4fc0e8;
+margin:0px 0px 3px 0px ;
+line-height:1.5;
+}
+ .ul-center-content-design .center-tabs-design .c-content-design {
+	padding:0px;
+}
+.ul-center-content-design .center-tabs-design .c-content-design ul li {
+	margin:0px !important;
+	
+}
+.cn-content-design .text-bosung-design {
+	 background:#fff;
+-webkit-box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+-moz-box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+padding:0px 15px;
+ }
+ 
+ .ul-center-content-design {
+	 background:url(images/tro-design.png) top left no-repeat;
+	background-position:0px 58px;
+}
+.cn-content-design .text-bosung-design .text-note-design {
+	padding:10px 0px 0px 0px;
+	font-size:13px;
+}
+.cn-content-design .text-bosung-design  a {
+	float:left;
+	color:#10ba8f;
+	font-size:13px;
+	margin-bottom:10px;
+}
+.cn-content-design .bs-docs-sidenav-design  {
+	width:100%;
+}
+.cn-content-design .bs-docs-sidenav-design li.nav-home-design {
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+}
+.cn-content-design .bs-docs-sidenav-design li  {
+background:#fff;
+-webkit-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+-moz-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+}
+.cn-content-design .bs-docs-sidenav-design li:hover {
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);		
+}
+.cn-content-design .bs-docs-sidenav-design li:active{
+background:#b2d4ff;
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);		
+}
+
+.cn-content-design .bs-docs-sidenav-design li {
+	padding:0px ;
+	margin:0px;
+}
+.cn-content-design .bs-docs-sidenav-design li a{
+	border-bottom:solid 1px #cfcfcf;
+	padding-left:56px;
+	font-size:14px;
+	text-transform:uppercase;
+	color:#2e2e2e;
+	padding-top:14px;
+}
+.cn-content-design .bs-docs-sidenav-design li a.li-setting-background {
+	background:url(images/setting-background.png) top  left no-repeat;
+	background-position:12px 12px;
+}
+.cn-content-design .bs-docs-sidenav-design li a.li-setting-color {
+	background:url(images/setting-color.png) top  left no-repeat;
+	background-position:12px 9px;
+}
+.cn-content-design .bs-docs-sidenav-design li a.li-setting-font {
+	background:url(images/setting-font.png) top  left no-repeat;
+	background-position:12px 9px;
+}
+
+.cn-content-design .bs-docs-sidenav-design li ul {
+	background:#e6e6e6;
+	padding-left:20px;
+}
+.cn-content-design .bs-docs-sidenav-design li a .setting-design {
+	width:18px;
+	height:18px;
+	background:url(images/setting_a.png) top left no-repeat;
+	float:right;
+	display:none;
+}
+.cn-content-design .bs-docs-sidenav-design li.nav-home-design a .setting-design {
+	width:18px;
+	height:18px;
+	background:url(images/setting_a.png) top left no-repeat;
+	float:right;
+	display:block;	
+}
+.cn-content-design .bs-docs-sidenav-design li a:hover .setting-design {
+	display:block;
+}
+.cn-content-design .bs-docs-sidenav-design li a:active .setting-design {
+	display:block;
+}
+
+/*...................................css add..............................*/	
+.content .ul-center-content-add {
+	margin:0px;
+	padding:0px 0px 0px 20px;
+}
+.content .ul-center-content-add  .c-content-add{
+	padding:0px;
+}
+.content .ul-center-content-add  .c-content-add ul li {
+	margin:0px !important;
+}
+ .ul-center-content-add .center-tabs-add{
+background:#db4453;
+margin-left:0px;
+padding:3px 3px 3px 4px;
+}
+.cn-content-add h3 {
+background:#ee5567;
+margin:0px 0px 3px 0px ;
+line-height:1.5;
+}
+
+.cn-content-add .text-bosung-add {
+	 background:#fff;
+-webkit-box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+-moz-box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+padding:0px 15px;
+ }
+ 
+ .ul-center-content-add {
+	 background:url(images/tro-add.png) top left no-repeat;
+	background-position:0px 100px;
+}
+.cn-content-add .text-bosung-add .text-note-add {
+	padding:10px 0px 0px 0px;
+	font-size:13px;
+}
+.cn-content-add .text-bosung-add  a {
+	float:left;
+	color:#10ba8f;
+	font-size:13px;
+	margin-bottom:10px;
+}
+.cn-content-add .bs-docs-sidenav-add  {
+	width:100%;
+}
+.cn-content-add .bs-docs-sidenav-add li.nav-home-add {
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+}
+.cn-content-add .bs-docs-sidenav-add li  {
+background:#fff;
+-webkit-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+-moz-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+}
+.cn-content-add .bs-docs-sidenav-add li:hover {
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);		
+}
+.cn-content-add .bs-docs-sidenav-add li:active{
+background:#b2d4ff;
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);		
+}
+
+.cn-content-add .bs-docs-sidenav-add li {
+	padding:0px ;
+	margin:0px;
+}
+.cn-content-add .bs-docs-sidenav-add li a{
+	border-bottom:solid 1px #cfcfcf;
+	padding-left:56px;
+	font-size:14px;
+	text-transform:uppercase;
+	color:#2e2e2e;
+	padding-top:14px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-text {
+	background:url(images/add-text.png) top left no-repeat;
+	background-position:12px 12px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-imgage {
+	background: url(images/add-img.png) top  left no-repeat;
+	background-position:12px 12px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-gallery {
+	background: url(images/add-gallery.png) top  left no-repeat;
+	background-position:12px 10px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-media {
+	background: url(images/add-madia.png) top  left no-repeat;
+	background-position:12px 12px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-shapes {
+	background: url(images/add-shape.png) top  left no-repeat;
+	background-position:12px 11px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-button {
+	background: url(images/add-botom.png) top  left no-repeat;
+	background-position:12px 9px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-blog {
+	background: url(images/add-blog.png) top  left no-repeat;
+	background-position:12px 12px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-online {
+	background: url(images/add-online.png) top  left no-repeat;
+	background-position:12px 11px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-sicial {
+	background: url(images/add-social.png) top  left no-repeat;
+	background-position:12px 11px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-apps {
+	background: url(images/add-apps.png) top  left no-repeat;
+	background-position:12px 11px;
+}
+.cn-content-add .bs-docs-sidenav-add li a.li-setting-list-buil {
+	background: url(images/add-list.png) top  left no-repeat;
+	background-position:12px 9px;
+}
+
+
+.cn-content-add .bs-docs-sidenav-add li ul {
+	background:#e6e6e6;
+	padding-left:20px;
+}
+.cn-content-add .bs-docs-sidenav-add li a .setting-add {
+	width:18px;
+	height:18px;
+	background:url(images/add_a.png) top left no-repeat;
+	float:right;
+	display:none;
+}
+.cn-content-add .bs-docs-sidenav-add li.nav-home-add a .setting-add {
+	width:18px;
+	height:18px;
+	background:url(images/add_a.png) top left no-repeat;
+	float:right;
+	display:block;	
+}
+.cn-content-add .bs-docs-sidenav-add li a:hover .setting-add {
+	display:block;
+}
+.cn-content-add .bs-docs-sidenav-add li a:active .setting-add {
+	display:block;
+}
+div.scrollbar.scrollbar-add{
+height:406px;
+background-color:lightgray;
+overflow-y:scroll;
+float:left;
+width:100%;
+}
+/*...................................css setting..............................*/	
+.content .ul-center-content-setting {
+	margin:0px;
+	padding:0px 0px 0px 20px;
+}
+ .ul-center-content-setting .center-tabs-setting{
+background:#83898f;
+margin-left:0px;
+padding:3px 3px 3px 4px;
+}
+.ul-center-content-setting .center-tabs-setting .c-content-setting {
+	padding:0px;
+}
+.ul-center-content-setting .center-tabs-setting .c-content-setting ul li {
+	margin:0px !important;
+}
+.cn-content-setting h3 {
+background:#a4a9ae;
+margin:0px 0px 3px 0px ;
+line-height:1.5;
+}
+
+.cn-content-setting .text-bosung-setting {
+	 background:#fff;
+-webkit-box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+-moz-box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+box-shadow: inset 0px -3px 6px 0px rgba(0, 0, 0, 0.25);
+padding:0px 15px;
+ }
+ 
+ .ul-center-content-setting {
+	 background: url(images/setting_t.png) top left no-repeat;
+	background-position:0px 195px;
+}
+.cn-content-setting .text-bosung-setting .text-note-setting {
+	padding:10px 0px 0px 0px;
+	font-size:13px;
+}
+.cn-content-setting .text-bosung-setting  a {
+	float:left;
+	color:#10ba8f;
+	font-size:13px;
+	margin-bottom:10px;
+}
+.cn-content-setting .bs-docs-sidenav-setting  {
+	width:100%;
+}
+.cn-content-setting .bs-docs-sidenav-setting li.nav-home-setting {
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+}
+.cn-content-setting .bs-docs-sidenav-setting li  {
+background:#fff;
+-webkit-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+-moz-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+}
+.cn-content-setting .bs-docs-sidenav-setting li:hover {
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);		
+}
+.cn-content-setting .bs-docs-sidenav-setting li:active{
+background:#b2d4ff;
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);		
+}
+
+.cn-content-setting .bs-docs-sidenav-setting li {
+	padding:0px ;
+	margin:0px;
+}
+.cn-content-setting .bs-docs-sidenav-setting li a{
+	border-bottom:solid 1px #cfcfcf;
+	padding-left:56px;
+	font-size:14px;
+	text-transform:uppercase;
+	color:#2e2e2e;
+	padding-top:14px;
+}
+.cn-content-setting .bs-docs-sidenav-setting li a.li-setting-site-address {
+	background: url(images/site-setting.png) top left no-repeat;
+	background-position:12px 12px;
+}
+.cn-content-setting .bs-docs-sidenav-setting li a.li-setting-seo-google {
+	background: url(images/search-setting.png) top  left no-repeat;
+	background-position:12px 12px;
+}
+.cn-content-setting .bs-docs-sidenav-setting li a.li-setting-social-setting {
+	background: url(images/social-setting.png) top  left no-repeat;
+	background-position:12px 10px;
+}
+.cn-content-setting .bs-docs-sidenav-setting li a.li-setting-statis {
+	background:url(images/static-setting.png) top  left no-repeat;
+	background-position:12px 12px;
+}
+.cn-content-setting .bs-docs-sidenav-setting li a.li-setting-favicon {
+	background: url(images/favicom-setting.png) top  left no-repeat;
+	background-position:12px 11px;
+}
+
+
+.cn-content-setting .bs-docs-sidenav-setting li ul {
+	background:#e6e6e6;
+	padding-left:20px;
+}
+.cn-content-setting .bs-docs-sidenav-setting li a .setting-setting {
+	width:18px;
+	height:18px;
+	background:url(images/settings_a.png) top left no-repeat;
+	float:right;
+	display:none;
+}
+.cn-content-setting .bs-docs-sidenav-setting li.nav-home-setting a .setting-setting {
+	width:18px;
+	height:18px;
+	background:url(images/settings_a.png) top left no-repeat;
+	float:right;
+	display:block;	
+}
+.cn-content-setting .bs-docs-sidenav-setting li a:hover .setting-setting {
+	display:block;
+}
+.cn-content-setting .bs-docs-sidenav-setting li a:active .setting-setting {
+	display:block;
+}
+div.scrollbar.scrollbar-setting{
+height:406px;
+background-color:lightgray;
+overflow-y:scroll;
+float:left;
+width:100%;
+}
+
+/*.....................................................................css learm more .................................................*/
+
+#tab_1 .c-content-page .text-bosung-page div.learn-more-page  button {
+background: none;
+color: red;
+font-size: 13px;
+border: none;
+padding: 10px 0px 0px 0px;
+text-shadow:none;
+-webkit-box-shadow:none;
+box-shadow:none;
+border:none;
+}
+
+#tab_1 .c-content-page .text-bosung-page div.learn-more-page .modal-content {
+	border-radius:0px;
+}
+#tab_1 .c-content-page .text-bosung-page div.learn-more-page #myModal .modal-content{
+	margin-top: 35px;
+}
+#tab_1 .c-content-page .text-bosung-page div.learn-more-page #myModal .modal-header {
+	padding:6px 15px;
+	background: rgba(248,248,248,1);
+	background: -moz-linear-gradient(left, rgba(248,248,248,1) 0%, rgba(231,231,231,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(248,248,248,1)), color-stop(100%, rgba(231,231,231,1)));
+	
+	background: -o-linear-gradient(left, rgba(248,248,248,1) 0%, rgba(231,231,231,1) 100%);
+	background: -ms-linear-gradient(left, rgba(248,248,248,1) 0%, rgba(231,231,231,1) 100%);
+	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#e7e7e7', GradientType=1 );
+	border-bottom: solid 1px #b1b1b1;
+}
+#tab_1 .c-content-page .text-bosung-page div.learn-more-page #myModal .modal-header button{
+	font-size:30px;
+	color:#000;
+	padding:2px 0px 0px 15px;
+	border-left: solid 1px #000;
+} 
+#tabContaier .tab_content .ul-center-content-page div.info-lear-more-a ul{
+	list-style: decimal-leading-zero !important;
+}
+.modal-body {
+background: #ececec;
+margin:10px 15px;
+padding: 0px 8px !important;
+}
+.modal-body .duong-link ol li a {
+	float: none;
+} 
+.modal-body .duong-link ol {
+	margin: 0px;
+	background: none;
+	padding: 10px 0px 0px 0px;
+
+}
+#info-lear-more-a {
+	background: #fff;
+margin:8px 0px 0px 0px ;
+padding:15px 15px;
+height:130px;
+}
+#info-lear-more-a ul {
+margin:5px 0px ;
+}
+.modal-body .lear-more-infoma {
+padding: 10px 0px 5px 0px;
+text-align: right;
+}
+.modal-body .lear-more-infoma a span {
+	color: #000;
+
+}
+.modal-content {
+    position: absolute;
+}
+
+
+
+
+/*....................................................................css them design...................................*/
+
+#scrollbar-bs-docs-sidenav-design .panel-heading a.li-setting-background{
+    background:url(images/setting-background.png) top  left no-repeat;
+    background-position: 0px 12px;
+    
+}
+#scrollbar-bs-docs-sidenav-design .panel-heading a{
+    padding-left: 40px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #2e2e2e;
+    padding-top: 14px;
+    line-height: 1.8;
+    padding-bottom: 10px;
+}
+#scrollbar-bs-docs-sidenav-design .panel-heading  {
+background:#fff;
+-webkit-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+-moz-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+}
+#scrollbar-bs-docs-sidenav-design .panel-heading:hover {
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);		
+}
+#scrollbar-bs-docs-sidenav-design .panel-headinga:focus{
+background:red;
+-webkit-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);
+box-shadow:  inset -2px 4px 6px 0px rgba(0, 0, 0, 0.4);		
+}
+#scrollbar-bs-docs-sidenav-design .panel-heading a.li-setting-background i {   
+width: 18px;
+height: 18px;
+background: url(images/chon-design.png) top left no-repeat;
+float: right;
+background-position: 0px 8px;
+}
+.lear-more-background-design a {
+float: left;
+color: #10ba8f;
+font-size: 13px;
+margin-bottom: 10px;
+}
+.button-top-background-design button {
+    margin: auto;
+    background: #4fc1e9;
+    border: none;
+    text-align: center;
+    margin: auto; 
+    -webkit-box-shadow: 0px 3px 0px 0px rgba(59, 175, 218, 1);  
+    -moz-box-shadow:    0px 3px 0px 0px rgba(59, 175, 218, 1);  
+    box-shadow:         0px 3px 0px 0px rgba(59, 175, 218, 1);
+}
+div.background-desig-top {
+background: #fff;
+-webkit-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+-moz-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.06);
+box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.12);
+padding:15px 15px 20px 15px;
+}
+div.button-top-background-design {
+text-align: center;
+}
+.background-design-one{
+    padding: 4px 4px;
+    
+} 
+div.background-desig-center {
+padding: 0px 0px 12px 0px;
+}
+.background-design-one img {
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+-webkit-box-shadow: -1px -1px 2px 0px rgba(50, 50, 50, 0.5);
+-moz-box-shadow:    -1px -1px 2px 0px rgba(50, 50, 50, 0.5);
+box-shadow:         -1px -1px 2px 0px rgba(50, 50, 50, 0.5);
+}
+.background-design-one img:hover {
+    opacity: 0.5;
+}
+.chon-background {
+    height: 200px;
+    background: none;
+}
+.nut-chon-background button {
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    background: #4fc1e9;
+    border: none;
+    
+    margin-right: 15px;
+    -webkit-box-shadow: 0px 3px 0px 0px rgba(59, 175, 218, 1);  
+    -moz-box-shadow:    0px 3px 0px 0px rgba(59, 175, 218, 1);  
+    box-shadow:         0px 3px 0px 0px rgba(59, 175, 218, 1);
+}
+div.panel-body {
+background: #fff;
+-webkit-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.09);
+-moz-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.09);
+box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.09);
+}
+#scrollbar-bs-docs-sidenav-design .panel-heading h4.panel-title a.li-setting-colors {
+background: url(images/setting-color.png) top left no-repeat;
+background-position: 0px 12px;
+}
+#scrollbar-bs-docs-sidenav-design .panel-heading h4.panel-title a.li-setting-fonts {
+background: url(images/setting-font.png) top left no-repeat;
+background-position: 0px 12px;
+}
+#scrollbar-bs-docs-sidenav-design .panel-heading a i {
+width: 18px;
+height: 18px;
+background: url(images/chon-design.png) top left no-repeat;
+float: right;
+background-position: 0px 8px;
+}
+div.button-top-color-design {
+text-align: right;
+}
+.chon-color-left {
+padding-right: 5px;
+}
+.chon-color-right {
+    padding: 0px 5px;
+}
+.chon-color-right a {
+    font-size: 13px;
+    color: #535353;
+    text-decoration: none;
+}
+.chon-color-right a:hover {
+    color: #000;
+    text-decoration: none;
+}
+div.chon-colors {
+padding: 6px 0px;
+border-bottom: solid 1px #d2d2d2;
+background: #fff;
+-webkit-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.05);
+box-shadow: inset 0px -5px 7px 0px rgba(0, 0, 0, 0.05);
+padding-left: 8px;
+}
+div.chon-colors:hover {
+
+background: #f8f8f8;
+-webkit-box-shadow: inset -1px 2px 5px 0px rgba(50, 50, 50, 0.35);
+-moz-box-shadow:  inset  -1px 2px 5px 0px rgba(50, 50, 50, 0.35);
+box-shadow:       inset  -1px 2px 5px 0px rgba(50, 50, 50, 0.35);
+}
+
+div.modal-dialog.add-text {
+width: 300px;
+}
