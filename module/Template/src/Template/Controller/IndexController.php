@@ -4,6 +4,8 @@ namespace Template\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 
 use Zend\View\Model\ViewModel;
+use Zend\Db\TableGateway\TableGateway;
+use Zend\Mvc\MvcEvent;
 
 class IndexController extends AbstractActionController
 {
@@ -15,23 +17,37 @@ class IndexController extends AbstractActionController
     	return new ViewModel(array('action'=>'index'));
     }
     
-    public function aboutAction(){	    	
+    public function magazinepublishAction()
+    {
+    	die('magazinepublish');
+//     	$viewModel = new ViewModel();
+//     	$viewModel->setTemplate('template/index');
+//     	return new $viewModel;
+//     	$this->layout('layout/home');
+//     	return new ViewModel(array('action'=>'index'));
+    }
     
+    public function storyAction()
+    {	    	
+    	die('Story');
     	$this->layout('layout/home');
     }
     
-    public function contactAction(){
-    	
+    public function ebookAction()
+    {
+    	die('Ebook');
     	$this->layout('layout/home');
     }
     
-    public function hairstyleAction(){    
-    
+    public function appmobileAction()
+    {    
+       die('appmobile');
     	$this->layout('layout/home');
     }
     
-    public function newsAction(){    
-   
+    public function buildappAction()
+    {    
+        die('buildappbuildapp');
     	$this->layout('layout/home');
     }
 }

@@ -42,7 +42,6 @@ return array(
    
      'view_manager' => array(    	
      	'template_map' => array(
-     		//'layout/home'        => TEMPLATE_PATH . '/hairstyle/index.phtml'
      			'layout/home'        => TEMPLATE_ISSUS . '/index.phtml'
      	),
         'template_path_stack' => array(

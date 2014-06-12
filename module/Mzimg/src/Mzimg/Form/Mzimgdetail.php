@@ -54,11 +54,24 @@ class Mzimgdetail extends Form
             'name' => 'img',
             'attributes' => array(
                 'type'  => 'file',
+            		'required' => 'required',
             ),
             'options' => array(
                 'label' => 'Upload images',
             ),
         ));
+        
+        $this->add(array(
+        		'name' => 'imgedit',
+        		'attributes' => array(
+        				'type'  => 'file',
+        				//'required' => 'required',
+        		),
+        		'options' => array(
+        				'label' => 'Upload images',
+        		),
+        ));
+        
         
         $this->add(array(
         		'name' => 'description',

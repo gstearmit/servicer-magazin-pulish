@@ -253,9 +253,11 @@ class MzimgController extends AbstractActionController {
         }
         
         $mzimg = $this->getMzimgTable()->getMzimg($id);
-
+       
+        $nameimg = $mzimg->img;
+        
        // $form = new MzimgForm($dbAdapter);
-        $form = new FromClass($dbAdapter,$id);
+        $form = new MzimgForm($dbAdapter,$id);
         
         $form->bind($mzimg);
         
@@ -271,30 +273,35 @@ class MzimgController extends AbstractActionController {
         	
             $form->setData($data);
             
-            if (!$form->isValid()) {
+            			echo 'validate ';
+            			var_dump($form->isValid());
+            			echo '<pre>';
+            			print_r($data);
+            			echo '</pre>';
+            			die;
+            
+            
+            if ($form->isValid()) {
             	
-            	$size = new Size(array('min'=>2000000)); //minimum bytes filesize
-            	 
-            	$adapter = new \Zend\File\Transfer\Adapter\Http();
-            	$adapter->setValidators(array($size), $data['img']['size']);
-            	$extension = new \Zend\Validator\File\Extension(array('extension' => array('gif', 'jpg', 'png')));
             	
-            			if ($adapter->isValid())
-            			{
-            				
+            	//$adapter->setValidators(array($size), $data['img']['size']);
+            		 
+            	if( $data['imgedit']['name'] !== '')
+            	{
+            		echo 'Not Null';die;	
+            		$mzimg2 = new Mzimg();
+            		$renname_file_img = $this->uploadImageAlatca($data['imgedit']);
+            		$mzimg2->dataArraySwap($data,$renname_file_img);
+            		 $this->getMzimgTable()->saveMzimg($mzimg2);
+            	}else
+            	{
+            		echo ' Null';die;
+            			
+            		$mzimg2 = new Mzimg();
+            		$mzimg2->dataArraySwap($data,$nameimg);
+            		 $this->getMzimgTable()->saveMzimg($mzimg2);
+            	}
             	
-            				$adapter->setDestination(MZIMG_PATH);
-            				if ($adapter->receive($data['img']['name'])) {
-            					$profile = new Mzimg();
-            					
-            				}
-            				 
-            			}
-            			 
-            	
-            	$mzimg2 = new Mzimg();
-            	$mzimg2->dataPost($data);
-                $this->getMzimgTable()->saveMzimg($mzimg2);
 
                 // Redirect to list of Mzimgs
                 return $this->redirect()->toRoute('mzimg');
@@ -304,6 +311,7 @@ class MzimgController extends AbstractActionController {
         return array(
             'id' => $id,
             'form' => $form,
+        	'nameimg'=>$nameimg,
         );
     }
 

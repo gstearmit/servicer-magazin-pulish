@@ -14,11 +14,12 @@ use Zend\Db\Adapter\Adapter;
 
 class MzimgForm extends Form
 {
+	protected $id;
 	protected $adapter;
-    public function __construct(AdapterInterface $dbAdapter)
+    public function __construct(AdapterInterface $dbAdapter ,$id = Null)
     {
     	$this->adapter =$dbAdapter;
-        // we want to ignore the name passed
+        $this->id = (int)$id;
         parent::__construct('mzimg');
 
         $this->setAttribute('method', 'post');
@@ -31,7 +32,7 @@ class MzimgForm extends Form
         ));
 
     
-      
+        $id_default  = ($this->id)== 0 ? '1' : $this->id;
         $this->add(array(
         		'type' => 'Zend\Form\Element\Select',
         		'name' => 'idmz',
@@ -42,7 +43,7 @@ class MzimgForm extends Form
         				'value_options' => $this->getOptionsForSelect()
         		),
         		'attributes' => array(
-        				'value' => '1', //set selected to '1'
+        				'value' => $id_default, //set selected to '1'
         				'inarrayvalidator' => true,
         				'required' => 'required',
         		)
@@ -52,10 +53,22 @@ class MzimgForm extends Form
             'name' => 'img',
             'attributes' => array(
                 'type'  => 'file',
+            		'required' => 'required',
             ),
             'options' => array(
                 'label' => 'Upload images',
             ),
+        ));
+        
+        $this->add(array(
+        		'name' => 'imgedit',
+        		'attributes' => array(
+        				'type'  => 'file',
+        				'required' => 'required',
+        		),
+        		'options' => array(
+        				'label' => 'Upload images',
+        		),
         ));
         
         $this->add(array(
@@ -107,15 +120,17 @@ class MzimgForm extends Form
     public function getOptionsForSelect()
     {
     	$dbAdapter = $this->adapter;
-    	$sql       = 'SELECT * FROM `magazinepublish` WHERE 1';
+    	$sql       = 'SELECT * FROM `magazinepublish`';
     	$statement = $dbAdapter->query($sql);
     	$result    = $statement->execute();
     
     	$selectData = array();
-    
-    	foreach ($result as $res) {
-    		$selectData[$res['id']] = $res['title'];
-    	}
+    	if(is_array($result) and !empty($result))
+    	{
+	    	foreach ($result as $res) {
+	    		$selectData[$res['id']] = $res['title'];
+	    	}
+	    }else  $selectData = 0;
     	return $selectData;
     }
     
@@ -123,15 +138,9 @@ class MzimgForm extends Form
     public function fetchAllCatalogue() {
     	$sql = new Sql($this->adapter);
     	$select = $sql->select();
-    	//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
     	$select->columns(array());
     	$select->from ('mzimg')
     	->join('magazinepublish', 'mzimg.idmz=magazinepublish.id',array('id'=>'id','title'=>'title'));
-    	//$select->where(array('magazinepublish.id'=>$id));
-    	//   	$sort[] = 'id DESC';
-    	//     	$sort[] = 'value ASC';
-    	//    	$select->order($sort);
-    
     	$selectString = $sql->prepareStatementForSqlObject($select);
     	//return $selectString;die;
     	$results = $selectString->execute();

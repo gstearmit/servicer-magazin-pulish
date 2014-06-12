@@ -54,6 +54,10 @@ echo $this->url('mzimg', array( 'action' => 'add'));
             <a href="<?php echo $this->url('mzimg', array('order_by' => 'img', 'order' => $url_order, 'search_by' => $search_by)); ?>">Thumbnail <?php if ($order_by == 'img'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
         </th>
         
+          <th>
+            <a href="<?php echo $this->url('mzimg', array('order_by' => 'page', 'order' => $url_order,'search_by' => $search_by)); ?>">Page <?php if ($order_by == 'page'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        
         <th><a href="">Action</a></th>
     </tr>
     <?php foreach ($paginatorimg as $mzimg) : ?>
@@ -61,11 +65,12 @@ echo $this->url('mzimg', array( 'action' => 'add'));
             <td><?php echo $this->escapeHtml($mzimg->title); ?></td>
             <td><div><?php echo $mzimg->description; ?></div></td>
             <td><img src="<?php echo WEB_PATH_IMG.'/';?><?php echo $this->escapeHtml($mzimg->img); ?>" style="width: 100px; height:100px;"/></td>
+            <td><?php if($mzimg->page !== '') { ?><div>Page : <?php echo Thumb_.$mzimg->page; ?></div>" > <?php }?></td>
             <td>
-            <!-- 
+          <!-- 
                 <a class="btn " href="<?php echo $this->url('mzimg', array('action' => 'edit', 'id' => $mzimg->id));
         ?>">Edit</a> 
-             -->
+          -->
                 <a class="btn" href="<?php echo $this->url('mzimg', array('action' => 'delete', 'id' => $mzimg->id));
         ?>">Delete</a>
               
