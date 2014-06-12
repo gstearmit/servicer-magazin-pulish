@@ -123,20 +123,6 @@ class MagazinepublishForm extends Form
     		$selectData[$res['id']] = $res['title'];
     	}
     
-//     	return $selectData ;
-//     	die; 
-//     	$Arr = (array)$result;
-    	
-    	
-    	
-//         if(is_array($Arr) and !empty($Arr))
-//         {
-// 	    	foreach ($Arr as $res) 
-// 	    	{
-// 	    		$selectData[$res['id']] = $res['title'];
-// 	    	}
-	    	
-//         }else  return $selectData = 0;
 
     	
     	return $selectData;
