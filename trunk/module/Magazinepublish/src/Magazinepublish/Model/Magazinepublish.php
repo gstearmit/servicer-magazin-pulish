@@ -99,7 +99,7 @@ class Magazinepublish implements InputFilterAwareInterface {
 							) 
 					) 
 			) ) );
-	
+	       //10 MB = 10485760
 			$inputFilter->add ( $factory->createInput ( array (
 					'name' => 'imgkey',
 					'required' =>false,
@@ -114,7 +114,7 @@ class Magazinepublish implements InputFilterAwareInterface {
 									'name' => 'FileSize',
 									'options' => array (
 											'min' => 1000,
-											'max' => 4000000 
+											'max' => 10485760 
 									),
 									array (
 											'name' => 'StringLength',
@@ -143,7 +143,7 @@ class Magazinepublish implements InputFilterAwareInterface {
 									'name' => 'FileSize',
 									'options' => array (
 											'min' => 1000,
-											'max' => 4000000
+											'max' => 10485760
 									),
 									array (
 											'name' => 'StringLength',
