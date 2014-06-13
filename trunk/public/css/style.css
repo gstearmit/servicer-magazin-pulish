@@ -41,4 +41,7 @@ div.container a.brand {
 margin-right: 5px;
 }
 /****************Con tent News********************/
-p{width: 900px;}
+p.Image{width: 900px;}
+div p {
+width: 100%;
+}
