@@ -7,7 +7,7 @@ use Zend\View\Model\ViewModel;
 use Manastory\Model\Manastory;
 use Manastory\Form\ManastoryForm;
 use Manastory\Form\MagazineForm;
-use Manastory\Form\ManastorySearchForm as SearchFromManastory ;
+use Manastory\Form\ManaStorySearchForm ;
 
 use Storydetail\Model\Storydetail;
 use Storydetail\Model\StorydetailTable;
@@ -57,7 +57,7 @@ class ManastoryController extends AbstractActionController {
 // 			return $this->redirect ()->toRoute ( 'zfcuser/login' );
 // 		} else {
 			
-			$searchform = new SearchFromManastory();
+			$searchform = new ManaStorySearchForm();
 			$searchform->get('submit')->setValue('Search');
 			
 			$select = new Select ();

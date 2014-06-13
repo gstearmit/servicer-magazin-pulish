@@ -90,15 +90,14 @@ class CatalogueTable extends AbstractTableGateway {
 	    	return $resultSet;
     }
     
-    public function fetchAllOrderbyidDESCUrlRest(Select $select = null) {
+    public function fetchAllOrderbyidDESCUrlRest(Select $select = null) 
+    {
     	if (null === $select)
     		$select = new Select();
     	$select->from($this->table);
     	$select->where(array('url_rest != \'\''));
     	$select->order('id DESC');
-    	// $sort[] = 'sort_order DESC';
-    	//     	$sort[] = 'value ASC';
-    	//     	$select->order($sort);
+    
     	$resultSet = $this->selectWith($select);
     	$resultSet->buffer();
     	return $resultSet;
