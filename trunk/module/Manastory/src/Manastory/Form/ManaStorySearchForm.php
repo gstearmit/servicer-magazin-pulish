@@ -4,7 +4,7 @@ namespace Manastory\Form;
 use Zend\Form\Form;
 use \Zend\Form\Element;
 
-class ManastorySearchForm extends Form
+class ManaStorySearchForm extends Form
 {
     public function __construct($name = null)
     {
