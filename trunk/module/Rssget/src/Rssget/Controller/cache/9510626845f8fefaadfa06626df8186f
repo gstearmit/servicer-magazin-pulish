@@ -1,0 +1,634 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml"  class="wf-loading">
+
+<!--
+                            /\ \                     __                        /\ \              Hand coded
+     __      ___     __     \_\ \     __    ___ ___ /\_\     __           __   \_\ \  __  __     in
+   /'__`\   /'___\ /'__`\   /'_` \  /'__`\/' __` __`\/\ \  /'__`\       /'__`\ /'_` \/\ \/\ \    the
+  /\ \_\.\_/\ \__//\ \_\.\_/\ \_\ \/\  __//\ \/\ \/\ \ \ \/\ \_\.\_  __/\  __//\ \_\ \ \ \_\ \   FiDi,
+  \ \__/.\_\ \____\ \__/.\_\ \___,_\ \____\ \_\ \_\ \_\ \_\ \__/.\_\/\_\ \____\ \___,_\ \____/   San
+   \/__/\/_/\/____/\/__/\/_/\/__,_ /\/____/\/_/\/_/\/_/\/_/\/__/\/_/\/_/\/____/\/__,_ /\/___/    Francisco,
+                                                                                                 California
+            We're hiring! See http://academia.edu/hiring or email ben@academia.edu.
+-->
+  <head prefix="og: http://ogp.me/ns#
+                fb: http://ogp.me/ns/fb#
+                academia: http://ogp.me/ns/fb/academia#">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>University of Sussex | International Summer School - Academia.edu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"d6de116fa7","applicationID":"217711","transactionName":"cl5dFUEJW11QQE1RV0FQQRVeA1lFRh0RXV1G","queueTime":21,"applicationTime":80,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-411.min.js"}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UgMPWEVRCQQHVVA="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e){function n(t,e,n){n||(n={});for(var r=o[t],a=r&&r.length||0,s=n[i]||(n[i]={}),u=0;a>u;u++)r[u].apply(s,e);return s}function r(t,e){var n=o[t]||(o[t]=[]);n.push(e)}var o={},i="nr@context";e.exports={on:r,emit:n}},{}],2:[function(t){function e(t,e,n,i,s){return u?u-=1:r("err",[s||new UncaughtException(t,e,n)]),"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t(5),a=window.onerror,s=!1,u=0;t("loader").features.push("err"),window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(d){"stack"in d&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(4),s=!0)}i.on("fn-start",function(){s&&(u+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&u>0&&(u-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:5,2:4,3:3,4:6,5:1,6:14,handle:"D5DuLP",loader:"G9z0Bl"}],3:[function(t){function e(t){r.inPlace(t,["addEventListener","removeEventListener"],"-",n)}function n(t){return t[1]}var r=t(1),o=(t(3),t(2));if(e(window),"getPrototypeOf"in Object){for(var i=document;i&&!i.hasOwnProperty("addEventListener");)i=Object.getPrototypeOf(i);i&&e(i);for(var a=XMLHttpRequest.prototype;a&&!a.hasOwnProperty("addEventListener");)a=Object.getPrototypeOf(a);a&&e(a)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&e(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=e["nr@wrapped"]?t[1]=e["nr@wrapped"]:e["nr@wrapped"]=t[1]=r(e,"fn-"):"function"==typeof e.handleEvent&&r.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:15,2:1,3:14}],4:[function(t){var e=(t(3),t(1)),n=t(2);e.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=e(t[0],"fn-")})},{1:15,2:1,3:14}],5:[function(t){function e(t){var e=t[0];"string"==typeof e&&(e=new Function(e)),t[0]=n(e,"fn-")}var n=(t(3),t(1)),r=t(2);n.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",e)},{1:15,2:1,3:14}],6:[function(t){function e(){o.inPlace(this,s,"fn-")}function n(t,e){o.inPlace(e,["onreadystatechange"],"fn-")}function r(t,e){return e}var o=t(1),i=t(2),a=window.XMLHttpRequest,s=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];window.XMLHttpRequest=function(t){var n=new a(t);try{i.emit("new-xhr",[],n),o.inPlace(n,["addEventListener","removeEventListener"],"-",function(t,e){return e}),n.addEventListener("readystatechange",e,!1)}catch(r){try{i.emit("internal-error",r)}catch(s){}}return n},window.XMLHttpRequest.prototype=a.prototype,o.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",r),i.on("send-xhr-start",n),i.on("open-xhr-start",n)},{1:15,2:1}],7:[function(t){function e(){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;u>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,d="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(d);if(f&&(r.rxSize=f),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}t("loader").features.push("xhr");var o=t("handle"),i=t(1),a=t(5),s=["load","error","abort","timeout"],u=s.length,d=t(2);t(3),t(4),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var d=e(o);d&&(r.txSize=d)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",e)}catch(r){}}};for(var f=0;u>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&e()},{1:8,2:11,3:3,4:6,5:1,handle:"D5DuLP",loader:"G9z0Bl"}],8:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],D5DuLP:[function(t,e){function n(t,e){var n=r[t];return n?n.apply(this,e):(o[t]||(o[t]=[]),void o[t].push(e))}var r={},o={};e.exports=n,n.queues=o,n.handlers=r},{}],11:[function(t,e){function n(t){if(!t||"object"!=typeof t&&"function"!=typeof t)return-1;if(t===window)return 0;if(o.call(t,"__nr"))return t.__nr;try{return Object.defineProperty(t,"__nr",{value:r,writable:!0,enumerable:!1}),r}catch(e){return t.__nr=r,r}finally{r+=1}}var r=1,o=Object.prototype.hasOwnProperty;e.exports=n},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&u&&u.body){p.proto="https"===c.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=p.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,u=s.document,d="addEventListener",f="attachEvent",c=(""+location).split("?")[0],p=e.exports={offset:i(),origin:c,features:[]};u[d]?(u[d]("DOMContentLoaded",o,!1),s[d]("load",n,!1)):(u[f]("onreadystatechange",r),s[f]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],14:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],15:[function(t,e){function n(t,e,r,s){function nrWrapper(){try{var n,a=u(arguments),d=this,f=r&&r(a,d)||{}}catch(c){i([c,"",[a,d,s],f])}o(e+"start",[a,d,s],f);try{return n=t.apply(d,a)}catch(p){throw o(e+"err",[a,d,p],f),p}finally{o(e+"end",[a,d,n],f)}}return a(t)?t:(e||(e=""),nrWrapper[n.flag]=!0,nrWrapper)}function r(t,e,r,o){r||(r="");var i,s,u,d="-"===r.charAt(0);for(u=0;u<e.length;u++)s=e[u],i=t[s],a(i)||(t[s]=n(i,d?s+r:r,o,s,t))}function o(t,e,n){try{s.emit(t,e,n)}catch(r){i([r,t,e,n])}}function i(t){try{s.emit("internal-error",t)}catch(e){}}function a(t){return!(t&&"function"==typeof t&&t.apply&&!t[n.flag])}var s=t(1),u=t(2);e.exports=n,n.inPlace=r,n.flag="nr@wrapper"},{1:1,2:14}]},{},["G9z0Bl",2,7]);</script>
+    <link href="//0.academia-assets.com" rel="dns-prefetch">
+    <link href="//1.academia-assets.com" rel="dns-prefetch">
+    <link href="//2.academia-assets.com" rel="dns-prefetch">
+    <link href="//3.academia-assets.com" rel="dns-prefetch">
+    <link href="//4.academia-assets.com" rel="dns-prefetch">
+    <link href="//5.academia-assets.com" rel="dns-prefetch">
+    <link href="//a.academia-assets.com/images/apple-touch-icon.png?55258192631467754d5750c6e1974484" rel="apple-touch-icon">
+    <link href="//a.academia-assets.com/images/favicon-production.ico?93a1795cbb9782fcdf11d64be7e2846d" rel="shortcut icon" type="image/vnd.microsoft.icon" %>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-2111171-1'],
+            ['_setDomainName', 'academia.edu'],
+            ['_setCustomVar', 1, 'Controller', "departments", 3],
+            ['_setCustomVar', 2, 'Action', "show", 3],
+            ['_setCustomVar', 5, 'edge', 'bison.z0o.me', 2]
+        );
+    </script>
+    
+  <meta content="2369844204" property="fb:app_id">
+<meta content="academia:department" property="og:type">
+<meta content="http://sussex.academia.edu/Departments/International_Summer_School" property="og:url">
+<meta content="International Summer School" property="og:title">
+<meta content="http://sussex.academia.edu/" property="academia:university">
+<meta content="International Summer School at University of Sussex" property="og:description">
+<meta content="The International Summer School at the University of Sussex on Academia.edu" name="description">
+<meta content="academics, universities, academia, research, Computer Science, Law, Economics, Medicine, Physics, Math, Philosophy, History, Biology, Political Science, Chemistry, English, Psychology, Geography, Religion, Earth Sciences" name="keywords">
+<meta content="bKJMBZA7E43xhDOopFZkssMMkBRjvYERV-NaN4R6mrs" name="google-site-verification">
+<meta content="internal_trackable_click=null; domain=academia.edu; path=/; expires=Thu, 01-Jan-1970 00:00:00 UTC" http-equiv="Set-Cookie">
+
+  <script src="//a.academia-assets.com/javascripts/require-underscore.js?1067a036501f510f18831ffa2eddffbd" type="text/javascript"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    window.jQuery || document.write('<script src="//a.academia-assets.com/javascripts/jquery.js?ccb4e6580906afb73e6e29058830ef8b">\x3C/script>');
+  </script>
+
+  <script type="text/javascript">
+      document.domain = 'academia.edu';
+      $no_document_domain = false;
+    var $rails_env = 'production';
+    var $app_rev = '521ba80b4c6b933c54cabb8dcd9d8fc61c55a4ba';
+    var $domain = 'academia.edu';
+    var $app_host = "academia.edu";
+    var $asset_host = "academia-assets.com";
+    var $start_time = new Date().getTime();
+    var $make_live_connection = false;
+    var $login_protocol = $.support.cors ? "https" : window.location.protocol.replace(':', '');
+    window.Sizzle = $.find;
+  </script>
+
+
+  <link href="//a.academia-assets.com/stylesheets/core.css?8c00de8650b70e4834138a57f17d2292" media="all" rel="stylesheet" type="text/css">
+<link href="//a.academia-assets.com/stylesheets/documents.css?aea11dd76b04fe091673ad5ce85fae02" media="all" rel="stylesheet" type="text/css">
+<link href="//a.academia-assets.com/stylesheets/base.css?bc48f7986cf120a4b0876300f12253f1" media="all" rel="stylesheet" type="text/css">
+
+  <script src="//a.academia-assets.com/javascripts/core.js?52117b120ea65d25a392e02df3251276" type="text/javascript"></script><script src="//a.academia-assets.com/javascripts/mini_registration.js?310b49b91d7205b72534f88a1ef41cdf" type="text/javascript"></script>
+  <script>
+    _gaq.push(['_setCustomVar', 3, 'logged_in', "" + $a.is_logged_in(), 2]);
+  </script>
+
+  <script type="text/javascript">
+    function loadTypekit() {
+      var config = {
+    kitId: 'tpo8fgy',
+    scriptTimeout: 3000
+};
+var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+
+    }
+
+    if ($a.is_logged_in() || !false) {
+        loadTypekit();
+    }
+  </script>
+
+  <script type="text/javascript">
+    (function () {
+        var digest_map = 
+{
+"/javascripts/academia_sharing.js":"//a.academia-assets.com/javascripts/academia_sharing.js?964f4b28ad44e5895ef1b938e8294a9d",
+"/javascripts/admin.js":"//a.academia-assets.com/javascripts/admin.js?3de3758e0d8a28c5e2af4e415b7ee82c",
+"/javascripts/admin_actions.js":"//a.academia-assets.com/javascripts/admin_actions.js?6f10541e08823a5ef7e8b3b3505b1ce0",
+"/javascripts/affiliation.js":"//a.academia-assets.com/javascripts/affiliation.js?b1ca2e25559ef35b07dbfdab33d0669a",
+"/javascripts/analytics.js":"//a.academia-assets.com/javascripts/analytics.js?2dc0a2bccc582df95dd12505f225b8b7",
+"/javascripts/backbone.js":"//a.academia-assets.com/javascripts/backbone.js?1a1e0c59f81aa0ab96285a04011b0bff",
+"/javascripts/clamp.js":"//a.academia-assets.com/javascripts/clamp.js?7689e7382b159b84b15557b11be6f599",
+"/javascripts/core.js":"//a.academia-assets.com/javascripts/core.js?52117b120ea65d25a392e02df3251276",
+"/javascripts/d3.js":"//a.academia-assets.com/javascripts/d3.js?731c2ace3aec3aa8e057214eba0c5cdb",
+"/javascripts/d3_stats.js":"//a.academia-assets.com/javascripts/d3_stats.js?6be030429dcf38c9c6c74caaa3daf593",
+"/javascripts/discussion.js":"//a.academia-assets.com/javascripts/discussion.js?9beb8afa3a103e132001991ea1474e58",
+"/javascripts/download_token.js":"//a.academia-assets.com/javascripts/download_token.js?926b9cfe2e1f13e03d993cf3dd0ee081",
+"/javascripts/enter_email_form_controller.js":"//a.academia-assets.com/javascripts/enter_email_form_controller.js?d74f9825659cc426010ad2c47535ab71",
+"/javascripts/field_counter_controller.js":"//a.academia-assets.com/javascripts/field_counter_controller.js?81701bf29df2810b4932dc3998e4c98d",
+"/javascripts/follow_facepile.js":"//a.academia-assets.com/javascripts/follow_facepile.js?0e00201b42511c2d81bcaebe8cd2eb6e",
+"/javascripts/google_scholar.js":"//a.academia-assets.com/javascripts/google_scholar.js?7d6ba496e28a9487eeb38dbdb8054ee3",
+"/javascripts/graphael.js":"//a.academia-assets.com/javascripts/graphael.js?a221c6df784322218bab15a069b0a246",
+"/javascripts/highcharts-2.1.9.js":"//a.academia-assets.com/javascripts/highcharts-2.1.9.js?0836e2aeb5ddb5d4c50be8158506df18",
+"/javascripts/highcharts.js":"//a.academia-assets.com/javascripts/highcharts.js?72bccbb2eac04a1931c8186a3d62549c",
+"/javascripts/home.js":"//a.academia-assets.com/javascripts/home.js?63c9e44831406c720242b16825a212a4",
+"/javascripts/intra_university_rankings/report.js":"//a.academia-assets.com/javascripts/intra_university_rankings/report.js?16cad0421b1e410db546f1cd9049b98f",
+"/javascripts/intra_university_rankings/send_email.js":"//a.academia-assets.com/javascripts/intra_university_rankings/send_email.js?68ce2e92ea9c4fb800a73206bf843751",
+"/javascripts/invitation.js":"//a.academia-assets.com/javascripts/invitation.js?ef0bd09853e8c23b473dbcff7164ac6d",
+"/javascripts/invoices.js":"//a.academia-assets.com/javascripts/invoices.js?64dca52bfb0fb9008e7da4bb7dadeac6",
+"/javascripts/job_coupon_invite.js":"//a.academia-assets.com/javascripts/job_coupon_invite.js?a6e0007167d551afa406b166090f9903",
+"/javascripts/job_stats.js":"//a.academia-assets.com/javascripts/job_stats.js?a9f8c6d3bef7e841ddbe36f1903434f9",
+"/javascripts/jobs.js":"//a.academia-assets.com/javascripts/jobs.js?0a77b146f2f3f8441f04dabab60bac1e",
+"/javascripts/journal_followings.js":"//a.academia-assets.com/javascripts/journal_followings.js?b2708d164dfc5f88bc064ce9a9c1a4e0",
+"/javascripts/journals.js":"//a.academia-assets.com/javascripts/journals.js?de0e769a05c536b10354268528cf62b8",
+"/javascripts/jquery.dataTables.js":"//a.academia-assets.com/javascripts/jquery.dataTables.js?5b73b262bf975c0d0034065c9c30fad7",
+"/javascripts/jquery.fileupload.js":"//a.academia-assets.com/javascripts/jquery.fileupload.js?089902148359de826b6cddd0ba6aa98b",
+"/javascripts/jquery.js":"//a.academia-assets.com/javascripts/jquery.js?ccb4e6580906afb73e6e29058830ef8b",
+"/javascripts/jquery.pjax.js":"//a.academia-assets.com/javascripts/jquery.pjax.js?1a7f28a8c118a70f27bc612c4a3bbd0d",
+"/javascripts/jquery.tablesorter.js":"//a.academia-assets.com/javascripts/jquery.tablesorter.js?fa70dc2529a6e52219cb4ea9ffc6ccee",
+"/javascripts/jquery.ui.js":"//a.academia-assets.com/javascripts/jquery.ui.js?d78367cf11d54778717e670f5d12b9f3",
+"/javascripts/jquery.vector-map.js":"//a.academia-assets.com/javascripts/jquery.vector-map.js?709faf8606e2b6034964a73cee68c047",
+"/javascripts/like.js":"//a.academia-assets.com/javascripts/like.js?8c4a87352ad82f173037350fcf7ad19c",
+"/javascripts/masonry.js":"//a.academia-assets.com/javascripts/masonry.js?2244528e24461f757fe6f03e9f0ad186",
+"/javascripts/messages.js":"//a.academia-assets.com/javascripts/messages.js?61c38f70edf95be791b7401b897bca8c",
+"/javascripts/mini_registration.js":"//a.academia-assets.com/javascripts/mini_registration.js?310b49b91d7205b72534f88a1ef41cdf",
+"/javascripts/multi_uploader.js":"//a.academia-assets.com/javascripts/multi_uploader.js?f66f6fc3b8f64e3a13b0eac3cc350298",
+"/javascripts/new_profile.js":"//a.academia-assets.com/javascripts/new_profile.js?094ca9f82734a6cef279c6723e1dec71",
+"/javascripts/new_profile_about_box.js":"//a.academia-assets.com/javascripts/new_profile_about_box.js?07584290cfe36cb51817e91fedb4a69f",
+"/javascripts/news.js":"//a.academia-assets.com/javascripts/news.js?cc1480b4bd992c2a76dd48dfe2d5f2e7",
+"/javascripts/panel.js":"//a.academia-assets.com/javascripts/panel.js?90732adb1ca8f2d003b5dd48b4c4b0bd",
+"/javascripts/panels.js":"//a.academia-assets.com/javascripts/panels.js?180a3bf421d99a639ebc2b094a663209",
+"/javascripts/payment_coupons.js":"//a.academia-assets.com/javascripts/payment_coupons.js?478b59e8ef222a5b3c50f91d6ef74837",
+"/javascripts/popup_affiliation.js":"//a.academia-assets.com/javascripts/popup_affiliation.js?368e9c4e0f969328c4df1efe658d163c",
+"/javascripts/prefs.js":"//a.academia-assets.com/javascripts/prefs.js?74738eb1c1606bee9c26977a4d141c39",
+"/javascripts/publisher_box.js":"//a.academia-assets.com/javascripts/publisher_box.js?2e175dd76d9d4ae41fbc37932591928f",
+"/javascripts/questions.js":"//a.academia-assets.com/javascripts/questions.js?f5c479164eeb59907ea162b560154c24",
+"/javascripts/questions_controller.js":"//a.academia-assets.com/javascripts/questions_controller.js?98f0461a23009ed7a65e9722ca9be178",
+"/javascripts/qunit.js":"//a.academia-assets.com/javascripts/qunit.js?93e5a4410885bf308c078cca0d0ef561",
+"/javascripts/raphael.js":"//a.academia-assets.com/javascripts/raphael.js?0b8a41884ec03b80d8cfc3b698f12b0a",
+"/javascripts/reader.js":"//a.academia-assets.com/javascripts/reader.js?defb58b406159b7844d61f2cc27796b7",
+"/javascripts/repo.js":"//a.academia-assets.com/javascripts/repo.js?f8530ced40bf94330abb14a89ca58790",
+"/javascripts/reports.js":"//a.academia-assets.com/javascripts/reports.js?681700c87dd11bd74f5892a05f6a4790",
+"/javascripts/reports_controller.js":"//a.academia-assets.com/javascripts/reports_controller.js?bbe291d69da7bcd96ca4cf752ce85ca8",
+"/javascripts/request_upload.js":"//a.academia-assets.com/javascripts/request_upload.js?4a76814ed6cf62fd2df5a202e4057d38",
+"/javascripts/require-underscore.js":"//a.academia-assets.com/javascripts/require-underscore.js?1067a036501f510f18831ffa2eddffbd",
+"/javascripts/scribd.js":"//a.academia-assets.com/javascripts/scribd.js?e75df8531f371f14017a90f8b17cf750",
+"/javascripts/select2.js":"//a.academia-assets.com/javascripts/select2.js?61957b62e31255d6f5d262b04b83765e",
+"/javascripts/shared/form_builder.js":"//a.academia-assets.com/javascripts/shared/form_builder.js?a1fa7b107b2db194acdafb0395318c8f",
+"/javascripts/shared/popover_widget.js":"//a.academia-assets.com/javascripts/shared/popover_widget.js?59fe4716412a3d288355b9144d3c3b80",
+"/javascripts/shared/uploader.js":"//a.academia-assets.com/javascripts/shared/uploader.js?3b5305e0b598733a56ec3b28cc549e19",
+"/javascripts/single_work.js":"//a.academia-assets.com/javascripts/single_work.js?f0ee88f0285fa31fe0d6ad7e2d3f587e",
+"/javascripts/social.js":"//a.academia-assets.com/javascripts/social.js?b32dc76da45b5f57ac1be7cfb9cfc2de",
+"/javascripts/standalone_research_interests.js":"//a.academia-assets.com/javascripts/standalone_research_interests.js?bc70954efff7022bda325e5b77bf4ed3",
+"/javascripts/tags.js":"//a.academia-assets.com/javascripts/tags.js?34a513c914da3ccce17648565f22f46d",
+"/javascripts/tests.js":"//a.academia-assets.com/javascripts/tests.js?ca0e6c52f7704374523390c75108d579",
+"/javascripts/tooltip.js":"//a.academia-assets.com/javascripts/tooltip.js?8aae6636edb6e0f94eef4e190f5f9893",
+"/javascripts/twitter.js":"//a.academia-assets.com/javascripts/twitter.js?cc797f1ff727a2dcb90b0b2f43d1ae82",
+"/javascripts/typeahead.js":"//a.academia-assets.com/javascripts/typeahead.js?513d002241b2ce229c824696bb8a7dd3",
+"/javascripts/utils/base64.js":"//a.academia-assets.com/javascripts/utils/base64.js?4216bf3826c419be193399c19ac67a68",
+"/javascripts/works.js":"//a.academia-assets.com/javascripts/works.js?15bdd4d4eec32f77dc2267a560b7f3c6",
+"/javascripts/world_paper_search.js":"//a.academia-assets.com/javascripts/world_paper_search.js?a426a570f2aefa0614c7c2a2628c8981",
+"/javascripts/wysihtml5.js":"//a.academia-assets.com/javascripts/wysihtml5.js?8b790a87a8283a74c364aa6f9dec554a"
+}
+;
+
+        if ($rails_env == 'development' || $rails_env == 'test') {
+            var query_string     = null,
+                subdomain_number = '0';
+        } else {
+            var query_string     = $app_rev,
+                subdomain_number = parseInt($app_rev.substring(0, 10), 16) % 6;
+        }
+
+        var convert_to_asset_url = function (asset_name) {
+            if (asset_name.match(/^(https?:)?\/\//)) {
+                return asset_name;
+            }
+
+            var name = "";
+            if (asset_name[0] == "/") {
+                name = asset_name;
+            } else {
+                name = "/javascripts/" + asset_name + ".js";
+            }
+
+            if ($rails_env != 'development' && $rails_env != 'test' && digest_map[name]) {
+                return digest_map[name];
+            } else {
+                return ('//' + subdomain_number + '.' +
+                    $asset_host + name + '?' + query_string);
+            }
+        }
+
+        window.req = function (deps, cb) {
+            if (!_.isArray(deps)) { deps = [deps] };
+
+            deps = _.reject(deps, function (str) {
+                return _.include(req.ignored, str);
+            });
+
+            require(_.map(deps, convert_to_asset_url), cb);
+        };
+
+        window.req.ignored = ["mini_registration"];
+
+        window.req_and_ready = function (deps, cb) {
+            req(deps, function () { $(cb); });
+        };
+    })();
+  </script>
+
+  </head>
+<!--[if lt IE 7 ]>
+  <body class='ie ie6 c-departments a-show'>
+<![endif]-->
+<!--[if IE 7 ]>
+  <body class='ie ie7 c-departments a-show'>
+  <link rel="stylesheet" href="//0.academia-assets.com/stylesheets/font-awesome-ie7.css">
+<![endif]-->
+<!--[if IE 8 ]>
+  <body class='ie ie8 c-departments a-show'>
+<![endif]-->
+<!--[if gte IE 9 ]>
+  <body class='ie ie9 c-departments a-show'>
+<![endif]-->
+<!--[if !(IE) ]><!-->
+  <body class='c-departments a-show'>
+<!--<![endif]-->
+
+      <script>
+    // This doesn't wait for document.ready to avoid pop-in.
+    if ($a.is_logged_in())
+      $("body").addClass("logged_in");
+    else
+      $("body").addClass("logged_out");
+
+    $(function(){
+      $("head").append('<link href="'+window.location.protocol+'//a.academia-assets.com/stylesheets/icons.css?51b9c3a92bcacc6fa777d234e8a9c781" media="screen" rel="stylesheet" type="text/css" />');
+      if (!$a.is_logged_in() && false)
+        loadTypekit();
+    });
+  </script>
+  
+
+    
+<div id="fb-root"></div>
+<script type="text/javascript">
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '2369844204',
+        channelUrl: '//sussex.academia.edu/channel.html',
+        status: true,
+        cookie: true,
+        oauth: true,
+        xfbml: true
+    });
+
+    if (window.Facebook != null) {
+        Facebook.run_ready_listeners();
+    }
+};
+
+window.fbAsyncLoad = function() {
+    if (window.FB) {
+        return;
+    }
+    (function(d) {
+        var js;
+        var id = 'facebook-jssdk';
+        var ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement('script');
+        js.id = id;
+        js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+}
+
+if (!window.defer_facebook) {
+    window.fbAsyncLoad();
+} else {
+    setTimeout(function(){
+        window.fbAsyncLoad();
+    }, 5000);
+}
+</script>
+
+
+    
+<div id="google-root">
+</div>
+<script type="text/javascript">
+var scopes = 'openid email https://www.googleapis.com/auth/userinfo.profile https://www.google.com/m8/feeds/ https://www.googleapis.com/auth/plus.me';
+var clientId = '331998490334-rsn3chp12mbkiqhl6e7lu2q0mlbu0f1b';
+function loadGoogle() {
+  Google.client_id = clientId;
+  Google.scopes = scopes;
+  gapi.client.setApiKey('AIzaSyB924RA9X5fW1hDUt8BUfLNqzPKdno5W5c');
+  gapi.auth.init();
+};
+
+window.googleAsyncLoad = function() {
+    if (window.gapi) {
+        return;
+    }
+    (function(d) {
+        var js;
+        var id = 'google-jssdk';
+        var ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement('script');
+        js.id = id;
+        js.async = true;
+        js.src = "https://apis.google.com/js/client.js?onload=loadGoogle"
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+}
+
+if (!window.defer_google) {
+    window.googleAsyncLoad();
+} else {
+    setTimeout(function(){
+        window.googleAsyncLoad();
+    }, 5000);
+}
+</script>
+
+
+
+  
+
+
+
+  <div id='site' class=fixed>
+
+        <div id='header'>
+
+  <div id='logo'>
+    <a href="http://www.academia.edu/"><img alt="" class="2x" src="//3.academia-assets.com/images/academia-logo.gif?e52a522c1699692ebb7025faa9f5e183"></a>
+  </div>
+
+  <div id='navigation'>
+      <ul id="logged_out_nav"><li><a href="http://www.academia.edu/" id="nav_home">Home</a></li><li><a href="http://www.academia.edu/login" id="nav_log_in">Log In</a></li><li><a href="http://www.academia.edu/signup" id="nav_sign_up">Sign Up</a></li></ul>
+  </div>
+
+  
+
+  <form accept-charset="UTF-8" action="http://www.academia.edu/people/search" id="new_search_box_form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;"></div>    <input type='text' name='q' value='Search People, Research Interests and Universities' id='new_search_field' class='magic-default'>
+    <div id='top_search_loader'>
+      <span class="tip">Type to search for People, Research Interests and Universities</span>
+
+      <div id="top_search_loader_gif"><img alt="" src="//1.academia-assets.com/images/loaders/search-spinner.gif?55e4403df983f33e19cd512103a11e71"><br>Searching...</div>
+    </div>
+</form></div>
+
+
+    <div id="content" class="clearfix">
+          
+
+
+
+
+  
+<div id="page_header">
+  <h1>International Summer School</h1>
+  <span>at <a href='http://sussex.academia.edu/'>University of Sussex</a></span>
+</div>
+
+<div id="topic_top_nav" class="clearfix">
+  <div class="topic_link">
+    <a href="http://sussex.academia.edu/Departments/International_Summer_School" class="on">
+      People
+      <span class="object_count">
+        1
+      </span>
+</a>  </div>
+  <div class="topic_link">
+      <a href="http://sussex.academia.edu/Departments/International_Summer_School/Documents">
+        Documents
+        <span class="object_count">
+          11
+        </span>
+</a>  </div>
+</div>
+
+<div id="right_nav">
+    <div id="sign_up_form" class="clearfix">
+    <p>Sign up to Academia.edu</p>
+    <div id="sign_up_box">
+      <form accept-charset="UTF-8" action="/join" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;"><input name="authenticity_token" type="hidden" value="3HYVZt8MoYJBLfV2cpiupnG5v8SfYT7yueJnfDiNZe4="></div>        <div class="clearfix">
+            <label for="first_name">First Name:</label>
+            <div class="input">
+                <input type="text" name="first_name" value="" id="first_name" class="sign_up_txt first-focus" size="35">
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="last_name">Last Name:</label>
+            <div class="input">
+                <input type="text" name="last_name" value="" id="last_name" class="sign_up_txt" size="35">
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="email">Email:</label>
+            <div class="input">
+                <input type="text" name="email" value="" id="email" class="sign_up_txt" size="35">
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="university">University:</label>
+            <div class="input">
+                <span class="affiliation_detail" id="university_affiliation">University of Sussex <span class="edit_affiliation" onclick="MiniRegistration.edit_university()">edit</span></span>
+                <div id="edit_university" style='display: none'>
+                  <input class="ac_input" id="university_display_name" name="university_display_name" type="text" value="University of Sussex" autocomplete="off" size="35">
+                </div>
+                <input id="university_id" name="university_id" type="hidden" value="492">
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="department">Department:</label>
+            <div class="input">
+                <span class="affiliation_detail" id="department_affiliation">International Summer School <span class="edit_affiliation" onclick="MiniRegistration.edit_department('492', false);">edit</span></span>
+                <input id="department_id" name="department_id" type="hidden" value="547715" size="35">
+                <div id="edit_department" style="display: none">
+                  <input id="department_name" name="department_name" size="35" type="text" value="International Summer School">
+</div>            </div>
+        </div>
+
+        <button type="submit" class="button blue btn-216-28">Join Academia.edu</button>
+</form>    </div>
+    <div id="registration_errors"></div>
+</div>
+
+  <div id="find_friends_link"><a href="http://www.academia.edu/FriendFinder">Find</a> your friends</div>
+</div>
+
+  <div id="user_list">
+        <fieldset>
+          <legend class="group_title">Members</legend>
+            
+
+  <div class="user_strip clearfix" id="u4310124">
+
+      <div class="follow_user" id="follow_me_4310124">
+    <a href="#Follow" onclick="populate_follow_me_message_4310124(); return Follow.show_login_or_signup(&#x27;follow_me_message_4310124&#x27;);" class="button green btn-142-24">Follow Yugin</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_4310124" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Yugin</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_4310124() { $('#follow_me_message_4310124').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Yugin"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/YuginTeo"><img alt="Yugin Teo" height="65" src="//0.academia-photos.com/4310124/1723659/2149521/s65_yugin.teo.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/YuginTeo">Yugin Teo</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_1161"><em>none</em><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+          </fieldset>
+  </div>
+
+
+    </div>
+
+    <div id="login_background"></div><div class="login_form" id="login_form"><div id="close_loginform"><i class="icon icon-remove icon-dark"></i></div><h4>Log In</h4><div class="facebook_button_container social_container clearfix"><div class="facebook-button-login" href="#"><div class="fb-btn signup-btn"><i class="icon-facebook"></i><div class="text"><a class="fb_button" href="#"><strong>Log In</strong> with <strong>Facebook</strong></a></div></div></div></div><script type="text/javascript">new c.Oauth.Button.Login.Facebook("#login_form" + ' a.fb_button');</script><div class="google_button_container social_container clearfix"><div class="google-button-login"><div class="google-btn signup-btn"><i class="icon-google-plus"></i><div class="text"><a class="google_button" href="#"><strong>Log In</strong> with <strong>Google</strong></a></div></div></div></div><script type="text/javascript">new c.Oauth.Button.Login.Google("#login_form" + ' .google-button-login .google_button',
+                                  {spinner_selector: "#login_form" + ' .google-button-login .text a'});</script><div class="or-divider"><span>or</span></div><form accept-charset="UTF-8" action="https://www.academia.edu/sessions" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;"><input name="authenticity_token" type="hidden" value="3HYVZt8MoYJBLfV2cpiupnG5v8SfYT7yueJnfDiNZe4="></div><div class="clearfix"><label for="login">Email:</label><div class="input"><input class="large" id="login" name="login" size="30" type="text"></div></div><div class="clearfix"><label for="password">Password:</label><div class="input"><input class="large" id="password" name="password" size="30" type="password"></div></div><input id="cp" name="cp" type="hidden"><label id="remember_me_box"><input checked="checked" id="remember_me" name="remember_me" type="checkbox" value="1">Remember me on this computer </label><input class="button blue" id="login_btn" name="commit" type="submit" value="Log In">or <a href="http://www.academia.edu/reset_password" id="reset_password_link">reset password</a></form><p class="signup-text">Need an account? <a href="http://www.academia.edu/signup">Click here to sign up</a></p><div class="padded_content no-reset" id="reset_password"><form accept-charset="UTF-8" action="http://www.academia.edu/reset_password" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;"><input name="authenticity_token" type="hidden" value="3HYVZt8MoYJBLfV2cpiupnG5v8SfYT7yueJnfDiNZe4="></div><p>Enter the email address you signed up with and we'll email you a reset link.</p><div class="input"><input id="email" name="email" size="50" type="text" value=""></div><input class="button blue" name="commit" type="submit" value="Email me a link"></form></div><script type="text/javascript">$(function() {
+  $('#reset_password_link').on('click', function(e){
+    e.preventDefault();
+    var reset_password_div = $('#reset_password');
+    if (reset_password_div.is(':hidden')){
+      $('#reset_password').show();
+    };
+  });
+});</script></div><script type="text/javascript">// Only prevent showing login popup if not on Google approved origins
+if (window.location.host == $domain || window.location.host == "www.".concat($domain)) {
+  $(new LoggedOutNavigationController({
+    elements: {
+      link:       '#nav_log_in',
+      background: '#login_background',
+      form:       '#login_form',
+      field:      '#login',
+      close:      '#close_loginform'
+    }
+  }));
+}
+else {
+  $('#nav_log_in').click(function(e){
+    e.preventDefault();
+    var redirect_url = 'https' + '://' + $domain + '/login?cp=' + window.location.href;
+    window.location = redirect_url;
+  });
+}</script>
+    
+<div id=footer>
+  <div class="footer_content clearfix">
+    <div class='footer_links'>
+  <div class='footer_link_block secondary_footer'>
+    <ul>
+      <li><a href="http://www.academia.edu/Jobs">Job Board</a></li>
+      <li><a href="http://www.academia.edu/about">About</a></li>
+      <li><a href="http://www.academia.edu/hiring/mission">Mission</a></li>
+      <li><a href="http://www.academia.edu/press">Press</a></li>
+      <li><a href="http://blog.academia.edu/">Blog</a></li>
+      <li><a href="http://sussex.academia.edu/stories">Stories</a></li>
+      <li><a href="http://www.academia.edu/hiring">We&#x27;re hiring engineers!</a></li>
+      <li><a href="http://support.academia.edu">FAQ</a></li>
+      <li><a href="http://www.academia.edu/terms">Terms</a></li>
+      <li><a href="http://www.academia.edu/privacy">Privacy</a></li>
+      <li><a href="http://www.academia.edu/copyright">Copyright</a></li>
+      <li><strong><a href="http://www.academia.edu/feedback" id="feedback_link">Send us Feedback</a></strong></li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+      Academia.create_feedback_popup();
+  });
+</script>
+  <script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
+  f[z]=function(){
+  (a.s=a.s||[]).push(arguments)};var a=f[z]._={
+  },q=c.methods.length;while(q--){(function(n){f[z][n]=function(){
+  f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={
+  0:+new Date};a.P=function(u){
+  a.p[u]=new Date-a.p[0]};function s(){
+  a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){
+  hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){
+  return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){
+  b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{
+  b.contentWindow[g].open()}catch(w){
+  c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{
+  var t=b.contentWindow[g];t.write(p());t.close()}catch(x){
+  b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({
+  loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+  /* custom configuration goes here (www.olark.com/documentation) */
+  olark.identify('1978-681-10-3187');/*]]>*/</script>
+
+  </div>
+</div>
+<div id="credit">
+  Academia &copy; 2014
+</div>
+<script type="text/javascript">
+//<![CDATA[
+Academia.set_gmtoffset('/gmtoffset');
+//]]>
+</script>
+<iframe id='signup-completed' style='display: none;'></iframe>
+
+<script type="text/javascript">$(function() {
+    var viewportWidth = $(window).width();
+    _gaq.push(['_trackEvent', 'Viewport Dimensions',
+               'Viewport Dimensions Initial',
+               viewportWidth + 'x' + $(window).height(), viewportWidth, true]);
+
+    var gaResizeCompleteHl;
+    $(window).resize(function(){
+        clearTimeout(gaResizeCompleteHl);
+        gaResizeCompleteHl = setTimeout(function(){
+            var viewportWidth=$(window).width();
+            _gaq.push(['_trackEvent', 'Viewport Dimensions',
+                       'Viewport Dimensions Resized',
+                       viewportWidth + 'x' + $(window).height(), viewportWidth, true]);
+        }, 500);
+    });
+});
+
+function read_cookie(cookie_name) {
+    var my_cookie=""+document.cookie;
+    var ind=my_cookie.indexOf(cookie_name);
+    if (ind==-1 || cookie_name=="") return "";
+    var ind1=my_cookie.indexOf(';',ind);
+    if (ind1==-1) ind1=my_cookie.length;
+    return unescape(my_cookie.substring(ind+cookie_name.length+1,ind1));
+};
+var getVar = read_cookie('__utmv');
+
+  if( (getVar.indexOf("/status=registered") == -1) && (getVar.indexOf("/status=non_registered") == -1) ){
+      _gaq.push(['_setVar', '/status=non_registered']);
+  };
+
+</script>
+
+
+    <div id='overlay_background'></div>
+  </div>
+
+
+
+  
+  
+
+
+    <script type="text/javascript">
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </body>
+</html>
+

@@ -1,0 +1,1810 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml"  class="wf-loading">
+
+<!--
+                            /\ \                     __                        /\ \              Hand coded
+     __      ___     __     \_\ \     __    ___ ___ /\_\     __           __   \_\ \  __  __     in
+   /'__`\   /'___\ /'__`\   /'_` \  /'__`\/' __` __`\/\ \  /'__`\       /'__`\ /'_` \/\ \/\ \    the
+  /\ \_\.\_/\ \__//\ \_\.\_/\ \_\ \/\  __//\ \/\ \/\ \ \ \/\ \_\.\_  __/\  __//\ \_\ \ \ \_\ \   FiDi,
+  \ \__/.\_\ \____\ \__/.\_\ \___,_\ \____\ \_\ \_\ \_\ \_\ \__/.\_\/\_\ \____\ \___,_\ \____/   San
+   \/__/\/_/\/____/\/__/\/_/\/__,_ /\/____/\/_/\/_/\/_/\/_/\/__/\/_/\/_/\/____/\/__,_ /\/___/    Francisco,
+                                                                                                 California
+            We're hiring! See http://academia.edu/hiring or email ben@academia.edu.
+-->
+  <head prefix="og: http://ogp.me/ns#
+                fb: http://ogp.me/ns/fb#
+                academia: http://ogp.me/ns/fb/academia#">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>University of Sussex | Art History - Academia.edu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"d6de116fa7","applicationID":"217711","transactionName":"cl5dFUEJW11QQE1RV0FQQRVeA1lFRh0RXV1G","queueTime":34,"applicationTime":1786,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-411.min.js"}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UgMPWEVRCQQHVVA="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e){function n(t,e,n){n||(n={});for(var r=o[t],a=r&&r.length||0,s=n[i]||(n[i]={}),u=0;a>u;u++)r[u].apply(s,e);return s}function r(t,e){var n=o[t]||(o[t]=[]);n.push(e)}var o={},i="nr@context";e.exports={on:r,emit:n}},{}],2:[function(t){function e(t,e,n,i,s){return u?u-=1:r("err",[s||new UncaughtException(t,e,n)]),"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t(5),a=window.onerror,s=!1,u=0;t("loader").features.push("err"),window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(d){"stack"in d&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(4),s=!0)}i.on("fn-start",function(){s&&(u+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&u>0&&(u-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:5,2:4,3:3,4:6,5:1,6:14,handle:"D5DuLP",loader:"G9z0Bl"}],3:[function(t){function e(t){r.inPlace(t,["addEventListener","removeEventListener"],"-",n)}function n(t){return t[1]}var r=t(1),o=(t(3),t(2));if(e(window),"getPrototypeOf"in Object){for(var i=document;i&&!i.hasOwnProperty("addEventListener");)i=Object.getPrototypeOf(i);i&&e(i);for(var a=XMLHttpRequest.prototype;a&&!a.hasOwnProperty("addEventListener");)a=Object.getPrototypeOf(a);a&&e(a)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&e(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=e["nr@wrapped"]?t[1]=e["nr@wrapped"]:e["nr@wrapped"]=t[1]=r(e,"fn-"):"function"==typeof e.handleEvent&&r.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:15,2:1,3:14}],4:[function(t){var e=(t(3),t(1)),n=t(2);e.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=e(t[0],"fn-")})},{1:15,2:1,3:14}],5:[function(t){function e(t){var e=t[0];"string"==typeof e&&(e=new Function(e)),t[0]=n(e,"fn-")}var n=(t(3),t(1)),r=t(2);n.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",e)},{1:15,2:1,3:14}],6:[function(t){function e(){o.inPlace(this,s,"fn-")}function n(t,e){o.inPlace(e,["onreadystatechange"],"fn-")}function r(t,e){return e}var o=t(1),i=t(2),a=window.XMLHttpRequest,s=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];window.XMLHttpRequest=function(t){var n=new a(t);try{i.emit("new-xhr",[],n),o.inPlace(n,["addEventListener","removeEventListener"],"-",function(t,e){return e}),n.addEventListener("readystatechange",e,!1)}catch(r){try{i.emit("internal-error",r)}catch(s){}}return n},window.XMLHttpRequest.prototype=a.prototype,o.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",r),i.on("send-xhr-start",n),i.on("open-xhr-start",n)},{1:15,2:1}],7:[function(t){function e(){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;u>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,d="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(d);if(f&&(r.rxSize=f),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}t("loader").features.push("xhr");var o=t("handle"),i=t(1),a=t(5),s=["load","error","abort","timeout"],u=s.length,d=t(2);t(3),t(4),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var d=e(o);d&&(r.txSize=d)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",e)}catch(r){}}};for(var f=0;u>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&e()},{1:8,2:11,3:3,4:6,5:1,handle:"D5DuLP",loader:"G9z0Bl"}],8:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],D5DuLP:[function(t,e){function n(t,e){var n=r[t];return n?n.apply(this,e):(o[t]||(o[t]=[]),void o[t].push(e))}var r={},o={};e.exports=n,n.queues=o,n.handlers=r},{}],11:[function(t,e){function n(t){if(!t||"object"!=typeof t&&"function"!=typeof t)return-1;if(t===window)return 0;if(o.call(t,"__nr"))return t.__nr;try{return Object.defineProperty(t,"__nr",{value:r,writable:!0,enumerable:!1}),r}catch(e){return t.__nr=r,r}finally{r+=1}}var r=1,o=Object.prototype.hasOwnProperty;e.exports=n},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&u&&u.body){p.proto="https"===c.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=p.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,u=s.document,d="addEventListener",f="attachEvent",c=(""+location).split("?")[0],p=e.exports={offset:i(),origin:c,features:[]};u[d]?(u[d]("DOMContentLoaded",o,!1),s[d]("load",n,!1)):(u[f]("onreadystatechange",r),s[f]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],14:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],15:[function(t,e){function n(t,e,r,s){function nrWrapper(){try{var n,a=u(arguments),d=this,f=r&&r(a,d)||{}}catch(c){i([c,"",[a,d,s],f])}o(e+"start",[a,d,s],f);try{return n=t.apply(d,a)}catch(p){throw o(e+"err",[a,d,p],f),p}finally{o(e+"end",[a,d,n],f)}}return a(t)?t:(e||(e=""),nrWrapper[n.flag]=!0,nrWrapper)}function r(t,e,r,o){r||(r="");var i,s,u,d="-"===r.charAt(0);for(u=0;u<e.length;u++)s=e[u],i=t[s],a(i)||(t[s]=n(i,d?s+r:r,o,s,t))}function o(t,e,n){try{s.emit(t,e,n)}catch(r){i([r,t,e,n])}}function i(t){try{s.emit("internal-error",t)}catch(e){}}function a(t){return!(t&&"function"==typeof t&&t.apply&&!t[n.flag])}var s=t(1),u=t(2);e.exports=n,n.inPlace=r,n.flag="nr@wrapper"},{1:1,2:14}]},{},["G9z0Bl",2,7]);</script>
+    <link href="//0.academia-assets.com" rel="dns-prefetch">
+    <link href="//1.academia-assets.com" rel="dns-prefetch">
+    <link href="//2.academia-assets.com" rel="dns-prefetch">
+    <link href="//3.academia-assets.com" rel="dns-prefetch">
+    <link href="//4.academia-assets.com" rel="dns-prefetch">
+    <link href="//5.academia-assets.com" rel="dns-prefetch">
+    <link href="//a.academia-assets.com/images/apple-touch-icon.png?55258192631467754d5750c6e1974484" rel="apple-touch-icon">
+    <link href="//a.academia-assets.com/images/favicon-production.ico?93a1795cbb9782fcdf11d64be7e2846d" rel="shortcut icon" type="image/vnd.microsoft.icon" %>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-2111171-1'],
+            ['_setDomainName', 'academia.edu'],
+            ['_setCustomVar', 1, 'Controller', "departments", 3],
+            ['_setCustomVar', 2, 'Action', "show", 3],
+            ['_setCustomVar', 5, 'edge', 'bison.z0o.me', 2]
+        );
+    </script>
+    
+  <meta content="2369844204" property="fb:app_id">
+<meta content="academia:department" property="og:type">
+<meta content="http://sussex.academia.edu/Departments/Art_History" property="og:url">
+<meta content="Art History" property="og:title">
+<meta content="http://sussex.academia.edu/" property="academia:university">
+<meta content="Art History at University of Sussex" property="og:description">
+<meta content="The Art History Department at the University of Sussex on Academia.edu" name="description">
+<meta content="academics, universities, academia, research, Computer Science, Law, Economics, Medicine, Physics, Math, Philosophy, History, Biology, Political Science, Chemistry, English, Psychology, Geography, Religion, Earth Sciences" name="keywords">
+<meta content="bKJMBZA7E43xhDOopFZkssMMkBRjvYERV-NaN4R6mrs" name="google-site-verification">
+<meta content="internal_trackable_click=null; domain=academia.edu; path=/; expires=Thu, 01-Jan-1970 00:00:00 UTC" http-equiv="Set-Cookie">
+
+  <script src="//a.academia-assets.com/javascripts/require-underscore.js?1067a036501f510f18831ffa2eddffbd" type="text/javascript"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    window.jQuery || document.write('<script src="//a.academia-assets.com/javascripts/jquery.js?ccb4e6580906afb73e6e29058830ef8b">\x3C/script>');
+  </script>
+
+  <script type="text/javascript">
+      document.domain = 'academia.edu';
+      $no_document_domain = false;
+    var $rails_env = 'production';
+    var $app_rev = '521ba80b4c6b933c54cabb8dcd9d8fc61c55a4ba';
+    var $domain = 'academia.edu';
+    var $app_host = "academia.edu";
+    var $asset_host = "academia-assets.com";
+    var $start_time = new Date().getTime();
+    var $make_live_connection = false;
+    var $login_protocol = $.support.cors ? "https" : window.location.protocol.replace(':', '');
+    window.Sizzle = $.find;
+  </script>
+
+
+  <link href="//a.academia-assets.com/stylesheets/core.css?8c00de8650b70e4834138a57f17d2292" media="all" rel="stylesheet" type="text/css">
+<link href="//a.academia-assets.com/stylesheets/documents.css?aea11dd76b04fe091673ad5ce85fae02" media="all" rel="stylesheet" type="text/css">
+<link href="//a.academia-assets.com/stylesheets/base.css?bc48f7986cf120a4b0876300f12253f1" media="all" rel="stylesheet" type="text/css">
+
+  <script src="//a.academia-assets.com/javascripts/core.js?52117b120ea65d25a392e02df3251276" type="text/javascript"></script><script src="//a.academia-assets.com/javascripts/mini_registration.js?310b49b91d7205b72534f88a1ef41cdf" type="text/javascript"></script>
+  <script>
+    _gaq.push(['_setCustomVar', 3, 'logged_in', "" + $a.is_logged_in(), 2]);
+  </script>
+
+  <script type="text/javascript">
+    function loadTypekit() {
+      var config = {
+    kitId: 'tpo8fgy',
+    scriptTimeout: 3000
+};
+var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+
+    }
+
+    if ($a.is_logged_in() || !false) {
+        loadTypekit();
+    }
+  </script>
+
+  <script type="text/javascript">
+    (function () {
+        var digest_map = 
+{
+"/javascripts/academia_sharing.js":"//a.academia-assets.com/javascripts/academia_sharing.js?964f4b28ad44e5895ef1b938e8294a9d",
+"/javascripts/admin.js":"//a.academia-assets.com/javascripts/admin.js?3de3758e0d8a28c5e2af4e415b7ee82c",
+"/javascripts/admin_actions.js":"//a.academia-assets.com/javascripts/admin_actions.js?6f10541e08823a5ef7e8b3b3505b1ce0",
+"/javascripts/affiliation.js":"//a.academia-assets.com/javascripts/affiliation.js?b1ca2e25559ef35b07dbfdab33d0669a",
+"/javascripts/analytics.js":"//a.academia-assets.com/javascripts/analytics.js?2dc0a2bccc582df95dd12505f225b8b7",
+"/javascripts/backbone.js":"//a.academia-assets.com/javascripts/backbone.js?1a1e0c59f81aa0ab96285a04011b0bff",
+"/javascripts/clamp.js":"//a.academia-assets.com/javascripts/clamp.js?7689e7382b159b84b15557b11be6f599",
+"/javascripts/core.js":"//a.academia-assets.com/javascripts/core.js?52117b120ea65d25a392e02df3251276",
+"/javascripts/d3.js":"//a.academia-assets.com/javascripts/d3.js?731c2ace3aec3aa8e057214eba0c5cdb",
+"/javascripts/d3_stats.js":"//a.academia-assets.com/javascripts/d3_stats.js?6be030429dcf38c9c6c74caaa3daf593",
+"/javascripts/discussion.js":"//a.academia-assets.com/javascripts/discussion.js?9beb8afa3a103e132001991ea1474e58",
+"/javascripts/download_token.js":"//a.academia-assets.com/javascripts/download_token.js?926b9cfe2e1f13e03d993cf3dd0ee081",
+"/javascripts/enter_email_form_controller.js":"//a.academia-assets.com/javascripts/enter_email_form_controller.js?d74f9825659cc426010ad2c47535ab71",
+"/javascripts/field_counter_controller.js":"//a.academia-assets.com/javascripts/field_counter_controller.js?81701bf29df2810b4932dc3998e4c98d",
+"/javascripts/follow_facepile.js":"//a.academia-assets.com/javascripts/follow_facepile.js?0e00201b42511c2d81bcaebe8cd2eb6e",
+"/javascripts/google_scholar.js":"//a.academia-assets.com/javascripts/google_scholar.js?7d6ba496e28a9487eeb38dbdb8054ee3",
+"/javascripts/graphael.js":"//a.academia-assets.com/javascripts/graphael.js?a221c6df784322218bab15a069b0a246",
+"/javascripts/highcharts-2.1.9.js":"//a.academia-assets.com/javascripts/highcharts-2.1.9.js?0836e2aeb5ddb5d4c50be8158506df18",
+"/javascripts/highcharts.js":"//a.academia-assets.com/javascripts/highcharts.js?72bccbb2eac04a1931c8186a3d62549c",
+"/javascripts/home.js":"//a.academia-assets.com/javascripts/home.js?63c9e44831406c720242b16825a212a4",
+"/javascripts/intra_university_rankings/report.js":"//a.academia-assets.com/javascripts/intra_university_rankings/report.js?16cad0421b1e410db546f1cd9049b98f",
+"/javascripts/intra_university_rankings/send_email.js":"//a.academia-assets.com/javascripts/intra_university_rankings/send_email.js?68ce2e92ea9c4fb800a73206bf843751",
+"/javascripts/invitation.js":"//a.academia-assets.com/javascripts/invitation.js?ef0bd09853e8c23b473dbcff7164ac6d",
+"/javascripts/invoices.js":"//a.academia-assets.com/javascripts/invoices.js?64dca52bfb0fb9008e7da4bb7dadeac6",
+"/javascripts/job_coupon_invite.js":"//a.academia-assets.com/javascripts/job_coupon_invite.js?a6e0007167d551afa406b166090f9903",
+"/javascripts/job_stats.js":"//a.academia-assets.com/javascripts/job_stats.js?a9f8c6d3bef7e841ddbe36f1903434f9",
+"/javascripts/jobs.js":"//a.academia-assets.com/javascripts/jobs.js?0a77b146f2f3f8441f04dabab60bac1e",
+"/javascripts/journal_followings.js":"//a.academia-assets.com/javascripts/journal_followings.js?b2708d164dfc5f88bc064ce9a9c1a4e0",
+"/javascripts/journals.js":"//a.academia-assets.com/javascripts/journals.js?de0e769a05c536b10354268528cf62b8",
+"/javascripts/jquery.dataTables.js":"//a.academia-assets.com/javascripts/jquery.dataTables.js?5b73b262bf975c0d0034065c9c30fad7",
+"/javascripts/jquery.fileupload.js":"//a.academia-assets.com/javascripts/jquery.fileupload.js?089902148359de826b6cddd0ba6aa98b",
+"/javascripts/jquery.js":"//a.academia-assets.com/javascripts/jquery.js?ccb4e6580906afb73e6e29058830ef8b",
+"/javascripts/jquery.pjax.js":"//a.academia-assets.com/javascripts/jquery.pjax.js?1a7f28a8c118a70f27bc612c4a3bbd0d",
+"/javascripts/jquery.tablesorter.js":"//a.academia-assets.com/javascripts/jquery.tablesorter.js?fa70dc2529a6e52219cb4ea9ffc6ccee",
+"/javascripts/jquery.ui.js":"//a.academia-assets.com/javascripts/jquery.ui.js?d78367cf11d54778717e670f5d12b9f3",
+"/javascripts/jquery.vector-map.js":"//a.academia-assets.com/javascripts/jquery.vector-map.js?709faf8606e2b6034964a73cee68c047",
+"/javascripts/like.js":"//a.academia-assets.com/javascripts/like.js?8c4a87352ad82f173037350fcf7ad19c",
+"/javascripts/masonry.js":"//a.academia-assets.com/javascripts/masonry.js?2244528e24461f757fe6f03e9f0ad186",
+"/javascripts/messages.js":"//a.academia-assets.com/javascripts/messages.js?61c38f70edf95be791b7401b897bca8c",
+"/javascripts/mini_registration.js":"//a.academia-assets.com/javascripts/mini_registration.js?310b49b91d7205b72534f88a1ef41cdf",
+"/javascripts/multi_uploader.js":"//a.academia-assets.com/javascripts/multi_uploader.js?f66f6fc3b8f64e3a13b0eac3cc350298",
+"/javascripts/new_profile.js":"//a.academia-assets.com/javascripts/new_profile.js?094ca9f82734a6cef279c6723e1dec71",
+"/javascripts/new_profile_about_box.js":"//a.academia-assets.com/javascripts/new_profile_about_box.js?07584290cfe36cb51817e91fedb4a69f",
+"/javascripts/news.js":"//a.academia-assets.com/javascripts/news.js?cc1480b4bd992c2a76dd48dfe2d5f2e7",
+"/javascripts/panel.js":"//a.academia-assets.com/javascripts/panel.js?90732adb1ca8f2d003b5dd48b4c4b0bd",
+"/javascripts/panels.js":"//a.academia-assets.com/javascripts/panels.js?180a3bf421d99a639ebc2b094a663209",
+"/javascripts/payment_coupons.js":"//a.academia-assets.com/javascripts/payment_coupons.js?478b59e8ef222a5b3c50f91d6ef74837",
+"/javascripts/popup_affiliation.js":"//a.academia-assets.com/javascripts/popup_affiliation.js?368e9c4e0f969328c4df1efe658d163c",
+"/javascripts/prefs.js":"//a.academia-assets.com/javascripts/prefs.js?74738eb1c1606bee9c26977a4d141c39",
+"/javascripts/publisher_box.js":"//a.academia-assets.com/javascripts/publisher_box.js?2e175dd76d9d4ae41fbc37932591928f",
+"/javascripts/questions.js":"//a.academia-assets.com/javascripts/questions.js?f5c479164eeb59907ea162b560154c24",
+"/javascripts/questions_controller.js":"//a.academia-assets.com/javascripts/questions_controller.js?98f0461a23009ed7a65e9722ca9be178",
+"/javascripts/qunit.js":"//a.academia-assets.com/javascripts/qunit.js?93e5a4410885bf308c078cca0d0ef561",
+"/javascripts/raphael.js":"//a.academia-assets.com/javascripts/raphael.js?0b8a41884ec03b80d8cfc3b698f12b0a",
+"/javascripts/reader.js":"//a.academia-assets.com/javascripts/reader.js?defb58b406159b7844d61f2cc27796b7",
+"/javascripts/repo.js":"//a.academia-assets.com/javascripts/repo.js?f8530ced40bf94330abb14a89ca58790",
+"/javascripts/reports.js":"//a.academia-assets.com/javascripts/reports.js?681700c87dd11bd74f5892a05f6a4790",
+"/javascripts/reports_controller.js":"//a.academia-assets.com/javascripts/reports_controller.js?bbe291d69da7bcd96ca4cf752ce85ca8",
+"/javascripts/request_upload.js":"//a.academia-assets.com/javascripts/request_upload.js?4a76814ed6cf62fd2df5a202e4057d38",
+"/javascripts/require-underscore.js":"//a.academia-assets.com/javascripts/require-underscore.js?1067a036501f510f18831ffa2eddffbd",
+"/javascripts/scribd.js":"//a.academia-assets.com/javascripts/scribd.js?e75df8531f371f14017a90f8b17cf750",
+"/javascripts/select2.js":"//a.academia-assets.com/javascripts/select2.js?61957b62e31255d6f5d262b04b83765e",
+"/javascripts/shared/form_builder.js":"//a.academia-assets.com/javascripts/shared/form_builder.js?a1fa7b107b2db194acdafb0395318c8f",
+"/javascripts/shared/popover_widget.js":"//a.academia-assets.com/javascripts/shared/popover_widget.js?59fe4716412a3d288355b9144d3c3b80",
+"/javascripts/shared/uploader.js":"//a.academia-assets.com/javascripts/shared/uploader.js?3b5305e0b598733a56ec3b28cc549e19",
+"/javascripts/single_work.js":"//a.academia-assets.com/javascripts/single_work.js?f0ee88f0285fa31fe0d6ad7e2d3f587e",
+"/javascripts/social.js":"//a.academia-assets.com/javascripts/social.js?b32dc76da45b5f57ac1be7cfb9cfc2de",
+"/javascripts/standalone_research_interests.js":"//a.academia-assets.com/javascripts/standalone_research_interests.js?bc70954efff7022bda325e5b77bf4ed3",
+"/javascripts/tags.js":"//a.academia-assets.com/javascripts/tags.js?34a513c914da3ccce17648565f22f46d",
+"/javascripts/tests.js":"//a.academia-assets.com/javascripts/tests.js?ca0e6c52f7704374523390c75108d579",
+"/javascripts/tooltip.js":"//a.academia-assets.com/javascripts/tooltip.js?8aae6636edb6e0f94eef4e190f5f9893",
+"/javascripts/twitter.js":"//a.academia-assets.com/javascripts/twitter.js?cc797f1ff727a2dcb90b0b2f43d1ae82",
+"/javascripts/typeahead.js":"//a.academia-assets.com/javascripts/typeahead.js?513d002241b2ce229c824696bb8a7dd3",
+"/javascripts/utils/base64.js":"//a.academia-assets.com/javascripts/utils/base64.js?4216bf3826c419be193399c19ac67a68",
+"/javascripts/works.js":"//a.academia-assets.com/javascripts/works.js?15bdd4d4eec32f77dc2267a560b7f3c6",
+"/javascripts/world_paper_search.js":"//a.academia-assets.com/javascripts/world_paper_search.js?a426a570f2aefa0614c7c2a2628c8981",
+"/javascripts/wysihtml5.js":"//a.academia-assets.com/javascripts/wysihtml5.js?8b790a87a8283a74c364aa6f9dec554a"
+}
+;
+
+        if ($rails_env == 'development' || $rails_env == 'test') {
+            var query_string     = null,
+                subdomain_number = '0';
+        } else {
+            var query_string     = $app_rev,
+                subdomain_number = parseInt($app_rev.substring(0, 10), 16) % 6;
+        }
+
+        var convert_to_asset_url = function (asset_name) {
+            if (asset_name.match(/^(https?:)?\/\//)) {
+                return asset_name;
+            }
+
+            var name = "";
+            if (asset_name[0] == "/") {
+                name = asset_name;
+            } else {
+                name = "/javascripts/" + asset_name + ".js";
+            }
+
+            if ($rails_env != 'development' && $rails_env != 'test' && digest_map[name]) {
+                return digest_map[name];
+            } else {
+                return ('//' + subdomain_number + '.' +
+                    $asset_host + name + '?' + query_string);
+            }
+        }
+
+        window.req = function (deps, cb) {
+            if (!_.isArray(deps)) { deps = [deps] };
+
+            deps = _.reject(deps, function (str) {
+                return _.include(req.ignored, str);
+            });
+
+            require(_.map(deps, convert_to_asset_url), cb);
+        };
+
+        window.req.ignored = ["mini_registration"];
+
+        window.req_and_ready = function (deps, cb) {
+            req(deps, function () { $(cb); });
+        };
+    })();
+  </script>
+
+  </head>
+<!--[if lt IE 7 ]>
+  <body class='ie ie6 c-departments a-show'>
+<![endif]-->
+<!--[if IE 7 ]>
+  <body class='ie ie7 c-departments a-show'>
+  <link rel="stylesheet" href="//0.academia-assets.com/stylesheets/font-awesome-ie7.css">
+<![endif]-->
+<!--[if IE 8 ]>
+  <body class='ie ie8 c-departments a-show'>
+<![endif]-->
+<!--[if gte IE 9 ]>
+  <body class='ie ie9 c-departments a-show'>
+<![endif]-->
+<!--[if !(IE) ]><!-->
+  <body class='c-departments a-show'>
+<!--<![endif]-->
+
+      <script>
+    // This doesn't wait for document.ready to avoid pop-in.
+    if ($a.is_logged_in())
+      $("body").addClass("logged_in");
+    else
+      $("body").addClass("logged_out");
+
+    $(function(){
+      $("head").append('<link href="'+window.location.protocol+'//a.academia-assets.com/stylesheets/icons.css?51b9c3a92bcacc6fa777d234e8a9c781" media="screen" rel="stylesheet" type="text/css" />');
+      if (!$a.is_logged_in() && false)
+        loadTypekit();
+    });
+  </script>
+  
+
+    
+<div id="fb-root"></div>
+<script type="text/javascript">
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '2369844204',
+        channelUrl: '//sussex.academia.edu/channel.html',
+        status: true,
+        cookie: true,
+        oauth: true,
+        xfbml: true
+    });
+
+    if (window.Facebook != null) {
+        Facebook.run_ready_listeners();
+    }
+};
+
+window.fbAsyncLoad = function() {
+    if (window.FB) {
+        return;
+    }
+    (function(d) {
+        var js;
+        var id = 'facebook-jssdk';
+        var ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement('script');
+        js.id = id;
+        js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+}
+
+if (!window.defer_facebook) {
+    window.fbAsyncLoad();
+} else {
+    setTimeout(function(){
+        window.fbAsyncLoad();
+    }, 5000);
+}
+</script>
+
+
+    
+<div id="google-root">
+</div>
+<script type="text/javascript">
+var scopes = 'openid email https://www.googleapis.com/auth/userinfo.profile https://www.google.com/m8/feeds/ https://www.googleapis.com/auth/plus.me';
+var clientId = '331998490334-rsn3chp12mbkiqhl6e7lu2q0mlbu0f1b';
+function loadGoogle() {
+  Google.client_id = clientId;
+  Google.scopes = scopes;
+  gapi.client.setApiKey('AIzaSyB924RA9X5fW1hDUt8BUfLNqzPKdno5W5c');
+  gapi.auth.init();
+};
+
+window.googleAsyncLoad = function() {
+    if (window.gapi) {
+        return;
+    }
+    (function(d) {
+        var js;
+        var id = 'google-jssdk';
+        var ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement('script');
+        js.id = id;
+        js.async = true;
+        js.src = "https://apis.google.com/js/client.js?onload=loadGoogle"
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+}
+
+if (!window.defer_google) {
+    window.googleAsyncLoad();
+} else {
+    setTimeout(function(){
+        window.googleAsyncLoad();
+    }, 5000);
+}
+</script>
+
+
+
+  
+
+
+
+  <div id='site' class=fixed>
+
+        <div id='header'>
+
+  <div id='logo'>
+    <a href="http://www.academia.edu/"><img alt="" class="2x" src="//3.academia-assets.com/images/academia-logo.gif?e52a522c1699692ebb7025faa9f5e183"></a>
+  </div>
+
+  <div id='navigation'>
+      <ul id="logged_out_nav"><li><a href="http://www.academia.edu/" id="nav_home">Home</a></li><li><a href="http://www.academia.edu/login" id="nav_log_in">Log In</a></li><li><a href="http://www.academia.edu/signup" id="nav_sign_up">Sign Up</a></li></ul>
+  </div>
+
+  
+
+  <form accept-charset="UTF-8" action="http://www.academia.edu/people/search" id="new_search_box_form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;"></div>    <input type='text' name='q' value='Search People, Research Interests and Universities' id='new_search_field' class='magic-default'>
+    <div id='top_search_loader'>
+      <span class="tip">Type to search for People, Research Interests and Universities</span>
+
+      <div id="top_search_loader_gif"><img alt="" src="//1.academia-assets.com/images/loaders/search-spinner.gif?55e4403df983f33e19cd512103a11e71"><br>Searching...</div>
+    </div>
+</form></div>
+
+
+    <div id="content" class="clearfix">
+          
+
+
+
+
+  
+<div id="page_header">
+  <h1>Art History</h1>
+  <span>at <a href='http://sussex.academia.edu/'>University of Sussex</a></span>
+</div>
+
+<div id="topic_top_nav" class="clearfix">
+  <div class="topic_link">
+    <a href="http://sussex.academia.edu/Departments/Art_History" class="on">
+      People
+      <span class="object_count">
+        49
+      </span>
+</a>  </div>
+  <div class="topic_link">
+      <a href="http://sussex.academia.edu/Departments/Art_History/Documents">
+        Documents
+        <span class="object_count">
+          124
+        </span>
+</a>  </div>
+</div>
+
+<div id="right_nav">
+    <div id="sign_up_form" class="clearfix">
+    <p>Sign up to Academia.edu</p>
+    <div id="sign_up_box">
+      <form accept-charset="UTF-8" action="/join" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;"><input name="authenticity_token" type="hidden" value="h0miHDTBlDR4c3mPGyoBSUlKeNoo9Wx46W6zLpYXnNE="></div>        <div class="clearfix">
+            <label for="first_name">First Name:</label>
+            <div class="input">
+                <input type="text" name="first_name" value="" id="first_name" class="sign_up_txt first-focus" size="35">
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="last_name">Last Name:</label>
+            <div class="input">
+                <input type="text" name="last_name" value="" id="last_name" class="sign_up_txt" size="35">
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="email">Email:</label>
+            <div class="input">
+                <input type="text" name="email" value="" id="email" class="sign_up_txt" size="35">
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="university">University:</label>
+            <div class="input">
+                <span class="affiliation_detail" id="university_affiliation">University of Sussex <span class="edit_affiliation" onclick="MiniRegistration.edit_university()">edit</span></span>
+                <div id="edit_university" style='display: none'>
+                  <input class="ac_input" id="university_display_name" name="university_display_name" type="text" value="University of Sussex" autocomplete="off" size="35">
+                </div>
+                <input id="university_id" name="university_id" type="hidden" value="492">
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="department">Department:</label>
+            <div class="input">
+                <span class="affiliation_detail" id="department_affiliation">Art History <span class="edit_affiliation" onclick="MiniRegistration.edit_department('492', false);">edit</span></span>
+                <input id="department_id" name="department_id" type="hidden" value="35813" size="35">
+                <div id="edit_department" style="display: none">
+                  <input id="department_name" name="department_name" size="35" type="text" value="Art History">
+</div>            </div>
+        </div>
+
+        <button type="submit" class="button blue btn-216-28">Join Academia.edu</button>
+</form>    </div>
+    <div id="registration_errors"></div>
+</div>
+
+  <div id="find_friends_link"><a href="http://www.academia.edu/FriendFinder">Find</a> your friends</div>
+</div>
+
+  <div id="user_list">
+        <fieldset>
+          <legend class="group_title">Faculty</legend>
+            
+
+  <div class="user_strip clearfix" id="u2312142">
+
+      <div class="follow_user" id="follow_me_2312142">
+    <a href="#Follow" onclick="populate_follow_me_message_2312142(); return Follow.show_login_or_signup(&#x27;follow_me_message_2312142&#x27;);" class="button green btn-142-24">Follow Joanne</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_2312142" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Joanne</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_2312142() { $('#follow_me_message_2312142').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Joanne"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/JoanneAnderson"><img alt="Joanne Anderson" height="65" src="//0.academia-photos.com/2312142/732076/3626906/s65_joanne.anderson.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/JoanneAnderson">Joanne Anderson</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68205"><a href="http://www.academia.edu/People/Visual_Studies" class="research_interest_link" data-id="863">Visual Studies</a>, <a href="http://www.academia.edu/People/History_of_Art" class="research_interest_link" data-id="13966">History of Art</a>, <a href="http://www.academia.edu/People/Iconography" class="research_interest_link" data-id="869">Iconography</a>, <a href="http://www.academia.edu/People/Cult_of_Saints" class="research_interest_link" data-id="7079">Cult of Saints</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68205" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">10 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Medieval_and_Renaissance" class="research_interest_link" data-id="6905">Medieval and Renaissance</a>, <a href="http://www.academia.edu/People/Mural_paintings" class="research_interest_link" data-id="90704">Mural paintings</a>, <a href="http://www.academia.edu/People/Parish_Research" class="research_interest_link" data-id="550914">Parish Research</a>, <a href="http://www.academia.edu/People/Mary_Magdalen" class="research_interest_link" data-id="566494">Mary Magdalen</a>, <a href="http://www.academia.edu/People/Alpine_Art_and_Architecture" class="research_interest_link" data-id="566493">Alpine Art and Architecture</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Womens_Studies" class="research_interest_link" data-id="1138">Women&#x27;s Studies</a>, <a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Family" class="research_interest_link" data-id="6574">Family</a>, and <a href="http://www.academia.edu/People/Social_Identity" class="research_interest_link" data-id="2089">Social Identity</a></span><noscript><div>(<a href="http://www.academia.edu/People/Medieval_and_Renaissance" class="research_interest_link" data-id="6905">Medieval and Renaissance</a>, <a href="http://www.academia.edu/People/Mural_paintings" class="research_interest_link" data-id="90704">Mural paintings</a>, <a href="http://www.academia.edu/People/Parish_Research" class="research_interest_link" data-id="550914">Parish Research</a>, <a href="http://www.academia.edu/People/Mary_Magdalen" class="research_interest_link" data-id="566494">Mary Magdalen</a>, <a href="http://www.academia.edu/People/Alpine_Art_and_Architecture" class="research_interest_link" data-id="566493">Alpine Art and Architecture</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Womens_Studies" class="research_interest_link" data-id="1138">Women&#x27;s Studies</a>, <a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Family" class="research_interest_link" data-id="6574">Family</a>, and <a href="http://www.academia.edu/People/Social_Identity" class="research_interest_link" data-id="2089">Social Identity</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u7092642">
+
+      <div class="follow_user" id="follow_me_7092642">
+    <a href="#Follow" onclick="populate_follow_me_message_7092642(); return Follow.show_login_or_signup(&#x27;follow_me_message_7092642&#x27;);" class="button green btn-142-24">Follow Ben</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_7092642" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Ben</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_7092642() { $('#follow_me_message_7092642').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Ben"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/BenBurbridge"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/BenBurbridge">Ben Burbridge</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68206"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a>, <a href="http://www.academia.edu/People/Social_Sciences" class="research_interest_link" data-id="1237">Social Sciences</a>, <a href="http://www.academia.edu/People/Media_Studies" class="research_interest_link" data-id="928">Media Studies</a>, and <a href="http://www.academia.edu/People/Ecology" class="research_interest_link" data-id="9846">Ecology</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u1907314">
+
+      <div class="follow_user" id="follow_me_1907314">
+    <a href="#Follow" onclick="populate_follow_me_message_1907314(); return Follow.show_login_or_signup(&#x27;follow_me_message_1907314&#x27;);" class="button green btn-142-24">Follow Flora</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_1907314" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Flora</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_1907314() { $('#follow_me_message_1907314').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Flora"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/FloraDennis"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/FloraDennis">Flora Dennis</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68207"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Musicology" class="research_interest_link" data-id="687">Musicology</a>, <a href="http://www.academia.edu/People/Material_Culture_Studies" class="research_interest_link" data-id="2473">Material Culture Studies</a>, <a href="http://www.academia.edu/People/Museum_Studies" class="research_interest_link" data-id="1657">Museum Studies</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68207" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">2 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Renaissance_Studies" class="research_interest_link" data-id="2987">Renaissance Studies</a> and <a href="http://www.academia.edu/People/Design_History" class="research_interest_link" data-id="1632">Design History</a></span><noscript><div>(<a href="http://www.academia.edu/People/Renaissance_Studies" class="research_interest_link" data-id="2987">Renaissance Studies</a> and <a href="http://www.academia.edu/People/Design_History" class="research_interest_link" data-id="1632">Design History</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u314512">
+
+      <div class="follow_user" id="follow_me_314512">
+    <a href="#Follow" onclick="populate_follow_me_message_314512(); return Follow.show_login_or_signup(&#x27;follow_me_message_314512&#x27;);" class="button green btn-142-24">Follow Rosalind</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_314512" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Rosalind</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_314512() { $('#follow_me_message_314512').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Rosalind"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/RosalindMcKever"><img alt="Rosalind McKever" height="65" src="//0.academia-photos.com/314512/77705/84547/s65_rosalind.mckever.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/RosalindMcKever">Rosalind McKever</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68208"><a href="http://www.academia.edu/People/20th_century_Italian_art" class="research_interest_link" data-id="31832">20th century Italian art</a>, <a href="http://www.academia.edu/People/Historiography" class="research_interest_link" data-id="3524">Historiography</a>, <a href="http://www.academia.edu/People/Modernism_Art_History_" class="research_interest_link" data-id="14546">Modernism (Art History)</a>, <a href="http://www.academia.edu/People/Historiography_in_Art_History_" class="research_interest_link" data-id="15352">Historiography  (in Art History)</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68208" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">21 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Museum_Studies" class="research_interest_link" data-id="1657">Museum Studies</a>, <a href="http://www.academia.edu/People/Futurism" class="research_interest_link" data-id="8102">Futurism</a>, <a href="http://www.academia.edu/People/20th_century_Avant-Garde" class="research_interest_link" data-id="31319">20th century Avant-Garde</a>, <a href="http://www.academia.edu/People/Visual_Studies" class="research_interest_link" data-id="863">Visual Studies</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Cultural_Studies" class="research_interest_link" data-id="188">Cultural Studies</a>, <a href="http://www.academia.edu/People/Italian_Studies" class="research_interest_link" data-id="2221">Italian Studies</a>, <a href="http://www.academia.edu/People/Avant-Garde" class="research_interest_link" data-id="20622">Avant-Garde</a>, <a href="http://www.academia.edu/People/Italian_art" class="research_interest_link" data-id="6560">Italian art</a>, <a href="http://www.academia.edu/People/Ezra_Pound" class="research_interest_link" data-id="8448">Ezra Pound</a>, <a href="http://www.academia.edu/People/Wyndham_Lewis" class="research_interest_link" data-id="6218">Wyndham Lewis</a>, <a href="http://www.academia.edu/People/Vorticism" class="research_interest_link" data-id="6219">Vorticism</a>, <a href="http://www.academia.edu/People/Arte_Povera" class="research_interest_link" data-id="97533">Arte Povera</a>, <a href="http://www.academia.edu/People/Alighiero_Boetti" class="research_interest_link" data-id="649765">Alighiero Boetti</a>, <a href="http://www.academia.edu/People/Jacob_Epstein" class="research_interest_link" data-id="169644">Jacob Epstein</a>, <a href="http://www.academia.edu/People/Tate_Modern" class="research_interest_link" data-id="164062">Tate Modern</a>, <a href="http://www.academia.edu/People/Henri_Gaudier-Brzeska" class="research_interest_link" data-id="81814">Henri Gaudier-Brzeska</a>, <a href="http://www.academia.edu/People/CRW_Nevinson" class="research_interest_link" data-id="590087">CRW Nevinson</a>, <a href="http://www.academia.edu/People/Italian_Art_Romanesque_and_Primitives" class="research_interest_link" data-id="479073">Italian Art Romanesque and Primitives</a>, <a href="http://www.academia.edu/People/Fortune_of_Italian_Primitives" class="research_interest_link" data-id="1112313">Fortune of Italian Primitives</a>, and <a href="http://www.academia.edu/People/Umberto_Boccioni" class="research_interest_link" data-id="245550">Umberto Boccioni</a></span><noscript><div>(<a href="http://www.academia.edu/People/Museum_Studies" class="research_interest_link" data-id="1657">Museum Studies</a>, <a href="http://www.academia.edu/People/Futurism" class="research_interest_link" data-id="8102">Futurism</a>, <a href="http://www.academia.edu/People/20th_century_Avant-Garde" class="research_interest_link" data-id="31319">20th century Avant-Garde</a>, <a href="http://www.academia.edu/People/Visual_Studies" class="research_interest_link" data-id="863">Visual Studies</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Cultural_Studies" class="research_interest_link" data-id="188">Cultural Studies</a>, <a href="http://www.academia.edu/People/Italian_Studies" class="research_interest_link" data-id="2221">Italian Studies</a>, <a href="http://www.academia.edu/People/Avant-Garde" class="research_interest_link" data-id="20622">Avant-Garde</a>, <a href="http://www.academia.edu/People/Italian_art" class="research_interest_link" data-id="6560">Italian art</a>, <a href="http://www.academia.edu/People/Ezra_Pound" class="research_interest_link" data-id="8448">Ezra Pound</a>, <a href="http://www.academia.edu/People/Wyndham_Lewis" class="research_interest_link" data-id="6218">Wyndham Lewis</a>, <a href="http://www.academia.edu/People/Vorticism" class="research_interest_link" data-id="6219">Vorticism</a>, <a href="http://www.academia.edu/People/Arte_Povera" class="research_interest_link" data-id="97533">Arte Povera</a>, <a href="http://www.academia.edu/People/Alighiero_Boetti" class="research_interest_link" data-id="649765">Alighiero Boetti</a>, <a href="http://www.academia.edu/People/Jacob_Epstein" class="research_interest_link" data-id="169644">Jacob Epstein</a>, <a href="http://www.academia.edu/People/Tate_Modern" class="research_interest_link" data-id="164062">Tate Modern</a>, <a href="http://www.academia.edu/People/Henri_Gaudier-Brzeska" class="research_interest_link" data-id="81814">Henri Gaudier-Brzeska</a>, <a href="http://www.academia.edu/People/CRW_Nevinson" class="research_interest_link" data-id="590087">CRW Nevinson</a>, <a href="http://www.academia.edu/People/Italian_Art_Romanesque_and_Primitives" class="research_interest_link" data-id="479073">Italian Art Romanesque and Primitives</a>, <a href="http://www.academia.edu/People/Fortune_of_Italian_Primitives" class="research_interest_link" data-id="1112313">Fortune of Italian Primitives</a>, and <a href="http://www.academia.edu/People/Umberto_Boccioni" class="research_interest_link" data-id="245550">Umberto Boccioni</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+          </fieldset>
+        <fieldset>
+          <legend class="group_title">Post-Docs</legend>
+            
+
+  <div class="user_strip clearfix" id="u699973">
+
+      <div class="follow_user" id="follow_me_699973">
+    <a href="#Follow" onclick="populate_follow_me_message_699973(); return Follow.show_login_or_signup(&#x27;follow_me_message_699973&#x27;);" class="button green btn-142-24">Follow Darren</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_699973" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Darren</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_699973() { $('#follow_me_message_699973').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Darren"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/DClarke"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/DClarke">Darren Clarke</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68209"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Bloomsbury_Group" class="research_interest_link" data-id="51355">Bloomsbury Group</a>, and <a href="http://www.academia.edu/People/Contemporary_Art" class="research_interest_link" data-id="3051">Contemporary Art</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u5649660">
+
+      <div class="follow_user" id="follow_me_5649660">
+    <a href="#Follow" onclick="populate_follow_me_message_5649660(); return Follow.show_login_or_signup(&#x27;follow_me_message_5649660&#x27;);" class="button green btn-142-24">Follow Alexandra</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_5649660" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Alexandra</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_5649660() { $('#follow_me_message_5649660').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Alexandra"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/ALoske"><img alt="Alexandra Loske" height="65" src="//0.academia-photos.com/5649660/3506000/4117560/s65_alexandra.loske.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/ALoske">Alexandra Loske</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68210"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Architecture" class="research_interest_link" data-id="1372">Architecture</a>, <a href="http://www.academia.edu/People/Cultural_Heritage" class="research_interest_link" data-id="2132">Cultural Heritage</a>, <a href="http://www.academia.edu/People/Architectural_History" class="research_interest_link" data-id="7655">Architectural History</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68210" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">14 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Interior_design" class="research_interest_link" data-id="5553">Interior design</a>, <a href="http://www.academia.edu/People/Colour_Theory" class="research_interest_link" data-id="10776">Colour Theory</a>, <a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/History_of_architecture" class="research_interest_link" data-id="45408">History of architecture</a>, <a href="http://www.academia.edu/People/Culture_Studies" class="research_interest_link" data-id="8356">Culture Studies</a>, <a href="http://www.academia.edu/People/Colour" class="research_interest_link" data-id="115368">Colour</a>, <a href="http://www.academia.edu/People/Painting_Conservation" class="research_interest_link" data-id="32375">Painting Conservation</a>, <a href="http://www.academia.edu/People/Architectural_Studies" class="research_interest_link" data-id="202109">Architectural Studies</a>, <a href="http://www.academia.edu/People/Interior_Design_History" class="research_interest_link" data-id="50981">Interior Design History</a>, <a href="http://www.academia.edu/People/Heritage_and_Conservation" class="research_interest_link" data-id="222843">Heritage and Conservation</a>, <a href="http://www.academia.edu/People/Architecture_and_interior_Design" class="research_interest_link" data-id="139033">Architecture and interior Design</a>, <a href="http://www.academia.edu/People/Decoration" class="research_interest_link" data-id="278412">Decoration</a>, <a href="http://www.academia.edu/People/Country_House_History" class="research_interest_link" data-id="25952">Country House History</a>, and <a href="http://www.academia.edu/People/Colour_Archaeology" class="research_interest_link" data-id="43249">Colour Archaeology</a></span><noscript><div>(<a href="http://www.academia.edu/People/Interior_design" class="research_interest_link" data-id="5553">Interior design</a>, <a href="http://www.academia.edu/People/Colour_Theory" class="research_interest_link" data-id="10776">Colour Theory</a>, <a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/History_of_architecture" class="research_interest_link" data-id="45408">History of architecture</a>, <a href="http://www.academia.edu/People/Culture_Studies" class="research_interest_link" data-id="8356">Culture Studies</a>, <a href="http://www.academia.edu/People/Colour" class="research_interest_link" data-id="115368">Colour</a>, <a href="http://www.academia.edu/People/Painting_Conservation" class="research_interest_link" data-id="32375">Painting Conservation</a>, <a href="http://www.academia.edu/People/Architectural_Studies" class="research_interest_link" data-id="202109">Architectural Studies</a>, <a href="http://www.academia.edu/People/Interior_Design_History" class="research_interest_link" data-id="50981">Interior Design History</a>, <a href="http://www.academia.edu/People/Heritage_and_Conservation" class="research_interest_link" data-id="222843">Heritage and Conservation</a>, <a href="http://www.academia.edu/People/Architecture_and_interior_Design" class="research_interest_link" data-id="139033">Architecture and interior Design</a>, <a href="http://www.academia.edu/People/Decoration" class="research_interest_link" data-id="278412">Decoration</a>, <a href="http://www.academia.edu/People/Country_House_History" class="research_interest_link" data-id="25952">Country House History</a>, and <a href="http://www.academia.edu/People/Colour_Archaeology" class="research_interest_link" data-id="43249">Colour Archaeology</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+          </fieldset>
+        <fieldset>
+          <legend class="group_title">Emeritus</legend>
+            
+
+  <div class="user_strip clearfix" id="u5977860">
+
+      <div class="follow_user" id="follow_me_5977860">
+    <a href="#Follow" onclick="populate_follow_me_message_5977860(); return Follow.show_login_or_signup(&#x27;follow_me_message_5977860&#x27;);" class="button green btn-142-24">Follow my best</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_5977860" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow my best</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_5977860() { $('#follow_me_message_5977860').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow my best"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/mybestwhells"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/mybestwhells">my best whells</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68211"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a> and <a href="http://www.academia.edu/People/Byzantine_Mosaics" class="research_interest_link" data-id="105881">Byzantine Mosaics</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+          </fieldset>
+        <fieldset>
+          <legend class="group_title">Graduate Students</legend>
+            
+
+  <div class="user_strip clearfix" id="u926435">
+
+      <div class="follow_user" id="follow_me_926435">
+    <a href="#Follow" onclick="populate_follow_me_message_926435(); return Follow.show_login_or_signup(&#x27;follow_me_message_926435&#x27;);" class="button green btn-142-24">Follow Amy</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_926435" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Amy</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_926435() { $('#follow_me_message_926435').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Amy"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/AmyCharlton"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/AmyCharlton">Amy Charlton</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68212"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/History_of_Museums" class="research_interest_link" data-id="7063">History of Museums</a>, <a href="http://www.academia.edu/People/Natural_History" class="research_interest_link" data-id="9588">Natural History</a>, <a href="http://www.academia.edu/People/Museums" class="research_interest_link" data-id="40719">Museums</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68212" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">2 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/History_of_Natural_History" class="research_interest_link" data-id="2988">History of Natural History</a> and <a href="http://www.academia.edu/People/National_Museums" class="research_interest_link" data-id="16886">National Museums</a></span><noscript><div>(<a href="http://www.academia.edu/People/History_of_Natural_History" class="research_interest_link" data-id="2988">History of Natural History</a> and <a href="http://www.academia.edu/People/National_Museums" class="research_interest_link" data-id="16886">National Museums</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u12225282">
+
+      <div class="follow_user" id="follow_me_12225282">
+    <a href="#Follow" onclick="populate_follow_me_message_12225282(); return Follow.show_login_or_signup(&#x27;follow_me_message_12225282&#x27;);" class="button green btn-142-24">Follow Alice</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_12225282" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Alice</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_12225282() { $('#follow_me_message_12225282').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Alice"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/AliceCompton"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/AliceCompton">Alice Compton</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68213"><a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Social_Sciences" class="research_interest_link" data-id="1237">Social Sciences</a>, <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a>, <a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68213" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">8 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Literature" class="research_interest_link" data-id="2418">Literature</a>, <a href="http://www.academia.edu/People/Urban_Studies" class="research_interest_link" data-id="7725">Urban Studies</a>, <a href="http://www.academia.edu/People/Political_Economy" class="research_interest_link" data-id="802">Political Economy</a>, <a href="http://www.academia.edu/People/Cultural_Geography" class="research_interest_link" data-id="263">Cultural Geography</a>, <a href="http://www.academia.edu/People/Photography" class="research_interest_link" data-id="1589">Photography</a>, <a href="http://www.academia.edu/People/Photography_Theory" class="research_interest_link" data-id="10503">Photography Theory</a>, <a href="http://www.academia.edu/People/History_of_photography" class="research_interest_link" data-id="20079">History of photography</a>, and <a href="http://www.academia.edu/People/Documentary_Photography" class="research_interest_link" data-id="19022">Documentary Photography</a></span><noscript><div>(<a href="http://www.academia.edu/People/Literature" class="research_interest_link" data-id="2418">Literature</a>, <a href="http://www.academia.edu/People/Urban_Studies" class="research_interest_link" data-id="7725">Urban Studies</a>, <a href="http://www.academia.edu/People/Political_Economy" class="research_interest_link" data-id="802">Political Economy</a>, <a href="http://www.academia.edu/People/Cultural_Geography" class="research_interest_link" data-id="263">Cultural Geography</a>, <a href="http://www.academia.edu/People/Photography" class="research_interest_link" data-id="1589">Photography</a>, <a href="http://www.academia.edu/People/Photography_Theory" class="research_interest_link" data-id="10503">Photography Theory</a>, <a href="http://www.academia.edu/People/History_of_photography" class="research_interest_link" data-id="20079">History of photography</a>, and <a href="http://www.academia.edu/People/Documentary_Photography" class="research_interest_link" data-id="19022">Documentary Photography</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u827400">
+
+      <div class="follow_user" id="follow_me_827400">
+    <a href="#Follow" onclick="populate_follow_me_message_827400(); return Follow.show_login_or_signup(&#x27;follow_me_message_827400&#x27;);" class="button green btn-142-24">Follow Alice</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_827400" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Alice</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_827400() { $('#follow_me_message_827400').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Alice"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://tate.academia.edu/AliceCorreia"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://tate.academia.edu/AliceCorreia">Alice Correia</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68214"><em>none</em><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u8209741">
+
+      <div class="follow_user" id="follow_me_8209741">
+    <a href="#Follow" onclick="populate_follow_me_message_8209741(); return Follow.show_login_or_signup(&#x27;follow_me_message_8209741&#x27;);" class="button green btn-142-24">Follow Naomi</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_8209741" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Naomi</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_8209741() { $('#follow_me_message_8209741').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Naomi"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/NaomiDaw"><img alt="Naomi Daw" height="65" src="//0.academia-photos.com/8209741/2822176/3293707/s65_naomi.daw.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/NaomiDaw">Naomi Daw</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68215"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a>, <a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a>, <a href="http://www.academia.edu/People/Literature" class="research_interest_link" data-id="2418">Literature</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68215" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">13 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Gender_Studies" class="research_interest_link" data-id="696">Gender Studies</a>, <a href="http://www.academia.edu/People/Art_and_Tourism_Travel" class="research_interest_link" data-id="967393">Art and Tourism/Travel</a>, <a href="http://www.academia.edu/People/Artists_and_Travellers" class="research_interest_link" data-id="1188029">Artists and Travellers</a>, <a href="http://www.academia.edu/People/Photography" class="research_interest_link" data-id="1589">Photography</a>, <a href="http://www.academia.edu/People/History_of_photography" class="research_interest_link" data-id="20079">History of photography</a>, <a href="http://www.academia.edu/People/Landscape_Photography" class="research_interest_link" data-id="12352">Landscape Photography</a>, <a href="http://www.academia.edu/People/History_and_Theory_of_Photography" class="research_interest_link" data-id="638969">History and Theory of Photography</a>, <a href="http://www.academia.edu/People/Travel_Literature" class="research_interest_link" data-id="21277">Travel Literature</a>, <a href="http://www.academia.edu/People/Critical_Theory" class="research_interest_link" data-id="8">Critical Theory</a>, <a href="http://www.academia.edu/People/Aesthetics" class="research_interest_link" data-id="808">Aesthetics</a>, <a href="http://www.academia.edu/People/Art_Theory" class="research_interest_link" data-id="1386">Art Theory</a>, <a href="http://www.academia.edu/People/Visual_Culture" class="research_interest_link" data-id="3225">Visual Culture</a>, and <a href="http://www.academia.edu/People/Native_American_Art" class="research_interest_link" data-id="519963">Native American Art</a></span><noscript><div>(<a href="http://www.academia.edu/People/Gender_Studies" class="research_interest_link" data-id="696">Gender Studies</a>, <a href="http://www.academia.edu/People/Art_and_Tourism_Travel" class="research_interest_link" data-id="967393">Art and Tourism/Travel</a>, <a href="http://www.academia.edu/People/Artists_and_Travellers" class="research_interest_link" data-id="1188029">Artists and Travellers</a>, <a href="http://www.academia.edu/People/Photography" class="research_interest_link" data-id="1589">Photography</a>, <a href="http://www.academia.edu/People/History_of_photography" class="research_interest_link" data-id="20079">History of photography</a>, <a href="http://www.academia.edu/People/Landscape_Photography" class="research_interest_link" data-id="12352">Landscape Photography</a>, <a href="http://www.academia.edu/People/History_and_Theory_of_Photography" class="research_interest_link" data-id="638969">History and Theory of Photography</a>, <a href="http://www.academia.edu/People/Travel_Literature" class="research_interest_link" data-id="21277">Travel Literature</a>, <a href="http://www.academia.edu/People/Critical_Theory" class="research_interest_link" data-id="8">Critical Theory</a>, <a href="http://www.academia.edu/People/Aesthetics" class="research_interest_link" data-id="808">Aesthetics</a>, <a href="http://www.academia.edu/People/Art_Theory" class="research_interest_link" data-id="1386">Art Theory</a>, <a href="http://www.academia.edu/People/Visual_Culture" class="research_interest_link" data-id="3225">Visual Culture</a>, and <a href="http://www.academia.edu/People/Native_American_Art" class="research_interest_link" data-id="519963">Native American Art</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u12228805">
+
+      <div class="follow_user" id="follow_me_12228805">
+    <a href="#Follow" onclick="populate_follow_me_message_12228805(); return Follow.show_login_or_signup(&#x27;follow_me_message_12228805&#x27;);" class="button green btn-142-24">Follow Elizabeth</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_12228805" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Elizabeth</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_12228805() { $('#follow_me_message_12228805').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Elizabeth"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/ElizabethHeath"><img alt="Elizabeth Heath" height="65" src="//0.academia-photos.com/12228805/3510059/4122197/s65_elizabeth.heath.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/ElizabethHeath">Elizabeth Heath</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68216"><a href="http://www.academia.edu/People/Social_History" class="research_interest_link" data-id="15588">Social History</a>, <a href="http://www.academia.edu/People/History_of_Museums" class="research_interest_link" data-id="7063">History of Museums</a>, <a href="http://www.academia.edu/People/Nineteenth-century_Art_World" class="research_interest_link" data-id="1393044">Nineteenth-century Art World</a>, <a href="http://www.academia.edu/People/Nineteenth_Century_British_History_and_Culture" class="research_interest_link" data-id="10322">Nineteenth Century British History and Culture</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68216" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">4 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Nineteenth-century_Art" class="research_interest_link" data-id="9645">Nineteenth-century Art</a>, <a href="http://www.academia.edu/People/Nineteenth_Century_British_Art" class="research_interest_link" data-id="489551">Nineteenth Century British Art</a>, <a href="http://www.academia.edu/People/History_of_Collecting_and_Antiquarianism" class="research_interest_link" data-id="116959">History of Collecting and Antiquarianism</a>, and <a href="http://www.academia.edu/People/Historiography_in_Art_History_" class="research_interest_link" data-id="15352">Historiography  (in Art History)</a></span><noscript><div>(<a href="http://www.academia.edu/People/Nineteenth-century_Art" class="research_interest_link" data-id="9645">Nineteenth-century Art</a>, <a href="http://www.academia.edu/People/Nineteenth_Century_British_Art" class="research_interest_link" data-id="489551">Nineteenth Century British Art</a>, <a href="http://www.academia.edu/People/History_of_Collecting_and_Antiquarianism" class="research_interest_link" data-id="116959">History of Collecting and Antiquarianism</a>, and <a href="http://www.academia.edu/People/Historiography_in_Art_History_" class="research_interest_link" data-id="15352">Historiography  (in Art History)</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u6945366">
+
+      <div class="follow_user" id="follow_me_6945366">
+    <a href="#Follow" onclick="populate_follow_me_message_6945366(); return Follow.show_login_or_signup(&#x27;follow_me_message_6945366&#x27;);" class="button green btn-142-24">Follow Chengjing</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_6945366" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Chengjing</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_6945366() { $('#follow_me_message_6945366').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Chengjing"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/ChengjingJi"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/ChengjingJi">Chengjing Ji</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68217"><a href="http://www.academia.edu/People/Journal_of_Asian_and_African_Studies" class="research_interest_link" data-id="566051">Journal of Asian and African Studies</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u2633853">
+
+      <div class="follow_user" id="follow_me_2633853">
+    <a href="#Follow" onclick="populate_follow_me_message_2633853(); return Follow.show_login_or_signup(&#x27;follow_me_message_2633853&#x27;);" class="button green btn-142-24">Follow Alexandra</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_2633853" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Alexandra</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_2633853() { $('#follow_me_message_2633853').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Alexandra"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/AlexandraLoske"><img alt="Alexandra Loske" height="65" src="//0.academia-photos.com/2633853/838103/1041034/s65_alexandra.loske.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/AlexandraLoske">Alexandra Loske</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68218"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Colour_Theory" class="research_interest_link" data-id="10776">Colour Theory</a>, <a href="http://www.academia.edu/People/Regency_England" class="research_interest_link" data-id="55024">Regency England</a>, <a href="http://www.academia.edu/People/Historic_Buildings" class="research_interest_link" data-id="9275">Historic Buildings</a>, and <a href="http://www.academia.edu/People/Artists_materials" class="research_interest_link" data-id="494334">Artists&#x27; materials</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u10513047">
+
+      <div class="follow_user" id="follow_me_10513047">
+    <a href="#Follow" onclick="populate_follow_me_message_10513047(); return Follow.show_login_or_signup(&#x27;follow_me_message_10513047&#x27;);" class="button green btn-142-24">Follow Michele</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_10513047" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Michele</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_10513047() { $('#follow_me_message_10513047').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Michele"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/MicheleRobinson"><img alt="Michele Robinson" height="65" src="//0.academia-photos.com/10513047/3187038/3751482/s65_michele.robinson.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/MicheleRobinson">Michele Robinson</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68219"><a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Material_Culture_Studies" class="research_interest_link" data-id="2473">Material Culture Studies</a>, <a href="http://www.academia.edu/People/Renaissance_Studies" class="research_interest_link" data-id="2987">Renaissance Studies</a>, <a href="http://www.academia.edu/People/Italian_Renaissance_Art" class="research_interest_link" data-id="16368">Italian Renaissance Art</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68219" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">26 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Gender_and_Sexuality" class="research_interest_link" data-id="4917">Gender and Sexuality</a>, <a href="http://www.academia.edu/People/Gender" class="research_interest_link" data-id="7024">Gender</a>, <a href="http://www.academia.edu/People/History_of_the_Family" class="research_interest_link" data-id="15245">History of the Family</a>, <a href="http://www.academia.edu/People/History_of_Childhood_and_Youth" class="research_interest_link" data-id="7337">History of Childhood and Youth</a>, <a href="http://www.academia.edu/People/Early_Modern_History" class="research_interest_link" data-id="1727">Early Modern History</a>, <a href="http://www.academia.edu/People/Religion" class="research_interest_link" data-id="106">Religion</a>, <a href="http://www.academia.edu/People/Material_Culture_of_the_Early_Modern_Domestic_Interior" class="research_interest_link" data-id="437638">Material Culture of the Early Modern Domestic Interior</a>, <a href="http://www.academia.edu/People/Identity_Culture_" class="research_interest_link" data-id="5272">Identity (Culture)</a>, <a href="http://www.academia.edu/People/Social_Identity" class="research_interest_link" data-id="2089">Social Identity</a>, <a href="http://www.academia.edu/People/Masculinities" class="research_interest_link" data-id="13274">Masculinities</a>, <a href="http://www.academia.edu/People/Constructions_of_femininity" class="research_interest_link" data-id="19130">Constructions of femininity</a>, <a href="http://www.academia.edu/People/Italian_late_medieval_and_Renaissance_devotional_art_ritual_and_patronage" class="research_interest_link" data-id="99833">Italian late medieval and Renaissance devotional art, ritual, and patronage</a>, <a href="http://www.academia.edu/People/Biography_of_Objects" class="research_interest_link" data-id="113375">Biography of Objects</a>, <a href="http://www.academia.edu/People/Agency_Archaeological_Theory_" class="research_interest_link" data-id="27529">Agency (Archaeological Theory)</a>, <a href="http://www.academia.edu/People/Memory_and_materiality" class="research_interest_link" data-id="30638">Memory and materiality</a>, <a href="http://www.academia.edu/People/Ritual_theory_and_practice_Archaeology_" class="research_interest_link" data-id="30637">Ritual theory and practice (Archaeology)</a>, <a href="http://www.academia.edu/People/Gender_Studies" class="research_interest_link" data-id="696">Gender Studies</a>, <a href="http://www.academia.edu/People/Interior_design" class="research_interest_link" data-id="5553">Interior design</a>, <a href="http://www.academia.edu/People/Family" class="research_interest_link" data-id="6574">Family</a>, <a href="http://www.academia.edu/People/Family_history" class="research_interest_link" data-id="32159">Family history</a>, <a href="http://www.academia.edu/People/Portraiture" class="research_interest_link" data-id="10796">Portraiture</a>, <a href="http://www.academia.edu/People/Caroline_Walker_Bynum" class="research_interest_link" data-id="445581">Caroline Walker Bynum</a>, <a href="http://www.academia.edu/People/Early_modern_religious_history" class="research_interest_link" data-id="77617">Early modern religious history</a>, <a href="http://www.academia.edu/People/Early_Modern_Catholicism" class="research_interest_link" data-id="27392">Early Modern Catholicism</a>, <a href="http://www.academia.edu/People/Early_Modern_Europe" class="research_interest_link" data-id="7354">Early Modern Europe</a>, and <a href="http://www.academia.edu/People/Renaissance" class="research_interest_link" data-id="3612">Renaissance</a></span><noscript><div>(<a href="http://www.academia.edu/People/Gender_and_Sexuality" class="research_interest_link" data-id="4917">Gender and Sexuality</a>, <a href="http://www.academia.edu/People/Gender" class="research_interest_link" data-id="7024">Gender</a>, <a href="http://www.academia.edu/People/History_of_the_Family" class="research_interest_link" data-id="15245">History of the Family</a>, <a href="http://www.academia.edu/People/History_of_Childhood_and_Youth" class="research_interest_link" data-id="7337">History of Childhood and Youth</a>, <a href="http://www.academia.edu/People/Early_Modern_History" class="research_interest_link" data-id="1727">Early Modern History</a>, <a href="http://www.academia.edu/People/Religion" class="research_interest_link" data-id="106">Religion</a>, <a href="http://www.academia.edu/People/Material_Culture_of_the_Early_Modern_Domestic_Interior" class="research_interest_link" data-id="437638">Material Culture of the Early Modern Domestic Interior</a>, <a href="http://www.academia.edu/People/Identity_Culture_" class="research_interest_link" data-id="5272">Identity (Culture)</a>, <a href="http://www.academia.edu/People/Social_Identity" class="research_interest_link" data-id="2089">Social Identity</a>, <a href="http://www.academia.edu/People/Masculinities" class="research_interest_link" data-id="13274">Masculinities</a>, <a href="http://www.academia.edu/People/Constructions_of_femininity" class="research_interest_link" data-id="19130">Constructions of femininity</a>, <a href="http://www.academia.edu/People/Italian_late_medieval_and_Renaissance_devotional_art_ritual_and_patronage" class="research_interest_link" data-id="99833">Italian late medieval and Renaissance devotional art, ritual, and patronage</a>, <a href="http://www.academia.edu/People/Biography_of_Objects" class="research_interest_link" data-id="113375">Biography of Objects</a>, <a href="http://www.academia.edu/People/Agency_Archaeological_Theory_" class="research_interest_link" data-id="27529">Agency (Archaeological Theory)</a>, <a href="http://www.academia.edu/People/Memory_and_materiality" class="research_interest_link" data-id="30638">Memory and materiality</a>, <a href="http://www.academia.edu/People/Ritual_theory_and_practice_Archaeology_" class="research_interest_link" data-id="30637">Ritual theory and practice (Archaeology)</a>, <a href="http://www.academia.edu/People/Gender_Studies" class="research_interest_link" data-id="696">Gender Studies</a>, <a href="http://www.academia.edu/People/Interior_design" class="research_interest_link" data-id="5553">Interior design</a>, <a href="http://www.academia.edu/People/Family" class="research_interest_link" data-id="6574">Family</a>, <a href="http://www.academia.edu/People/Family_history" class="research_interest_link" data-id="32159">Family history</a>, <a href="http://www.academia.edu/People/Portraiture" class="research_interest_link" data-id="10796">Portraiture</a>, <a href="http://www.academia.edu/People/Caroline_Walker_Bynum" class="research_interest_link" data-id="445581">Caroline Walker Bynum</a>, <a href="http://www.academia.edu/People/Early_modern_religious_history" class="research_interest_link" data-id="77617">Early modern religious history</a>, <a href="http://www.academia.edu/People/Early_Modern_Catholicism" class="research_interest_link" data-id="27392">Early Modern Catholicism</a>, <a href="http://www.academia.edu/People/Early_Modern_Europe" class="research_interest_link" data-id="7354">Early Modern Europe</a>, and <a href="http://www.academia.edu/People/Renaissance" class="research_interest_link" data-id="3612">Renaissance</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u1225892">
+
+      <div class="follow_user" id="follow_me_1225892">
+    <a href="#Follow" onclick="populate_follow_me_message_1225892(); return Follow.show_login_or_signup(&#x27;follow_me_message_1225892&#x27;);" class="button green btn-142-24">Follow Eksuda</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_1225892" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Eksuda</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_1225892() { $('#follow_me_message_1225892').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Eksuda"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/EkoCentric"><img alt="Eksuda Singhalampong" height="65" src="//0.academia-photos.com/1225892/443927/552120/s65_eko.centric.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/EkoCentric">Eksuda Singhalampong</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68220"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Postcolonial_Studies" class="research_interest_link" data-id="2860">Postcolonial Studies</a>, and <a href="http://www.academia.edu/People/Visual_Culture" class="research_interest_link" data-id="3225">Visual Culture</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u2213423">
+
+      <div class="follow_user" id="follow_me_2213423">
+    <a href="#Follow" onclick="populate_follow_me_message_2213423(); return Follow.show_login_or_signup(&#x27;follow_me_message_2213423&#x27;);" class="button green btn-142-24">Follow Emoke</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_2213423" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Emoke</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_2213423() { $('#follow_me_message_2213423').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Emoke"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/EmokeSoproni"><img alt="Emoke Soproni" height="65" src="//0.academia-photos.com/2213423/708580/1241491/s65_emoke.soproni.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/EmokeSoproni">Emoke Soproni</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68221"><a href="http://www.academia.edu/People/Byzantine_Mosaics" class="research_interest_link" data-id="105881">Byzantine Mosaics</a>, <a href="http://www.academia.edu/People/Roman_wall_painting" class="research_interest_link" data-id="263852">Roman wall painting</a>, <a href="http://www.academia.edu/People/Renaissance_Art" class="research_interest_link" data-id="5124">Renaissance Art</a>, <a href="http://www.academia.edu/People/Renaissance_Frescoes" class="research_interest_link" data-id="680493">Renaissance Frescoes</a>, and <a href="http://www.academia.edu/People/Archaeology" class="research_interest_link" data-id="392">Archaeology</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u12105382">
+
+      <div class="follow_user" id="follow_me_12105382">
+    <a href="#Follow" onclick="populate_follow_me_message_12105382(); return Follow.show_login_or_signup(&#x27;follow_me_message_12105382&#x27;);" class="button green btn-142-24">Follow Penny</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_12105382" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Penny</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_12105382() { $('#follow_me_message_12105382').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Penny"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/PennyStreeter"><img alt="Penny Streeter" height="65" src="//0.academia-photos.com/12105382/3526094/4194150/s65_penny.streeter.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/PennyStreeter">Penny Streeter</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68222"><a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Jewellery_and_Identity" class="research_interest_link" data-id="450853">Jewellery and Identity</a>, <a href="http://www.academia.edu/People/Social_and_Cultural_Anthropology" class="research_interest_link" data-id="3499">Social and Cultural Anthropology</a>, <a href="http://www.academia.edu/People/Philosophy_of_Art" class="research_interest_link" data-id="5290">Philosophy of Art</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68222" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">6 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Medieval_and_Renaissance_Art" class="research_interest_link" data-id="255266">Medieval and Renaissance Art</a>, <a href="http://www.academia.edu/People/Italian_Renaissance_Art" class="research_interest_link" data-id="16368">Italian Renaissance Art</a>, <a href="http://www.academia.edu/People/Identity_Culture_" class="research_interest_link" data-id="5272">Identity (Culture)</a>, <a href="http://www.academia.edu/People/Social_Identity" class="research_interest_link" data-id="2089">Social Identity</a>, <a href="http://www.academia.edu/People/Family" class="research_interest_link" data-id="6574">Family</a>, and <a href="http://www.academia.edu/People/Byzantine_art" class="research_interest_link" data-id="125431">Byzantine art</a></span><noscript><div>(<a href="http://www.academia.edu/People/Medieval_and_Renaissance_Art" class="research_interest_link" data-id="255266">Medieval and Renaissance Art</a>, <a href="http://www.academia.edu/People/Italian_Renaissance_Art" class="research_interest_link" data-id="16368">Italian Renaissance Art</a>, <a href="http://www.academia.edu/People/Identity_Culture_" class="research_interest_link" data-id="5272">Identity (Culture)</a>, <a href="http://www.academia.edu/People/Social_Identity" class="research_interest_link" data-id="2089">Social Identity</a>, <a href="http://www.academia.edu/People/Family" class="research_interest_link" data-id="6574">Family</a>, and <a href="http://www.academia.edu/People/Byzantine_art" class="research_interest_link" data-id="125431">Byzantine art</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u12200938">
+
+      <div class="follow_user" id="follow_me_12200938">
+    <a href="#Follow" onclick="populate_follow_me_message_12200938(); return Follow.show_login_or_signup(&#x27;follow_me_message_12200938&#x27;);" class="button green btn-142-24">Follow Anne</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_12200938" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Anne</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_12200938() { $('#follow_me_message_12200938').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Anne"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/AnneStutchbury"><img alt="Anne Stutchbury" height="65" src="//0.academia-photos.com/12200938/3519251/4132288/s65_anne.stutchbury.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/AnneStutchbury">Anne Stutchbury</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68223"><a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Social_Sciences" class="research_interest_link" data-id="1237">Social Sciences</a>, <a href="http://www.academia.edu/People/Arts_and_Crafts_Movement" class="research_interest_link" data-id="259145">Arts and Crafts Movement</a>, <a href="http://www.academia.edu/People/Decorative_arts_19th_century" class="research_interest_link" data-id="57997">Decorative arts 19th century</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68223" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">15 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/19th-century_Arts_and_Hand-craftsmanship_movement_William_Morris_Edward_Burne-Jones_Dante_Gabriel" class="research_interest_link" data-id="96016">19th-century Arts and Hand-craftsmanship movement; William Morris, Edward Burne-Jones, Dante Gabriel Rossetti</a>, <a href="http://www.academia.edu/People/Philip_Webb" class="research_interest_link" data-id="1282420">Philip Webb</a>, <a href="http://www.academia.edu/People/Late-nineteenth_Century_Aesthetic_Movement" class="research_interest_link" data-id="1392159">Late-nineteenth Century Aesthetic Movement</a>, <a href="http://www.academia.edu/People/Lived_Experience" class="research_interest_link" data-id="486433">Lived Experience</a>, <a href="http://www.academia.edu/People/Material_Culture" class="research_interest_link" data-id="33457">Material Culture</a>, <a href="http://www.academia.edu/People/Domestic_Space" class="research_interest_link" data-id="15928">Domestic Space</a>, <a href="http://www.academia.edu/People/Music" class="research_interest_link" data-id="671">Music</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Social_History" class="research_interest_link" data-id="15588">Social History</a>, <a href="http://www.academia.edu/People/Musicology" class="research_interest_link" data-id="687">Musicology</a>, <a href="http://www.academia.edu/People/Material_Culture" class="research_interest_link" data-id="1283734">Material  Culture</a>, <a href="http://www.academia.edu/People/Family_history" class="research_interest_link" data-id="32159">Family history</a>, <a href="http://www.academia.edu/People/William_Morris" class="research_interest_link" data-id="96014">William Morris</a>, <a href="http://www.academia.edu/People/Feminist_Theory" class="research_interest_link" data-id="1192">Feminist Theory</a>, and <a href="http://www.academia.edu/People/Gender_Studies" class="research_interest_link" data-id="1404359">Gender Studies.</a></span><noscript><div>(<a href="http://www.academia.edu/People/19th-century_Arts_and_Hand-craftsmanship_movement_William_Morris_Edward_Burne-Jones_Dante_Gabriel" class="research_interest_link" data-id="96016">19th-century Arts and Hand-craftsmanship movement; William Morris, Edward Burne-Jones, Dante Gabriel Rossetti</a>, <a href="http://www.academia.edu/People/Philip_Webb" class="research_interest_link" data-id="1282420">Philip Webb</a>, <a href="http://www.academia.edu/People/Late-nineteenth_Century_Aesthetic_Movement" class="research_interest_link" data-id="1392159">Late-nineteenth Century Aesthetic Movement</a>, <a href="http://www.academia.edu/People/Lived_Experience" class="research_interest_link" data-id="486433">Lived Experience</a>, <a href="http://www.academia.edu/People/Material_Culture" class="research_interest_link" data-id="33457">Material Culture</a>, <a href="http://www.academia.edu/People/Domestic_Space" class="research_interest_link" data-id="15928">Domestic Space</a>, <a href="http://www.academia.edu/People/Music" class="research_interest_link" data-id="671">Music</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Social_History" class="research_interest_link" data-id="15588">Social History</a>, <a href="http://www.academia.edu/People/Musicology" class="research_interest_link" data-id="687">Musicology</a>, <a href="http://www.academia.edu/People/Material_Culture" class="research_interest_link" data-id="1283734">Material  Culture</a>, <a href="http://www.academia.edu/People/Family_history" class="research_interest_link" data-id="32159">Family history</a>, <a href="http://www.academia.edu/People/William_Morris" class="research_interest_link" data-id="96014">William Morris</a>, <a href="http://www.academia.edu/People/Feminist_Theory" class="research_interest_link" data-id="1192">Feminist Theory</a>, and <a href="http://www.academia.edu/People/Gender_Studies" class="research_interest_link" data-id="1404359">Gender Studies.</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u6444539">
+
+      <div class="follow_user" id="follow_me_6444539">
+    <a href="#Follow" onclick="populate_follow_me_message_6444539(); return Follow.show_login_or_signup(&#x27;follow_me_message_6444539&#x27;);" class="button green btn-142-24">Follow Katharina</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_6444539" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Katharina</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_6444539() { $('#follow_me_message_6444539').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Katharina"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/KatharinaWinkler"><img alt="Katharina Winkler" height="65" src="//0.academia-photos.com/6444539/2604355/3024938/s65_katharina.winkler.png" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/KatharinaWinkler">Katharina Winkler</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68224"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Modern_Art" class="research_interest_link" data-id="4950">Modern Art</a>, <a href="http://www.academia.edu/People/18th-20th_century_Modern_Comtemporary_Art" class="research_interest_link" data-id="27025">18th-20th century Modern/Comtemporary Art</a>, <a href="http://www.academia.edu/People/Italian_Renaissance_Art" class="research_interest_link" data-id="16368">Italian Renaissance Art</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68224" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">3 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Fine_Art_Photography" class="research_interest_link" data-id="21189">Fine Art Photography</a>, <a href="http://www.academia.edu/People/Photography" class="research_interest_link" data-id="1589">Photography</a>, and <a href="http://www.academia.edu/People/Modernism_Art_History_" class="research_interest_link" data-id="14546">Modernism (Art History)</a></span><noscript><div>(<a href="http://www.academia.edu/People/Fine_Art_Photography" class="research_interest_link" data-id="21189">Fine Art Photography</a>, <a href="http://www.academia.edu/People/Photography" class="research_interest_link" data-id="1589">Photography</a>, and <a href="http://www.academia.edu/People/Modernism_Art_History_" class="research_interest_link" data-id="14546">Modernism (Art History)</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u12635430">
+
+      <div class="follow_user" id="follow_me_12635430">
+    <a href="#Follow" onclick="populate_follow_me_message_12635430(); return Follow.show_login_or_signup(&#x27;follow_me_message_12635430&#x27;);" class="button green btn-142-24">Follow carmo</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_12635430" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow carmo</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_12635430() { $('#follow_me_message_12635430').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow carmo"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/carmocosta"><img alt="carmo costa" height="65" src="//0.academia-photos.com/12635430/3601391/4225053/s65_carmo.costa.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/carmocosta">carmo costa</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68225"><a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Aryan" class="research_interest_link" data-id="487509">Aryan</a>, <a href="http://www.academia.edu/People/Social_Sciences" class="research_interest_link" data-id="1237">Social Sciences</a>, <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a>, and <a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+          </fieldset>
+        <fieldset>
+          <legend class="group_title">Undergraduates</legend>
+            
+
+  <div class="user_strip clearfix" id="u3508285">
+
+      <div class="follow_user" id="follow_me_3508285">
+    <a href="#Follow" onclick="populate_follow_me_message_3508285(); return Follow.show_login_or_signup(&#x27;follow_me_message_3508285&#x27;);" class="button green btn-142-24">Follow Jessica</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_3508285" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Jessica</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_3508285() { $('#follow_me_message_3508285').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Jessica"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/JessicaBaker"><img alt="Jessica Baker" height="65" src="//0.academia-photos.com/3508285/1199090/1502178/s65_jessica.baker.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/JessicaBaker">Jessica Baker</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68226"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Material_Culture_Studies" class="research_interest_link" data-id="2473">Material Culture Studies</a>, <a href="http://www.academia.edu/People/French_language" class="research_interest_link" data-id="8000">French language</a>, and <a href="http://www.academia.edu/People/Painting" class="research_interest_link" data-id="5081">Painting</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u3912233">
+
+      <div class="follow_user" id="follow_me_3912233">
+    <a href="#Follow" onclick="populate_follow_me_message_3912233(); return Follow.show_login_or_signup(&#x27;follow_me_message_3912233&#x27;);" class="button green btn-142-24">Follow Sofia</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_3912233" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Sofia</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_3912233() { $('#follow_me_message_3912233').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Sofia"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/SofiaCangiano"><img alt="Sofia Cangiano" height="65" src="//0.academia-photos.com/3912233/1454401/1778609/s65_sofia.cangiano.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/SofiaCangiano">Sofia Cangiano</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68227"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Rome_City_of" class="research_interest_link" data-id="3613">Rome, City of</a>, <a href="http://www.academia.edu/People/Imperial_Rome" class="research_interest_link" data-id="18121">Imperial Rome</a>, <a href="http://www.academia.edu/People/Christianity_and_Rome" class="research_interest_link" data-id="23866">Christianity and Rome</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68227" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">8 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Roman_history_-_Roman_archaeology_-_Origins_of_Rome_-_Roman_Kingship" class="research_interest_link" data-id="298620">Roman history - Roman archaeology - Origins of Rome - Roman Kingship</a>, <a href="http://www.academia.edu/People/Renaissance_Rome" class="research_interest_link" data-id="22788">Renaissance Rome</a>, <a href="http://www.academia.edu/People/Urbanism_of_Rome" class="research_interest_link" data-id="66599">Urbanism of Rome</a>, <a href="http://www.academia.edu/People/late_antique_Rome" class="research_interest_link" data-id="92312">late antique Rome</a>, <a href="http://www.academia.edu/People/Roman_Architecture" class="research_interest_link" data-id="99285">Roman Architecture</a>, <a href="http://www.academia.edu/People/Roman_archaeology" class="research_interest_link" data-id="15918">Roman archaeology</a>, <a href="http://www.academia.edu/People/Late_Antiquity" class="research_interest_link" data-id="11076">Late Antiquity</a>, and <a href="http://www.academia.edu/People/Byzantine_Studies" class="research_interest_link" data-id="10091">Byzantine Studies</a></span><noscript><div>(<a href="http://www.academia.edu/People/Roman_history_-_Roman_archaeology_-_Origins_of_Rome_-_Roman_Kingship" class="research_interest_link" data-id="298620">Roman history - Roman archaeology - Origins of Rome - Roman Kingship</a>, <a href="http://www.academia.edu/People/Renaissance_Rome" class="research_interest_link" data-id="22788">Renaissance Rome</a>, <a href="http://www.academia.edu/People/Urbanism_of_Rome" class="research_interest_link" data-id="66599">Urbanism of Rome</a>, <a href="http://www.academia.edu/People/late_antique_Rome" class="research_interest_link" data-id="92312">late antique Rome</a>, <a href="http://www.academia.edu/People/Roman_Architecture" class="research_interest_link" data-id="99285">Roman Architecture</a>, <a href="http://www.academia.edu/People/Roman_archaeology" class="research_interest_link" data-id="15918">Roman archaeology</a>, <a href="http://www.academia.edu/People/Late_Antiquity" class="research_interest_link" data-id="11076">Late Antiquity</a>, and <a href="http://www.academia.edu/People/Byzantine_Studies" class="research_interest_link" data-id="10091">Byzantine Studies</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u9757829">
+
+      <div class="follow_user" id="follow_me_9757829">
+    <a href="#Follow" onclick="populate_follow_me_message_9757829(); return Follow.show_login_or_signup(&#x27;follow_me_message_9757829&#x27;);" class="button green btn-142-24">Follow Sofia</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_9757829" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Sofia</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_9757829() { $('#follow_me_message_9757829').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Sofia"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/SCangiano"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/SCangiano">Sofia Cangiano</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68228"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Social_Sciences" class="research_interest_link" data-id="1237">Social Sciences</a>, <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a>, <a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68228" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">5 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Literature" class="research_interest_link" data-id="2418">Literature</a>, <a href="http://www.academia.edu/People/Photography" class="research_interest_link" data-id="1589">Photography</a>, <a href="http://www.academia.edu/People/History_of_architecture" class="research_interest_link" data-id="45408">History of architecture</a>, <a href="http://www.academia.edu/People/World_Cultural_Heritage" class="research_interest_link" data-id="19755">World Cultural Heritage</a>, and <a href="http://www.academia.edu/People/Archeology" class="research_interest_link" data-id="951143">Archeology</a></span><noscript><div>(<a href="http://www.academia.edu/People/Literature" class="research_interest_link" data-id="2418">Literature</a>, <a href="http://www.academia.edu/People/Photography" class="research_interest_link" data-id="1589">Photography</a>, <a href="http://www.academia.edu/People/History_of_architecture" class="research_interest_link" data-id="45408">History of architecture</a>, <a href="http://www.academia.edu/People/World_Cultural_Heritage" class="research_interest_link" data-id="19755">World Cultural Heritage</a>, and <a href="http://www.academia.edu/People/Archeology" class="research_interest_link" data-id="951143">Archeology</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u3420067">
+
+      <div class="follow_user" id="follow_me_3420067">
+    <a href="#Follow" onclick="populate_follow_me_message_3420067(); return Follow.show_login_or_signup(&#x27;follow_me_message_3420067&#x27;);" class="button green btn-142-24">Follow Rachael</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_3420067" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Rachael</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_3420067() { $('#follow_me_message_3420067').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Rachael"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/RachaelCarroll"><img alt="Rachael Carroll" height="65" src="//0.academia-photos.com/3420067/1161238/1454267/s65_rachael.carroll.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/RachaelCarroll">Rachael Carroll</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68229"><a href="http://www.academia.edu/People/Islamic_Art" class="research_interest_link" data-id="8916">Islamic Art</a> and <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u12175634">
+
+      <div class="follow_user" id="follow_me_12175634">
+    <a href="#Follow" onclick="populate_follow_me_message_12175634(); return Follow.show_login_or_signup(&#x27;follow_me_message_12175634&#x27;);" class="button green btn-142-24">Follow Philippa</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_12175634" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Philippa</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_12175634() { $('#follow_me_message_12175634').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Philippa"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/PhilippaCessford"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/PhilippaCessford">Philippa Cessford</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68230"><a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Social_Sciences" class="research_interest_link" data-id="1237">Social Sciences</a>, <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a>, <a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68230" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">7 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Literature" class="research_interest_link" data-id="2418">Literature</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Film_Studies" class="research_interest_link" data-id="1555">Film Studies</a>, <a href="http://www.academia.edu/People/Film_Theory" class="research_interest_link" data-id="1568">Film Theory</a>, <a href="http://www.academia.edu/People/Film_Analysis" class="research_interest_link" data-id="3301">Film Analysis</a>, <a href="http://www.academia.edu/People/Byzantine_art" class="research_interest_link" data-id="125431">Byzantine art</a>, and <a href="http://www.academia.edu/People/Film_Aesthetics" class="research_interest_link" data-id="25107">Film Aesthetics</a></span><noscript><div>(<a href="http://www.academia.edu/People/Literature" class="research_interest_link" data-id="2418">Literature</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Film_Studies" class="research_interest_link" data-id="1555">Film Studies</a>, <a href="http://www.academia.edu/People/Film_Theory" class="research_interest_link" data-id="1568">Film Theory</a>, <a href="http://www.academia.edu/People/Film_Analysis" class="research_interest_link" data-id="3301">Film Analysis</a>, <a href="http://www.academia.edu/People/Byzantine_art" class="research_interest_link" data-id="125431">Byzantine art</a>, and <a href="http://www.academia.edu/People/Film_Aesthetics" class="research_interest_link" data-id="25107">Film Aesthetics</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u6748708">
+
+      <div class="follow_user" id="follow_me_6748708">
+    <a href="#Follow" onclick="populate_follow_me_message_6748708(); return Follow.show_login_or_signup(&#x27;follow_me_message_6748708&#x27;);" class="button green btn-142-24">Follow Frances</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_6748708" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Frances</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_6748708() { $('#follow_me_message_6748708').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Frances"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/FrancesHolliday"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/FrancesHolliday">Frances Holliday</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68231"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Travelling_artists" class="research_interest_link" data-id="22490">Travelling artists</a>, <a href="http://www.academia.edu/People/Augustus_Earle" class="research_interest_link" data-id="888506">Augustus Earle</a>, <a href="http://www.academia.edu/People/Images_of_Slavery" class="research_interest_link" data-id="998272">Images of Slavery</a>, and <a href="http://www.academia.edu/People/Agostino_Brunias" class="research_interest_link" data-id="998276">Agostino Brunias</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u6691276">
+
+      <div class="follow_user" id="follow_me_6691276">
+    <a href="#Follow" onclick="populate_follow_me_message_6691276(); return Follow.show_login_or_signup(&#x27;follow_me_message_6691276&#x27;);" class="button green btn-142-24">Follow Vesta</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_6691276" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Vesta</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_6691276() { $('#follow_me_message_6691276').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Vesta"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/VestaLotu"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/VestaLotu">Vesta Lotu</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68232"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Michelangelo_Buonarroti" class="research_interest_link" data-id="61308">Michelangelo Buonarroti</a>, <a href="http://www.academia.edu/People/Education" class="research_interest_link" data-id="922">Education</a>, <a href="http://www.academia.edu/People/Business" class="research_interest_link" data-id="26">Business</a>, and <a href="http://www.academia.edu/People/Social_Sciences" class="research_interest_link" data-id="1237">Social Sciences</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u12026075">
+
+      <div class="follow_user" id="follow_me_12026075">
+    <a href="#Follow" onclick="populate_follow_me_message_12026075(); return Follow.show_login_or_signup(&#x27;follow_me_message_12026075&#x27;);" class="button green btn-142-24">Follow Kate</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_12026075" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Kate</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_12026075() { $('#follow_me_message_12026075').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Kate"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/KateMarton"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/KateMarton">Kate Marton</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68233"><a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Race_and_Racism" class="research_interest_link" data-id="3277">Race and Racism</a>, <a href="http://www.academia.edu/People/Critical_Race_Theory_and_Whiteness_theory" class="research_interest_link" data-id="16069">Critical Race Theory and Whiteness theory</a>, <a href="http://www.academia.edu/People/Social_Sciences" class="research_interest_link" data-id="1237">Social Sciences</a>, and <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u8000045">
+
+      <div class="follow_user" id="follow_me_8000045">
+    <a href="#Follow" onclick="populate_follow_me_message_8000045(); return Follow.show_login_or_signup(&#x27;follow_me_message_8000045&#x27;);" class="button green btn-142-24">Follow Thomas</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_8000045" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Thomas</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_8000045() { $('#follow_me_message_8000045').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Thomas"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/ThomasMorris"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/ThomasMorris">Thomas Morris</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68234"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Computer_Science" class="research_interest_link" data-id="422">Computer Science</a>, <a href="http://www.academia.edu/People/Engineering" class="research_interest_link" data-id="48">Engineering</a>, <a href="http://www.academia.edu/People/Research_Methodology" class="research_interest_link" data-id="2065">Research Methodology</a>, and <a href="http://www.academia.edu/People/Languages_and_Linguistics" class="research_interest_link" data-id="1200">Languages and Linguistics</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u7472517">
+
+      <div class="follow_user" id="follow_me_7472517">
+    <a href="#Follow" onclick="populate_follow_me_message_7472517(); return Follow.show_login_or_signup(&#x27;follow_me_message_7472517&#x27;);" class="button green btn-142-24">Follow Aleksandra</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_7472517" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Aleksandra</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_7472517() { $('#follow_me_message_7472517').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Aleksandra"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/AleksandraNaumova"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/AleksandraNaumova">Aleksandra Naumova</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68235"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a> and <a href="http://www.academia.edu/People/Gender_Studies" class="research_interest_link" data-id="696">Gender Studies</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u10393875">
+
+      <div class="follow_user" id="follow_me_10393875">
+    <a href="#Follow" onclick="populate_follow_me_message_10393875(); return Follow.show_login_or_signup(&#x27;follow_me_message_10393875&#x27;);" class="button green btn-142-24">Follow Ciara</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_10393875" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Ciara</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_10393875() { $('#follow_me_message_10393875').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Ciara"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/CiaraTobin"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/CiaraTobin">Ciara Tobin</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68236"><a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Nationalism" class="research_interest_link" data-id="5878">Nationalism</a>, <a href="http://www.academia.edu/People/Cultural_History" class="research_interest_link" data-id="136">Cultural History</a>, <a href="http://www.academia.edu/People/Architectural_History" class="research_interest_link" data-id="7655">Architectural History</a>, and <a href="http://www.academia.edu/People/British_History" class="research_interest_link" data-id="2324">British History</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u6072841">
+
+      <div class="follow_user" id="follow_me_6072841">
+    <a href="#Follow" onclick="populate_follow_me_message_6072841(); return Follow.show_login_or_signup(&#x27;follow_me_message_6072841&#x27;);" class="button green btn-142-24">Follow philippa</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_6072841" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow philippa</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_6072841() { $('#follow_me_message_6072841').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow philippa"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/philippafalconer"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/philippafalconer">philippa falconer</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68237"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a>, <a href="http://www.academia.edu/People/Cultural_History" class="research_interest_link" data-id="136">Cultural History</a>, <a href="http://www.academia.edu/People/Gender_and_Sexuality" class="research_interest_link" data-id="4917">Gender and Sexuality</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68237" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">4 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Museum_Studies" class="research_interest_link" data-id="1657">Museum Studies</a>, <a href="http://www.academia.edu/People/Caribbean_Slavery" class="research_interest_link" data-id="19040">Caribbean Slavery</a>, <a href="http://www.academia.edu/People/Byzantium" class="research_interest_link" data-id="32955">Byzantium</a>, and <a href="http://www.academia.edu/People/Women_and_Gender_Studies" class="research_interest_link" data-id="49663">Women and Gender Studies</a></span><noscript><div>(<a href="http://www.academia.edu/People/Museum_Studies" class="research_interest_link" data-id="1657">Museum Studies</a>, <a href="http://www.academia.edu/People/Caribbean_Slavery" class="research_interest_link" data-id="19040">Caribbean Slavery</a>, <a href="http://www.academia.edu/People/Byzantium" class="research_interest_link" data-id="32955">Byzantium</a>, and <a href="http://www.academia.edu/People/Women_and_Gender_Studies" class="research_interest_link" data-id="49663">Women and Gender Studies</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u6859507">
+
+      <div class="follow_user" id="follow_me_6859507">
+    <a href="#Follow" onclick="populate_follow_me_message_6859507(); return Follow.show_login_or_signup(&#x27;follow_me_message_6859507&#x27;);" class="button green btn-142-24">Follow olivia</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_6859507" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow olivia</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_6859507() { $('#follow_me_message_6859507').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow olivia"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/olivialadanyi"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/olivialadanyi">olivia ladanyi</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68238"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Jackson_Pollock" class="research_interest_link" data-id="31592">Jackson Pollock</a>, <a href="http://www.academia.edu/People/Lee_Krasner" class="research_interest_link" data-id="57411">Lee Krasner</a>, and <a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u8305268">
+
+      <div class="follow_user" id="follow_me_8305268">
+    <a href="#Follow" onclick="populate_follow_me_message_8305268(); return Follow.show_login_or_signup(&#x27;follow_me_message_8305268&#x27;);" class="button green btn-142-24">Follow rachel</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_8305268" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow rachel</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_8305268() { $('#follow_me_message_8305268').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow rachel"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/rachelmargetts"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/rachelmargetts">rachel margetts</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68239"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a>, <a href="http://www.academia.edu/People/Aesthetics" class="research_interest_link" data-id="808">Aesthetics</a>, <a href="http://www.academia.edu/People/Performance_Art" class="research_interest_link" data-id="5463">Performance Art</a>, and <a href="http://www.academia.edu/People/Existentialism" class="research_interest_link" data-id="67525">Existentialism</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u7998660">
+
+      <div class="follow_user" id="follow_me_7998660">
+    <a href="#Follow" onclick="populate_follow_me_message_7998660(); return Follow.show_login_or_signup(&#x27;follow_me_message_7998660&#x27;);" class="button green btn-142-24">Follow Виолетта</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_7998660" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Виолетта</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_7998660() { $('#follow_me_message_7998660').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow \u0412\u0438\u043e\u043b\u0435\u0442\u0442\u0430"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/%D0%92%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D1%82%D0%B0%D0%9C%D0%B0%D1%80%D1%87%D0%B5%D0%BD%D0%BA%D0%BE%D0%B2%D0%B0"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/%D0%92%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D1%82%D0%B0%D0%9C%D0%B0%D1%80%D1%87%D0%B5%D0%BD%D0%BA%D0%BE%D0%B2%D0%B0">Виолетта Марченкова</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68240"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Ancient_History" class="research_interest_link" data-id="130">Ancient History</a>, <a href="http://www.academia.edu/People/Urban_Studies" class="research_interest_link" data-id="7725">Urban Studies</a>, <a href="http://www.academia.edu/People/Landscape_Archaeology" class="research_interest_link" data-id="2795">Landscape Archaeology</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68240" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">4 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Near_Eastern_Archaeology" class="research_interest_link" data-id="397">Near Eastern Archaeology</a>, <a href="http://www.academia.edu/People/Film_Studies" class="research_interest_link" data-id="1555">Film Studies</a>, <a href="http://www.academia.edu/People/Spanish_cinema_Film_Studies_" class="research_interest_link" data-id="36842">Spanish cinema (Film Studies)</a>, and <a href="http://www.academia.edu/People/Ancient_Greece" class="research_interest_link" data-id="40685">Ancient Greece</a></span><noscript><div>(<a href="http://www.academia.edu/People/Near_Eastern_Archaeology" class="research_interest_link" data-id="397">Near Eastern Archaeology</a>, <a href="http://www.academia.edu/People/Film_Studies" class="research_interest_link" data-id="1555">Film Studies</a>, <a href="http://www.academia.edu/People/Spanish_cinema_Film_Studies_" class="research_interest_link" data-id="36842">Spanish cinema (Film Studies)</a>, and <a href="http://www.academia.edu/People/Ancient_Greece" class="research_interest_link" data-id="40685">Ancient Greece</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+          </fieldset>
+        <fieldset>
+          <legend class="group_title">Members</legend>
+            
+
+  <div class="user_strip clearfix" id="u5089013">
+
+      <div class="follow_user" id="follow_me_5089013">
+    <a href="#Follow" onclick="populate_follow_me_message_5089013(); return Follow.show_login_or_signup(&#x27;follow_me_message_5089013&#x27;);" class="button green btn-142-24">Follow Joshua</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_5089013" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Joshua</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_5089013() { $('#follow_me_message_5089013').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Joshua"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/JoshuaChinnery"><img alt="Joshua Chinnery" height="65" src="//0.academia-photos.com/5089013/2223990/2603352/s65_joshua.chinnery.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/JoshuaChinnery">Joshua Chinnery</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68241"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Feather_Mosaic" class="research_interest_link" data-id="475608">Feather Mosaic</a>, <a href="http://www.academia.edu/People/Contemporary_Art" class="research_interest_link" data-id="3051">Contemporary Art</a>, <a href="http://www.academia.edu/People/Classical_Archaeology" class="research_interest_link" data-id="393">Classical Archaeology</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68241" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">12 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Musicology" class="research_interest_link" data-id="687">Musicology</a>, <a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a>, <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a>, <a href="http://www.academia.edu/People/Literature" class="research_interest_link" data-id="2418">Literature</a>, <a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Cultural_Exchange" class="research_interest_link" data-id="29426">Cultural Exchange</a>, <a href="http://www.academia.edu/People/Chinoiserie" class="research_interest_link" data-id="45770">Chinoiserie</a>, <a href="http://www.academia.edu/People/Chinese_Court_Art" class="research_interest_link" data-id="88167">Chinese Court Art</a>, <a href="http://www.academia.edu/People/Chinese_Export_Paintings" class="research_interest_link" data-id="1288370">Chinese Export Paintings</a>, <a href="http://www.academia.edu/People/Social_Sciences" class="research_interest_link" data-id="1237">Social Sciences</a>, <a href="http://www.academia.edu/People/Business" class="research_interest_link" data-id="26">Business</a>, and <a href="http://www.academia.edu/People/Sociology" class="research_interest_link" data-id="184">Sociology</a></span><noscript><div>(<a href="http://www.academia.edu/People/Musicology" class="research_interest_link" data-id="687">Musicology</a>, <a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a>, <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a>, <a href="http://www.academia.edu/People/Literature" class="research_interest_link" data-id="2418">Literature</a>, <a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Cultural_Exchange" class="research_interest_link" data-id="29426">Cultural Exchange</a>, <a href="http://www.academia.edu/People/Chinoiserie" class="research_interest_link" data-id="45770">Chinoiserie</a>, <a href="http://www.academia.edu/People/Chinese_Court_Art" class="research_interest_link" data-id="88167">Chinese Court Art</a>, <a href="http://www.academia.edu/People/Chinese_Export_Paintings" class="research_interest_link" data-id="1288370">Chinese Export Paintings</a>, <a href="http://www.academia.edu/People/Social_Sciences" class="research_interest_link" data-id="1237">Social Sciences</a>, <a href="http://www.academia.edu/People/Business" class="research_interest_link" data-id="26">Business</a>, and <a href="http://www.academia.edu/People/Sociology" class="research_interest_link" data-id="184">Sociology</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u823132">
+
+      <div class="follow_user" id="follow_me_823132">
+    <a href="#Follow" onclick="populate_follow_me_message_823132(); return Follow.show_login_or_signup(&#x27;follow_me_message_823132&#x27;);" class="button green btn-142-24">Follow Iuliana</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_823132" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Iuliana</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_823132() { $('#follow_me_message_823132').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Iuliana"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://anglia.academia.edu/IulianaGavril"><img alt="Iuliana Gavril" height="65" src="//0.academia-photos.com/823132/2619142/3041061/s65_iuliana.gavril.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://anglia.academia.edu/IulianaGavril">Iuliana Gavril</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68242"><em>none</em><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u2744203">
+
+      <div class="follow_user" id="follow_me_2744203">
+    <a href="#Follow" onclick="populate_follow_me_message_2744203(); return Follow.show_login_or_signup(&#x27;follow_me_message_2744203&#x27;);" class="button green btn-142-24">Follow Angelica</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_2744203" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Angelica</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_2744203() { $('#follow_me_message_2744203').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Angelica"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/AngelicaGroom"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/AngelicaGroom">Angelica Groom</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68243"><a href="http://www.academia.edu/People/Animals_in_Art" class="research_interest_link" data-id="12584">Animals in Art</a>, <a href="http://www.academia.edu/People/Early_Modern_Naturalism" class="research_interest_link" data-id="638340">Early Modern Naturalism</a>, <a href="http://www.academia.edu/People/Animals_in_Culture" class="research_interest_link" data-id="24058">Animals in Culture</a>, <a href="http://www.academia.edu/People/History_of_Science" class="research_interest_link" data-id="3723">History of Science</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68243" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">15 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Natural_History" class="research_interest_link" data-id="9588">Natural History</a>, <a href="http://www.academia.edu/People/Paleontology" class="research_interest_link" data-id="417">Paleontology</a>, <a href="http://www.academia.edu/People/Folklore" class="research_interest_link" data-id="787">Folklore</a>, <a href="http://www.academia.edu/People/Zoos" class="research_interest_link" data-id="285794">Zoos</a>, <a href="http://www.academia.edu/People/Menageries" class="research_interest_link" data-id="46885">Menageries</a>, <a href="http://www.academia.edu/People/Animal_Collecting" class="research_interest_link" data-id="1006374">Animal Collecting</a>, <a href="http://www.academia.edu/People/Museums" class="research_interest_link" data-id="40719">Museums</a>, <a href="http://www.academia.edu/People/Animal_Parks" class="research_interest_link" data-id="1006377">Animal Parks</a>, <a href="http://www.academia.edu/People/Conservation" class="research_interest_link" data-id="2809">Conservation</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a>, <a href="http://www.academia.edu/People/Visual_Arts" class="research_interest_link" data-id="26558">Visual Arts</a>, <a href="http://www.academia.edu/People/Museum_Studies" class="research_interest_link" data-id="1657">Museum Studies</a>, <a href="http://www.academia.edu/People/Philosophy_and_Sociology_of_Human_animal_Relations" class="research_interest_link" data-id="931247">Philosophy and Sociology of Human/animal Relations</a>, and <a href="http://www.academia.edu/People/Animal_Studies" class="research_interest_link" data-id="3233">Animal Studies</a></span><noscript><div>(<a href="http://www.academia.edu/People/Natural_History" class="research_interest_link" data-id="9588">Natural History</a>, <a href="http://www.academia.edu/People/Paleontology" class="research_interest_link" data-id="417">Paleontology</a>, <a href="http://www.academia.edu/People/Folklore" class="research_interest_link" data-id="787">Folklore</a>, <a href="http://www.academia.edu/People/Zoos" class="research_interest_link" data-id="285794">Zoos</a>, <a href="http://www.academia.edu/People/Menageries" class="research_interest_link" data-id="46885">Menageries</a>, <a href="http://www.academia.edu/People/Animal_Collecting" class="research_interest_link" data-id="1006374">Animal Collecting</a>, <a href="http://www.academia.edu/People/Museums" class="research_interest_link" data-id="40719">Museums</a>, <a href="http://www.academia.edu/People/Animal_Parks" class="research_interest_link" data-id="1006377">Animal Parks</a>, <a href="http://www.academia.edu/People/Conservation" class="research_interest_link" data-id="2809">Conservation</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/History" class="research_interest_link" data-id="128">History</a>, <a href="http://www.academia.edu/People/Visual_Arts" class="research_interest_link" data-id="26558">Visual Arts</a>, <a href="http://www.academia.edu/People/Museum_Studies" class="research_interest_link" data-id="1657">Museum Studies</a>, <a href="http://www.academia.edu/People/Philosophy_and_Sociology_of_Human_animal_Relations" class="research_interest_link" data-id="931247">Philosophy and Sociology of Human/animal Relations</a>, and <a href="http://www.academia.edu/People/Animal_Studies" class="research_interest_link" data-id="3233">Animal Studies</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u4115057">
+
+      <div class="follow_user" id="follow_me_4115057">
+    <a href="#Follow" onclick="populate_follow_me_message_4115057(); return Follow.show_login_or_signup(&#x27;follow_me_message_4115057&#x27;);" class="button green btn-142-24">Follow James</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_4115057" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow James</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_4115057() { $('#follow_me_message_4115057').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow James"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/JamesOrmondroyd"><img alt="James Ormondroyd" src="//gravatar.com/avatar/3ea5a8da89e5f73629e0310f51964bb2?s=65" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/JamesOrmondroyd">James Ormondroyd</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68244"><a href="http://www.academia.edu/People/Philosophy" class="research_interest_link" data-id="803">Philosophy</a>, <a href="http://www.academia.edu/People/Photography" class="research_interest_link" data-id="1589">Photography</a>, <a href="http://www.academia.edu/People/Semiotics" class="research_interest_link" data-id="98">Semiotics</a>, <a href="http://www.academia.edu/People/Philosophy_of_Art" class="research_interest_link" data-id="5290">Philosophy of Art</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68244" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">5 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Photography_Theory" class="research_interest_link" data-id="10503">Photography Theory</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Visual_Semiotics" class="research_interest_link" data-id="4399">Visual Semiotics</a>, <a href="http://www.academia.edu/People/Philosophy_of_Photography" class="research_interest_link" data-id="15296">Philosophy of Photography</a>, and <a href="http://www.academia.edu/People/Digital_Photography" class="research_interest_link" data-id="2499">Digital Photography</a></span><noscript><div>(<a href="http://www.academia.edu/People/Photography_Theory" class="research_interest_link" data-id="10503">Photography Theory</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Visual_Semiotics" class="research_interest_link" data-id="4399">Visual Semiotics</a>, <a href="http://www.academia.edu/People/Philosophy_of_Photography" class="research_interest_link" data-id="15296">Philosophy of Photography</a>, and <a href="http://www.academia.edu/People/Digital_Photography" class="research_interest_link" data-id="2499">Digital Photography</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u10304632">
+
+      <div class="follow_user" id="follow_me_10304632">
+    <a href="#Follow" onclick="populate_follow_me_message_10304632(); return Follow.show_login_or_signup(&#x27;follow_me_message_10304632&#x27;);" class="button green btn-142-24">Follow Hannah</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_10304632" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Hannah</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_10304632() { $('#follow_me_message_10304632').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Hannah"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/HannahPetter"><img alt="Hannah Petter" height="65" src="//0.academia-photos.com/10304632/3222064/3791819/s65_hannah.petter.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/HannahPetter">Hannah Petter</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68245"><a href="http://www.academia.edu/People/Art_and_Art_History" class="research_interest_link" data-id="507685">Art and Art History</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Postcolonial_Studies" class="research_interest_link" data-id="2860">Postcolonial Studies</a>, <a href="http://www.academia.edu/People/Orientalism" class="research_interest_link" data-id="51334">Orientalism</a>, and <a href="http://www.academia.edu/People/Travel_Writing" class="research_interest_link" data-id="1082">Travel Writing</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u4981232">
+
+      <div class="follow_user" id="follow_me_4981232">
+    <a href="#Follow" onclick="populate_follow_me_message_4981232(); return Follow.show_login_or_signup(&#x27;follow_me_message_4981232&#x27;);" class="button green btn-142-24">Follow rosa</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_4981232" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow rosa</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_4981232() { $('#follow_me_message_4981232').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow rosa"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/rosagrech"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/rosagrech">rosa grech</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68246"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a> and <a href="http://www.academia.edu/People/Byzantine_Mosaics" class="research_interest_link" data-id="105881">Byzantine Mosaics</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u6881136">
+
+      <div class="follow_user" id="follow_me_6881136">
+    <a href="#Follow" onclick="populate_follow_me_message_6881136(); return Follow.show_login_or_signup(&#x27;follow_me_message_6881136&#x27;);" class="button green btn-142-24">Follow roma</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_6881136" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow roma</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_6881136() { $('#follow_me_message_6881136').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow roma"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/romarutterford"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/romarutterford">roma rutterford</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68247"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Modern_Art" class="research_interest_link" data-id="4950">Modern Art</a>, <a href="http://www.academia.edu/People/Modernism_Art_History_" class="research_interest_link" data-id="14546">Modernism (Art History)</a>, <a href="http://www.academia.edu/People/Avant-Garde_Theater" class="research_interest_link" data-id="7680">Avant-Garde Theater</a>, and <a href="http://www.academia.edu/People/The_Avant-Garde_and_Politics" class="research_interest_link" data-id="11954">The Avant-Garde and Politics</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+          </fieldset>
+        <fieldset>
+          <legend class="group_title">Alumni</legend>
+            
+
+  <div class="user_strip clearfix" id="u2860568">
+
+      <div class="follow_user" id="follow_me_2860568">
+    <a href="#Follow" onclick="populate_follow_me_message_2860568(); return Follow.show_login_or_signup(&#x27;follow_me_message_2860568&#x27;);" class="button green btn-142-24">Follow Tugba</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_2860568" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Tugba</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_2860568() { $('#follow_me_message_2860568').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Tugba"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/TugbaDiri"><img alt="Tugba Diri" height="65" src="//0.academia-photos.com/2860568/942427/4191417/s65_tugba.diri.png" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/TugbaDiri">Tugba Diri</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68248"><a href="http://www.academia.edu/People/Museum_Education_and_Communication" class="research_interest_link" data-id="526031">Museum Education and Communication</a>, <a href="http://www.academia.edu/People/Museology" class="research_interest_link" data-id="24016">Museology</a>, <a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a>, <a href="http://www.academia.edu/People/Islamic_Art" class="research_interest_link" data-id="8916">Islamic Art</a>, <span class="and_n_more">and <a href="#" class="more_link" data-container="#research_interest_list_68248" data-hide=".and_n_more" data-more-link-behavior="true" data-show=".invisible_research_interests">14 more</a></span><span class="hidden invisible_research_interests"><a href="http://www.academia.edu/People/Turkish_and_Middle_East_Studies" class="research_interest_link" data-id="8700">Turkish and Middle East Studies</a>, <a href="http://www.academia.edu/People/Museums_and_Exhibition_Design" class="research_interest_link" data-id="13606">Museums and Exhibition Design</a>, <a href="http://www.academia.edu/People/Museum_Studies" class="research_interest_link" data-id="1657">Museum Studies</a>, <a href="http://www.academia.edu/People/History_of_Museums" class="research_interest_link" data-id="7063">History of Museums</a>, <a href="http://www.academia.edu/People/Digital_Museum" class="research_interest_link" data-id="1658">Digital Museum</a>, <a href="http://www.academia.edu/People/Collecting_and_Collections" class="research_interest_link" data-id="23333">Collecting and Collections</a>, <a href="http://www.academia.edu/People/Middle_East_Studies" class="research_interest_link" data-id="2015">Middle East Studies</a>, <a href="http://www.academia.edu/People/Ottoman_History" class="research_interest_link" data-id="1187">Ottoman History</a>, <a href="http://www.academia.edu/People/Ottoman_Studies" class="research_interest_link" data-id="8122">Ottoman Studies</a>, <a href="http://www.academia.edu/People/History_of_Ottoman_Art_and_Architecture" class="research_interest_link" data-id="18929">History of Ottoman Art and Architecture</a>, <a href="http://www.academia.edu/People/British_Museum" class="research_interest_link" data-id="81688">British Museum</a>, <a href="http://www.academia.edu/People/Museum_Anthropology" class="research_interest_link" data-id="6683">Museum Anthropology</a>, <a href="http://www.academia.edu/People/Learning_and_Visitor_Studies_in_Museums_and_Galleries" class="research_interest_link" data-id="311084">Learning and Visitor Studies in Museums and Galleries</a>, and <a href="http://www.academia.edu/People/Material_Culture_Studies" class="research_interest_link" data-id="2473">Material Culture Studies</a></span><noscript><div>(<a href="http://www.academia.edu/People/Turkish_and_Middle_East_Studies" class="research_interest_link" data-id="8700">Turkish and Middle East Studies</a>, <a href="http://www.academia.edu/People/Museums_and_Exhibition_Design" class="research_interest_link" data-id="13606">Museums and Exhibition Design</a>, <a href="http://www.academia.edu/People/Museum_Studies" class="research_interest_link" data-id="1657">Museum Studies</a>, <a href="http://www.academia.edu/People/History_of_Museums" class="research_interest_link" data-id="7063">History of Museums</a>, <a href="http://www.academia.edu/People/Digital_Museum" class="research_interest_link" data-id="1658">Digital Museum</a>, <a href="http://www.academia.edu/People/Collecting_and_Collections" class="research_interest_link" data-id="23333">Collecting and Collections</a>, <a href="http://www.academia.edu/People/Middle_East_Studies" class="research_interest_link" data-id="2015">Middle East Studies</a>, <a href="http://www.academia.edu/People/Ottoman_History" class="research_interest_link" data-id="1187">Ottoman History</a>, <a href="http://www.academia.edu/People/Ottoman_Studies" class="research_interest_link" data-id="8122">Ottoman Studies</a>, <a href="http://www.academia.edu/People/History_of_Ottoman_Art_and_Architecture" class="research_interest_link" data-id="18929">History of Ottoman Art and Architecture</a>, <a href="http://www.academia.edu/People/British_Museum" class="research_interest_link" data-id="81688">British Museum</a>, <a href="http://www.academia.edu/People/Museum_Anthropology" class="research_interest_link" data-id="6683">Museum Anthropology</a>, <a href="http://www.academia.edu/People/Learning_and_Visitor_Studies_in_Museums_and_Galleries" class="research_interest_link" data-id="311084">Learning and Visitor Studies in Museums and Galleries</a>, and <a href="http://www.academia.edu/People/Material_Culture_Studies" class="research_interest_link" data-id="2473">Material Culture Studies</a>)</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u59325">
+
+      <div class="follow_user" id="follow_me_59325">
+    <a href="#Follow" onclick="populate_follow_me_message_59325(); return Follow.show_login_or_signup(&#x27;follow_me_message_59325&#x27;);" class="button green btn-142-24">Follow Jennifer</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_59325" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Jennifer</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_59325() { $('#follow_me_message_59325').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Jennifer"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="https://sussex.academia.edu/JenniferMongan"><img alt="Jennifer Mongan" height="65" src="//0.academia-photos.com/59325/84097/2988070/s65_jennifer.mongan.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="https://sussex.academia.edu/JenniferMongan">Jennifer Mongan</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_27157"><em>none</em><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u2291442">
+
+      <div class="follow_user" id="follow_me_2291442">
+    <a href="#Follow" onclick="populate_follow_me_message_2291442(); return Follow.show_login_or_signup(&#x27;follow_me_message_2291442&#x27;);" class="button green btn-142-24">Follow Giulia</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_2291442" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Giulia</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_2291442() { $('#follow_me_message_2291442').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Giulia"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://columbia.academia.edu/giuliaPaoletti"><img alt="Giulia Paoletti" height="65" src="//0.academia-photos.com/2291442/2853808/3332558/s65_giulia.paoletti.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://columbia.academia.edu/giuliaPaoletti">Giulia Paoletti</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68249"><em>none</em><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u992428">
+
+      <div class="follow_user" id="follow_me_992428">
+    <a href="#Follow" onclick="populate_follow_me_message_992428(); return Follow.show_login_or_signup(&#x27;follow_me_message_992428&#x27;);" class="button green btn-142-24">Follow Jo</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_992428" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Jo</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_992428() { $('#follow_me_message_992428').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Jo"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://kent.academia.edu/JoStoner"><img alt="Jo Stoner" height="65" src="//0.academia-photos.com/992428/355387/426771/s65_jo.stoner.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://kent.academia.edu/JoStoner">Jo Stoner</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68250"><em>none</em><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u4539247">
+
+      <div class="follow_user" id="follow_me_4539247">
+    <a href="#Follow" onclick="populate_follow_me_message_4539247(); return Follow.show_login_or_signup(&#x27;follow_me_message_4539247&#x27;);" class="button green btn-142-24">Follow Wendy</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_4539247" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Wendy</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_4539247() { $('#follow_me_message_4539247').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Wendy"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://sussex.academia.edu/WendyWatson"><img alt="" src="//a.academia-assets.com/images/s65_no_pic.gif?a80144cfcb740790059a33e0f9d130ad" style="border: 0;"></a></span>
+  </div>
+
+  <h3><a href="http://sussex.academia.edu/WendyWatson">Wendy Watson</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_68251"><a href="http://www.academia.edu/People/Art_History" class="research_interest_link" data-id="915">Art History</a> and <a href="http://www.academia.edu/People/Byzantine_Mosaics" class="research_interest_link" data-id="105881">Byzantine Mosaics</a><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+
+  <div class="user_strip clearfix" id="u9575640">
+
+      <div class="follow_user" id="follow_me_9575640">
+    <a href="#Follow" onclick="populate_follow_me_message_9575640(); return Follow.show_login_or_signup(&#x27;follow_me_message_9575640&#x27;);" class="button green btn-142-24">Follow Philippa</a>
+  </div>
+  <div class="user-strip-follow-me-message" id="follow_me_message_9575640" style="display:none">Please &lt;a href=&quot;http://www.academia.edu/login&quot;&gt;log in&lt;/a&gt; or &lt;a href=&quot;http://www.academia.edu/signup&quot;&gt;sign up&lt;/a&gt; to follow Philippa</div><script type="text/javascript">
+//<![CDATA[
+function populate_follow_me_message_9575640() { $('#follow_me_message_9575640').html("Please \u003ca href=\"http://www.academia.edu/login\">log in\u003c/a> or \u003ca href=\"http://www.academia.edu/signup\">sign up\u003c/a> to follow Philippa"); }
+//]]>
+</script>
+
+      
+
+  <div class="photo">
+    <span><a href="http://u-pem.academia.edu/PhilippaWoodcock"><img alt="Philippa Woodcock" height="65" src="//0.academia-photos.com/9575640/3025353/3554100/s65_philippa.woodcock.jpg" style="border: 0;" width="65"></a></span>
+  </div>
+
+  <h3><a href="http://u-pem.academia.edu/PhilippaWoodcock">Philippa Woodcock</a></h3>
+
+    <div class="user_research_interests" id="research_interest_list_8160"><em>none</em><noscript><div>()</div></noscript><a href="#" class="owner_only edit_mode_only edit_link">edit</a></div>
+
+
+  </div>
+          </fieldset>
+  </div>
+
+
+    </div>
+
+    <div id="login_background"></div><div class="login_form" id="login_form"><div id="close_loginform"><i class="icon icon-remove icon-dark"></i></div><h4>Log In</h4><div class="facebook_button_container social_container clearfix"><div class="facebook-button-login" href="#"><div class="fb-btn signup-btn"><i class="icon-facebook"></i><div class="text"><a class="fb_button" href="#"><strong>Log In</strong> with <strong>Facebook</strong></a></div></div></div></div><script type="text/javascript">new c.Oauth.Button.Login.Facebook("#login_form" + ' a.fb_button');</script><div class="google_button_container social_container clearfix"><div class="google-button-login"><div class="google-btn signup-btn"><i class="icon-google-plus"></i><div class="text"><a class="google_button" href="#"><strong>Log In</strong> with <strong>Google</strong></a></div></div></div></div><script type="text/javascript">new c.Oauth.Button.Login.Google("#login_form" + ' .google-button-login .google_button',
+                                  {spinner_selector: "#login_form" + ' .google-button-login .text a'});</script><div class="or-divider"><span>or</span></div><form accept-charset="UTF-8" action="https://www.academia.edu/sessions" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;"><input name="authenticity_token" type="hidden" value="h0miHDTBlDR4c3mPGyoBSUlKeNoo9Wx46W6zLpYXnNE="></div><div class="clearfix"><label for="login">Email:</label><div class="input"><input class="large" id="login" name="login" size="30" type="text"></div></div><div class="clearfix"><label for="password">Password:</label><div class="input"><input class="large" id="password" name="password" size="30" type="password"></div></div><input id="cp" name="cp" type="hidden"><label id="remember_me_box"><input checked="checked" id="remember_me" name="remember_me" type="checkbox" value="1">Remember me on this computer </label><input class="button blue" id="login_btn" name="commit" type="submit" value="Log In">or <a href="http://www.academia.edu/reset_password" id="reset_password_link">reset password</a></form><p class="signup-text">Need an account? <a href="http://www.academia.edu/signup">Click here to sign up</a></p><div class="padded_content no-reset" id="reset_password"><form accept-charset="UTF-8" action="http://www.academia.edu/reset_password" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;"><input name="authenticity_token" type="hidden" value="h0miHDTBlDR4c3mPGyoBSUlKeNoo9Wx46W6zLpYXnNE="></div><p>Enter the email address you signed up with and we'll email you a reset link.</p><div class="input"><input id="email" name="email" size="50" type="text" value=""></div><input class="button blue" name="commit" type="submit" value="Email me a link"></form></div><script type="text/javascript">$(function() {
+  $('#reset_password_link').on('click', function(e){
+    e.preventDefault();
+    var reset_password_div = $('#reset_password');
+    if (reset_password_div.is(':hidden')){
+      $('#reset_password').show();
+    };
+  });
+});</script></div><script type="text/javascript">// Only prevent showing login popup if not on Google approved origins
+if (window.location.host == $domain || window.location.host == "www.".concat($domain)) {
+  $(new LoggedOutNavigationController({
+    elements: {
+      link:       '#nav_log_in',
+      background: '#login_background',
+      form:       '#login_form',
+      field:      '#login',
+      close:      '#close_loginform'
+    }
+  }));
+}
+else {
+  $('#nav_log_in').click(function(e){
+    e.preventDefault();
+    var redirect_url = 'https' + '://' + $domain + '/login?cp=' + window.location.href;
+    window.location = redirect_url;
+  });
+}</script>
+    
+<div id=footer>
+  <div class="footer_content clearfix">
+    <div class='footer_links'>
+  <div class='footer_link_block secondary_footer'>
+    <ul>
+      <li><a href="http://www.academia.edu/Jobs">Job Board</a></li>
+      <li><a href="http://www.academia.edu/about">About</a></li>
+      <li><a href="http://www.academia.edu/hiring/mission">Mission</a></li>
+      <li><a href="http://www.academia.edu/press">Press</a></li>
+      <li><a href="http://blog.academia.edu/">Blog</a></li>
+      <li><a href="http://sussex.academia.edu/stories">Stories</a></li>
+      <li><a href="http://www.academia.edu/hiring">We&#x27;re hiring engineers!</a></li>
+      <li><a href="http://support.academia.edu">FAQ</a></li>
+      <li><a href="http://www.academia.edu/terms">Terms</a></li>
+      <li><a href="http://www.academia.edu/privacy">Privacy</a></li>
+      <li><a href="http://www.academia.edu/copyright">Copyright</a></li>
+      <li><strong><a href="http://www.academia.edu/feedback" id="feedback_link">Send us Feedback</a></strong></li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+      Academia.create_feedback_popup();
+  });
+</script>
+  <script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
+  f[z]=function(){
+  (a.s=a.s||[]).push(arguments)};var a=f[z]._={
+  },q=c.methods.length;while(q--){(function(n){f[z][n]=function(){
+  f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={
+  0:+new Date};a.P=function(u){
+  a.p[u]=new Date-a.p[0]};function s(){
+  a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){
+  hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){
+  return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){
+  b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{
+  b.contentWindow[g].open()}catch(w){
+  c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{
+  var t=b.contentWindow[g];t.write(p());t.close()}catch(x){
+  b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({
+  loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+  /* custom configuration goes here (www.olark.com/documentation) */
+  olark.identify('1978-681-10-3187');/*]]>*/</script>
+
+  </div>
+</div>
+<div id="credit">
+  Academia &copy; 2014
+</div>
+<script type="text/javascript">
+//<![CDATA[
+Academia.set_gmtoffset('/gmtoffset');
+//]]>
+</script>
+<iframe id='signup-completed' style='display: none;'></iframe>
+
+<script type="text/javascript">$(function() {
+    var viewportWidth = $(window).width();
+    _gaq.push(['_trackEvent', 'Viewport Dimensions',
+               'Viewport Dimensions Initial',
+               viewportWidth + 'x' + $(window).height(), viewportWidth, true]);
+
+    var gaResizeCompleteHl;
+    $(window).resize(function(){
+        clearTimeout(gaResizeCompleteHl);
+        gaResizeCompleteHl = setTimeout(function(){
+            var viewportWidth=$(window).width();
+            _gaq.push(['_trackEvent', 'Viewport Dimensions',
+                       'Viewport Dimensions Resized',
+                       viewportWidth + 'x' + $(window).height(), viewportWidth, true]);
+        }, 500);
+    });
+});
+
+function read_cookie(cookie_name) {
+    var my_cookie=""+document.cookie;
+    var ind=my_cookie.indexOf(cookie_name);
+    if (ind==-1 || cookie_name=="") return "";
+    var ind1=my_cookie.indexOf(';',ind);
+    if (ind1==-1) ind1=my_cookie.length;
+    return unescape(my_cookie.substring(ind+cookie_name.length+1,ind1));
+};
+var getVar = read_cookie('__utmv');
+
+  if( (getVar.indexOf("/status=registered") == -1) && (getVar.indexOf("/status=non_registered") == -1) ){
+      _gaq.push(['_setVar', '/status=non_registered']);
+  };
+
+</script>
+
+
+    <div id='overlay_background'></div>
+  </div>
+
+
+
+  
+  
+
+
+    <script type="text/javascript">
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </body>
+</html>
+
