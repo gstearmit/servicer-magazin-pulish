@@ -127,7 +127,7 @@ class MagazinepublishController extends AbstractActionController {
 				$this->getMagazinepublishTable ()->saveMagazinepublish ( $magazinepublish );
 				
 				// Redirect to list of magazinepublishs
-				return $this->redirect ()->toRoute ( 'magazinepublish' );
+				return $this->redirect ()->toRoute ('magazinepublish' ); //magazinepublish
 			} else {
 				// echo('Magazine is Form Not Validate');
 			}
