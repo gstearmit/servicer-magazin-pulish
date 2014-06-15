@@ -32,5 +32,8 @@ return array(
     		'template_map' => array(
     				'paginator-Rssget' => __DIR__ . '/../view/layout/slidePaginator.phtml',
     		),
+    		'strategies' => array(
+    				'ViewJsonStrategy',
+    		),
     ),
 );
