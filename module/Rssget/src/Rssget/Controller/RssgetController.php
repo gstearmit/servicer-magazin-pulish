@@ -12,6 +12,7 @@ use Zend\Db\Sql\Select;
 
 // rss
 use Zend\Feed\Reader as feed;
+use Zend\View\Model\JsonModel;
 
 class RssgetController extends AbstractActionController {
 	protected $rssgetTable;
@@ -125,26 +126,19 @@ class RssgetController extends AbstractActionController {
 		
 		$channel = array (
 				'title' => $rss->getTitle (),
+				//'date'=>$rss->getDateModified(),
 				'description' => $rss->getDescription (),
 				'link' => $rss->getLink (),
 				'items' => array () 
 		);
 		
-// 		echo 'rss</br>';
-// 		echo '<pre>';
-// 		print_r($rss);
-// 		echo '</pre>';
-		
+	
 		foreach ( $rss as $item ) 
 		{
 
-			
-// 			foreach ($item->getMedia() as $res) {
-// 				$selectDataImg['url'] = $res['url'];
-// 			}
-			
 			$channel ['items'] [] = array (
 					'title' => $item->getTitle (),
+					//'date'=>$item->getDateModified(),
 					'link' => $item->getLink (),
 					'description' => $item->getDescription () ,
 			        'image' => $item->getMedia()->url,
@@ -156,28 +150,41 @@ class RssgetController extends AbstractActionController {
 		) );
 	}
 	
-	
-	public function getMedia()
-	{
-		if (array_key_exists('media', $this->data)) {
-			return $this->data['media'];
+	public function rssjsonAction() {
+		try {
+				
+			$rss = feed\Reader::import ( 'http://www.wdcdn.net/rss/presentation/library/client/skunkus/id/cc3d06c1cc3834464aef22836c55d13a' );
+		} catch ( feed\Exception\RuntimeException $e ) {
+			echo "error : " . $e->getMessage ();
+			exit ();
 		}
 	
-		$media = null;
+		$channel = array (
+				'title' => $rss->getTitle (),
+				//'date'=>$rss->getDateModified(),
+				'description' => $rss->getDescription (),
+				'link' => $rss->getLink (),
+				'items' => array ()
+		);
 	
-		if ($this->getType() == Reader\Reader::TYPE_RSS_20) {
-			$nodeList = $this->xpath->query($this->xpathQueryRss . '/media:thumbnail');
 	
-			if ($nodeList->length > 0) {
-				$media = new \stdClass();
-				$media->url    = $nodeList->item(0)->getAttribute('url');
+		foreach ( $rss as $item )
+		{
 	
-			}
+			$channel ['items'] [] = array (
+					'title' => $item->getTitle (),
+					//'date'=>$item->getDateModified(),
+					'link' => $item->getLink (),
+					'description' => $item->getDescription () ,
+					'image' => $item->getMedia()->url,
+			);
 		}
-		$this->data['media'] = $media;
 	
-		return $this->data['media'];
+		 return new JsonModel(array(
+            'channel' => $channel,
+        ));
 	}
+	
 	
 	public function getRssgetTable() {
 		if (! $this->rssgetTable) {
