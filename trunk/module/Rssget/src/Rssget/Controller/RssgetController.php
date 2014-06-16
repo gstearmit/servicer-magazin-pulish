@@ -142,7 +142,7 @@ class RssgetController extends AbstractActionController {
 	
 		foreach ( $rss as $item ) 
 		{
-
+			//Zend/Feed/Reader/Entry/rss.php
 			$channel ['items'] [] = array (
 					'title' => $item->getTitle (),
 					//'date'=>$item->getDateModified(),
@@ -183,7 +183,7 @@ class RssgetController extends AbstractActionController {
 					//'date'=>$item->getDateModified(),
 					'link' => $item->getLink (),
 					'description' => $item->getDescription () ,
-					'image' => $item->getMedia()->url,
+					'image' => $item->getMedia()->url,               // function tu dinh nghia
 			);
 		}
 	
@@ -333,14 +333,12 @@ class RssgetController extends AbstractActionController {
 		 
 		$client->setUri('http://samsonasik.wordpress.com/');
 		$result                 = $client->send();
-		//content of the web
-		$body                   = $result->getBody();
+		$body                   = $result->getBody();//content of the web
 		 
 		$dom = new Query($body);
 		//get div with id="content" and h2's NodeList
 		$title = $dom->execute('#content h2');
-		 
-		
+	
 		$content = '';
 		foreach($title as $key=>$r)
 		{
@@ -374,6 +372,165 @@ class RssgetController extends AbstractActionController {
 		
 		$response->setContent($mainContent);
 		
+		return $response;
+	}
+	
+	
+	public function zf2listAction()
+	{
+		$client = new HttpClient();
+		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
+			
+		$response = $this->getResponse();
+		$response->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+			
+		$client->setUri('http://samsonasik.wordpress.com/');
+		$result                 = $client->send();
+		$body                   = $result->getBody();//content of the web
+			
+		$dom = new Query($body);
+		//get div with id="content" and h2's NodeList
+		$title = $dom->execute('#content h2');
+	
+		$content = '';
+		foreach($title as $key=>$r)
+		{
+			//per h2 NodeList, has element with tagName = 'a'
+			//DOMElement get Element with tagName = 'a'
+			$aelement     = $r->getElementsByTagName("a")->item(0);
+	
+			if ($aelement->hasAttributes()) {
+				$content .= '* ';
+				$content .= '<a href='.$aelement->getAttributeNode('href')->nodeValue.'>';
+				$content .= $aelement->textContent;
+				$content .= '</a>';
+					
+				$content .= "<br />";
+			}
+		}
+		
+		$response->setContent($content);
+		
+// 		$mainbody = $dom->execute('#content .main');
+	
+// 		$mainContent = '';
+// 		foreach ($mainbody as $keydo => $mainelemen)
+// 		{
+	
+// 			$mainContent .= '* ';
+// 			$mainContent .= $this->innerHTML($mainelemen);// get content element div.main
+// 			//$mainContent .= $mainelemen->textContent;
+// 			$mainContent .= "<br/>";
+// 		}
+		
+// 		$response->setContent($mainContent);
+	
+		return $response;
+	}
+	
+	
+	
+	public function zf2detailAction()
+	{
+		$client = new HttpClient();
+		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
+			
+		$response = $this->getResponse();
+		$response->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+			
+		$client->setUri('http://samsonasik.wordpress.com/');
+		$result                 = $client->send();
+		$body                   = $result->getBody();//content of the web
+			
+		$dom = new Query($body);
+// 		//get div with id="content" and h2's NodeList
+// 		$title = $dom->execute('#content h2');
+	
+// 		$content = '';
+// 		foreach($title as $key=>$r)
+// 		{
+// 			//per h2 NodeList, has element with tagName = 'a'
+// 			//DOMElement get Element with tagName = 'a'
+// 			$aelement     = $r->getElementsByTagName("a")->item(0);
+	
+// 			if ($aelement->hasAttributes()) {
+// 				$content .= '* ';
+// 				$content .= '<a href='.$aelement->getAttributeNode('href')->nodeValue.'>';
+// 				$content .= $aelement->textContent;
+// 				$content .= '</a>';
+					
+// 				$content .= "<br />";
+// 			}
+// 		}
+// 		//$response->setContent($content);
+		
+		$mainbody = $dom->execute('#content .main');
+	
+		$mainContent = '';
+		foreach ($mainbody as $keydo => $mainelemen)
+		{
+	
+			$mainContent .= '* ';
+			$mainContent .= $this->innerHTML($mainelemen);// get content element div.main
+			//$mainContent .= $mainelemen->textContent;
+			$mainContent .= "<br/>";
+		}
+			
+		
+	
+		$response->setContent($mainContent);
+	
+		return $response;
+	}
+	public function havltvAction()
+	{
+		$client = new HttpClient();
+		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
+			
+		$response = $this->getResponse();
+		$response->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+			
+		$client->setUri('http://haivl.tv');
+		$result                 = $client->send();
+		$body                   = $result->getBody();//content of the web
+			
+		$dom = new Query($body);
+		//get div with id="content" and h2's NodeList
+		$title = $dom->execute('#content h2');
+	
+		$content = '';
+		foreach($title as $key=>$r)
+		{
+			//per h2 NodeList, has element with tagName = 'a'
+			//DOMElement get Element with tagName = 'a'
+			$aelement     = $r->getElementsByTagName("a")->item(0);
+	
+			if ($aelement->hasAttributes()) {
+				$content .= '* ';
+				$content .= '<a href='.$aelement->getAttributeNode('href')->nodeValue.'>';
+				$content .= $aelement->textContent;
+				$content .= '</a>';
+					
+				$content .= "<br />";
+			}
+		}
+	
+		$mainbody = $dom->execute('#content .main');
+	
+		$mainContent = '';
+		foreach ($mainbody as $keydo => $mainelemen)
+		{
+	
+			$mainContent .= '* ';
+			$mainContent .= $this->innerHTML($mainelemen);// get content element div.main
+			//$mainContent .= $mainelemen->textContent;
+			$mainContent .= "<br/>";
+		}
+			
+		//$response->setContent($content);
+	
+		$response->setContent($mainContent);
+	
 		return $response;
 	}
 	
