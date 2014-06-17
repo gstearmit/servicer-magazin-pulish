@@ -231,7 +231,7 @@ class RssgetController extends AbstractActionController {
 		}
 
 		return new JsonModel(array(
-				'list' => $zf2array,
+				'data' => $zf2array,
 		));
 	}
 	
@@ -272,20 +272,9 @@ class RssgetController extends AbstractActionController {
 	
 	public function havltvAction()
 	{
-		
-		$zf2array = array (
-				'title' =>'haivl.tv',
-				'description' => 'Video Clip Giaỉ Trí',
-				'link' =>__METHOD__,
-				'items' => array ()
-		);
-		
-		$haivltv = array (
-				'img' => array ()
-		);
-		
-		
-		
+	
+		$haivltv = array ();
+		$url_haivltv = "http://haivl.tv";
 		$client = new HttpClient();
 		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
 			
@@ -299,57 +288,63 @@ class RssgetController extends AbstractActionController {
 		$dom = new Query($body);
 		//get div with id="content" and id=leftColumn NodeList
 		$title = $dom->execute('#content .videoListItem h2');
-		
-		
-		// get Thumbnail img
-		$img = $dom->execute('#content .videoListItem .thumb img');
-		
+	
+		$i = 0;
 		foreach($title as $key=>$r)
 		{
 			$aelement     = $r->getElementsByTagName("a")->item(0);
 
 			if ($aelement->hasAttributes())
 			 {
-								$zf2array['items'][] = array (
-										'title' => $aelement->textContent,
-										'link' => $aelement->getAttributeNode('href')->nodeValue,
-										'image' => '',               // function tu dinh nghia
-								);
+			 	$haivltv[$i]->title =  $aelement->textContent;
+			 	$haivltv[$i]->link  = $url_haivltv.$aelement->getAttributeNode('href')->nodeValue;
+			 	$i++;
+			 	
 			 }
 		
 		}
 		
+		// get Thumbnail img
+		$img = $dom->execute('#content .videoListItem .thumb img');
 		$count = count($img);
+		$i = 0;
 		foreach ($img as $keydo => $mainelemen)
 		{
 			
 			
 			if ($mainelemen->hasAttributes())
 			{
-				$haivltv['img'][] = array ( 
-					//'image'=>$this->innerHTML($mainelemen),
-					'src'=>$mainelemen->getAttributeNode('src')->nodeValue,
-			       );
+				$haivltv[$i]->image_thumbnail = $mainelemen->getAttributeNode('src')->nodeValue;
+				$i++;
 			 }
-				
+			
 		}
 		
+		// get Content
+// 		$img = $dom->execute('#content .videoListItem .thumb img');
+// 		$count = count($img);
+// 		$i = 0;
+// 		foreach ($img as $keydo => $mainelemen)
+// 		{
+				
+				
+// 			if ($mainelemen->hasAttributes())
+// 			{
+// 				$haivltv[$i]->image_thumbnail = $mainelemen->getAttributeNode('src')->nodeValue;
+// 				$i++;
+// 			}
+				
+// 		}
 		
 		return new JsonModel(array(
-				'list' =>$haivltv, //$zf2array,
+				'data' =>$haivltv, //$zf2array,
 		));
 	}
 	
 	
 	public function zf2domAction()
 	{
-		$zf2array = array (
-				'title' =>'Zf2 Document',
-				'description' => 'App Hưỡng dẫn học Zend Framework 2',
-				'link' =>__METHOD__,
-				'items' => array ()
-		);
-	
+		
 		$client = new HttpClient();
 		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
 			
@@ -369,49 +364,44 @@ class RssgetController extends AbstractActionController {
 		$a= array();
 		
 		$i=0;
-		//for( $i = 0; ;$i++)
-		//{
+		
 			foreach($title as $key=>$r)
 			{
-				//$a[$i]=array();
+				
  				$aelement     = $r->getElementsByTagName("a")->item(0);
- 				//var_dump($aelement);
- 				$a[$i]->title= $aelement->textContent;
  				
- 				$i++;
+		//php.ini  --> An loi tien dinh 
+			// display_startup_errors = Off
+			// display_errors = Off
 		
-// 				if ($aelement->hasAttributes()) {
-// 	// 				$zf2array['items'][] = array (
-// 	// 						'title' => $aelement->textContent,
-// 	// 						'link' => $aelement->getAttributeNode('href')->nodeValue,
-// 	// 						'image' => '',               // function tu dinh nghia
-// 	// 				);
-// 				}
+				if ($aelement->hasAttributes()) 
+				{
+					$a[$i]->title = $aelement->textContent;
+					$a[$i]->link = $aelement->getAttributeNode('href')->nodeValue;
+					$a[$i]->image = '';
+					$i++;
+				}
 		
 			}
-			$i=0;
+			
+			$i=0; // reset
 			foreach ($mainbody as $keydo => $mainelemen)
 			{
 				$a[$i]->content= $this->innerHTML($mainelemen);
 				$i++;
-				
-// 				$zf2array['items'][] = array (
-// 						'title' => $aelement->textContent,
-// 						'link' => $aelement->getAttributeNode('href')->nodeValue,
-// 						'image' => '',               // function tu dinh nghia
-// 						'content'=>$this->innerHTML($mainelemen),
-// 				);
-				
+		
 			}
-			echo '99';
-			echo '<pre>';
-			print_r($a);
-			echo '</pre>';
-			die;
-		//}	
+			
+			
+// 			echo '99';
+// 			echo '<pre>';
+// 			print_r($a);
+// 			echo '</pre>';
+// 			die;
+		
 	
 		return new JsonModel(array(
-				'list' => $zf2array,
+				'data' =>$a,
 		));
 	
 	
@@ -509,38 +499,7 @@ class RssgetController extends AbstractActionController {
 
 	public function htmldomAction()
 	{
-		// 		$client = new HttpClient();
-		// 		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
-	
-		// 		$method = $this->params()->fromQuery('method', 'get');
-		// 		$client->setUri('http://skunkus.wiredrive.com/present-library-detail/token/cc3d06c1cc3834464aef22836c55d13a/assetId/1541484');
-	
-		// 		switch($method) {
-		// 			case 'get' :
-		// 				$client->setMethod('GET');
-		// 				//$client->setParameterGET(array('id'=>1));
-		// 				break;
-			
-	
-		// 				return $response;
-		// 		}
-	
-		// 		//if get/get-list/create
-		// 		$response = $client->send();
-		// 		if (!$response->isSuccess()) {
-		// 			// report failure
-		// 			$message = $response->getStatusCode() . ': ' . $response->getReasonPhrase();
-	
-		// 			$response = $this->getResponse();
-		// 			$response->setContent($message);
-		// 			return $response;
-		// 		}
-		// 		$body = $response->getBody();
-	
-		// 		$response = $this->getResponse();
-		// 		$response->setContent($body);
-	
-		// 		return $response;
+	  // xu li du lieu tren view
 	}
 	
 	public function curlgetAction()
@@ -686,7 +645,8 @@ class RssgetController extends AbstractActionController {
 			}
 		}
 		
-		//Debug::dump($tags);
+		var_dump($tags);
+		die;
 	}
 	
 	/**
