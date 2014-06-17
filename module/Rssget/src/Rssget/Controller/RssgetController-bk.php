@@ -369,31 +369,27 @@ class RssgetController extends AbstractActionController {
 		$a= array();
 		
 		$i=0;
-		
+		//for( $i = 0; ;$i++)
+		//{
 			foreach($title as $key=>$r)
 			{
-				
+				//$a[$i]=array();
  				$aelement     = $r->getElementsByTagName("a")->item(0);
+ 				//var_dump($aelement);
+ 				$a[$i]->title= $aelement->textContent;
  				
-		//php.ini  --> An loi tien dinh 
-		// display_startup_errors = Off
-		// display_errors = Off
+ 				$i++;
 		
-				if ($aelement->hasAttributes()) 
-				{
-						$zf2array['items'][] = array (
-								'title' => $aelement->textContent,
-								'link' => $aelement->getAttributeNode('href')->nodeValue,
-								'image' => '',               // function tu dinh nghia
-						);
-		
-					$a[$i]->title = $aelement->textContent;
-					$i++;
-				}
+// 				if ($aelement->hasAttributes()) {
+// 	// 				$zf2array['items'][] = array (
+// 	// 						'title' => $aelement->textContent,
+// 	// 						'link' => $aelement->getAttributeNode('href')->nodeValue,
+// 	// 						'image' => '',               // function tu dinh nghia
+// 	// 				);
+// 				}
 		
 			}
-			
-			$i=0; // reset
+			$i=0;
 			foreach ($mainbody as $keydo => $mainelemen)
 			{
 				$a[$i]->content= $this->innerHTML($mainelemen);
@@ -407,14 +403,12 @@ class RssgetController extends AbstractActionController {
 // 				);
 				
 			}
-			
-			
 			echo '99';
 			echo '<pre>';
 			print_r($a);
 			echo '</pre>';
 			die;
-		
+		//}	
 	
 		return new JsonModel(array(
 				'list' => $zf2array,
