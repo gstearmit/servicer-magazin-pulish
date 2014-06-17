@@ -178,7 +178,7 @@ class RssgetController extends AbstractActionController {
 		foreach ( $rss as $item )
 		{
 	
-			$channel ['items'] [] = array (
+			$channel['items'][] = array (
 					'title' => $item->getTitle (),
 					//'date'=>$item->getDateModified(),
 					'link' => $item->getLink (),
@@ -192,192 +192,16 @@ class RssgetController extends AbstractActionController {
         ));
 	}
 	
-	
-	public function htmldomAction()
-	{
-// 		$client = new HttpClient();
-// 		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
-		
-// 		$method = $this->params()->fromQuery('method', 'get');
-// 		$client->setUri('http://skunkus.wiredrive.com/present-library-detail/token/cc3d06c1cc3834464aef22836c55d13a/assetId/1541484');
-		
-// 		switch($method) {
-// 			case 'get' :
-// 				$client->setMethod('GET');
-// 				//$client->setParameterGET(array('id'=>1));
-// 				break;
-			
-		
-// 				return $response;
-// 		}
-		
-// 		//if get/get-list/create
-// 		$response = $client->send();
-// 		if (!$response->isSuccess()) {
-// 			// report failure
-// 			$message = $response->getStatusCode() . ': ' . $response->getReasonPhrase();
-		
-// 			$response = $this->getResponse();
-// 			$response->setContent($message);
-// 			return $response;
-// 		}
-// 		$body = $response->getBody();
-		
-// 		$response = $this->getResponse();
-// 		$response->setContent($body);
-		
-// 		return $response;
-	}
-	
-	public function curlgetAction()
-	{
-		
-		//$variablee = $this->get_data('http://www.dantri.com.vn');
-		//echo $variablee;
-	
-		
-		$html = '
-		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-		    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" dir="ltr">
-		<head>
-		<title>PHPRO.ORG</title>
-		</head>
-		<body>
-		<h2>Forecast for Saturday</h2>
-		<!-- Issued at 0828 UTC Friday 23 May 2008 -->
-		<table border="0" summary="Capital Cities Precis Forecast">
-		   <tbody>
-		      <tr>
-		         <td><a href="/products/IDN10064.shtml" title="Link to Sydney forecast">Sydney</a></td>
-		         <td title="Maximum temperature in degrees Celsius" class="max alignright">19&deg;</td>
-		         <td>Fine. Mostly sunny.</td>
-		      </tr>
-				
-		      <tr>
-		         <td><a href="/products/IDV10450.shtml" title="Link to Melbourne forecast">Melbourne</a></td>
-		         <td title="Maximum temperature in degrees Celsius" class="max alignright">16&deg;</td>
-		         <td>Fog then fine.</td>
-		      </tr>
-				
-		      <tr>
-		         <td><a href="/products/IDQ10095.shtml" title="Link to Brisbane forecast">Brisbane</a></td>
-		         <td title="Maximum temperature in degrees Celsius" class="max alignright">24&deg;</td>
-		         <td>Mostly fine</td>
-		      </tr>
-				
-		      <tr>
-		         <td><a href="/products/IDW12300.shtml" title="Link to Perth forecast">Perth</a></td>
-		         <td title="Maximum temperature in degrees Celsius" class="max alignright">21&deg;</td>
-		         <td>Few showers, increasing later.</td>
-		      </tr>
-				
-		      <tr>
-		         <td><a href="/products/IDS10034.shtml" title="Link to Adelaide forecast">Adelaide</a></td>
-		         <td title="Maximum temperature in degrees Celsius" class="max alignright">20&deg;</td>
-		         <td>Fine. Mostly sunny.</td>
-		      </tr>
-				
-		      <tr>
-		         <td><a href="/products/IDT65061.shtml" title="Link to Hobart forecast">Hobart</a></td>
-		         <td title="Maximum temperature in degrees Celsius" class="max alignright">13&deg;</td>
-		         <td>Mainly fine.</td>
-		      </tr>
-				
-		      <tr>
-		         <td><a href="/products/IDN10035.shtml" title="Link to Canberra forecast">Canberra</a></td>
-		         <td title="Maximum temperature in degrees Celsius" class="max alignright">15&deg;</td>
-		         <td>Fine, mostly sunny.</td>
-		      </tr>
-				
-		      <tr>
-		         <td><a href="/products/IDD10150.shtml" title="Link to Darwin forecast">Darwin</a></td>
-		         <td title="Maximum temperature in degrees Celsius" class="max alignright">32&deg;</td>
-		         <td>Fine and sunny.</td>
-		      </tr>
-				
-		   </tbody>
-		</table>
-				
-		</body>
-		</html>
-		';
-		
-		$dom = new DOMDocument;
-		$dom->loadHTML($html);
-	
-		//$dom->preserveWhiteSpace = false;
-		
-	
-		$tables = $dom->getElementsByTagName('table');
-		$rows = $tables->item(0)->getElementsByTagName('tr');
-		
-		foreach ($rows as $row)
-		{
-			
-			$cols = $row->getElementsByTagName('td');
-			echo $cols->item(0)->nodeValue.'<br />';
-			echo $cols->item(1)->nodeValue.'<br />';
-			echo $cols->item(2)->nodeValue;
-			echo '<hr />';
-		}
-	}
-	
-	public function zf2domAction()
-	{
-		$client = new HttpClient();
-		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
-		 
-		$response = $this->getResponse();
-		$response->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
-		 
-		$client->setUri('http://samsonasik.wordpress.com/');
-		$result                 = $client->send();
-		$body                   = $result->getBody();//content of the web
-		 
-		$dom = new Query($body);
-		//get div with id="content" and h2's NodeList
-		$title = $dom->execute('#content h2');
-	
-		$content = '';
-		foreach($title as $key=>$r)
-		{
-			//per h2 NodeList, has element with tagName = 'a'
-			//DOMElement get Element with tagName = 'a'
-			$aelement     = $r->getElementsByTagName("a")->item(0);
-			 
-			if ($aelement->hasAttributes()) {
-				$content .= '* ';
-				$content .= '<a href='.$aelement->getAttributeNode('href')->nodeValue.'>';
-				$content .= $aelement->textContent;
-				$content .= '</a>';
-				 
-				$content .= "<br />";
-			}
-		}
-		
-		$mainbody = $dom->execute('#content .main');
-		
-		$mainContent = '';
-		foreach ($mainbody as $keydo => $mainelemen)
-		{
-		
-			$mainContent .= '* ';
-			$mainContent .= $this->innerHTML($mainelemen);// get content element div.main
-		   //$mainContent .= $mainelemen->textContent;
-			$mainContent .= "<br/>";
-		}
-		 
-		//$response->setContent($content);
-		
-		$response->setContent($mainContent);
-		
-		return $response;
-	}
-	
-	
 	public function zf2listAction()
 	{
+
+		$zf2array = array (
+				'title' =>'Zf2 Document',
+				'description' => 'App Hưỡng dẫn học Zend Framework 2',
+				'link' =>__METHOD__,
+				'items' => array ()
+		);
+		
 		$client = new HttpClient();
 		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
 			
@@ -391,41 +215,24 @@ class RssgetController extends AbstractActionController {
 		$dom = new Query($body);
 		//get div with id="content" and h2's NodeList
 		$title = $dom->execute('#content h2');
-	
-		$content = '';
+	  
 		foreach($title as $key=>$r)
 		{
-			//per h2 NodeList, has element with tagName = 'a'
-			//DOMElement get Element with tagName = 'a'
 			$aelement     = $r->getElementsByTagName("a")->item(0);
 	
 			if ($aelement->hasAttributes()) {
-				$content .= '* ';
-				$content .= '<a href='.$aelement->getAttributeNode('href')->nodeValue.'>';
-				$content .= $aelement->textContent;
-				$content .= '</a>';
-					
-				$content .= "<br />";
+				$zf2array['items'][] = array (
+						'title' => $aelement->textContent,
+						'link' => $aelement->getAttributeNode('href')->nodeValue,
+						'image' => '',               // function tu dinh nghia
+				);
 			}
+
 		}
-		
-		$response->setContent($content);
-		
-// 		$mainbody = $dom->execute('#content .main');
-	
-// 		$mainContent = '';
-// 		foreach ($mainbody as $keydo => $mainelemen)
-// 		{
-	
-// 			$mainContent .= '* ';
-// 			$mainContent .= $this->innerHTML($mainelemen);// get content element div.main
-// 			//$mainContent .= $mainelemen->textContent;
-// 			$mainContent .= "<br/>";
-// 		}
-		
-// 		$response->setContent($mainContent);
-	
-		return $response;
+
+		return new JsonModel(array(
+				'list' => $zf2array,
+		));
 	}
 	
 	
@@ -443,27 +250,7 @@ class RssgetController extends AbstractActionController {
 		$body                   = $result->getBody();//content of the web
 			
 		$dom = new Query($body);
-// 		//get div with id="content" and h2's NodeList
-// 		$title = $dom->execute('#content h2');
 	
-// 		$content = '';
-// 		foreach($title as $key=>$r)
-// 		{
-// 			//per h2 NodeList, has element with tagName = 'a'
-// 			//DOMElement get Element with tagName = 'a'
-// 			$aelement     = $r->getElementsByTagName("a")->item(0);
-	
-// 			if ($aelement->hasAttributes()) {
-// 				$content .= '* ';
-// 				$content .= '<a href='.$aelement->getAttributeNode('href')->nodeValue.'>';
-// 				$content .= $aelement->textContent;
-// 				$content .= '</a>';
-					
-// 				$content .= "<br />";
-// 			}
-// 		}
-// 		//$response->setContent($content);
-		
 		$mainbody = $dom->execute('#content .main');
 	
 		$mainContent = '';
@@ -482,8 +269,23 @@ class RssgetController extends AbstractActionController {
 	
 		return $response;
 	}
+	
 	public function havltvAction()
 	{
+		
+		$zf2array = array (
+				'title' =>'haivl.tv',
+				'description' => 'Video Clip Giaỉ Trí',
+				'link' =>__METHOD__,
+				'items' => array ()
+		);
+		
+		$haivltv = array (
+				'img' => array ()
+		);
+		
+		
+		
 		$client = new HttpClient();
 		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
 			
@@ -492,12 +294,121 @@ class RssgetController extends AbstractActionController {
 			
 		$client->setUri('http://haivl.tv');
 		$result                 = $client->send();
+		$body                   = $result->getBody();  //content of the web
+			
+		$dom = new Query($body);
+		//get div with id="content" and id=leftColumn NodeList
+		$title = $dom->execute('#content .videoListItem h2');
+		
+		// get Thumbnail img
+		$img = $dom->execute('#content .videoListItem .thumb img ');
+		
+		foreach($title as $key=>$r)
+		{
+			$aelement     = $r->getElementsByTagName("a")->item(0);
+
+			if ($aelement->hasAttributes())
+			 {
+								$zf2array['items'][] = array (
+										'title' => $aelement->textContent,
+										'link' => $aelement->getAttributeNode('href')->nodeValue,
+										'image' => '',               // function tu dinh nghia
+								);
+			 }
+		
+		}
+		
+		foreach ($img as $keydo => $mainelemen)
+		{
+			$haivltv['img'][] = array ( 
+				'image'=>$this->innerHTML($mainelemen),
+				'src'=>$mainelemen->getAttributeNode('src')->nodeValue,
+		       );
+				
+		}
+		
+		
+		return new JsonModel(array(
+				'list' =>$haivltv, //$zf2array,
+		));
+	}
+	
+	
+	public function zf2domAction()
+	{
+		$zf2array = array (
+				'title' =>'Zf2 Document',
+				'description' => 'App Hưỡng dẫn học Zend Framework 2',
+				'link' =>__METHOD__,
+				'items' => array ()
+		);
+	
+		$client = new HttpClient();
+		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
+			
+		$response = $this->getResponse();
+		$response->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+			
+		$client->setUri('http://samsonasik.wordpress.com/');
+		$result                 = $client->send();
 		$body                   = $result->getBody();//content of the web
 			
 		$dom = new Query($body);
 		//get div with id="content" and h2's NodeList
 		$title = $dom->execute('#content h2');
+		// get Content
+		$mainbody = $dom->execute('#content .main');
+		
+		foreach($title as $key=>$r)
+		{
+			$aelement     = $r->getElementsByTagName("a")->item(0);
 	
+			if ($aelement->hasAttributes()) {
+// 				$zf2array['items'][] = array (
+// 						'title' => $aelement->textContent,
+// 						'link' => $aelement->getAttributeNode('href')->nodeValue,
+// 						'image' => '',               // function tu dinh nghia
+// 				);
+			}
+	
+		}
+		
+		foreach ($mainbody as $keydo => $mainelemen)
+		{
+			$zf2array['items'][] = array (
+					'title' => $aelement->textContent,
+					'link' => $aelement->getAttributeNode('href')->nodeValue,
+					'image' => '',               // function tu dinh nghia
+					'content'=>$this->innerHTML($mainelemen),
+			);
+			
+		}
+	
+		return new JsonModel(array(
+				'list' => $zf2array,
+		));
+	
+	
+	
+	}
+	
+	
+	public function zf2dom_backupAction()
+	{
+		$client = new HttpClient();
+		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
+			
+		$response = $this->getResponse();
+		$response->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+			
+		$client->setUri('http://samsonasik.wordpress.com/');
+		$result                 = $client->send();
+		$body                   = $result->getBody();//content of the web
+			
+		$dom = new Query($body);
+		//get div with id="content" and h2's NodeList
+		$title = $dom->execute('#content h2');
+	    //#content #leftColumn"
 		$content = '';
 		foreach($title as $key=>$r)
 		{
@@ -533,6 +444,10 @@ class RssgetController extends AbstractActionController {
 	
 		return $response;
 	}
+	
+	
+	
+	
 	
 	public function innerHTML( $contentdiv ) {
 		$r = '';
@@ -563,6 +478,137 @@ class RssgetController extends AbstractActionController {
 			}
 		}
 		return $r;
+	}
+	
+
+	public function htmldomAction()
+	{
+		// 		$client = new HttpClient();
+		// 		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
+	
+		// 		$method = $this->params()->fromQuery('method', 'get');
+		// 		$client->setUri('http://skunkus.wiredrive.com/present-library-detail/token/cc3d06c1cc3834464aef22836c55d13a/assetId/1541484');
+	
+		// 		switch($method) {
+		// 			case 'get' :
+		// 				$client->setMethod('GET');
+		// 				//$client->setParameterGET(array('id'=>1));
+		// 				break;
+			
+	
+		// 				return $response;
+		// 		}
+	
+		// 		//if get/get-list/create
+		// 		$response = $client->send();
+		// 		if (!$response->isSuccess()) {
+		// 			// report failure
+		// 			$message = $response->getStatusCode() . ': ' . $response->getReasonPhrase();
+	
+		// 			$response = $this->getResponse();
+		// 			$response->setContent($message);
+		// 			return $response;
+		// 		}
+		// 		$body = $response->getBody();
+	
+		// 		$response = $this->getResponse();
+		// 		$response->setContent($body);
+	
+		// 		return $response;
+	}
+	
+	public function curlgetAction()
+	{
+	
+		//$variablee = $this->get_data('http://www.dantri.com.vn');
+		//echo $variablee;
+	
+	
+		$html = '
+		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" dir="ltr">
+		<head>
+		<title>PHPRO.ORG</title>
+		</head>
+		<body>
+		<h2>Forecast for Saturday</h2>
+		<!-- Issued at 0828 UTC Friday 23 May 2008 -->
+		<table border="0" summary="Capital Cities Precis Forecast">
+		   <tbody>
+		      <tr>
+		         <td><a href="/products/IDN10064.shtml" title="Link to Sydney forecast">Sydney</a></td>
+		         <td title="Maximum temperature in degrees Celsius" class="max alignright">19&deg;</td>
+		         <td>Fine. Mostly sunny.</td>
+		      </tr>
+	
+		      <tr>
+		         <td><a href="/products/IDV10450.shtml" title="Link to Melbourne forecast">Melbourne</a></td>
+		         <td title="Maximum temperature in degrees Celsius" class="max alignright">16&deg;</td>
+		         <td>Fog then fine.</td>
+		      </tr>
+	
+		      <tr>
+		         <td><a href="/products/IDQ10095.shtml" title="Link to Brisbane forecast">Brisbane</a></td>
+		         <td title="Maximum temperature in degrees Celsius" class="max alignright">24&deg;</td>
+		         <td>Mostly fine</td>
+		      </tr>
+	
+		      <tr>
+		         <td><a href="/products/IDW12300.shtml" title="Link to Perth forecast">Perth</a></td>
+		         <td title="Maximum temperature in degrees Celsius" class="max alignright">21&deg;</td>
+		         <td>Few showers, increasing later.</td>
+		      </tr>
+	
+		      <tr>
+		         <td><a href="/products/IDS10034.shtml" title="Link to Adelaide forecast">Adelaide</a></td>
+		         <td title="Maximum temperature in degrees Celsius" class="max alignright">20&deg;</td>
+		         <td>Fine. Mostly sunny.</td>
+		      </tr>
+	
+		      <tr>
+		         <td><a href="/products/IDT65061.shtml" title="Link to Hobart forecast">Hobart</a></td>
+		         <td title="Maximum temperature in degrees Celsius" class="max alignright">13&deg;</td>
+		         <td>Mainly fine.</td>
+		      </tr>
+	
+		      <tr>
+		         <td><a href="/products/IDN10035.shtml" title="Link to Canberra forecast">Canberra</a></td>
+		         <td title="Maximum temperature in degrees Celsius" class="max alignright">15&deg;</td>
+		         <td>Fine, mostly sunny.</td>
+		      </tr>
+	
+		      <tr>
+		         <td><a href="/products/IDD10150.shtml" title="Link to Darwin forecast">Darwin</a></td>
+		         <td title="Maximum temperature in degrees Celsius" class="max alignright">32&deg;</td>
+		         <td>Fine and sunny.</td>
+		      </tr>
+	
+		   </tbody>
+		</table>
+	
+		</body>
+		</html>
+		';
+	
+		$dom = new DOMDocument;
+		$dom->loadHTML($html);
+	
+		//$dom->preserveWhiteSpace = false;
+	
+	
+		$tables = $dom->getElementsByTagName('table');
+		$rows = $tables->item(0)->getElementsByTagName('tr');
+	
+		foreach ($rows as $row)
+		{
+				
+			$cols = $row->getElementsByTagName('td');
+			echo $cols->item(0)->nodeValue.'<br />';
+			echo $cols->item(1)->nodeValue.'<br />';
+			echo $cols->item(2)->nodeValue;
+			echo '<hr />';
+		}
 	}
 	
 	public function get_data($url) {
