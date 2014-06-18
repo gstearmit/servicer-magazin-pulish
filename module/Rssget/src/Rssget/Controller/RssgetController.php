@@ -296,9 +296,9 @@ class RssgetController extends AbstractActionController {
 		{
 			$aelement     = $r->getElementsByTagName("a")->item(0);
 			
-
 			if ($aelement->hasAttributes())
 			 {
+			 	$haivltv[$i]->nameapp = 'haivltv';
 			 	$haivltv[$i]->title =  $aelement->textContent;
 			 	$haivltv[$i]->link  = $url_haivltv.$aelement->getAttributeNode('href')->nodeValue;
 			 	$arrayLoop_link[$i]->link = $url_haivltv.$aelement->getAttributeNode('href')->nodeValue;
@@ -344,11 +344,22 @@ class RssgetController extends AbstractActionController {
 			$i++;
 		}
 		
-// // 					echo 'haivltv';
-// // 					echo '<pre>';
-// // 					print_r($haivltv);
-// // 					echo '</pre>';
-// // 					die;
+		// save
+		foreach ($haivltv as $keysave =>$valuehaivlSave)
+		{
+			$arry_tmp = array();
+			$arry_tmp = (array)$valuehaivlSave;
+			$rssget = New Rssget();
+			$rssget->exchangeArray($arry_tmp);
+			$this->getRssgetTable()->saveRssget($rssget);
+		}
+		
+		
+// 					echo 'haivltv';
+// 					echo '<pre>';
+// 					print_r($haivltv);
+// 					echo '</pre>';
+// 					die;
 		
 
 		return new JsonModel(array(
