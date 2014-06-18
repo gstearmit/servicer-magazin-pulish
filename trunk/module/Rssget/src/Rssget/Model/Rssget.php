@@ -10,8 +10,14 @@ use Zend\InputFilter\InputFilterInterface;
 class Rssget implements InputFilterAwareInterface
 {
     public $id;
-    public $artist;
+    public $nameapp;
     public $title;
+    public $link;
+    public $image_thumbnail;
+    public $content_detail;
+    public $content_detail_full;
+    public $extend;
+
 
     protected $inputFilter;
 
@@ -21,8 +27,14 @@ class Rssget implements InputFilterAwareInterface
     public function exchangeArray($data)
     {
         $this->id     = (isset($data['id'])) ? $data['id'] : null;
-        $this->artist = (isset($data['artist'])) ? $data['artist'] : null;
+        $this->nameapp = (isset($data['nameapp'])) ? $data['nameapp'] : null;
         $this->title  = (isset($data['title'])) ? $data['title'] : null;
+        $this->link  = (isset($data['link'])) ? $data['link'] : null;
+        $this->image_thumbnail  = (isset($data['image_thumbnail'])) ? $data['image_thumbnail'] : null;
+        $this->content_detail  = (isset($data['content_detail'])) ? $data['content_detail'] : null;
+        $this->content_detail_full  = (isset($data['content_detail_full'])) ? $data['content_detail_full'] : null;
+        $this->extend  = (isset($data['extend'])) ? $data['extend'] : null;
+
     }
 
     public function getArrayCopy()
