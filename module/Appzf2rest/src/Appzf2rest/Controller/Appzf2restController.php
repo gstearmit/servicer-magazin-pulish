@@ -1,6 +1,6 @@
 <?php
 
-namespace Apphaivltvrest\Controller;
+namespace Appzf2rest\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 
@@ -10,14 +10,14 @@ use Rssget\Form\RssgetForm;       // <-- Add this import
 use Rssget\Model\RssgetTable;     // <-- Add this import
 use Zend\View\Model\JsonModel;
 
-class ApphaivltvrestController extends AbstractRestfulController
+class Appzf2restController extends AbstractRestfulController
 {
     protected $rssgetTable;
 
     public function getList()
     {
     	//echo 'get list';
-    	$results = $this->getRssgetTable()->fetch_All_Apphaivltv_Rest_Orderbyiddesc();
+    	$results = $this->getRssgetTable()->fetch_All_zf2_Rest_Orderbyiddesc();
         $data = array();
         foreach($results as $result) 
         {

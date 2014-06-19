@@ -75,7 +75,19 @@ class RssgetTable extends AbstractTableGateway
     {
         $this->delete(array('id' => $id));
     }
-
+    //zf2
+    public function fetch_All_zf2_Rest_Orderbyiddesc(Select $select = null) {
+    	if (null === $select)
+    	$select = new Select();
+    	$select->from('appsatellite');
+    	$select->where(array('appsatellite.nameapp = \'zf2\''));
+    	$select->order('id DESC');
+    	$resultSet = $this->selectWith($select);
+    	//return $resultSet;die;
+    	$resultSet->buffer();
+    	return $resultSet;
+    }
+    
     //fetch_All_Apphaivltv_Rest_Orderbyiddesc
     public function fetch_All_Apphaivltv_Rest_Orderbyiddesc(Select $select = null) {
     	if (null === $select)
@@ -89,30 +101,19 @@ class RssgetTable extends AbstractTableGateway
     	return $resultSet;
     }
     
-    public function get_app_hai_vltv_rest($id) {
-    	    $id = (int) $id;
-    		$sql = new Sql($this->adapter);
-    		$select = $sql->select();
-    		//$select->columns(array('id'=>'id','title'=>'title','descriptionkey'=>'descriptionkey','imgkey'=>'imgkey'));
-    		$select->columns(array());
-    		$select->from ('appsatellite');
-    	    $select->where(array('appsatellite.id'=>$id ,'appsatellite.nameapp'=>'haivltv'));
-    
-    		$selectString = $sql->prepareStatementForSqlObject($select);
-    		$results = $selectString->execute();
-    
-    		// swap
-    		$array = array();
-    		foreach ($results as $result)
-    		{
-    			$tmp = array();
-    			$tmp= $result;
-    			$array[] = $tmp;
-    		}
-    
-    		return $array;
-    
+    // rest haivl.com
+    public function fetch_All_Apphaivlcom_Rest_Orderbyiddesc(Select $select = null) {
+    	if (null === $select)
+    		$select = new Select();
+    	$select->from('appsatellite');
+    	$select->where(array('appsatellite.nameapp = \'haivlcom\''));
+    	$select->order('id DESC');
+    	$resultSet = $this->selectWith($select);
+    	//return $resultSet;die;
+    	$resultSet->buffer();
+    	return $resultSet;
     }
+  
     
     
 }
