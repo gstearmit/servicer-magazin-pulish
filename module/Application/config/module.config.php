@@ -8,6 +8,7 @@ return array(
                     'route'    => '/',
                     'defaults' => array(
                         'controller' => 'Magazinepublish\Controller\Magazinepublish',
+                    		//'controller' => 'Template\Controller\Index',// set Port CMS 
                         'action'     => 'index',
                     ),
                 ),

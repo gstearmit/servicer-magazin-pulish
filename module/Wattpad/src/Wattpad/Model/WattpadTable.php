@@ -1,13 +1,13 @@
 <?php
 
-namespace Rssget\Model;
+namespace Wattpad\Model;
 
 use Zend\Db\TableGateway\AbstractTableGateway;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\Sql\Select;
 
-class RssgetTable extends AbstractTableGateway
+class WattpadTable extends AbstractTableGateway
 {
     protected $table = 'appsatellite';
 
@@ -15,7 +15,7 @@ class RssgetTable extends AbstractTableGateway
     {
         $this->adapter = $adapter;
         $this->resultSetPrototype = new ResultSet();
-        $this->resultSetPrototype->setArrayObjectPrototype(new Rssget());
+        $this->resultSetPrototype->setArrayObjectPrototype(new Wattpad());
 
         $this->initialize();
     }
@@ -36,7 +36,7 @@ class RssgetTable extends AbstractTableGateway
     	return $resultSet;
     }
 
-    public function getRssget($id)
+    public function getWattpad($id)
     {
         $id  = (int) $id;
         $rowset = $this->select(array('id' => $id));
@@ -47,23 +47,23 @@ class RssgetTable extends AbstractTableGateway
         return $row;
     }
 
-    public function saveRssget(Rssget $rssget)
+    public function saveWattpad(Wattpad $wattpad)
     {
         $data = array(
-	            'nameapp' => $rssget->nameapp,
-	            'title'  => $rssget->title,
-	        	'link'=>$rssget->link,
-        		'image_thumbnail'=>$rssget->image_thumbnail,
-        		'content_detail'=>$rssget->content_detail,
-        		'content_detail_full'=>$rssget->content_detail_full,
-        		'extend'=>$rssget->extend,
+	            'nameapp' => $wattpad->nameapp,
+	            'title'  => $wattpad->title,
+	        	'link'=>$wattpad->link,
+        		'image_thumbnail'=>$wattpad->image_thumbnail,
+        		'content_detail'=>$wattpad->content_detail,
+        		'content_detail_full'=>$wattpad->content_detail_full,
+        		'extend'=>$wattpad->extend,
         );
 
-        $id = (int)$rssget->id;
+        $id = (int)$wattpad->id;
         if ($id == 0) {
             $this->insert($data);
         } else {
-            if ($this->getRssget($id)) {
+            if ($this->getWattpad($id)) {
                 $this->update($data, array('id' => $id));
             } else {
                 throw new \Exception('Form id does not exist');
@@ -71,7 +71,7 @@ class RssgetTable extends AbstractTableGateway
         }
     }
 
-    public function deleteRssget($id)
+    public function deleteWattpad($id)
     {
         $this->delete(array('id' => $id));
     }

@@ -91,7 +91,10 @@ class UploadstoryController extends AbstractActionController {
 			$form->setInputFilter( $upload->getInputFilter() ); // check validate
 				
 			$data = array_merge_recursive ( $this->getRequest ()->getPost ()->toArray (), $this->getRequest ()->getFiles ()->toArray () );
-				
+
+// 			var_dump($data);
+// 			die;
+			
 			$form->setData ( $data ); // get all post
 	
 			// Validate the form
@@ -288,7 +291,8 @@ class UploadstoryController extends AbstractActionController {
 		//$files = glob($path.'{*.gif,*.jpg,*.jpeg,*.png}',GLOB_BRACE|GLOB_NOSORT);
 		
 		$files = glob($path.'/*.JPG',GLOB_BRACE|GLOB_NOSORT);
-	
+		//$files = glob($path.'/*.png',GLOB_BRACE|GLOB_NOSORT);
+		
 		if ( $sort !== false ) {
 			usort($files, $sort);
 		}
