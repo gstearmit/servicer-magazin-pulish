@@ -13,6 +13,8 @@
 	define('Appeditor_PATH'	, realpath(PUBLIC_PATH . '/appeditor'));
 	define('PORTCMS_PATH'	, realpath(PUBLIC_PATH . '/portcms'));
 	define('TEMPLATE_ISSUS'	, realpath(PUBLIC_PATH . '/Page_Bottom_Issus'));
+	
+	//default.png
 	define('FILES_PATH'	, realpath(PUBLIC_PATH . '/files'));
 	define('MZIMG_PATH'	, realpath(PUBLIC_PATH . '/images'));
 	

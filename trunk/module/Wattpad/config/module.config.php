@@ -2,22 +2,22 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Rssget\Controller\Rssget' => 'Rssget\Controller\RssgetController',
+            'Wattpad\Controller\Wattpad' => 'Wattpad\Controller\WattpadController',
         ),
     ),
     
     'router' => array(
         'routes' => array(
-            'rssget' => array(
+            'wattpad' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/rssget[/:action][/:id]',
+                    'route'    => '/wattpad[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Rssget\Controller\Rssget',
+                        'controller' => 'Wattpad\Controller\Wattpad',
                         'action'     => 'rssget',
                     ),
                 ),
@@ -27,10 +27,10 @@ return array(
 
     'view_manager' => array(
         'template_path_stack' => array(
-            'Rssget' => __DIR__ . '/../view',
+            'Wattpad' => __DIR__ . '/../view',
         ),
     		'template_map' => array(
-    				'paginator-Rssget' => __DIR__ . '/../view/layout/slidePaginator.phtml',
+    				'paginator-wattpad' => __DIR__ . '/../view/layout/slidePaginator.phtml',
     		),
     		'strategies' => array(
     				'ViewJsonStrategy',

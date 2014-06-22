@@ -124,10 +124,9 @@ class RssgetController extends AbstractActionController {
 	}
 	public function rssgetAction() {
 		try {
-			
 			$rss = feed\Reader::import ( 'http://www.wdcdn.net/rss/presentation/library/client/skunkus/id/cc3d06c1cc3834464aef22836c55d13a' );
 		} catch ( feed\Exception\RuntimeException $e ) {
-			echo "error : " . $e->getMessage ();
+			echo "error : " . $e-> getMessage ();
 			exit ();
 		}
 		
@@ -300,14 +299,14 @@ class RssgetController extends AbstractActionController {
 	public function haivlcomAction()
 	{
 	
-		$url_haivltv = "http://haivl.com";
+		$url_haivlcom = "http://haivl.com";
 		$client = new HttpClient();
 		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
 			
 		$response = $this->getResponse();
 		$response->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
 			
-		$client->setUri($url_haivltv);
+		$client->setUri($url_haivlcom);
 		$result                 = $client->send();
 		$body                   = $result->getBody();  //content of the web
 	
@@ -316,7 +315,7 @@ class RssgetController extends AbstractActionController {
 		//get div with id="content" and id=leftColumn NodeList
 		$title = $dom->execute('#content .info h2');
 	
-		$haivltv = array ();
+		$haivlcom = array ();
 		$arrayLoop_link = array();
 		$i = 0;
 		foreach($title as $key=>$r)
@@ -325,10 +324,10 @@ class RssgetController extends AbstractActionController {
 				
 			if ($aelement->hasAttributes())
 			{
-				$haivltv[$i]->nameapp = 'haivlcom';
-				$haivltv[$i]->title =  $aelement->textContent;
-				$haivltv[$i]->link  = $url_haivltv.$aelement->getAttributeNode('href')->nodeValue;
-				$arrayLoop_link[$i]->link = $url_haivltv.$aelement->getAttributeNode('href')->nodeValue;
+				$haivlcom[$i]->nameapp = 'haivlcom';
+				$haivlcom[$i]->title =  $aelement->textContent;
+				$haivlcom[$i]->link  = $url_haivlcom.$aelement->getAttributeNode('href')->nodeValue;
+				$arrayLoop_link[$i]->link = $url_haivlcom.$aelement->getAttributeNode('href')->nodeValue;
 				$i++;
 					
 			}
@@ -348,7 +347,7 @@ class RssgetController extends AbstractActionController {
 				
 			if ($mainelemen->hasAttributes())
 			{
-				$haivltv[$i]->image_thumbnail = $mainelemen->getAttributeNode('src')->nodeValue;
+				$haivlcom[$i]->image_thumbnail = $mainelemen->getAttributeNode('src')->nodeValue;
 				$i++;
 			}
 				
@@ -364,8 +363,8 @@ class RssgetController extends AbstractActionController {
 		{
 			$link_detail = $valuehaivl->link;
 // 			$content_detail = $this->getcontent_url_haivlcom_detail($link_detail);
-// 			$haivltv[$i]->content_detail = $content_detail;
-			$haivltv[$i]->content_detail = '';
+// 			$haivlcom[$i]->content_detail = $content_detail;
+			$haivlcom[$i]->content_detail = '';
 			$i++;
 		}
 			
@@ -375,13 +374,13 @@ class RssgetController extends AbstractActionController {
 		{
 			$link_detail_full = $valuehaivl->link;
 // 			$content_detail_full = $this->getContent_full_url_detail($link_detail_full);
-// 			$haivltv[$i]->content_detail_full = $content_detail_full;
-			$haivltv[$i]->content_detail_full = '';
+// 			$haivlcom[$i]->content_detail_full = $content_detail_full;
+			$haivlcom[$i]->content_detail_full = '';
 			$i++;
 		}
 	
 		// save  database
-		foreach ($haivltv as $keysave =>$valuehaivlSave)
+		foreach ($haivlcom as $keysave =>$valuehaivlSave)
 		{
 			$arry_tmp = array();
 			$arry_tmp = (array)$valuehaivlSave;
@@ -391,18 +390,18 @@ class RssgetController extends AbstractActionController {
 		}
 	
 	
-// 							echo 'haivltv';
+// 							echo 'haivlcom';
 // 							echo '<pre>';
 // 							print_r($arrayLoop_link);
 // 							echo '</pre>';
 // 							echo '<pre>';
-// 							print_r($haivltv);
+// 							print_r($haivlcom);
 // 							echo '</pre>';
 // 							die;
 	
 	
 		return new JsonModel(array(
-				'data' =>$haivltv,
+				'data' =>$haivlcom,
 		));
 	}
 	
@@ -500,6 +499,243 @@ class RssgetController extends AbstractActionController {
 
 		return new JsonModel(array(
 				'data' =>$haivltv, 
+		));
+	}
+	
+	
+	public function minecraftmodscomAction()
+	{
+	
+		$url_minecraftmodscom = "http://www.minecraftmods.com/toomanyitems/";
+		$client = new HttpClient();
+		$client->setAdapter('Zend\Http\Client\Adapter\Curl');
+			
+		$response = $this->getResponse();
+		$response->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+			
+		$client->setUri($url_minecraftmodscom);
+		$result                 = $client->send();
+		$body                   = $result->getBody();  //content of the web
+	   // echo $body;die;
+		$dom = new Query($body);
+	
+		//get div with id="content" and id=leftColumn NodeList
+		$toomanyitems = $dom->execute('#wrap .post');
+	   
+// 	    var_dump($toomanyitems->count());
+// 	    die();
+		
+		$minecraftmodscom = array ();
+		$arrayLoop_link = array();
+		
+		// catalogue toomanyitems
+		$i = 0;
+		foreach ($toomanyitems as $keyvd => $valuevd)
+		{
+			
+			$minecraftmodscom[$i]->nameapp = 'minecraftmodscom';
+			$minecraftmodscom[$i]->title = 'minecraftmodscom - toomanyitems ';
+			$minecraftmodscom[$i]->link  = 'http://www.minecraftmods.com/toomanyitems/';
+			$minecraftmodscom[$i]->content_detail = $this->innerHTML($valuevd);
+			$minecraftmodscom[$i]->content_detail_full = '';
+			// 				$i++;
+		}
+	
+		// get Thumbnail img
+		$img = $dom->execute('#wrap .post img.alignnone');
+		$i = 0;
+		foreach ($img as $keydo => $mainelemen)
+		{
+				
+				
+			if ($mainelemen->hasAttributes())
+			{
+				$minecraftmodscom[$i]->image_thumbnail = $mainelemen->getAttributeNode('src')->nodeValue;
+				//$i++;
+			}
+				
+		}
+		
+		// catalogue 2 : 
+		$url_furniture_mod = "http://www.minecraftmods.com/furniture-mod";
+		$client2 = new HttpClient();
+		$client2->setAdapter('Zend\Http\Client\Adapter\Curl');
+			
+		$response2 = $this->getResponse();
+		$response2->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+			
+		$client2->setUri($url_furniture_mod);
+		$result2                 = $client2->send();
+		$body2                   = $result2->getBody();  //content of the web
+		// echo $body;die;
+		$dom2 = new Query($body2);
+		
+		//get div with id="content" and id=leftColumn NodeList
+		$furniture_mod = $dom2->execute('#wrap .post');
+		$i = 1;
+		foreach ($furniture_mod as $keyvd => $valuevd)
+		{
+				
+			$minecraftmodscom[$i]->nameapp = 'minecraftmodscom';
+			$minecraftmodscom[$i]->title = 'minecraftmodscom - furniture-mod ';
+			$minecraftmodscom[$i]->link  = 'http://www.minecraftmods.com/furniture-mod';
+			$minecraftmodscom[$i]->content_detail = $this->innerHTML($valuevd);
+			$minecraftmodscom[$i]->content_detail_full = '';
+			//$i++;
+		}
+		// get Thumbnail img
+		$img2 = $dom->execute('#wrap .post img.alignnone');
+		$i = 1;
+		foreach ($img2 as $keydo2 => $mainelemen2)
+		{
+			if ($mainelemen2->hasAttributes())
+			{
+				$minecraftmodscom[$i]->image_thumbnail = $mainelemen2->getAttributeNode('src')->nodeValue;
+				//$i++;
+			}
+		
+		}
+		
+		// catalogue 3 :
+		$url_voxelmap = "http://www.minecraftmods.com/voxelmap";
+		$client3 = new HttpClient();
+		$client3->setAdapter('Zend\Http\Client\Adapter\Curl');
+			
+		$response3 = $this->getResponse();
+		$response3->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+			
+		$client3->setUri($url_voxelmap);
+		$result3                 = $client3->send();
+		$body3                   = $result3->getBody();  //content of the web
+		// echo $body;die;
+		$dom3 = new Query($body3);
+		
+		//get div with id="content" and id=leftColumn NodeList
+		$voxelmap = $dom3->execute('#wrap .post');
+		$i = 2;
+		foreach ($voxelmap as $keyvd => $valuevd)
+		{
+		
+			$minecraftmodscom[$i]->nameapp = 'minecraftmodscom';
+			$minecraftmodscom[$i]->title = 'minecraftmodscom - voxelmap ';
+			$minecraftmodscom[$i]->link  = 'http://www.minecraftmods.com/voxelmap';
+			$minecraftmodscom[$i]->content_detail = $this->innerHTML($valuevd);
+			$minecraftmodscom[$i]->content_detail_full = '';
+			//$i++;
+		}
+		// get Thumbnail img
+		$img3 = $dom3->execute('#wrap .post img.alignnone');
+		$i = 2;
+		foreach ($img3 as $keydo3 => $mainelemen3)
+		{
+			if ($mainelemen3->hasAttributes())
+			{
+				$minecraftmodscom[$i]->image_thumbnail = $mainelemen3->getAttributeNode('src')->nodeValue;
+				//$i++;
+			}
+		
+		}
+		
+		// catalogue 4 :
+		$url_millenaire = "http://www.minecraftmods.com/millenaire";
+		$client4 = new HttpClient();
+		$client4->setAdapter('Zend\Http\Client\Adapter\Curl');
+			
+		$response4 = $this->getResponse();
+		$response4->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+			
+		$client3->setUri($url_millenaire);
+		$result3                 = $client3->send();
+		$body3                   = $result3->getBody();  //content of the web
+		// echo $body;die;
+		$dom3 = new Query($body3);
+		
+		//get div with id="content" and id=leftColumn NodeList
+		$millenaire = $dom3->execute('#wrap .post');
+		$i = 3;
+		foreach ($millenaire as $keyvd => $valuevd)
+		{
+		
+			$minecraftmodscom[$i]->nameapp = 'minecraftmodscom';
+			$minecraftmodscom[$i]->title = 'minecraftmodscom - millenaire ';
+			$minecraftmodscom[$i]->link  = 'http://www.minecraftmods.com/millenaire';
+			$minecraftmodscom[$i]->content_detail = $this->innerHTML($valuevd);
+			$minecraftmodscom[$i]->content_detail_full = '';
+			//$i++;
+		}
+		// get Thumbnail img
+		$img4 = $dom3->execute('#wrap .post img.alignnone');
+		$i = 3;
+		foreach ($img4 as $keydo3 => $mainelemen3)
+		{
+			if ($mainelemen3->hasAttributes())
+			{
+				$minecraftmodscom[$i]->image_thumbnail = $mainelemen3->getAttributeNode('src')->nodeValue;
+				//$i++;
+			}
+		
+		}
+		
+		// catalogue 5 :
+		$url_oceancraft = "http://www.minecraftmods.com/oceancraft";
+		$client5 = new HttpClient();
+		$client5->setAdapter('Zend\Http\Client\Adapter\Curl');
+			
+		$response5 = $this->getResponse();
+		$response5->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+			
+		$client5->setUri($url_oceancraft);
+		$result5                 = $client5->send();
+		$body5                   = $result5->getBody();  //content of the web
+		// echo $body;die;
+		$dom5 = new Query($body5);
+		
+		//get div with id="content" and id=leftColumn NodeList
+		$oceancraft = $dom5->execute('#wrap .post');
+		$i = 4;
+		foreach ($oceancraft as $keyvd => $valuevd)
+		{
+		
+			$minecraftmodscom[$i]->nameapp = 'minecraftmodscom';
+			$minecraftmodscom[$i]->title = 'minecraftmodscom - oceancraft ';
+			$minecraftmodscom[$i]->link  = 'http://www.minecraftmods.com/oceancraft';
+			$minecraftmodscom[$i]->content_detail = $this->innerHTML($valuevd);
+			$minecraftmodscom[$i]->content_detail_full = '';
+			//$i++;
+		}
+		// get Thumbnail img
+		$img5 = $dom5->execute('#wrap .post img.alignnone');
+		$i = 4;
+		foreach ($img5 as $keydo3 => $mainelemen3)
+		{
+			if ($mainelemen3->hasAttributes())
+			{
+				$minecraftmodscom[$i]->image_thumbnail = $mainelemen3->getAttributeNode('src')->nodeValue;
+				//$i++;
+			}
+		
+		}
+	
+		// save
+		foreach ($minecraftmodscom as $keysave =>$minecraftmodscomvl)
+		{
+			$arry_tmp = array();
+			$arry_tmp = (array)$minecraftmodscomvl;
+			$rssget = New Rssget();
+			$rssget->exchangeArray($arry_tmp);
+			$this->getRssgetTable()->saveRssget($rssget);
+		}
+	
+	
+// 							echo 'minecraftmodscom';
+// 							echo '<pre>';
+// 							print_r($minecraftmodscom);
+// 							echo '</pre>';
+// 							die;
+	
+	
+		return new JsonModel(array(
+				'data' =>$minecraftmodscom,
 		));
 	}
 	

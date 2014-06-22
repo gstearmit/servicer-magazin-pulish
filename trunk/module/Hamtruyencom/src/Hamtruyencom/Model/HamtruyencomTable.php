@@ -1,13 +1,13 @@
 <?php
 
-namespace Rssget\Model;
+namespace Hamtruyencom\Model;
 
 use Zend\Db\TableGateway\AbstractTableGateway;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\Sql\Select;
 
-class RssgetTable extends AbstractTableGateway
+class HamtruyencomTable extends AbstractTableGateway
 {
     protected $table = 'appsatellite';
 
@@ -15,7 +15,7 @@ class RssgetTable extends AbstractTableGateway
     {
         $this->adapter = $adapter;
         $this->resultSetPrototype = new ResultSet();
-        $this->resultSetPrototype->setArrayObjectPrototype(new Rssget());
+        $this->resultSetPrototype->setArrayObjectPrototype(new Hamtruyencom());
 
         $this->initialize();
     }
@@ -36,7 +36,7 @@ class RssgetTable extends AbstractTableGateway
     	return $resultSet;
     }
 
-    public function getRssget($id)
+    public function getHamtruyencom($id)
     {
         $id  = (int) $id;
         $rowset = $this->select(array('id' => $id));
@@ -47,23 +47,23 @@ class RssgetTable extends AbstractTableGateway
         return $row;
     }
 
-    public function saveRssget(Rssget $rssget)
+    public function saveHamtruyencom(Hamtruyencom $hamtruyencom)
     {
         $data = array(
-	            'nameapp' => $rssget->nameapp,
-	            'title'  => $rssget->title,
-	        	'link'=>$rssget->link,
-        		'image_thumbnail'=>$rssget->image_thumbnail,
-        		'content_detail'=>$rssget->content_detail,
-        		'content_detail_full'=>$rssget->content_detail_full,
-        		'extend'=>$rssget->extend,
+	            'nameapp' => $hamtruyencom->nameapp,
+	            'title'  => $hamtruyencom->title,
+	        	'link'=>$hamtruyencom->link,
+        		'image_thumbnail'=>$hamtruyencom->image_thumbnail,
+        		'content_detail'=>$hamtruyencom->content_detail,
+        		'content_detail_full'=>$hamtruyencom->content_detail_full,
+        		'extend'=>$hamtruyencom->extend,
         );
 
-        $id = (int)$rssget->id;
+        $id = (int)$hamtruyencom->id;
         if ($id == 0) {
             $this->insert($data);
         } else {
-            if ($this->getRssget($id)) {
+            if ($this->getHamtruyencom($id)) {
                 $this->update($data, array('id' => $id));
             } else {
                 throw new \Exception('Form id does not exist');
@@ -71,7 +71,7 @@ class RssgetTable extends AbstractTableGateway
         }
     }
 
-    public function deleteRssget($id)
+    public function deleteHamtruyencom($id)
     {
         $this->delete(array('id' => $id));
     }
