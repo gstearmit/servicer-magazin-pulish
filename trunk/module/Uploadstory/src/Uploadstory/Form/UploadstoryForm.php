@@ -64,6 +64,39 @@ class uploadstoryForm extends Form
         		)
         ));
         
+     // public function getNameStorySelect()
+    // public function getNameChapterSelect()
+        $this->add(array(
+        		'type' => 'Zend\Form\Element\Select',
+        		'name' => 'story_id',
+        		'options' => array(
+        				'label' => 'Select a name story ',
+        				'empty_option' => 'Please Select a name story',
+        				'value_options' => $this->getNameStorySelect()
+        		),
+        		'attributes' => array(
+        				'value' => 0, //set selected to '1'
+        				'inarrayvalidator' => true,
+        
+        		)
+        ));
+        
+        $this->add(array(
+        		'type' => 'Zend\Form\Element\Select',
+        		'name' => 'extend_chapter_id',
+        		'options' => array(
+        				'label' => 'Select a Chapter ',
+        				'empty_option' => 'Please Select a Chapter',
+        				'value_options' => $this->getNameChapterSelect()
+        		),
+        		'attributes' => array(
+        				'value' => 0, //set selected to '1'
+        				'inarrayvalidator' => true,
+        
+        		)
+        ));
+        
+        
         $this->add(array(
         		'name' => 'descriptionkey',
         		'attributes' => array(
@@ -82,7 +115,7 @@ class uploadstoryForm extends Form
         				'required' => 'required',
         		),
         		'options' => array(
-        				'label' => 'Title',
+        				'label' => 'Name Story',
         		),
         ));
         
@@ -139,6 +172,35 @@ class uploadstoryForm extends Form
     	return $selectData;
     }
     
+    public function getNameStorySelect()
+    {
+    	$dbAdapter = $this->adapter;
+    	$sql       = 'SELECT * FROM story ';
+    	$statement = $dbAdapter->query($sql);
+    	$result    = $statement->execute();
+    
+    	$selectData = array();
+    
+    	foreach ($result as $res) {
+    		$selectData[$res['id']] = $res['title'];
+    	}
+    	return $selectData;
+    }
+    
+    public function getNameChapterSelect()
+    {
+    	$dbAdapter = $this->adapter;
+    	$sql       = 'SELECT * FROM chapter ';
+    	$statement = $dbAdapter->query($sql);
+    	$result    = $statement->execute();
+    
+    	$selectData = array();
+    
+    	foreach ($result as $res) {
+    		$selectData[$res['id']] = $res['name'];
+    	}
+    	return $selectData;
+    }
     
     //getidcatalogue
     public function getidcatalogue()

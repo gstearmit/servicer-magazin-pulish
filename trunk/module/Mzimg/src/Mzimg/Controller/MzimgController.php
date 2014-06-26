@@ -91,9 +91,11 @@ class MzimgController extends AbstractActionController {
         }
         
         $mzimgs = $this->getMzimgTable()->fetchAll($select);
+        
+
+        $totalRecord  = $mzimgs->count();
        
         
-        $totalRecord  = $mzimgs->count();
         $itemsPerPage = 10;        // is Number record/page
         $mzimgs->current();
         $paginator = new Paginator(new paginatorIterator($mzimgs));
@@ -101,6 +103,8 @@ class MzimgController extends AbstractActionController {
                   ->setItemCountPerPage($itemsPerPage)
                   ->setPageRange(4);  // is number page want view
 
+        
+        
         return new ViewModel(array(
         		    'search_by'  => $search_by,
                     'order_by' => $order_by,
@@ -200,6 +204,7 @@ class MzimgController extends AbstractActionController {
 //     	}
     	
     	$mzimgArray  = $this->getMzimgTable ()->fetchAllDetailMzimg ($id);
+    	
     	
     	
     	$dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');

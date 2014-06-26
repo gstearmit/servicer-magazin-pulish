@@ -536,69 +536,10 @@ class HamtruyencomController extends AbstractActionController {
 		echo '<pre>';
 		print_r($array);
 		echo '</pre>';
-		die;
-	
-// 		// .doctruyen_last_first :  link doc truyen
-// 		$link_story_get = $dom->execute('.wrapper_sanpham .doctruyen_last_first');
-// 		//var_dump($link_story_get->count());die;
-// 		foreach ($link_story_get as $key => $aelement)
-// 		{
-// 			$conten_text     = $aelement->getElementsByTagName("a")->item(0);
-// 			if ($aelement->hasAttributes())
-// 			{
-// 				$link_story_start  = $domain.$conten_text->getAttributeNode('href')->nodeValue;
-	
-// 				// eplox get string loop
-// 				$array_explo = explode("/", $conten_text->getAttributeNode('href')->nodeValue);  // $conten_text->getAttributeNode('href')->nodeValue) = '/doc-truyen/cuu-dinh-ky-chapter-1.html'
-// 				$link_story = $array_explo[1];  // doc-truyen
-// 				$url_start = explode(".",$array_explo[2]);                                      // cuu-dinh-ky-chapter-1.html
-// 				$url_next = $url_start[0];
-// 				$pieces2 = explode('-', $url_next);
-// 				foreach ($pieces2 as $e)
-// 				{
-// 					if (is_numeric($e))
-// 					{
-// 						$url_number = $e;
-// 					}
-// 				}
-	
-// 				//$url_loop = preg_replace('/1/', '', 'cuu-dinh-ky-chapter-1') ;
-// 				//$url_loop = str_replace('1', '', 'cuu-dinh-ky-chapter-1') ;
-	
-// 				$reple = '/'.$url_number.'/';                        //"'/.1.'/";
-// 				$url_loop = preg_replace($reple, '', $url_next) ;   // 'cuu-dinh-ky-chapter-'
-// 				$link_loop_real = $domain.'/'.$link_story.'/'.$url_loop;
-	
-// 			}
-// 		}
-	
-// 		$client2 = new HttpClient();
-// 		$client2->setAdapter('Zend\Http\Client\Adapter\Curl');
-	
-// 		$response2 = $this->getResponse();
-// 		$response2->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
-	
-// 		$client2->setUri('http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-1.html');
-// 		$result2                 = $client2->send();
-// 		$body2                   = $result2->getBody();  //content of the web
-	
-// 		echo $body2; die('loi o day ');
-			
-// 		//echo $body2;
-// 		$dom2 = new Query($body2);
-// 		//get video
-// 		$img_array = $dom2->execute('#content .content_chap img');
-	
-// 		var_dump($img_array->count());
-// 		//var_dump($img_array->getXpathQuery());
 // 		die;
+
 	
-	
-	
-	
-	
-	
-	
+	// get det tail 
 	
 	
 // 		// GetConTentFull Deatil
@@ -664,7 +605,85 @@ class HamtruyencomController extends AbstractActionController {
 		));
 	}
 	
+	public  function detailAction()
+	//public function truyentranhtuancomAction()
+	{
+		$clienttest = new HttpClient();
+		$clienttest->setAdapter('Zend\Http\Client\Adapter\Curl');
+		
+		$responsetest = $this->getResponse();
+		$responsetest->getHeaders()->addHeaderLine('content-type', 'text/html; charset=utf-8'); //set content-type
+		
+		$clienttest->setUri('http://truyentranhtuan.com/cuu-dinh-ky-chuong-5/');
+		$resulttest                 = $clienttest->send();
+		$bodytest                   = $resulttest->getBody();  //content of the web
+		
+// 		var_dump(is_array($bodytest));
+// 		var_dump(is_string($bodytest));
+		
+// 		$domhtml = new \simple_html_dom();
+// 		$html = $domhtml->loadFile($bodytest);
+// 		var_dump($html);
+		
+		
+// 		$string = '<script type="text/javascript">';
+// 		print strpos($bodytest, $string) . "\n";
+		
+// 		die;
+		
+//        // echo $bodytest; die();
+// 		//echo $body2;
+// 		$domtest = new Query($bodytest); // return xml 
 	
+// 		//echo "<pre>";
+// 		echo ($domtest);
+// 		//echo '</pre>';
+// 		die;
+		
+// 		//print_r($domtest);//die;
+// 		$img_array = $domtest->execute('.wrapper #viewer');
+		
+// 		var_dump($img_array->count());
+// 		//var_dump($img_array->getXpathQuery());
+// // 		echo "<pre>";
+// // 		print_r($img_array);
+// // 		echo '</pre>';
+// 		die;
+		
+		$slides_page_path = '{"cards":["http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-014.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-006.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-005.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-013.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-016.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-018.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-008.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-022.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-011.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-023.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-015.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-012.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-021.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-010.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-004.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-002.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-007.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-019.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-017.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-001.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-024.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-020.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-003.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-009.jpg"]}';
+		$arr = json_decode($slides_page_path, TRUE);
+		
+// 		$json_raw = '{"cards":
+// 		[{"id":100001,"name":"batman","image":11111,"size":75,"region_id":1,"locked":false,"status":"active","created_at":"2013-08-15T11:37:07Z"},
+// 		{"id":100002,"name":"superman","image":111111,"size":75,"region_id":1,"locked":false,"status":"active","created_at":"2013-08-15T12:30:09Z"},
+// 		{"id":100003,"name":"catwoman","image":1111111,"size":75,"region_id":1,"locked":false,"status":"active","created_at":"2013-08-15T12:39:42Z"},
+// 		{"id":100004,"name":"bane","image":1111111,"size":75,"region_id":1,"locked":false,"status":"active","created_at":"2013-09-08T12:56:04Z"}
+// 		]}';
+		
+// 		$arr = json_decode($json_raw, TRUE);
+		
+// 		// ### getting the name of first man ###
+		
+// 		$man1 = $arr['cards']['0']['name'];
+// 		if(isset($man1) && $man1 == 'batman') {
+// 			echo 'BATMAN RULEZ';
+// 		}
+		
+// 		echo "\n\n\n"; // moar space
+// 		// ### in a loop ###
+		
+		for ($i=0; $i < count($arr['cards']); $i++)
+		 {
+			echo $arr['cards'][$i]."</br>";
+		}
+		
+		
+		die;
+		
+		return new JsonModel(array(
+				'data' =>$hamtruyencom,
+		));
+	}
 	
 	
 	public function innerHTML( $contentdiv ) {

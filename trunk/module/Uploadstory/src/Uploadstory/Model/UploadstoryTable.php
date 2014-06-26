@@ -154,6 +154,7 @@ class UploadstoryTable extends AbstractTableGateway {
         	'imgkey' => $upload->imgkey,
             'title' => $upload->title,
         	'patient_id' => $upload->patient_id,
+        	'extend_chapter_id'=>$upload->extend_chapter_id,
         		
         );
 
@@ -170,6 +171,33 @@ class UploadstoryTable extends AbstractTableGateway {
         }
     }
     
+    
+    public function saveChapter(Uploadstory $upload)
+    {
+    	  $data = array(
+        	'extend_chapter_id'=>$upload->extend_chapter_id,		
+          );
+    	  
+    	  
+    	if (is_array($arrayImages) and !empty($arrayImages))
+    	{
+    		foreach ($arrayImages as $key => $imgvalue)
+    		{
+    			$dbAdapter = $this->adapter;
+    			$sql       = "INSERT INTO chapter (idmz,img,description,title,page)
+                              VALUES ('".$id."','".$img."','','','".$i."')";
+    
+    			$statement = $dbAdapter->query($sql);
+    			//return $statement; die;
+    			$result    = $statement->execute();
+    			
+    		}
+    
+    		return $result = 1;
+    	}else
+    		return $result = Null;
+    
+    }
     
     public function saveUpload2(Upload $upload) {
     	
@@ -201,7 +229,7 @@ class UploadstoryTable extends AbstractTableGateway {
     }
 
     
-    public function getInsertUploadDetail($arrayImages = Array() , $id , $namefolder)
+    public function getInsertUploadDetail($arrayImages = Array() , $id,$id_chapter, $namefolder)
     {
     	$id = (int) $id;
     	if (is_array($arrayImages) and !empty($arrayImages))
@@ -211,8 +239,8 @@ class UploadstoryTable extends AbstractTableGateway {
     		{
     			$img = $namefolder.'/'.$imgvalue;
     			$dbAdapter = $this->adapter;
-    			$sql       = "INSERT INTO storydetail (idmz,img,description,title,page)
-                              VALUES ('".$id."','".$img."','','','".$i."')";
+    			$sql       = "INSERT INTO storydetail (idmz,img,description,title,page,extend_chapter_id)
+                              VALUES ('".$id."','".$img."','','','".$i."','".$id_chapter."')";
                           
     		    $statement = $dbAdapter->query($sql);
     			//return $statement; die; 
@@ -225,6 +253,9 @@ class UploadstoryTable extends AbstractTableGateway {
     		return $result = Null;
     
     }
+    
+    
+   
     
     public function getReadUploaddetail($id)
     {

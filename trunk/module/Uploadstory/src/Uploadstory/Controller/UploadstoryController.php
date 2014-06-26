@@ -87,6 +87,7 @@ class UploadstoryController extends AbstractActionController {
 		{
 				
 			$upload = new UploadstoryModel();
+			//$chapter = new ChapterModel();
 				
 			$form->setInputFilter( $upload->getInputFilter() ); // check validate
 				
@@ -114,11 +115,18 @@ class UploadstoryController extends AbstractActionController {
 
 				   // Move and Upload Imgkey ,upload + creat thumbnail
 				    $renamefile = $this->uploadImageAlatca($data['imgkey']); // Name  imgkey i s renmane
+				    
 				  // Save Database 
 				    $upload->dataArraySwap($form->getData(),$renamefile);
-					$id_curent_row_upload = $this->getUploadstoryTable()->saveUploadstory($upload);
+					$idStory = $this->getUploadstoryTable()->saveUploadstory($upload); // save story
 					
-				  if($id_curent_row_upload == Null)
+					//get_chapter _id 
+					$array = (array)$form->getData();
+					$id_chapter = $array['extend_chapter_id'];  // id chapter
+// 				    var_dump($id_chapter);
+// 					die;
+					
+				  if($idStory == Null)
 				  {
 				  	die('Oop! Error , Not Save Database . Please try again!');
 				  }
@@ -206,8 +214,9 @@ class UploadstoryController extends AbstractActionController {
 // 								print_r($imgArray);
 // 								echo '</pre>';
 							   
-								// save data base Upload detail 
-								$returnResult = $this->getUploadstoryTable()->getInsertUploadDetail($imgArray , $id_curent_row_upload, $name[0]);
+								// Save data
+								$returnResult = $this->getUploadstoryTable()->getInsertUploadDetail($imgArray , $idStory,$id_chapter, $name[0]);   // save data story detail 
+								
 								
 							    if($returnResult === 1)
 							    {
