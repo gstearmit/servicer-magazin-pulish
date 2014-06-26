@@ -40,6 +40,8 @@ class Uploadstory implements InputFilterAwareInterface {
 		$this->title = (isset ( $data ['title'] )) ? $data ['title'] : null;
 		$this->imgkey = $Renamefile;
 		$this->patient_id = (isset ( $data ['patient_id'] )) ? $data ['patient_id'] : null;
+		$this->story_id = (isset ( $data ['story_id'] )) ? $data ['story_id'] : null;
+		$this->extend_chapter_id = (isset ( $data ['extend_chapter_id'] )) ? $data ['extend_chapter_id'] : null;
 		 
 	}
 	public function dataPost($data) {
