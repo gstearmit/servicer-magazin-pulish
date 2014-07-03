@@ -13,6 +13,7 @@
 	define('Appeditor_PATH'	, realpath(PUBLIC_PATH . '/appeditor'));
 	define('PORTCMS_PATH'	, realpath(PUBLIC_PATH . '/portcms'));
 	define('TEMPLATE_ISSUS'	, realpath(PUBLIC_PATH . '/Page_Bottom_Issus'));
+	define('DIR_UPLOAD_NEW'	, realpath(PUBLIC_PATH.'/uploadnews'));
 	
 	//default.png
 	define('FILES_PATH'	, realpath(PUBLIC_PATH . '/files'));
