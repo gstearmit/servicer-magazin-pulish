@@ -454,11 +454,13 @@ class HamtruyencomController extends AbstractActionController {
 			$content_detail_full = array ();
 			// $content_detail_full = $this->getContent_chap($get_img_link); // lay qua the a de lap anh
 			$content_detail_full = $this->getContent_chap_img ( $get_img_link ); // lay theo img de co anh
+			$img_thumbnail = $this->getContentchapimgThumnail( $get_img_link ); // lay theo img de co anh
 			                                                                  // $content_detail_full = $this->getContentChapImg_NameArray($get_img_link,$neo_chap); // lay tem anh tra ve theo mang
 			$hamtruyencom ['items'] [] = array (
 					'Chap' => $chap_look,
 					'neochap' => $neo_chap,
 					'link_chap' => $get_img_link,
+					'img_thumbnail'=>$img_thumbnail,
 					'detail' => $content_detail_full 
 			);
 			
@@ -651,11 +653,14 @@ class HamtruyencomController extends AbstractActionController {
 			$content_detail_full = array ();
 			// $content_detail_full = $this->getContent_chap($get_img_link); // lay qua the a de lap anh
 			$content_detail_full = $this->getContent_chap_img ( $get_img_link ); // lay theo img de co anh
+			$img_thumbnail = $this->getContentchapimgThumnail( $get_img_link ); // lay theo img de co anh
 			                                                                  // $content_detail_full = $this->getContentChapImg_NameArray($get_img_link,$neo_chap); // lay tem anh tra ve theo mang
 			$hamtruyencom ['items'] [] = array (
+					'id'=>$j,
 					'Chap' => $chap_look,
 					'neochap' => $neo_chap,
 					'link_chap' => $get_img_link,
+					'img_thumbnail'=>$img_thumbnail,
 					'detail' => $content_detail_full 
 			);
 			
@@ -773,9 +778,11 @@ class HamtruyencomController extends AbstractActionController {
 						$data2 [] = $tmpl;
 					}
 					$data ['items'] [] = array (
+							'id'=>$keyloop ['id'],
 							'Chap' => $keyloop ['Chap'],
 							'neochap' => $keyloop ['neochap'],
 							'link_chap' => $keyloop ['link_chap'],
+							'img_thumbnail'=>$keyloop ['img_thumbnail'],
 							'detail' => $data2 
 					);
 				}
@@ -814,9 +821,11 @@ class HamtruyencomController extends AbstractActionController {
 						$data2 [] = $tmpl;
 					}
 					$data ['items'] [] = array (
+							'id'=>$keyloop ['id'],
 							'Chap' => $keyloop ['Chap'],
 							'neochap' => $keyloop ['neochap'],
 							'link_chap' => $keyloop ['link_chap'],
+							'img_thumbnail'=>$keyloop ['img_thumbnail'],
 							'detail' => $data2
 					);
 				}
@@ -939,6 +948,37 @@ class HamtruyencomController extends AbstractActionController {
 				$array_img [] = $key->getAttribute ( 'src' );
 			}
 			
+			return $array_img;
+		}
+	}
+	
+	// Return : array link goc truyen
+	public function getContentchapimgThumnail($url = null) {
+		// get Content
+		if ($url === null) {
+			return $array_img = null;
+		} else {
+			$client2 = new HttpClient ();
+			$client2->setAdapter ( 'Zend\Http\Client\Adapter\Curl' );
+				
+			$response2 = $this->getResponse ();
+			$response2->getHeaders ()->addHeaderLine ( 'content-type', 'text/html; charset=utf-8' ); // set content-type
+				
+			$client2->setUri ( $url );
+			$result2 = $client2->send ();
+			$body2 = $result2->getBody (); // content of the web
+			// return $body2; die;
+			// echo $body2;
+			$dom2 = new Query ( $body2 );
+			// get img detail story
+			$img_array = $dom2->execute ( '#content .content_chap img' );
+			$array_img = array ();
+			// $array_img[] = $img_array->current()->getAttribute('src');;
+			foreach ( $img_array as $key ) {
+				$array_img = $key->getAttribute ( 'src' ); // lay img cuoi cung
+				//break; // lay cai img dau tien
+			}
+				
 			return $array_img;
 		}
 	}

@@ -8,7 +8,7 @@
 <div style=\'text-align: justify;\'><br></br></div>
 <div style=\'text-align: justify;\'>"Cửu Đỉnh Ký” được Ngã Cật Tây Hồng Thị suy nghĩ rất lâu và cũng là bộ truyện được Phiên Gia chờ đợi cao nhất. Tin rằng "Cửu Đỉnh Ký”sẽ không khiến cho mọi người phải thất vọng</div>
             ',
-  'numberchap' => 'Chapter 88',
+  'numberchap' => 'Chapter 87',
   'image_thumbnail' => 'http://hamtruyen.com/Pictures/Product/138/Large/0.jpg',
   'category' => '',
   'items' => 
@@ -18,6 +18,7 @@
       'Chap' => 'Chapter 1',
       'neochap' => 'cuu-dinh-ky-chapter-1_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-1.html',
+      'img_thumbnail' => 'http://1.bp.blogspot.com/-4juaMfY62WQ/UuDa5VJcj2I/AAAAAAACLso/nlOMaPCm8SM/s1600/22.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-Lqm3ZNDYW_E/UuDa60gFyrI/AAAAAAACLsw/2OCSPnfgz4M/s1600/0.jpg',
@@ -50,6 +51,7 @@
       'Chap' => 'Chapter 2',
       'neochap' => 'cuu-dinh-ky-chapter-2_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-2.html',
+      'img_thumbnail' => 'http://2.bp.blogspot.com/-1h2x4ufu6S8/UuDXDsAg6RI/AAAAAAACLpo/GsroxCgCKis/s1600/image_1357649156.jpg',
       'detail' => 
       array (
         0 => 'http://2.bp.blogspot.com/-mJNZic2HowM/UuDXGnB2QUI/AAAAAAACLpw/GIhpX_VKle4/s1600/credit.jpg',
@@ -93,6 +95,7 @@
       'Chap' => 'Chapter 3',
       'neochap' => 'cuu-dinh-ky-chapter-3_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-3.html',
+      'img_thumbnail' => 'http://2.bp.blogspot.com/-bxb4btRMxlg/UuDPnCV-HfI/AAAAAAACLiY/R8Q1yZXZJEs/s1600/23.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-l4RL-170__c/UuDRKx61izI/AAAAAAACLio/3zreoOXLQ1o/s1600/credit.jpg',
@@ -127,6 +130,7 @@
       'Chap' => 'Chapter 4',
       'neochap' => 'cuu-dinh-ky-chapter-4_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-4.html',
+      'img_thumbnail' => 'http://1.bp.blogspot.com/-djANZD8fMbc/UuHbYZomFpI/AAAAAAACL9A/ZOftm5je7YI/s1600/26.jpg',
       'detail' => 
       array (
         0 => 'http://2.bp.blogspot.com/-58vz4umrvCY/UuHb7uwD7FI/AAAAAAACL-U/VQh6i0J0jx0/s1600/tuyendung.jpg',
@@ -164,6 +168,9 @@
       'Chap' => 'Chapter 5',
       'neochap' => 'cuu-dinh-ky-chapter-5_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-5.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -173,6 +180,7 @@
       'Chap' => 'Chapter 6',
       'neochap' => 'cuu-dinh-ky-chapter-6_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-6.html',
+      'img_thumbnail' => 'http://2.bp.blogspot.com/-nG87ygOCtcY/UuMnhW-sfWI/AAAAAAAACm4/P6OV2ea5OUo/s1600/20.jpg',
       'detail' => 
       array (
         0 => 'http://1.bp.blogspot.com/-MKLWd2O0aco/UuMo6oBKd0I/AAAAAAAACoE/Qf-WE9YZ3QE/s1600/like.jpg',
@@ -203,6 +211,7 @@
       'Chap' => 'Chapter 7',
       'neochap' => 'cuu-dinh-ky-chapter-7_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-7.html',
+      'img_thumbnail' => 'http://1.bp.blogspot.com/-yQLZqhFYYWE/UuOFRtloL6I/AAAAAAAAC1Y/AfYqVjUQLOY/s1600/23.jpg',
       'detail' => 
       array (
         0 => 'http://2.bp.blogspot.com/-3ntxhetPDfg/UuOFT870pFI/AAAAAAAAC1g/ogMwJw1wqBo/s1600/Credit.jpg',
@@ -235,6 +244,7 @@
       'Chap' => 'Chapter 8',
       'neochap' => 'cuu-dinh-ky-chapter-8_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-8.html',
+      'img_thumbnail' => 'http://2.bp.blogspot.com/-0sx7K_zHRv8/UuURY8kUdqI/AAAAAAACMQI/L7j9dVki_jg/s1600/26+copy.jpg',
       'detail' => 
       array (
         0 => 'http://4.bp.blogspot.com/-JdJBj99eiaI/UuURoSL-WWI/AAAAAAACMRI/ShpNqfmVyCY/s1600/credit2+(1).jpg',
@@ -273,6 +283,9 @@
       'Chap' => 'Chapter 9',
       'neochap' => 'cuu-dinh-ky-chapter-9_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-9.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -282,6 +295,9 @@
       'Chap' => 'Chapter 10',
       'neochap' => 'cuu-dinh-ky-chapter-10_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-10.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -291,6 +307,7 @@
       'Chap' => 'Chapter 11',
       'neochap' => 'cuu-dinh-ky-chapter-11_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-11.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-y_nMMnjn__I/Uv3n9q-YafI/AAAAAAAAAn0/PJPJVotdDbM/s1600/tuyendung.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-VrFNCFoV9qo/Uv3nJ6qUfqI/AAAAAAAAAlU/3yCMHvDtkJI/s1600/Credit.jpg',
@@ -321,6 +338,7 @@
       'Chap' => 'Chapter 12',
       'neochap' => 'cuu-dinh-ky-chapter-12_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-12.html',
+      'img_thumbnail' => 'http://4.bp.blogspot.com/-EVmNrRGp4jg/UwNmYWMPnEI/AAAAAAAAEEQ/h9Ls_1M143w/s1600/tuyendung.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-LNa5vuzNgC4/UwNmAoT99YI/AAAAAAAAEBs/PnFsItxPiPY/s1600/000.jpg',
@@ -353,6 +371,9 @@
       'Chap' => 'Chapter 13',
       'neochap' => 'cuu-dinh-ky-chapter-13_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-13.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -362,6 +383,9 @@
       'Chap' => 'Chapter 14',
       'neochap' => 'cuu-dinh-ky-chapter-14_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-14.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -371,6 +395,9 @@
       'Chap' => 'Chapter 15',
       'neochap' => 'cuu-dinh-ky-chapter-15_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-15.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -380,6 +407,9 @@
       'Chap' => 'Chapter 16',
       'neochap' => 'cuu-dinh-ky-chapter-16_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-16.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -389,6 +419,9 @@
       'Chap' => 'Chapter 17',
       'neochap' => 'cuu-dinh-ky-chapter-17_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-17.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -398,6 +431,7 @@
       'Chap' => 'Chapter 18',
       'neochap' => 'cuu-dinh-ky-chapter-18_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-18.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-L47EEijkhrM/Uw4cpdN483I/AAAAAAAACjE/1A2ZqalEvDA/s1600/23.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-B9xdOf9d6YQ/Uw4bsApbCdI/AAAAAAAACgM/r1CJkynqho4/s1600/credit.jpg',
@@ -431,6 +465,7 @@
       'Chap' => 'Chapter 19',
       'neochap' => 'cuu-dinh-ky-chapter-19_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-19.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-QFUC2S3HVCg/Uw83W3AF3CI/AAAAAAAADDw/_lU1dKhR1tQ/s1600/23.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-hHDLOzfqhLk/Uw82NZ_LqaI/AAAAAAAADA0/GdsUNtGSRAA/s1600/credit.jpg',
@@ -464,6 +499,7 @@
       'Chap' => 'Chapter 20',
       'neochap' => 'cuu-dinh-ky-chapter-20_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-20.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-ZtvAxQxEmcI/UxB-zyrZAHI/AAAAAAAADcA/G9FWRT2esog/s1600/24.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-N2oX_jqHXq8/UxB9eZtARYI/AAAAAAAADZA/3przueCQPfE/s1600/credit.jpg',
@@ -498,6 +534,7 @@
       'Chap' => 'Chapter 21',
       'neochap' => 'cuu-dinh-ky-chapter-21_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-21.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-dWbZnzKsWMw/UxG81_F7l_I/AAAAAAAADpY/t87WNMsWJD0/s1600/24.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/--CNSN6F4j6o/UxG7Z5cIwCI/AAAAAAAADmY/8RWBoHclVCI/s1600/credit.jpg',
@@ -532,6 +569,7 @@
       'Chap' => 'Chapter 22',
       'neochap' => 'cuu-dinh-ky-chapter-22_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-22.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-vDFDqi8Z-CA/UxKqTjaxOqI/AAAAAAAAEAc/8BwHL58f0oQ/s1600/24.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-rD_e3G7M0ms/UxKqU4nZn6I/AAAAAAAAEAk/dTsoOmvB_aM/s1600/credit.jpg',
@@ -566,6 +604,7 @@
       'Chap' => 'Chapter 23',
       'neochap' => 'cuu-dinh-ky-chapter-23_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-23.html',
+      'img_thumbnail' => 'http://4.bp.blogspot.com/-h8TYSrBxAAw/UxWvcyS0vtI/AAAAAAAADr8/nl_FJgHmP1o/s1600/44+(1)-Recovered.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-_pqQfs0gO9g/UxQnzXhHscI/AAAAAAAAElY/S9mUwHQHBa4/s1600/credit.jpg',
@@ -601,6 +640,7 @@
       'Chap' => 'Chapter 24',
       'neochap' => 'cuu-dinh-ky-chapter-24_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-24.html',
+      'img_thumbnail' => 'http://4.bp.blogspot.com/-h8TYSrBxAAw/UxWvcyS0vtI/AAAAAAAADr8/nl_FJgHmP1o/s1600/44+(1)-Recovered.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-nxZlHRh4S3o/UxWoOMbJEPI/AAAAAAAAAiE/mI-_pgG0qbU/s1600/credit.jpg',
@@ -634,6 +674,7 @@
       'Chap' => 'Chapter 25',
       'neochap' => 'cuu-dinh-ky-chapter-25_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-25.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-jMBn5LSLIng/Uxb51ofkLMI/AAAAAAAABgc/8hE6HqHiH00/s1600/48.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-I4dFHSrWTbc/Uxb49_p9tcI/AAAAAAAABdc/Wt8hRRFFRD0/s1600/credit.jpg',
@@ -668,6 +709,7 @@
       'Chap' => 'Chapter 26',
       'neochap' => 'cuu-dinh-ky-chapter-26_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-26.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-_kY8o6v-SCs/Uxg16SCZ0fI/AAAAAAAACfM/GEiDQS42kbU/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-I4dFHSrWTbc/Uxb49_p9tcI/AAAAAAAABdc/Wt8hRRFFRD0/s1600/credit.jpg',
@@ -697,6 +739,7 @@
       'Chap' => 'Chapter 27',
       'neochap' => 'cuu-dinh-ky-chapter-27_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-27.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-wKKhQwHIRq4/UxmJVFBTU6I/AAAAAAAAD8s/n1-LBLcp_3w/s1600/20.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-wdXx51ZK1K0/UxmIRMBQuaI/AAAAAAAAD6M/M-WpZT1UMoU/s1600/credit.jpg',
@@ -727,6 +770,7 @@
       'Chap' => 'Chapter 28',
       'neochap' => 'cuu-dinh-ky-chapter-28_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-28.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-5tLY4KGEnlg/UxoJIv7deuI/AAAAAAAAAPc/YicKtTejh4Q/s1600/18.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-6L3vOEAz__U/UxoJJ8cnZ_I/AAAAAAAAAPk/vHHY3ivoUTY/s1600/credit.jpg',
@@ -755,6 +799,7 @@
       'Chap' => 'Chapter 29',
       'neochap' => 'cuu-dinh-ky-chapter-29_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-29.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-mLoLkRt74sM/UxtclBpbxUI/AAAAAAAAAyM/6ap_QZ4iysw/s1600/18.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-wq6j2qaNE-4/UxtbnjF3xVI/AAAAAAAAAv8/QOw20StPPbI/s1600/credit.jpg',
@@ -783,6 +828,7 @@
       'Chap' => 'Chapter 30',
       'neochap' => 'cuu-dinh-ky-chapter-30_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-30.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-KYcix1j0WJ4/Ux8wyur8fnI/AAAAAAAADv0/ZlB_POojZi8/s1600/20.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-gkXnC_-wgLM/Ux8vlj3iRDI/AAAAAAAADoc/C5UJXPZV-tc/s1600/credit.jpg',
@@ -813,6 +859,7 @@
       'Chap' => 'Chapter 31',
       'neochap' => 'cuu-dinh-ky-chapter-31_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-31.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-86jU4PE6-DM/UyA79dpf06I/AAAAAAAAGE8/h5Dj7rWtSgI/s1600/27.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-mMZNAgWfuSU/UyA6otuw8VI/AAAAAAAAGBk/XzODyPOHFKA/s1600/Credit.jpg',
@@ -850,6 +897,7 @@
       'Chap' => 'Chapter 32',
       'neochap' => 'cuu-dinh-ky-chapter-32_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-32.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-FXJLFOKiu4Q/UyFe0uxZUqI/AAAAAAAAAHY/GTP-BScQ-YA/s1600/20.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-ecXlSY2Tz2Y/UyFdIiyIeGI/AAAAAAAAAFA/5P3G0UoSqa0/s1600/1.jpg',
@@ -879,6 +927,7 @@
       'Chap' => 'Chapter 33',
       'neochap' => 'cuu-dinh-ky-chapter-33_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-33.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-_icFucAO4fo/UyKXaj_c3lI/AAAAAAAABQ4/WU3EZ-WLZOk/s1600/23.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-S8Uis8TpMGc/UyKWpirI5sI/AAAAAAAABOA/lNjpsoIaHYQ/s1600/credit.jpg',
@@ -912,6 +961,7 @@
       'Chap' => 'Chapter 34',
       'neochap' => 'cuu-dinh-ky-chapter-34_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-34.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-lyyW1Cie20o/UyP9oKzHLvI/AAAAAAAACvI/gLe768W4AQw/s1600/21.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-_SrKtTQXc8g/UyP89Gpd2PI/AAAAAAAACsw/gvsgI8Rpmmk/s1600/credit.jpg',
@@ -941,6 +991,9 @@
       'Chap' => 'Chapter 35',
       'neochap' => 'cuu-dinh-ky-chapter-35_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-35.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -950,6 +1003,9 @@
       'Chap' => 'Chapter 36',
       'neochap' => 'cuu-dinh-ky-chapter-36_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-36.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -959,6 +1015,9 @@
       'Chap' => 'Chapter 37',
       'neochap' => 'cuu-dinh-ky-chapter-37_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-37.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -968,6 +1027,9 @@
       'Chap' => 'Chapter 38',
       'neochap' => 'cuu-dinh-ky-chapter-38_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-38.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -977,6 +1039,9 @@
       'Chap' => 'Chapter 39',
       'neochap' => 'cuu-dinh-ky-chapter-39_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-39.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -986,6 +1051,9 @@
       'Chap' => 'Chapter 40',
       'neochap' => 'cuu-dinh-ky-chapter-40_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-40.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -995,6 +1063,7 @@
       'Chap' => 'Chapter 41',
       'neochap' => 'cuu-dinh-ky-chapter-41_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-41.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-gn41_S5s0KE/Uy1Gp2SSdPI/AAAAAAAACSg/5I57bTn5aiI/s1600/38.png',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-_CnRLeSmKR4/Uy1D7q5LG_I/AAAAAAAACOs/_bD0w6zPJXo/s1600/8.png',
@@ -1035,6 +1104,7 @@
       'Chap' => 'Chapter 42',
       'neochap' => 'cuu-dinh-ky-chapter-42_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-42.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-TFMZ9he4T9g/Uy_XWZ-RhMI/AAAAAAAAFdw/Y9K9srNAo4E/s1600/credit.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-XsLgqwbO3RU/Uy_VxpTGL5I/AAAAAAAAFbM/vghkJgK0MDQ/s1600/1.jpg',
@@ -1064,6 +1134,7 @@
       'Chap' => 'Chapter 43',
       'neochap' => 'cuu-dinh-ky-chapter-43_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-43.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-jAqBqmlhMc0/UzFkseLvoZI/AAAAAAAAIgw/PZEsm-Tnn7k/s1600/19.png',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-5tI-L5-kq3o/UzFjZo3ZYfI/AAAAAAAAIeY/oF3q4jRCjrI/s1600/credit.jpg',
@@ -1093,6 +1164,7 @@
       'Chap' => 'Chapter 44',
       'neochap' => 'cuu-dinh-ky-chapter-44_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-44.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-ixKksyvJdZQ/UzVi4fc3LkI/AAAAAAAANCc/bqbj-47ed-4/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-GQwF5XsVPXM/UzVhnKL_RjI/AAAAAAAANAM/VdRNJZBOz_k/s1600/1.jpg',
@@ -1121,6 +1193,9 @@
       'Chap' => 'Chapter 45',
       'neochap' => 'cuu-dinh-ky-chapter-45_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-45.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -1130,6 +1205,7 @@
       'Chap' => 'Chapter 46',
       'neochap' => 'cuu-dinh-ky-chapter-46_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-46.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-DFaLPqvtoXg/UzftBtGrquI/AAAAAAAAA3c/3RXL2LIme2o/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-K72-wKBrm5Q/UzfuJnpERXI/AAAAAAAAA38/0F310dG04Bc/s1600/Cuu%252520Dinh%252520ky%252520credit.JPG',
@@ -1159,6 +1235,7 @@
       'Chap' => 'Chapter 47',
       'neochap' => 'cuu-dinh-ky-chapter-47_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-47.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-DC9evDpzqGs/UzpSY4bjzRI/AAAAAAAAA7o/msKQb5Pm-RI/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-0KSEZSGxe5U/UzpSeC0wO_I/AAAAAAAAA7w/CwAEsUeuxg8/s1600/Cuu%252520Dinh%252520ky%252520credit.JPG',
@@ -1188,6 +1265,7 @@
       'Chap' => 'Chapter 48',
       'neochap' => 'cuu-dinh-ky-chapter-48_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-48.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-e9fCxEfyt8A/Uzz5WWNWsoI/AAAAAAAADpY/srq12nrMK8s/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-P1Z2qREwe9o/Uzz4APoTLFI/AAAAAAAADnA/9oCmtiaAgxQ/s1600/Cuu%252520Dinh%252520ky%252520credit.JPG',
@@ -1217,6 +1295,9 @@
       'Chap' => 'Chapter 49',
       'neochap' => 'cuu-dinh-ky-chapter-49_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-49.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -1226,6 +1307,9 @@
       'Chap' => 'Chapter 50',
       'neochap' => 'cuu-dinh-ky-chapter-50_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-50.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -1235,6 +1319,7 @@
       'Chap' => 'Chapter 51',
       'neochap' => 'cuu-dinh-ky-chapter-51_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-51.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-VikQwTbT2Lc/U0TOnbN4KJI/AAAAAAAADhw/EhShcalcr80/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1265,6 +1350,7 @@
       'Chap' => 'Chapter 52',
       'neochap' => 'cuu-dinh-ky-chapter-52_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-52.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-p9M0Zn2Ft2g/U0g5XrtDzYI/AAAAAAAADOo/7F-pGMmlkzM/s1600/CDK52_39.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-ZUPnphVBwds/U0g314fBaNI/AAAAAAAADMQ/LXxrlQXaf_U/s1600/Credit.jpg',
@@ -1294,6 +1380,7 @@
       'Chap' => 'Chapter 53',
       'neochap' => 'cuu-dinh-ky-chapter-53_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-53.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-WIurlVMb43I/U0qaQxd7yOI/AAAAAAAAAbY/0k3L8W3TCFw/s1600/CDK53_39.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-7-35KWTTNDs/U0qY6NMOGtI/AAAAAAAAAZA/BBIlYAXloYY/s1600/Credit.jpg',
@@ -1323,6 +1410,7 @@
       'Chap' => 'Chapter 54',
       'neochap' => 'cuu-dinh-ky-chapter-54_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-54.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-rW1UlZbs5Yc/U06QkYAgnPI/AAAAAAAABrs/tu5kwKDl_Sg/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1352,6 +1440,7 @@
       'Chap' => 'Chapter 55',
       'neochap' => 'cuu-dinh-ky-chapter-55_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-55.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-Ib0466-9vek/U1DWNoiTmWI/AAAAAAAAC74/gqJcUql8vrg/s1600/20.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1381,6 +1470,7 @@
       'Chap' => 'Chapter 56',
       'neochap' => 'cuu-dinh-ky-chapter-56_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-56.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-upFAiseVP0o/U1N6rTuG92I/AAAAAAAAD74/aiHLC71V9fs/s1600/Untitled-20.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1411,6 +1501,7 @@
       'Chap' => 'Chapter 57',
       'neochap' => 'cuu-dinh-ky-chapter-57_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-57.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-R1YWgWdQ9Jg/U1e542N2PZI/AAAAAAAABCA/gUVwtFzpBns/s1600/Cuu%252520Dinh%252520ky%252520credit.JPG',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-PutdB6g0FUY/U1e56JqnITI/AAAAAAAABCI/H0hJ5CE5Ej8/s1600/credit.jpg',
@@ -1441,6 +1532,7 @@
       'Chap' => 'Chapter 58',
       'neochap' => 'cuu-dinh-ky-chapter-58_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-58.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-nviXk9I6VV4/U1xwiFCFUMI/AAAAAAAACQU/WRgrQwN6bd4/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1470,6 +1562,7 @@
       'Chap' => 'Chapter 59',
       'neochap' => 'cuu-dinh-ky-chapter-59_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-59.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-l2-bswQCzvA/U13XYP0wwXI/AAAAAAAACaU/8cYObplahVo/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-7_AfFTlxiz4/U13V4rRAaVI/AAAAAAAACX8/P-F7NzX9k3g/s1600/Cuu%252520Dinh%252520ky%252520credit.JPG',
@@ -1499,6 +1592,7 @@
       'Chap' => 'Chapter 60',
       'neochap' => 'cuu-dinh-ky-chapter-60_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-60.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-ZLiTo1l5DRw/U2b_J3s9NXI/AAAAAAAAGYk/LU5WUd8qo00/s1600/Cuu%252520Dinh%252520ky%252520credit.JPG',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1529,6 +1623,7 @@
       'Chap' => 'Chapter 61',
       'neochap' => 'cuu-dinh-ky-chapter-61_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-61.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-OviGUmJb16Y/U2hiOVJHECI/AAAAAAAAGsw/7oid4VXrBZE/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-hI2MpFpJhqk/U2hgXN_Dq1I/AAAAAAAAGqY/dTMXHPZUa1I/s1600/credit.jpg',
@@ -1558,6 +1653,7 @@
       'Chap' => 'Chapter 62',
       'neochap' => 'cuu-dinh-ky-chapter-62_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-62.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-9WN-CHux7pg/U2rfNl_WK_I/AAAAAAAAG80/U0dn3Ifmtvw/s1600/cdk62_40.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-ZbnwbaWfSqk/U2resbEtlNI/AAAAAAAAG6c/M6ljHS3ti14/s1600/credit.jpg',
@@ -1587,6 +1683,7 @@
       'Chap' => 'Chapter 63',
       'neochap' => 'cuu-dinh-ky-chapter-63_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-63.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-1-y9DqLn_rA/U2xlShZSLDI/AAAAAAAAAmg/CYaPusUar7E/s1600/19.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1616,6 +1713,7 @@
       'Chap' => 'Chapter 64',
       'neochap' => 'cuu-dinh-ky-chapter-64_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-64.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-EnWiXlimTcs/U22kDWQ96cI/AAAAAAAAA4w/AQNrdMrvgj0/s1600/19%252520copy.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1645,6 +1743,7 @@
       'Chap' => 'Chapter 65',
       'neochap' => 'cuu-dinh-ky-chapter-65_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-65.html',
+      'img_thumbnail' => 'http://4.bp.blogspot.com/-0zArdSFE5xE/U29S5h_WrqI/AAAAAAAAKAE/OCGxK6DfCoQ/s1600/18.jpg',
       'detail' => 
       array (
         0 => 'http://4.bp.blogspot.com/-3WphCudpino/U29S1zv2ofI/AAAAAAAAJ_A/WB0NJEaDxv4/s1600/0.jpg',
@@ -1675,6 +1774,9 @@
       'Chap' => 'Chapter 66',
       'neochap' => 'cuu-dinh-ky-chapter-66_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-66.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -1684,6 +1786,7 @@
       'Chap' => 'Chapter 67',
       'neochap' => 'cuu-dinh-ky-chapter-67_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-67.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1714,6 +1817,7 @@
       'Chap' => 'Chapter 68',
       'neochap' => 'cuu-dinh-ky-chapter-68_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-68.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1744,6 +1848,9 @@
       'Chap' => 'Chapter 69',
       'neochap' => 'cuu-dinh-ky-chapter-69_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-69.html',
+      'img_thumbnail' => 
+      array (
+      ),
       'detail' => 
       array (
       ),
@@ -1753,6 +1860,7 @@
       'Chap' => 'Chapter 70',
       'neochap' => 'cuu-dinh-ky-chapter-70_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-70.html',
+      'img_thumbnail' => 'http://1.bp.blogspot.com/-exOn05kwVBI/U39jbew4SMI/AAAAAAAALAY/FAoI6h1778w/s1600/18.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-tUy9iopHk5Y/U39jV3y5AUI/AAAAAAAAK-8/jALqCPWoiYU/s1600/0.jpg',
@@ -1784,6 +1892,7 @@
       'Chap' => 'Chapter 71',
       'neochap' => 'cuu-dinh-ky-chapter-71_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-71.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-PiwvVm3MHU8/U4NUgT7WMbI/AAAAAAAAC1w/MFhr06jqVJI/s1600/18.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-p1-g9v7Fp_A/U4NT9H1QWuI/AAAAAAAACzI/S5ycfqwGDl4/s1600/000.JPG',
@@ -1815,6 +1924,7 @@
       'Chap' => 'Chapter 72',
       'neochap' => 'cuu-dinh-ky-chapter-72_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-72.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-ufyHL9qMkgg/U4SWHM2SX6I/AAAAAAAALh0/epaJowNCjNk/s1600/17.jpg',
       'detail' => 
       array (
         0 => 'http://2.bp.blogspot.com/-NA6S-C0JvMM/U4SWDFT84RI/AAAAAAAALgs/udf8MkLIcYI/s1600/0.jpg',
@@ -1845,6 +1955,7 @@
       'Chap' => 'Chapter 73',
       'neochap' => 'cuu-dinh-ky-chapter-73_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-73.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1875,6 +1986,7 @@
       'Chap' => 'Chapter 74',
       'neochap' => 'cuu-dinh-ky-chapter-74_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-74.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1905,6 +2017,7 @@
       'Chap' => 'Chapter 75',
       'neochap' => 'cuu-dinh-ky-chapter-75_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-75.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1935,6 +2048,7 @@
       'Chap' => 'Chapter 76',
       'neochap' => 'cuu-dinh-ky-chapter-76_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-76.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1965,6 +2079,7 @@
       'Chap' => 'Chapter 77',
       'neochap' => 'cuu-dinh-ky-chapter-77_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-77.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -1995,6 +2110,7 @@
       'Chap' => 'Chapter 78',
       'neochap' => 'cuu-dinh-ky-chapter-78_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-78.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -2025,6 +2141,7 @@
       'Chap' => 'Chapter 79',
       'neochap' => 'cuu-dinh-ky-chapter-79_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-79.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -2055,6 +2172,7 @@
       'Chap' => 'Chapter 80',
       'neochap' => 'cuu-dinh-ky-chapter-80_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-80.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -2085,6 +2203,7 @@
       'Chap' => 'Chapter 81',
       'neochap' => 'cuu-dinh-ky-chapter-81_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-81.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-CXf7fWZw-zA/U6EuaTF93fI/AAAAAAAAGKg/WzA452Qj_Kw/s1600/HamtruyenImage18.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-9FhOouKq9wM/U6Etb_97-LI/AAAAAAAAGII/FTgT3f7lEPg/s1600/Credit.jpg',
@@ -2114,6 +2233,7 @@
       'Chap' => 'Chapter 82',
       'neochap' => 'cuu-dinh-ky-chapter-82_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-82.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -2144,6 +2264,7 @@
       'Chap' => 'Chapter 83',
       'neochap' => 'cuu-dinh-ky-chapter-83_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-83.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -2174,6 +2295,7 @@
       'Chap' => 'Chapter 84',
       'neochap' => 'cuu-dinh-ky-chapter-84_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-84.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -2204,6 +2326,7 @@
       'Chap' => 'Chapter 85',
       'neochap' => 'cuu-dinh-ky-chapter-85_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-85.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-n5UMLUArwSs/U6z02wNsOVI/AAAAAAAAD2Y/n9kmav0tm2w/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-1IRrGiZD8eM/U6zy2DbJDPI/AAAAAAAADzw/k8aCZTtQxxE/s1600/credit.jpg',
@@ -2235,6 +2358,7 @@
       'Chap' => 'Chapter 86',
       'neochap' => 'cuu-dinh-ky-chapter-86_',
       'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-86.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       'detail' => 
       array (
         0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
@@ -2258,34 +2382,6 @@
         18 => 'http://3.bp.blogspot.com/-P4A3SL-Csiw/U6_iKqWfwRI/AAAAAAAAEU0/oAY1E31yccE/s1600/HamtruyenImage17.jpg',
         19 => 'http://3.bp.blogspot.com/-_CjzHgNbMSM/U6_iNHi2WyI/AAAAAAAAEU8/EzMAxgCm6CI/s1600/HamtruyenImage18.jpg',
         20 => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
-      ),
-    ),
-    86 => 
-    array (
-      'Chap' => 'Chapter 87',
-      'neochap' => 'cuu-dinh-ky-chapter-87_',
-      'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-87.html',
-      'detail' => 
-      array (
-        0 => 'http://3.bp.blogspot.com/-r39F5AqtTlw/U7TSDTpOkFI/AAAAAAAAGqE/6nDxPjQnguE/s1600/1.jpg',
-        1 => 'http://3.bp.blogspot.com/-M-bAKcAhsVQ/U7TSHDyrrYI/AAAAAAAAGqM/Pc2x9uTWtUY/s1600/2.jpg',
-        2 => 'http://3.bp.blogspot.com/-dbwWDYNB_Hk/U7TSLFh8ltI/AAAAAAAAGqU/L6V0EnNwCDU/s1600/3.jpg',
-        3 => 'http://3.bp.blogspot.com/-4YgGYyWqAKA/U7TSOyWY6uI/AAAAAAAAGqc/W9sD_KlMzu4/s1600/4.jpg',
-        4 => 'http://3.bp.blogspot.com/-ibdFureqpDY/U7TSSjN0lRI/AAAAAAAAGqk/lP69nlr4SZg/s1600/5.jpg',
-        5 => 'http://3.bp.blogspot.com/-k5_f7upn6AU/U7TSWsc6I4I/AAAAAAAAGqw/gD65HGBbHW8/s1600/6.jpg',
-        6 => 'http://3.bp.blogspot.com/-JTncZ86N7sQ/U7TSbnnNzOI/AAAAAAAAGq4/pLumpnwuq_M/s1600/7.jpg',
-        7 => 'http://3.bp.blogspot.com/-GYDITgQN80k/U7TSgj79V-I/AAAAAAAAGrA/ogHXW2KLnxI/s1600/8.jpg',
-        8 => 'http://3.bp.blogspot.com/-qAnGpqBeSgE/U7TSk21X66I/AAAAAAAAGrI/q9ktnaszUJ4/s1600/9.jpg',
-        9 => 'http://3.bp.blogspot.com/-X56WHPvnrdQ/U7TSp2Opo0I/AAAAAAAAGrQ/CZXYN1FD8Os/s1600/10.jpg',
-        10 => 'http://3.bp.blogspot.com/-dV2qaudVjMc/U7TSwbjO9GI/AAAAAAAAGrY/7muEt9U3UkM/s1600/11.jpg',
-        11 => 'http://3.bp.blogspot.com/-RJHELO7igT0/U7TS00GRBtI/AAAAAAAAGrg/xhU2s9Pfu98/s1600/12.jpg',
-        12 => 'http://3.bp.blogspot.com/-BhzibzsAGlc/U7TS6wgShMI/AAAAAAAAGro/yvgdxVWQbPs/s1600/13.jpg',
-        13 => 'http://3.bp.blogspot.com/-sbTBpWXGRKU/U7TS-5lCCuI/AAAAAAAAGrw/6Adsqji8a6k/s1600/14.jpg',
-        14 => 'http://3.bp.blogspot.com/-E8RCMttlKhA/U7TTCjJbqdI/AAAAAAAAGr4/F8iadC1mmn4/s1600/15.jpg',
-        15 => 'http://3.bp.blogspot.com/-LO8dGyX9LX8/U7TTF_3gZuI/AAAAAAAAGsA/zZvE9SC3okY/s1600/16.jpg',
-        16 => 'http://3.bp.blogspot.com/-rg8KUfHSn5k/U7TTJaHPieI/AAAAAAAAGsI/IzQOojAJgJE/s1600/17.jpg',
-        17 => 'http://3.bp.blogspot.com/-i8s_Lp_J62w/U7TTMm8_oQI/AAAAAAAAGsQ/KHq4sbhRWG4/s1600/18.jpg',
-        18 => 'http://3.bp.blogspot.com/-twSUDXQkL3Y/U7TTQIkM2II/AAAAAAAAGsY/ZoO_x6BMCp8/s1600/19.jpg',
       ),
     ),
   ),
