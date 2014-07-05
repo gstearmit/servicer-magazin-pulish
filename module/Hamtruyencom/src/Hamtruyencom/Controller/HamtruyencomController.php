@@ -576,11 +576,18 @@ class HamtruyencomController extends AbstractActionController {
 			}
 		}
 		
+// 		// .wrapper_sanpham .content_noidung_tomtat
+// 		$content_detail_lop = $dom->execute ( '.wrapper_sanpham .content_noidung_tomtat' );
+// 		foreach ( $content_detail_lop as $keyhai => $valuehaivl ) {
+// 			$description = $this->innerHTML ( $valuehaivl );
+// 		}
+		
 		// .wrapper_sanpham .content_noidung_tomtat
-		$content_detail_lop = $dom->execute ( '.wrapper_sanpham .content_noidung_tomtat' );
+		$content_detail_lop = $dom->execute ( '.wrapper_sanpham .content_noidung_tomtat div' );
 		foreach ( $content_detail_lop as $keyhai => $valuehaivl ) {
-			$description = $this->innerHTML ( $valuehaivl );
+			$description .= $valuehaivl->textContent;
 		}
+		
 		// get Thumbnail img
 		$img = $dom->execute ( '.wrapper_sanpham .image_anh img' );
 		foreach ( $img as $keydo => $mainelemen ) {
