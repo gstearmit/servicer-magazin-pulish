@@ -189,7 +189,7 @@ class HamtruyencomController extends AbstractActionController {
 		$client->setUri ( $url_haivltv );
 		$result = $client->send ();
 		$body = $result->getBody (); // content of the web
-		                                              // echo $body;die;
+		                             // echo $body;die;
 		$dom = new Query ( $body );
 		$title = $dom->execute ( '.wrapper_sanpham .ten_truyen' );
 		foreach ( $title as $key => $r ) {
@@ -365,7 +365,7 @@ class HamtruyencomController extends AbstractActionController {
 		$client->setUri ( $url_haivltv );
 		$result = $client->send ();
 		$body = $result->getBody (); // content of the web
-		                                              // echo $body;die;
+		                             // echo $body;die;
 		$dom = new Query ( $body );
 		$title = $dom->execute ( '.wrapper_sanpham .ten_truyen' );
 		foreach ( $title as $key => $r ) {
@@ -454,13 +454,13 @@ class HamtruyencomController extends AbstractActionController {
 			$content_detail_full = array ();
 			// $content_detail_full = $this->getContent_chap($get_img_link); // lay qua the a de lap anh
 			$content_detail_full = $this->getContent_chap_img ( $get_img_link ); // lay theo img de co anh
-			$img_thumbnail = $this->getContentchapimgThumnail( $get_img_link ); // lay theo img de co anh
-			                                                                  // $content_detail_full = $this->getContentChapImg_NameArray($get_img_link,$neo_chap); // lay tem anh tra ve theo mang
+			$img_thumbnail = $this->getContentchapimgThumnail ( $get_img_link ); // lay theo img de co anh
+			                                                                    // $content_detail_full = $this->getContentChapImg_NameArray($get_img_link,$neo_chap); // lay tem anh tra ve theo mang
 			$hamtruyencom ['items'] [] = array (
 					'Chap' => $chap_look,
 					'neochap' => $neo_chap,
 					'link_chap' => $get_img_link,
-					'img_thumbnail'=>$img_thumbnail,
+					'img_thumbnail' => $img_thumbnail,
 					'detail' => $content_detail_full 
 			);
 			
@@ -552,8 +552,6 @@ class HamtruyencomController extends AbstractActionController {
 				'data' => $hamtruyencom 
 		) );
 	}
-	
-	
 	public function cuudinhkygetAction() {
 		$domain = "http://hamtruyen.com";
 		$url_haivltv = "http://hamtruyen.com/cuu-dinh-ky-1385.html";
@@ -564,7 +562,7 @@ class HamtruyencomController extends AbstractActionController {
 		$client->setUri ( $url_haivltv );
 		$result = $client->send ();
 		$body = $result->getBody (); // content of the web
-		                                              // echo $body;die;
+		                             // echo $body;die;
 		$dom = new Query ( $body );
 		$title = $dom->execute ( '.wrapper_sanpham .ten_truyen' );
 		foreach ( $title as $key => $r ) {
@@ -576,11 +574,11 @@ class HamtruyencomController extends AbstractActionController {
 			}
 		}
 		
-// 		// .wrapper_sanpham .content_noidung_tomtat
-// 		$content_detail_lop = $dom->execute ( '.wrapper_sanpham .content_noidung_tomtat' );
-// 		foreach ( $content_detail_lop as $keyhai => $valuehaivl ) {
-// 			$description = $this->innerHTML ( $valuehaivl );
-// 		}
+		// // .wrapper_sanpham .content_noidung_tomtat
+		// $content_detail_lop = $dom->execute ( '.wrapper_sanpham .content_noidung_tomtat' );
+		// foreach ( $content_detail_lop as $keyhai => $valuehaivl ) {
+		// $description = $this->innerHTML ( $valuehaivl );
+		// }
 		
 		// .wrapper_sanpham .content_noidung_tomtat
 		$content_detail_lop = $dom->execute ( '.wrapper_sanpham .content_noidung_tomtat div' );
@@ -660,14 +658,14 @@ class HamtruyencomController extends AbstractActionController {
 			$content_detail_full = array ();
 			// $content_detail_full = $this->getContent_chap($get_img_link); // lay qua the a de lap anh
 			$content_detail_full = $this->getContent_chap_img ( $get_img_link ); // lay theo img de co anh
-			$img_thumbnail = $this->getContentchapimgThumnail( $get_img_link ); // lay theo img de co anh
-			                                                                  // $content_detail_full = $this->getContentChapImg_NameArray($get_img_link,$neo_chap); // lay tem anh tra ve theo mang
+			$img_thumbnail = $this->getContentchapimgThumnail ( $get_img_link ); // lay theo img de co anh
+			                                                                    // $content_detail_full = $this->getContentChapImg_NameArray($get_img_link,$neo_chap); // lay tem anh tra ve theo mang
 			$hamtruyencom ['items'] [] = array (
-					'id'=>$j,
+					'id' => $j,
 					'Chap' => $chap_look,
 					'neochap' => $neo_chap,
 					'link_chap' => $get_img_link,
-					'img_thumbnail'=>$img_thumbnail,
+					'img_thumbnail' => $img_thumbnail,
 					'detail' => $content_detail_full 
 			);
 			
@@ -681,55 +679,47 @@ class HamtruyencomController extends AbstractActionController {
 		fwrite ( $handler, $content );
 		fclose ( $handler );
 		
+		// die ();
 		
+		// // copy anh
+		// $arrayimgConvert = array ();
+		// // save img
+		// $dir_file = DIR_UPLOAD_NEW; // $dir_file.'/uploadnew';
+		// $folder = DIR_UPLOAD_NEW;
+		// // $keyham['neochap'] : 'cuu-dinh-ky-chapter-11_';
 		
+		// foreach ( $hamtruyencom ['items'] as $keyham ) {
 		
+		// if (! empty ( $keyham ['detail'] )) {
+		// foreach ( $keyham ['detail'] as $keyhamvalue => $getvalue_link ) {
+		// $sour = pathinfo ( $getvalue_link );
+		// // Thư mục chứa ảnh
+		// if (file_exists ( $folder . '/' . $keyham ['neochap'] . $sour ['basename'] )) {
+		// $dest = $folder . '/' . time () . '_' . $keyham ['neochap'] . $sour ['basename'];
+		// $dest_img = time () . '_' . $keyham ['neochap'] . $sour ['basename'];
+		// } else {
+		// $dest = $folder . '/' . $keyham ['neochap'] . $sour ['basename'];
+		// $dest_img = $keyham ['neochap'] . $sour ['basename'];
+		// }
 		
-// 		die ();
+		// $tmp_convert = array ();
+		// $tmp_convert = $dest_img;
+		// $arrayimgConvert [] = $tmp_convert;
 		
+		// // save img in dir uploadnews
+		// $this->save_img ( $getvalue_link, $dest );
 		
+		// // break;
+		// }
+		// } elseif (empty ( $keyham ['detail'] ) and is_array ( $keyham ['detail'] )) {
+		// break; // ngat de chuyen next
+		// }
+		// }
 		
-		
-		
-// 		// copy anh
-// 		$arrayimgConvert = array ();
-// 		// save img
-// 		$dir_file = DIR_UPLOAD_NEW; // $dir_file.'/uploadnew';
-// 		$folder = DIR_UPLOAD_NEW;
-// 		// $keyham['neochap'] : 'cuu-dinh-ky-chapter-11_';
-		
-// 		foreach ( $hamtruyencom ['items'] as $keyham ) {
-			
-// 			if (! empty ( $keyham ['detail'] )) {
-// 				foreach ( $keyham ['detail'] as $keyhamvalue => $getvalue_link ) {
-// 					$sour = pathinfo ( $getvalue_link );
-// 					// Thư mục chứa ảnh
-// 					if (file_exists ( $folder . '/' . $keyham ['neochap'] . $sour ['basename'] )) {
-// 						$dest = $folder . '/' . time () . '_' . $keyham ['neochap'] . $sour ['basename'];
-// 						$dest_img = time () . '_' . $keyham ['neochap'] . $sour ['basename'];
-// 					} else {
-// 						$dest = $folder . '/' . $keyham ['neochap'] . $sour ['basename'];
-// 						$dest_img = $keyham ['neochap'] . $sour ['basename'];
-// 					}
-					
-// 					$tmp_convert = array ();
-// 					$tmp_convert = $dest_img;
-// 					$arrayimgConvert [] = $tmp_convert;
-					
-// 					// save img in dir uploadnews
-// 					$this->save_img ( $getvalue_link, $dest );
-					
-// 					// break;
-// 				}
-// 			} elseif (empty ( $keyham ['detail'] ) and is_array ( $keyham ['detail'] )) {
-// 				break; // ngat de chuyen next
-// 			}
-// 		}
-		
-// 		echo '<pre>';
-// 		print_r ( $arrayimgConvert );
-// 		echo '</pre>';
-// 		die ();
+		// echo '<pre>';
+		// print_r ( $arrayimgConvert );
+		// echo '</pre>';
+		// die ();
 		
 		// // save
 		// foreach ($haivltv as $keysave =>$valuehaivlSave)
@@ -745,19 +735,16 @@ class HamtruyencomController extends AbstractActionController {
 				'data' => $hamtruyencom 
 		) );
 	}
-	
-	
-	public function cuudinhkyrestAction()
-	{
-		$name ="cuudinhki_tem.cache";
+	public function cuudinhkyrestAction() {
+		$name = "cuudinhki_tem.cache";
 		$data_array_cahe = array ();
-		$data_array_cahe = $this->get_temcaches($name); // get con tent form file cahe
+		$data_array_cahe = $this->get_temcaches ( $name ); // get con tent form file cahe
 		return new JsonModel ( array (
-				'data' => $data_array_cahe
+				'data' => $data_array_cahe 
 		) );
 	}
 	
-	//+++ Get songkhoe.vn +++++++++++++++++++++++
+	// +++ Get songkhoe.vn +++++++++++++++++++++++
 	public function songkhoevnchuyenmucbacsituvangetAction() {
 		$domain = "http://songkhoe.vn";
 		$url_haivltv = "http://songkhoe.vn/chuyen-muc-bac-si-tu-van.html";
@@ -768,303 +755,289 @@ class HamtruyencomController extends AbstractActionController {
 		$client->setUri ( $url_haivltv );
 		$result = $client->send ();
 		$body = $result->getBody (); // content of the web
-		// echo $body;die;
+		                             // echo $body;die;
 		$dom = new Query ( $body );
 		$bacsituvan = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row h3' );
-		//var_dump($bacsituvan->count());die;
-		$songkhoebacsytuvan = array();
-		$i=0;
+		// var_dump($bacsituvan->count());die;
+		$songkhoebacsytuvan = array ();
+		$i = 0;
+		$order = array (
+				"\r\n",
+				"\n",
+				"\r",
+				"'",
+				"\'" 
+		);
+		$replace = '';
 		foreach ( $bacsituvan as $key => $r ) {
 			$aelement = $r->getElementsByTagName ( "a" )->item ( 0 );
 			if ($aelement->hasAttributes ()) {
-				$nameapp ="songkhoe.vn"; //'chuyen-muc-bac-si-tu-van';
-				$title = $aelement->textContent;
+				$nameapp = "songkhoe.vn"; // 'chuyen-muc-bac-si-tu-van';
+				$title = trim ( $aelement->textContent );
+				$tilte_tmp = str_replace ( $order, $replace, $title );
 				$link = $aelement->getAttributeNode ( 'href' )->nodeValue;
-				$songkhoebacsytuvan[$i]['id'] = $i;
-				$songkhoebacsytuvan[$i]['title'] = trim($title);
-				$songkhoebacsytuvan[$i]['link'] = $domain.'/'.$link;
-				$songkhoebacsytuvan[$i]['items'] = array();
-				$arrayChild = $this->getChildContent($domain.'/'.$link,$domain);
-				$songkhoebacsytuvan[$i]['items']= $arrayChild;
-				$i++;
+				$songkhoebacsytuvan [$i] ['id'] = $i;
+				$songkhoebacsytuvan [$i] ['title'] = $tilte_tmp;
+				$songkhoebacsytuvan [$i] ['link'] = $domain . '/' . $link;
+				$songkhoebacsytuvan [$i] ['items'] = array ();
+				$arrayChild = $this->getChildContent ( $domain . '/' . $link, $domain );
+				$songkhoebacsytuvan [$i] ['items'] = $arrayChild;
+				$i ++;
 			}
-			
 		}
-	
+		
 		// .wrapper_sanpham .content_noidung_tomtat
 		$content_detail_lop = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row .wtc-p-title' );
-		$i=0;
+		$i = 0;
 		foreach ( $content_detail_lop as $keyhai => $valuehaivl ) {
-			$description = $valuehaivl->textContent;
-			$songkhoebacsytuvan[$i]['description'] = trim($description);
-			$i++;
+			$description_tmp = trim ( $valuehaivl->textContent );
+			$description = str_replace ( $order, $replace, $description_tmp );
+			$songkhoebacsytuvan [$i] ['description'] = $description;
+			$i ++;
 		}
-	
+		
 		// get Thumbnail img
 		$img = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row img' );
-		$i=0;
+		$i = 0;
 		foreach ( $img as $keydo => $mainelemen ) {
 			if ($mainelemen->hasAttributes ()) {
 				$image_thumbnail = $mainelemen->getAttributeNode ( 'src' )->nodeValue;
-				$songkhoebacsytuvan[$i]['image_thumbnail'] = $image_thumbnail;
-				$i++;
+				$songkhoebacsytuvan [$i] ['image_thumbnail'] = $image_thumbnail;
+				$i ++;
 			}
 		}
 		
-		
-		echo "<pre>";
-		print_r($songkhoebacsytuvan);
-		echo "</pre>";
-// 		die;
-	
-		
-// 	  // get muc con
-	  $songkhoebacsytuvan_child = array();
-	  $j = 0;
-	  foreach ($songkhoebacsytuvan as $keys =>$values)
-	  {
-	  	//var_dump($values['id']);
-// 	  	$songkhoebacsytuvan_child[$j]['id_pa']= $values['id'];
-// 	  	$songkhoebacsytuvan_child[$j]['id']= $j;
-	  	$songkhoebacsytuvan_child[$j]['link_pa']= $values['link'];
-	  	$songkhoebacsytuvan_child[$j]['items'] = array();
-	  	$arrayChild = $this->getChildContent($values['link'],$domain);
-	  	$songkhoebacsytuvan_child[$j]['items']= $arrayChild;
-	  	$j++;
-	  }
-		
-// 	  echo "</br>Chuyen Tu khoa Tu 2 Cua No</br>";
-// 	  echo "<pre>";
-// 	  print_r($songkhoebacsytuvan_child);
-// 	  echo "</pre>";
-// 	  die;
-		
-		
-		
-		
-		// get Chap of story .wrapper_sanpham .last_chap_update
-		$get_chap = $dom->execute ( '.wrapper_sanpham .last_chap_update' );
-		// var_dump($get_chap->count());die;
-		foreach ( $get_chap as $keyhai => $valuehaivl ) {
-			$conten_text = $valuehaivl->getElementsByTagName ( "a" )->item ( 0 );
-			if ($aelement->hasAttributes ()) {
-				$text = $conten_text->textContent;
-				$pieces = explode ( " ", $text ); // get number chapter
-				foreach ( $pieces as $element ) {
-					if (is_numeric ( $element )) {
-						$numberChap = $element;
-						// var_dump($aelemen23t);
-					}
-				}
-			}
-		}
-	
-		$hamtruyencom = array (
-				'nameapp' => $nameapp,
-				'title' => $title,
-				'link' => $link,
-				'description' => $description,
-				'numberchap' => $text,
-				'image_thumbnail' => $image_thumbnail,
-				'category' => '',
-				'items' => array ()
-		);
-	
-		// .doctruyen_last_first : link doc truyen
-		$link_story_get = $dom->execute ( '.wrapper_sanpham .doctruyen_last_first' );
-		foreach ( $link_story_get as $key => $aelement ) {
-			$conten_text = $aelement->getElementsByTagName ( "a" )->item ( 0 );
-			if ($aelement->hasAttributes ()) {
-				$link_story_start = $domain . $conten_text->getAttributeNode ( 'href' )->nodeValue;
-	
-				// eplox get string loop
-				$array_explo = explode ( "/", $conten_text->getAttributeNode ( 'href' )->nodeValue ); // $conten_text->getAttributeNode('href')->nodeValue) = '/doc-truyen/cuu-dinh-ky-chapter-1.html'
-				$link_story = $array_explo [1]; // doc-truyen
-				$url_start = explode ( ".", $array_explo [2] ); // cuu-dinh-ky-chapter-1.html
-				$url_next = $url_start [0];
-				$pieces2 = explode ( '-', $url_next );
-				foreach ( $pieces2 as $e ) {
-					if (is_numeric ( $e )) {
-						$url_number = $e;
-					}
-				}
-				// $url_loop = preg_replace('/1/', '', 'cuu-dinh-ky-chapter-1') ;
-				// $url_loop = str_replace('1', '', 'cuu-dinh-ky-chapter-1') ;
-				$reple = '/' . $url_number . '/'; // "'/.1.'/";
-				$url_loop = preg_replace ( $reple, '', $url_next ); // 'cuu-dinh-ky-chapter-'
-				$link_loop_real = $domain . '/' . $link_story . '/' . $url_loop;
-			}
-		}
-	
-		// GetConTentFull Deatil
-	
-		for($j = 1; $j < $numberChap; $j ++) {
-			$chap_look = "Chapter " . $j;
-			$neo_chap = $url_loop . $j . '_';
-			$get_img_link = $link_loop_real . $j . '.html';
-				
-			$content_detail_full = array ();
-			// $content_detail_full = $this->getContent_chap($get_img_link); // lay qua the a de lap anh
-			$content_detail_full = $this->getContent_chap_img ( $get_img_link ); // lay theo img de co anh
-			$img_thumbnail = $this->getContentchapimgThumnail( $get_img_link ); // lay theo img de co anh
-			// $content_detail_full = $this->getContentChapImg_NameArray($get_img_link,$neo_chap); // lay tem anh tra ve theo mang
-			$hamtruyencom ['items'] [] = array (
-					'id'=>$j,
-					'Chap' => $chap_look,
-					'neochap' => $neo_chap,
-					'link_chap' => $get_img_link,
-					'img_thumbnail'=>$img_thumbnail,
-					'detail' => $content_detail_full
-			);
-				
-			// break; // run one step
-		}
-	
 		// Lưu tin đã lấy vào file cache
-		$path = APPLICATION_PATH . '/cache/chuyen-muc-bac-si-tu-van.cache.php';
-		$content = '<?php $hamtruyencom = ' . var_export ( $hamtruyencom, true ) . ';?>';
+		$path = APPLICATION_PATH . '/cache/songkhoebacsytuvan.cache.php';
+		$content = '<?php $songkhoebacsytuvan = ' . var_export ( $songkhoebacsytuvan, true ) . ';?>';
 		$handler = fopen ( $path, 'w+' );
 		fwrite ( $handler, $content );
 		fclose ( $handler );
-	
-	
-	
-	
-	
-		// 		die ();
-	
-	
-	
-	
-	
-		// 		// copy anh
-		// 		$arrayimgConvert = array ();
-		// 		// save img
-		// 		$dir_file = DIR_UPLOAD_NEW; // $dir_file.'/uploadnew';
-		// 		$folder = DIR_UPLOAD_NEW;
-		// 		// $keyham['neochap'] : 'cuu-dinh-ky-chapter-11_';
-	
-		// 		foreach ( $hamtruyencom ['items'] as $keyham ) {
+		
+		// echo "<pre>";
+		// print_r($songkhoebacsytuvan);
+		// echo "</pre>";
+		// die;
+		
+		// // save danh muc 2 cap
+		foreach ( $songkhoebacsytuvan as $keysave => $valuehaivlSave ) {
+			$arry_tmp = array (
+					'title' => $valuehaivlSave ['title'],
+					'link' => $valuehaivlSave ['link'],
+					'description' => $valuehaivlSave ['description'],
+					'image_thumbnail' => $valuehaivlSave ['image_thumbnail'] 
+			);
 			
-		// 			if (! empty ( $keyham ['detail'] )) {
-		// 				foreach ( $keyham ['detail'] as $keyhamvalue => $getvalue_link ) {
-		// 					$sour = pathinfo ( $getvalue_link );
-		// 					// Thư mục chứa ảnh
-		// 					if (file_exists ( $folder . '/' . $keyham ['neochap'] . $sour ['basename'] )) {
-		// 						$dest = $folder . '/' . time () . '_' . $keyham ['neochap'] . $sour ['basename'];
-		// 						$dest_img = time () . '_' . $keyham ['neochap'] . $sour ['basename'];
-		// 					} else {
-		// 						$dest = $folder . '/' . $keyham ['neochap'] . $sour ['basename'];
-		// 						$dest_img = $keyham ['neochap'] . $sour ['basename'];
-		// 					}
-			
-		// 					$tmp_convert = array ();
-		// 					$tmp_convert = $dest_img;
-		// 					$arrayimgConvert [] = $tmp_convert;
-			
-		// 					// save img in dir uploadnews
-		// 					$this->save_img ( $getvalue_link, $dest );
-			
-		// 					// break;
-		// 				}
-		// 			} elseif (empty ( $keyham ['detail'] ) and is_array ( $keyham ['detail'] )) {
-		// 				break; // ngat de chuyen next
-		// 			}
-		// 		}
-	
-		// 		echo '<pre>';
-		// 		print_r ( $arrayimgConvert );
-		// 		echo '</pre>';
-		// 		die ();
-	
-		// // save
-		// foreach ($haivltv as $keysave =>$valuehaivlSave)
+			$id_pa = $this->getHamtruyencomTable ()->savesongkhoemenu ( $arry_tmp );
+			foreach ( $valuehaivlSave ['items'] as $keysav => $valuesave ) {
+				if (is_array ( $valuesave )) {
+					$id_child = $this->getHamtruyencomTable ()->savesongkhoemenuchlid ( $valuesave, $id_pa );
+				}
+			}
+			// break;
+		}
+		
+		// // get content detaill
+		// $songkhoebacsytuvan_tmp[$i]['detail'] = $this->getinnerHTML($domain.'/'.$link);
+		
+		// $l =0;
+		// foreach ($songkhoebacsytuvan as $keys =>$values)
 		// {
-		// $arry_tmp = array();
-		// $arry_tmp = (array)$valuehaivlSave;
-		// $rssget = New Rssget();
-		// $rssget->exchangeArray($arry_tmp);
-		// $this->getRssgetTable()->saveRssget($rssget);
+		// $array_tm = array();
+		// foreach ($values['items'] as $keyl => $valuel)
+		// {
+		// // echo "<pre>";
+		// // print_r($valuel['linkchild']);
+		// // echo "</pre>";
+		// // echo "-----------------------------</br>";
+		// $array_tm[] = $this->getinnerHTML($valuel['linkchild']);
+		// //break;
 		// }
-	
+		// $songkhoebacsytuvan[$l]['detail'] = $array_tm;
+		// $l++ ;
+		// break;
+		// }
+		
+		// die;
+		
 		return new JsonModel ( array (
-				'data' => $hamtruyencom
+				'data' => $songkhoebacsytuvan 
+		) );
+	}
+	public function songkhoemenuchlidgetAction() {
+		$songkhoemenuchlidArray = $this->getHamtruyencomTable ()->getsongkhoemenuchlid ();
+		
+	//168 bai
+		
+		$k=0;
+		$sk_detail = array();
+		foreach ( $songkhoemenuchlidArray as $keyvb => $vlavb ) {
+			if($k<143)
+			{
+				//100 //110//115//119//121//124//135//139  : 145die
+				$array_tm = array();
+				$array_tm = $this->getinnerHTML($vlavb['url']);
+				$sk_detail[$k]['id'] = $k;
+				$sk_detail[$k]['linkurl'] = $vlavb['url'];
+				$sk_detail[$k]['id_child'] = $vlavb['id_child'];
+				$sk_detail[$k]['detailcontend'] = $array_tm;
+			
+			$k++;
+			}
+			//break;
+		}
+		
+// 		echo "<pre>";
+// 		print_r ( $sk_detail );
+// 		echo "</pre>";
+// 		die;
+		return new JsonModel ( array (
+				'data' => $sk_detail 
 		) );
 	}
 	
 	// for loop content
-	public function getChildContent($url = null,$domain)
-	{
+	public function getChildContent($url = null, $domain) {
 		// get Content
 		if ($url === null) {
 			return $songkhoebacsytuvan_tmp = null;
 		} else {
 			$client2 = new HttpClient ();
 			$client2->setAdapter ( 'Zend\Http\Client\Adapter\Curl' );
-				
+			
 			$response2 = $this->getResponse ();
 			$response2->getHeaders ()->addHeaderLine ( 'content-type', 'text/html; charset=utf-8' ); // set content-type
-				
+			
 			$client2->setUri ( $url );
 			
 			$result = $client2->send ();
 			$body = $result->getBody (); // content of the web
-			// echo $body;die;
+			                             // echo $body;die;
 			$dom = new Query ( $body );
 			$bacsituvan = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row h3' );
-			//var_dump($bacsituvan->count());die;
-			$songkhoebacsytuvan_tmp = array();
-			$i=0;
+			// var_dump($bacsituvan->count());die;
+			$songkhoebacsytuvan_tmp = array ();
+			$i = 0;
+			// replate
+			$order = array (
+					"\r\n",
+					"\n",
+					"\r",
+					"'",
+					"\'" 
+			);
+			$replace = ''; // $tilte_tmp = str_replace($order, $replace, $title);
 			foreach ( $bacsituvan as $key => $r ) {
 				$aelement = $r->getElementsByTagName ( "a" )->item ( 0 );
 				if ($aelement->hasAttributes ()) {
-					$nameapp ="songkhoe.vn"; //'chuyen-muc-bac-si-tu-van';
-					$title = $aelement->textContent;
+					$nameapp = "songkhoe.vn"; // 'chuyen-muc-bac-si-tu-van';
+					$title = trim ( $aelement->textContent );
+					$tilte_tmp = str_replace ( $order, $replace, $title );
 					$link = $aelement->getAttributeNode ( 'href' )->nodeValue;
-					//$songkhoebacsytuvan_tmp[$i]['id'] = $i;
-					$songkhoebacsytuvan_tmp[$i]['title'] = trim($title);
-					$songkhoebacsytuvan_tmp[$i]['linkchild'] = $domain.'/'.$link;
-					$i++;
+					// $songkhoebacsytuvan_tmp[$i]['id'] = $i;
+					$songkhoebacsytuvan_tmp [$i] ['titlechild'] = $tilte_tmp;
+					$songkhoebacsytuvan_tmp [$i] ['linkchild'] = $domain . '/' . $link;
+					// $songkhoebacsytuvan_tmp[$i]['detail'] = $this->getinnerHTML($domain.'/'.$link);
+					$i ++;
 				}
 			}
 			
 			// .wrapper_sanpham .content_noidung_tomtat
 			$content_detail_lop = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row .wtc-p-title' );
-			$i=0;
+			$i = 0;
 			foreach ( $content_detail_lop as $keyhai => $valuehaivl ) {
-				$description = $valuehaivl->textContent;
-				$songkhoebacsytuvan_tmp[$i]['description'] = trim($description);
-				$i++;
+				$description_tm = trim ( $valuehaivl->textContent );
+				$description = str_replace ( $order, $replace, $description_tm );
+				$songkhoebacsytuvan_tmp [$i] ['descriptionchild'] = $description;
+				$i ++;
 			}
 			
 			// get Thumbnail img
 			$img = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row img' );
-			$i=0;
+			$i = 0;
 			foreach ( $img as $keydo => $mainelemen ) {
 				if ($mainelemen->hasAttributes ()) {
 					$image_thumbnail = $mainelemen->getAttributeNode ( 'src' )->nodeValue;
-					$songkhoebacsytuvan_tmp[$i]['image_thumbnail'] = $image_thumbnail;
-					$i++;
+					$songkhoebacsytuvan_tmp [$i] ['image_thumbnailchild'] = $image_thumbnail;
+					$i ++;
 				}
 			}
-
+			
 			return $songkhoebacsytuvan_tmp;
 		}
 	}
-	
-	public function songkhoevnchuyenmucbacsituvanrestAction()
-	{
-		$name ="chuyen-muc-bac-si-tu-van.cache.php";
+	public function songkhoevnchuyenmucbacsituvanrestAction() {
+		$name = "songkhoebacsytuvan.cache.php";
 		$data_array_cahe = array ();
-		$data_array_cahe = $this->get_temcaches($name); // get con tent form file cahe
+		$data_array_cahe = $this->get_temcaches ( $name ); // get con tent form file cahe
 		return new JsonModel ( array (
-				'data' => $data_array_cahe
+				'data' => $data_array_cahe 
 		) );
 	}
-	//+++ End song Khoe ++++++++++++++++++++++++
+	public function getinnerHTML($url = null) {
+		//return $detailcontent =99;
+		// get Content
+		if ($url === null) {
+			return $detailcontent = null;
+		} else {
+			
+			$client2 = new HttpClient ();
+			$client2->setAdapter ( 'Zend\Http\Client\Adapter\Curl' );
+			
+			$response2 = $this->getResponse ();
+			$response2->getHeaders ()->addHeaderLine ( 'content-type', 'text/html; charset=utf-8' ); // set content-type
+			
+			$client2->setUri ( $url );
+			$result2 = $client2->send ();
+// 			return $detailcontent = 99;
+			$body2 = $result2->getBody (); // content of the web
+			$dom2 = new Query ( $body2 );
+			//#body #body_center .box-topic
+			$img_array = $dom2->execute ( '#body #body_center .box-topic' );
+			
+			//return $img_array->count();die;
+// 			 if($img_array->count() > 0)
+// 			 {
+				$detailcontent = array ();
+				foreach ( $img_array as $key ) {
+					$detailcontent = $this->innerHTML ( $key );
+					//break;
+			    	}
+				return $detailcontent;
+// 			 }elseif($img_array->count()< 0) {
+// 			 	return $detailcontent = -1;//break;
+// 			       }	
+		}
+	}
 	
-	
-	
+	// +++ End song Khoe ++++++++++++++++++++++++
+	public function geturlAction($url = 'http://songkhoe.vn/17-tuoi-co-tiem-vac-xin-phong-vnnb-duoc-khong_965-0-79451.html') {
+		
+		// get Content
+		if ($url === null) {
+			return $detailcontent = null;
+		} else {
+			$client2 = new HttpClient ();
+			$client2->setAdapter ( 'Zend\Http\Client\Adapter\Curl' );
+			
+			$response2 = $this->getResponse ();
+			$response2->getHeaders ()->addHeaderLine ( 'content-type', 'text/html; charset=utf-8' ); // set content-type
+			
+			$client2->setUri ( $url );
+			$result2 = $client2->send ();
+			$body2 = $result2->getBody (); // content of the web
+			$dom2 = new Query ( $body2 );
+			$img_array = $dom2->execute ( '#body #body_center .box-topic' );
+			var_dump ( $img_array->count () );
+			$detailcontent = array ();
+			foreach ( $img_array as $key ) {
+				$detailcontent = $this->innerHTML ( $key );
+				break;
+			}
+			
+			var_dump ( $detailcontent );
+		}
+	}
 	
 	// get item file cahe
 	public function get_hamtruyen() {
@@ -1094,11 +1067,11 @@ class HamtruyencomController extends AbstractActionController {
 						$data2 [] = $tmpl;
 					}
 					$data ['items'] [] = array (
-							'id'=>$keyloop ['id'],
+							'id' => $keyloop ['id'],
 							'Chap' => $keyloop ['Chap'],
 							'neochap' => $keyloop ['neochap'],
 							'link_chap' => $keyloop ['link_chap'],
-							'img_thumbnail'=>$keyloop ['img_thumbnail'],
+							'img_thumbnail' => $keyloop ['img_thumbnail'],
 							'detail' => $data2 
 					);
 				}
@@ -1112,8 +1085,8 @@ class HamtruyencomController extends AbstractActionController {
 	// get item file cahe
 	public function get_temcaches($name) {
 		$data1 = array ();
-		$dir = APPLICATION_PATH . '/cache/'.$name.'.php';
-	
+		$dir = APPLICATION_PATH . '/cache/' . $name . '.php';
+		
 		if (file_exists ( $dir )) {
 			require $dir;
 			if (isset ( $hamtruyencom ) and $hamtruyencom) {
@@ -1126,7 +1099,7 @@ class HamtruyencomController extends AbstractActionController {
 							'numberchap' => $hamtruyencom ['numberchap'],
 							'image_thumbnail' => $hamtruyencom ['image_thumbnail'],
 							'category' => $hamtruyencom ['category'],
-							'items' => array ()
+							'items' => array () 
 					);
 				}
 				foreach ( $hamtruyencom ['items'] as $keyloop ) {
@@ -1137,20 +1110,19 @@ class HamtruyencomController extends AbstractActionController {
 						$data2 [] = $tmpl;
 					}
 					$data ['items'] [] = array (
-							'id'=>$keyloop ['id'],
+							'id' => $keyloop ['id'],
 							'Chap' => $keyloop ['Chap'],
 							'neochap' => $keyloop ['neochap'],
 							'link_chap' => $keyloop ['link_chap'],
-							'img_thumbnail'=>$keyloop ['img_thumbnail'],
-							'detail' => $data2
+							'img_thumbnail' => $keyloop ['img_thumbnail'],
+							'detail' => $data2 
 					);
 				}
 			}
 		}
-	
+		
 		return $data;
 	}
-	
 	
 	// input : $img_array = $dom2->execute('#content .content_chap .separator');
 	// Out put : Array img all
@@ -1168,8 +1140,8 @@ class HamtruyencomController extends AbstractActionController {
 			$client2->setUri ( $url );
 			$result2 = $client2->send ();
 			$body2 = $result2->getBody (); // content of the web
-			                                                // return $body2; die;
-			                                                // echo $body2;
+			                               // return $body2; die;
+			                               // echo $body2;
 			$dom2 = new Query ( $body2 );
 			// get img detail story
 			// $img_array = $dom2->execute('#content .content_chap img');
@@ -1194,7 +1166,7 @@ class HamtruyencomController extends AbstractActionController {
 	public function getContentChapImg_NameArray($url = null, $neo_chap) {
 		$array_img = array (); // $array_img : link anh goc
 		$array_img_convert = array (); // $array_img_convert : cuu-dinh-ky-chapter-1_08.jpg
-		                              // get Content
+		                               // get Content
 		if ($url === null) {
 			return $array_img_convert = null;
 		} else {
@@ -1217,7 +1189,7 @@ class HamtruyencomController extends AbstractActionController {
 				$array_img [] = $tmp_img;
 				
 				$sour_url = $key->getAttribute ( 'src' ); // $sour_url = 'http://file.diendanbaclieu.net/hinh/2013/10/hinh-anh-dep-ve-tinh-yeu-6.jpg';
-				                                       // save img
+				                                          // save img
 				$dir_file = DIR_UPLOAD_NEW; // $dir_file.'/uploadnew';
 				$folder = DIR_UPLOAD_NEW;
 				$sour = pathinfo ( $sour_url );
@@ -1253,8 +1225,8 @@ class HamtruyencomController extends AbstractActionController {
 			$client2->setUri ( $url );
 			$result2 = $client2->send ();
 			$body2 = $result2->getBody (); // content of the web
-			                                                // return $body2; die;
-			                                                // echo $body2;
+			                               // return $body2; die;
+			                               // echo $body2;
 			$dom2 = new Query ( $body2 );
 			// get img detail story
 			$img_array = $dom2->execute ( '#content .content_chap img' );
@@ -1276,15 +1248,15 @@ class HamtruyencomController extends AbstractActionController {
 		} else {
 			$client2 = new HttpClient ();
 			$client2->setAdapter ( 'Zend\Http\Client\Adapter\Curl' );
-				
+			
 			$response2 = $this->getResponse ();
 			$response2->getHeaders ()->addHeaderLine ( 'content-type', 'text/html; charset=utf-8' ); // set content-type
-				
+			
 			$client2->setUri ( $url );
 			$result2 = $client2->send ();
 			$body2 = $result2->getBody (); // content of the web
-			// return $body2; die;
-			// echo $body2;
+			                               // return $body2; die;
+			                               // echo $body2;
 			$dom2 = new Query ( $body2 );
 			// get img detail story
 			$img_array = $dom2->execute ( '#content .content_chap img' );
@@ -1292,9 +1264,9 @@ class HamtruyencomController extends AbstractActionController {
 			// $array_img[] = $img_array->current()->getAttribute('src');;
 			foreach ( $img_array as $key ) {
 				$array_img = $key->getAttribute ( 'src' ); // lay img cuoi cung
-				//break; // lay cai img dau tien
+					                                           // break; // lay cai img dau tien
 			}
-				
+			
 			return $array_img;
 		}
 	}
@@ -1303,7 +1275,7 @@ class HamtruyencomController extends AbstractActionController {
 	public function getContentChapImgCopy($url = null, $neo_chap) {
 		$array_img = array (); // $array_img : link anh goc
 		$array_img_convert = array (); // $array_img_convert : cuu-dinh-ky-chapter-1_08.jpg
-		                              // get Content
+		                               // get Content
 		if ($url === null) {
 			return $array_img_convert = null;
 		} else {
@@ -1328,7 +1300,7 @@ class HamtruyencomController extends AbstractActionController {
 				$array_img [] = $tmp_img;
 				
 				$sour_url = $key->getAttribute ( 'src' ); // $sour_url = 'http://file.diendanbaclieu.net/hinh/2013/10/hinh-anh-dep-ve-tinh-yeu-6.jpg';
-				                                       // save img
+				                                          // save img
 				$dir_file = DIR_UPLOAD_NEW; // $dir_file.'/uploadnew';
 				$folder = DIR_UPLOAD_NEW;
 				$sour = pathinfo ( $sour_url );
@@ -1365,7 +1337,7 @@ class HamtruyencomController extends AbstractActionController {
 		$client->setUri ( $url_haivltv );
 		$result = $client->send ();
 		$body = $result->getBody (); // content of the web
-		                                              // echo $body;die;
+		                             // echo $body;die;
 		$dom = new Query ( $body );
 		// $title = $dom->execute('.wrapper_sanpham .ten_truyen');
 		// foreach($title as $key=>$r)
@@ -1509,10 +1481,8 @@ class HamtruyencomController extends AbstractActionController {
 				'data' => $hamtruyencom 
 		) );
 	}
-	public function detailAction()
-	{
-	//public function truyentranhtuancomAction(){() 
-
+	public function detailAction() {
+		// public function truyentranhtuancomAction(){()
 		$clienttest = new HttpClient ();
 		$clienttest->setAdapter ( 'Zend\Http\Client\Adapter\Curl' );
 		
@@ -1522,37 +1492,37 @@ class HamtruyencomController extends AbstractActionController {
 		$clienttest->setUri ( 'http://truyentranhtuan.com/cuu-dinh-ky-chuong-5/' );
 		$resulttest = $clienttest->send ();
 		$bodytest = $resulttest->getBody (); // content of the web
-		                                                      
+		                                     
 		// var_dump(is_array($bodytest));
-		                                                      // var_dump(is_string($bodytest));
-		                                                      
+		                                     // var_dump(is_string($bodytest));
+		                                     
 		// $domhtml = new \simple_html_dom();
-		                                                      // $html = $domhtml->loadFile($bodytest);
-		                                                      // var_dump($html);
-		                                                      
+		                                     // $html = $domhtml->loadFile($bodytest);
+		                                     // var_dump($html);
+		                                     
 		// $string = '<script type="text/javascript">';
-		                                                      // print strpos($bodytest, $string) . "\n";
-		                                                      
+		                                     // print strpos($bodytest, $string) . "\n";
+		                                     
 		// die;
-		                                                      
+		                                     
 		// // echo $bodytest; die();
-		                                                      // //echo $body2;
-		                                                      // $domtest = new Query($bodytest); // return xml
-		                                                      
+		                                     // //echo $body2;
+		                                     // $domtest = new Query($bodytest); // return xml
+		                                     
 		// //echo "<pre>";
-		                                                      // echo ($domtest);
-		                                                      // //echo '</pre>';
-		                                                      // die;
-		                                                      
+		                                     // echo ($domtest);
+		                                     // //echo '</pre>';
+		                                     // die;
+		                                     
 		// //print_r($domtest);//die;
-		                                                      // $img_array = $domtest->execute('.wrapper #viewer');
-		                                                      
+		                                     // $img_array = $domtest->execute('.wrapper #viewer');
+		                                     
 		// var_dump($img_array->count());
-		                                                      // //var_dump($img_array->getXpathQuery());
-		                                                      // // echo "<pre>";
-		                                                      // // print_r($img_array);
-		                                                      // // echo '</pre>';
-		                                                      // die;
+		                                     // //var_dump($img_array->getXpathQuery());
+		                                     // // echo "<pre>";
+		                                     // // print_r($img_array);
+		                                     // // echo '</pre>';
+		                                     // die;
 		
 		$slides_page_path = '{"cards":["http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-014.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-006.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-005.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-013.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-016.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-018.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-008.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-022.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-011.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-023.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-015.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-012.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-021.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-010.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-004.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-002.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-007.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-019.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-017.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-001.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-024.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-020.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-003.jpg","http://truyentranhtuan.com/manga/cuu-dinh-ky-nhom-hamtruyen-com/5/cuu-dinh-ky-chap-5-trang-009.jpg"]}';
 		$arr = json_decode ( $slides_page_path, TRUE );
@@ -1596,7 +1566,7 @@ class HamtruyencomController extends AbstractActionController {
 				// WordPress bug
 				// $text = str_replace( '<', '&lt;', $text );
 				$r .= $text;
-			}			// FIXME we should return comments as well
+			} 			// FIXME we should return comments as well
 			elseif ($element->nodeType == XML_COMMENT_NODE) {
 				$r .= '';
 			} else {
