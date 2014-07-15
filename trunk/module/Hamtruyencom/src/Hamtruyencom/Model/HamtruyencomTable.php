@@ -70,7 +70,79 @@ class HamtruyencomTable extends AbstractTableGateway
             }
         }
     }
-
+   //
+    public function savesongkhoemenu($content_detail_full = Array())
+    {
+    	if (is_array($content_detail_full) and !empty($content_detail_full))
+    	{
+ 
+    			$dbAdapter = $this->adapter;
+    			$sql       = "INSERT INTO songkhoemenu (title,link,description,image_thumbnail,items)
+                              VALUES ('".$content_detail_full['title']."','".$content_detail_full['link']."','".$content_detail_full['description']."','".$content_detail_full['image_thumbnail']."','')";
+    
+    			$statement = $dbAdapter->query($sql);
+    			//return $statement; die;
+    			$result    = $statement->execute();
+    			$id = $dbAdapter->getDriver()->getLastGeneratedValue();
+    		return $id;
+    	}else
+    		return $result = Null;
+    
+    }
+    //savesongkhoemenuchlid
+    public function savesongkhoemenuchlid($content_detail_full = Array(),$id_pa)
+    {
+    	if (is_array($content_detail_full) and !empty($content_detail_full))
+    	{
+    
+    		$dbAdapter = $this->adapter;
+    		$sql       = "INSERT INTO songkhoemenuchlid (titlechild,linkchild,descriptionchild,image_thumbnailchild,id_pa)
+                              VALUES ('".$content_detail_full['titlechild']."','".$content_detail_full['linkchild']."','".$content_detail_full['descriptionchild']."','".$content_detail_full['image_thumbnailchild']."','".$id_pa."')";
+    
+    		$statement = $dbAdapter->query($sql);
+    		//return $statement; die;
+    		$result    = $statement->execute();
+    		$id = $dbAdapter->getDriver()->getLastGeneratedValue();
+    		return $id;
+    	}else
+    		return $result = Null;
+    
+    }
+    
+    //
+    public function getsongkhoemenuchlid()
+    {
+    	
+    		$dbAdapter = $this->adapter;
+    		$sql       = "SELECT * FROM songkhoemenuchlid ";
+	    	$statement = $dbAdapter->query($sql);
+	    	$result    = $statement->execute();
+	    
+	    	$selectData = array();
+	    
+	    	foreach ($result as $res) {
+	    		$tmp_tmp = array();
+	    		$tmp_tmp['url'] = $res['linkchild'];
+	    		$tmp_tmp['id_child'] = $res['id'];
+	    		$selectData[]=$tmp_tmp;
+	    	}
+	    	return $selectData;
+    	
+    }
+    public function getMaxId()
+    {
+    	
+    	$sql = "SELECT MAX(id) FROM songkhoemenu";
+    	$statementmax = $dbAdapter->query($sql);
+    	$resultmax    = $statementmax->execute();
+    	$id;
+    	foreach ($resultmax as $res) 
+    	{
+    		$id = $res['id']; //*generatedValue
+    	}
+    	return $id;	
+    }
+    
     public function deleteHamtruyencom($id)
     {
         $this->delete(array('id' => $id));
