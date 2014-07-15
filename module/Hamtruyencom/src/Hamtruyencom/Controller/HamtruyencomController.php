@@ -757,6 +757,315 @@ class HamtruyencomController extends AbstractActionController {
 		) );
 	}
 	
+	//+++ Get songkhoe.vn +++++++++++++++++++++++
+	public function songkhoevnchuyenmucbacsituvangetAction() {
+		$domain = "http://songkhoe.vn";
+		$url_haivltv = "http://songkhoe.vn/chuyen-muc-bac-si-tu-van.html";
+		$client = new HttpClient ();
+		$client->setAdapter ( 'Zend\Http\Client\Adapter\Curl' );
+		$response = $this->getResponse ();
+		$response->getHeaders ()->addHeaderLine ( 'content-type', 'text/html; charset=utf-8' ); // set content-type
+		$client->setUri ( $url_haivltv );
+		$result = $client->send ();
+		$body = $result->getBody (); // content of the web
+		// echo $body;die;
+		$dom = new Query ( $body );
+		$bacsituvan = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row h3' );
+		//var_dump($bacsituvan->count());die;
+		$songkhoebacsytuvan = array();
+		$i=0;
+		foreach ( $bacsituvan as $key => $r ) {
+			$aelement = $r->getElementsByTagName ( "a" )->item ( 0 );
+			if ($aelement->hasAttributes ()) {
+				$nameapp ="songkhoe.vn"; //'chuyen-muc-bac-si-tu-van';
+				$title = $aelement->textContent;
+				$link = $aelement->getAttributeNode ( 'href' )->nodeValue;
+				$songkhoebacsytuvan[$i]['id'] = $i;
+				$songkhoebacsytuvan[$i]['title'] = trim($title);
+				$songkhoebacsytuvan[$i]['link'] = $domain.'/'.$link;
+				$songkhoebacsytuvan[$i]['items'] = array();
+				$arrayChild = $this->getChildContent($domain.'/'.$link,$domain);
+				$songkhoebacsytuvan[$i]['items']= $arrayChild;
+				$i++;
+			}
+			
+		}
+	
+		// .wrapper_sanpham .content_noidung_tomtat
+		$content_detail_lop = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row .wtc-p-title' );
+		$i=0;
+		foreach ( $content_detail_lop as $keyhai => $valuehaivl ) {
+			$description = $valuehaivl->textContent;
+			$songkhoebacsytuvan[$i]['description'] = trim($description);
+			$i++;
+		}
+	
+		// get Thumbnail img
+		$img = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row img' );
+		$i=0;
+		foreach ( $img as $keydo => $mainelemen ) {
+			if ($mainelemen->hasAttributes ()) {
+				$image_thumbnail = $mainelemen->getAttributeNode ( 'src' )->nodeValue;
+				$songkhoebacsytuvan[$i]['image_thumbnail'] = $image_thumbnail;
+				$i++;
+			}
+		}
+		
+		
+		echo "<pre>";
+		print_r($songkhoebacsytuvan);
+		echo "</pre>";
+// 		die;
+	
+		
+// 	  // get muc con
+	  $songkhoebacsytuvan_child = array();
+	  $j = 0;
+	  foreach ($songkhoebacsytuvan as $keys =>$values)
+	  {
+	  	//var_dump($values['id']);
+// 	  	$songkhoebacsytuvan_child[$j]['id_pa']= $values['id'];
+// 	  	$songkhoebacsytuvan_child[$j]['id']= $j;
+	  	$songkhoebacsytuvan_child[$j]['link_pa']= $values['link'];
+	  	$songkhoebacsytuvan_child[$j]['items'] = array();
+	  	$arrayChild = $this->getChildContent($values['link'],$domain);
+	  	$songkhoebacsytuvan_child[$j]['items']= $arrayChild;
+	  	$j++;
+	  }
+		
+// 	  echo "</br>Chuyen Tu khoa Tu 2 Cua No</br>";
+// 	  echo "<pre>";
+// 	  print_r($songkhoebacsytuvan_child);
+// 	  echo "</pre>";
+// 	  die;
+		
+		
+		
+		
+		// get Chap of story .wrapper_sanpham .last_chap_update
+		$get_chap = $dom->execute ( '.wrapper_sanpham .last_chap_update' );
+		// var_dump($get_chap->count());die;
+		foreach ( $get_chap as $keyhai => $valuehaivl ) {
+			$conten_text = $valuehaivl->getElementsByTagName ( "a" )->item ( 0 );
+			if ($aelement->hasAttributes ()) {
+				$text = $conten_text->textContent;
+				$pieces = explode ( " ", $text ); // get number chapter
+				foreach ( $pieces as $element ) {
+					if (is_numeric ( $element )) {
+						$numberChap = $element;
+						// var_dump($aelemen23t);
+					}
+				}
+			}
+		}
+	
+		$hamtruyencom = array (
+				'nameapp' => $nameapp,
+				'title' => $title,
+				'link' => $link,
+				'description' => $description,
+				'numberchap' => $text,
+				'image_thumbnail' => $image_thumbnail,
+				'category' => '',
+				'items' => array ()
+		);
+	
+		// .doctruyen_last_first : link doc truyen
+		$link_story_get = $dom->execute ( '.wrapper_sanpham .doctruyen_last_first' );
+		foreach ( $link_story_get as $key => $aelement ) {
+			$conten_text = $aelement->getElementsByTagName ( "a" )->item ( 0 );
+			if ($aelement->hasAttributes ()) {
+				$link_story_start = $domain . $conten_text->getAttributeNode ( 'href' )->nodeValue;
+	
+				// eplox get string loop
+				$array_explo = explode ( "/", $conten_text->getAttributeNode ( 'href' )->nodeValue ); // $conten_text->getAttributeNode('href')->nodeValue) = '/doc-truyen/cuu-dinh-ky-chapter-1.html'
+				$link_story = $array_explo [1]; // doc-truyen
+				$url_start = explode ( ".", $array_explo [2] ); // cuu-dinh-ky-chapter-1.html
+				$url_next = $url_start [0];
+				$pieces2 = explode ( '-', $url_next );
+				foreach ( $pieces2 as $e ) {
+					if (is_numeric ( $e )) {
+						$url_number = $e;
+					}
+				}
+				// $url_loop = preg_replace('/1/', '', 'cuu-dinh-ky-chapter-1') ;
+				// $url_loop = str_replace('1', '', 'cuu-dinh-ky-chapter-1') ;
+				$reple = '/' . $url_number . '/'; // "'/.1.'/";
+				$url_loop = preg_replace ( $reple, '', $url_next ); // 'cuu-dinh-ky-chapter-'
+				$link_loop_real = $domain . '/' . $link_story . '/' . $url_loop;
+			}
+		}
+	
+		// GetConTentFull Deatil
+	
+		for($j = 1; $j < $numberChap; $j ++) {
+			$chap_look = "Chapter " . $j;
+			$neo_chap = $url_loop . $j . '_';
+			$get_img_link = $link_loop_real . $j . '.html';
+				
+			$content_detail_full = array ();
+			// $content_detail_full = $this->getContent_chap($get_img_link); // lay qua the a de lap anh
+			$content_detail_full = $this->getContent_chap_img ( $get_img_link ); // lay theo img de co anh
+			$img_thumbnail = $this->getContentchapimgThumnail( $get_img_link ); // lay theo img de co anh
+			// $content_detail_full = $this->getContentChapImg_NameArray($get_img_link,$neo_chap); // lay tem anh tra ve theo mang
+			$hamtruyencom ['items'] [] = array (
+					'id'=>$j,
+					'Chap' => $chap_look,
+					'neochap' => $neo_chap,
+					'link_chap' => $get_img_link,
+					'img_thumbnail'=>$img_thumbnail,
+					'detail' => $content_detail_full
+			);
+				
+			// break; // run one step
+		}
+	
+		// Lưu tin đã lấy vào file cache
+		$path = APPLICATION_PATH . '/cache/chuyen-muc-bac-si-tu-van.cache.php';
+		$content = '<?php $hamtruyencom = ' . var_export ( $hamtruyencom, true ) . ';?>';
+		$handler = fopen ( $path, 'w+' );
+		fwrite ( $handler, $content );
+		fclose ( $handler );
+	
+	
+	
+	
+	
+		// 		die ();
+	
+	
+	
+	
+	
+		// 		// copy anh
+		// 		$arrayimgConvert = array ();
+		// 		// save img
+		// 		$dir_file = DIR_UPLOAD_NEW; // $dir_file.'/uploadnew';
+		// 		$folder = DIR_UPLOAD_NEW;
+		// 		// $keyham['neochap'] : 'cuu-dinh-ky-chapter-11_';
+	
+		// 		foreach ( $hamtruyencom ['items'] as $keyham ) {
+			
+		// 			if (! empty ( $keyham ['detail'] )) {
+		// 				foreach ( $keyham ['detail'] as $keyhamvalue => $getvalue_link ) {
+		// 					$sour = pathinfo ( $getvalue_link );
+		// 					// Thư mục chứa ảnh
+		// 					if (file_exists ( $folder . '/' . $keyham ['neochap'] . $sour ['basename'] )) {
+		// 						$dest = $folder . '/' . time () . '_' . $keyham ['neochap'] . $sour ['basename'];
+		// 						$dest_img = time () . '_' . $keyham ['neochap'] . $sour ['basename'];
+		// 					} else {
+		// 						$dest = $folder . '/' . $keyham ['neochap'] . $sour ['basename'];
+		// 						$dest_img = $keyham ['neochap'] . $sour ['basename'];
+		// 					}
+			
+		// 					$tmp_convert = array ();
+		// 					$tmp_convert = $dest_img;
+		// 					$arrayimgConvert [] = $tmp_convert;
+			
+		// 					// save img in dir uploadnews
+		// 					$this->save_img ( $getvalue_link, $dest );
+			
+		// 					// break;
+		// 				}
+		// 			} elseif (empty ( $keyham ['detail'] ) and is_array ( $keyham ['detail'] )) {
+		// 				break; // ngat de chuyen next
+		// 			}
+		// 		}
+	
+		// 		echo '<pre>';
+		// 		print_r ( $arrayimgConvert );
+		// 		echo '</pre>';
+		// 		die ();
+	
+		// // save
+		// foreach ($haivltv as $keysave =>$valuehaivlSave)
+		// {
+		// $arry_tmp = array();
+		// $arry_tmp = (array)$valuehaivlSave;
+		// $rssget = New Rssget();
+		// $rssget->exchangeArray($arry_tmp);
+		// $this->getRssgetTable()->saveRssget($rssget);
+		// }
+	
+		return new JsonModel ( array (
+				'data' => $hamtruyencom
+		) );
+	}
+	
+	// for loop content
+	public function getChildContent($url = null,$domain)
+	{
+		// get Content
+		if ($url === null) {
+			return $songkhoebacsytuvan_tmp = null;
+		} else {
+			$client2 = new HttpClient ();
+			$client2->setAdapter ( 'Zend\Http\Client\Adapter\Curl' );
+				
+			$response2 = $this->getResponse ();
+			$response2->getHeaders ()->addHeaderLine ( 'content-type', 'text/html; charset=utf-8' ); // set content-type
+				
+			$client2->setUri ( $url );
+			
+			$result = $client2->send ();
+			$body = $result->getBody (); // content of the web
+			// echo $body;die;
+			$dom = new Query ( $body );
+			$bacsituvan = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row h3' );
+			//var_dump($bacsituvan->count());die;
+			$songkhoebacsytuvan_tmp = array();
+			$i=0;
+			foreach ( $bacsituvan as $key => $r ) {
+				$aelement = $r->getElementsByTagName ( "a" )->item ( 0 );
+				if ($aelement->hasAttributes ()) {
+					$nameapp ="songkhoe.vn"; //'chuyen-muc-bac-si-tu-van';
+					$title = $aelement->textContent;
+					$link = $aelement->getAttributeNode ( 'href' )->nodeValue;
+					//$songkhoebacsytuvan_tmp[$i]['id'] = $i;
+					$songkhoebacsytuvan_tmp[$i]['title'] = trim($title);
+					$songkhoebacsytuvan_tmp[$i]['linkchild'] = $domain.'/'.$link;
+					$i++;
+				}
+			}
+			
+			// .wrapper_sanpham .content_noidung_tomtat
+			$content_detail_lop = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row .wtc-p-title' );
+			$i=0;
+			foreach ( $content_detail_lop as $keyhai => $valuehaivl ) {
+				$description = $valuehaivl->textContent;
+				$songkhoebacsytuvan_tmp[$i]['description'] = trim($description);
+				$i++;
+			}
+			
+			// get Thumbnail img
+			$img = $dom->execute ( '#body #body_center .box-topic .wrap-topic .wtc-row img' );
+			$i=0;
+			foreach ( $img as $keydo => $mainelemen ) {
+				if ($mainelemen->hasAttributes ()) {
+					$image_thumbnail = $mainelemen->getAttributeNode ( 'src' )->nodeValue;
+					$songkhoebacsytuvan_tmp[$i]['image_thumbnail'] = $image_thumbnail;
+					$i++;
+				}
+			}
+
+			return $songkhoebacsytuvan_tmp;
+		}
+	}
+	
+	public function songkhoevnchuyenmucbacsituvanrestAction()
+	{
+		$name ="chuyen-muc-bac-si-tu-van.cache.php";
+		$data_array_cahe = array ();
+		$data_array_cahe = $this->get_temcaches($name); // get con tent form file cahe
+		return new JsonModel ( array (
+				'data' => $data_array_cahe
+		) );
+	}
+	//+++ End song Khoe ++++++++++++++++++++++++
+	
+	
+	
+	
 	// get item file cahe
 	public function get_hamtruyen() {
 		$data1 = array ();

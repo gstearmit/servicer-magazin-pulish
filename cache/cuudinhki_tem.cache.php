@@ -2,13 +2,8 @@
   'nameapp' => 'hamtruyencom',
   'title' => 'Cửu Đỉnh Ký',
   'link' => 'http://hamtruyen.com/cuu-dinh-ky-1385.html',
-  'description' => '
-                
-<div style=\'text-align: justify;\'>Đây là bộ truyện thứ 5 của Ngã Cật Tây Hồng Thị. Bốn bộ truyện trước do Tác giả viết có ba bộ vốn là tu chân tiên hiệp loại, một là tây phương ma huyễn loại. Bộ truyện thứ năm này chính là Đông phương huyền ảo loại.</div>
-<div style=\'text-align: justify;\'><br></br></div>
-<div style=\'text-align: justify;\'>"Cửu Đỉnh Ký” được Ngã Cật Tây Hồng Thị suy nghĩ rất lâu và cũng là bộ truyện được Phiên Gia chờ đợi cao nhất. Tin rằng "Cửu Đỉnh Ký”sẽ không khiến cho mọi người phải thất vọng</div>
-            ',
-  'numberchap' => 'Chapter 87',
+  'description' => 'Đây là bộ truyện thứ 5 của Ngã Cật Tây Hồng Thị. Bốn bộ truyện trước do Tác giả viết có ba bộ vốn là tu chân tiên hiệp loại, một là tây phương ma huyễn loại. Bộ truyện thứ năm này chính là Đông phương huyền ảo loại."Cửu Đỉnh Ký” được Ngã Cật Tây Hồng Thị suy nghĩ rất lâu và cũng là bộ truyện được Phiên Gia chờ đợi cao nhất. Tin rằng "Cửu Đỉnh Ký”sẽ không khiến cho mọi người phải thất vọng',
+  'numberchap' => 'Chapter 88',
   'image_thumbnail' => 'http://hamtruyen.com/Pictures/Product/138/Large/0.jpg',
   'category' => '',
   'items' => 
@@ -2467,6 +2462,38 @@
         17 => 'http://3.bp.blogspot.com/-KlJt387UiFE/U6_iIP-XaLI/AAAAAAAAEUs/xZ9fS09kHqs/s1600/HamtruyenImage16.jpg',
         18 => 'http://3.bp.blogspot.com/-P4A3SL-Csiw/U6_iKqWfwRI/AAAAAAAAEU0/oAY1E31yccE/s1600/HamtruyenImage17.jpg',
         19 => 'http://3.bp.blogspot.com/-_CjzHgNbMSM/U6_iNHi2WyI/AAAAAAAAEU8/EzMAxgCm6CI/s1600/HamtruyenImage18.jpg',
+        20 => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
+      ),
+    ),
+    86 => 
+    array (
+      'id' => 87,
+      'Chap' => 'Chapter 87',
+      'neochap' => 'cuu-dinh-ky-chapter-87_',
+      'link_chap' => 'http://hamtruyen.com/doc-truyen/cuu-dinh-ky-chapter-87.html',
+      'img_thumbnail' => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
+      'detail' => 
+      array (
+        0 => 'http://3.bp.blogspot.com/-vyRCdb84BzQ/UxhMyePGtzI/AAAAAAAAC0g/uJ_UXZPnIYA/s1600/credit.jpg',
+        1 => 'http://3.bp.blogspot.com/-ESV_r_U3bfE/U7YJouaEqiI/AAAAAAAAG-c/zAFhdptmGYo/s1600/1.jpg',
+        2 => 'http://3.bp.blogspot.com/-9QryXfBSm50/U7YJt7k6pqI/AAAAAAAAG-k/OxTp4IBndVo/s1600/2.jpg',
+        3 => 'http://3.bp.blogspot.com/-DzFRTkCCbXc/U7YJyZEY9YI/AAAAAAAAG-s/76mc23IouyU/s1600/3.jpg',
+        4 => 'http://3.bp.blogspot.com/-nDHAa5EaaCk/U7YJ268hBpI/AAAAAAAAG-0/WSKDJefgPMg/s1600/4.jpg',
+        5 => 'http://3.bp.blogspot.com/-AlAGPe_1XSI/U7YJ9GU7cVI/AAAAAAAAG-8/Z7p0UTipWoY/s1600/5.jpg',
+        6 => 'http://3.bp.blogspot.com/-5u1oOUXtrOA/U7YKCmTukZI/AAAAAAAAG_E/kDG2MD5fXPY/s1600/6.jpg',
+        7 => 'http://3.bp.blogspot.com/-R3rRxAmtSHg/U7YKHtPNwpI/AAAAAAAAG_M/b7dA0n3DpPo/s1600/7.jpg',
+        8 => 'http://3.bp.blogspot.com/-Xb2pQe_rjIE/U7YKNSKhgrI/AAAAAAAAG_U/1yEKzcS1DCA/s1600/8.jpg',
+        9 => 'http://3.bp.blogspot.com/-leQ9UbcAj6Y/U7YKSXkE4JI/AAAAAAAAG_c/8TttU96W7SA/s1600/9.jpg',
+        10 => 'http://3.bp.blogspot.com/-z98q4fG_9ww/U7YKaeTv-jI/AAAAAAAAG_k/UPxPNMyFa1E/s1600/10.jpg',
+        11 => 'http://3.bp.blogspot.com/-z6VNL_W732M/U7YKg-IzWGI/AAAAAAAAG_s/FB3aZ0kysqM/s1600/11.jpg',
+        12 => 'http://3.bp.blogspot.com/-KQXj7hGblak/U7YKllJQKxI/AAAAAAAAG_0/1R37E1NTH_0/s1600/12.jpg',
+        13 => 'http://3.bp.blogspot.com/-_RFEFlQEQ-s/U7YKq2VxkoI/AAAAAAAAG_8/ls4pxdD6TGQ/s1600/13.jpg',
+        14 => 'http://3.bp.blogspot.com/-njjVRazIsCw/U7YKvF952kI/AAAAAAAAHAE/oNtf-_xPBLY/s1600/14.jpg',
+        15 => 'http://3.bp.blogspot.com/-9lahhTVIFTw/U7YKzfvnj0I/AAAAAAAAHAM/gGrIOGlykMA/s1600/15.jpg',
+        16 => 'http://3.bp.blogspot.com/-ujDy1iENYbQ/U7YK3OePBYI/AAAAAAAAHAU/_lEv2gR6Y2Q/s1600/16.jpg',
+        17 => 'http://3.bp.blogspot.com/-puBXQtWdRvY/U7YK7BykhZI/AAAAAAAAHAc/sRg-VLbcLgM/s1600/17.jpg',
+        18 => 'http://3.bp.blogspot.com/-MrQawcGm04k/U7YK_CtzunI/AAAAAAAAHAk/foMvX5gvTRE/s1600/18.jpg',
+        19 => 'http://3.bp.blogspot.com/-2AzDU6XbPOM/U7YLDXJRNtI/AAAAAAAAHAs/iIhNA_TowqY/s1600/19.jpg',
         20 => 'http://3.bp.blogspot.com/-pdToOi8fzGA/U3cC3RnTcdI/AAAAAAAAFWI/eoLKnw6qpe8/s1600/tuyen%252520nhan%252520su.jpg',
       ),
     ),
