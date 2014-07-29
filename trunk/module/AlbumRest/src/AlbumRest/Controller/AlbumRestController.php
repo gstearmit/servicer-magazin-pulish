@@ -45,34 +45,36 @@ class AlbumRestController extends AbstractRestfulController
 
     public function create($data)
     {
-        $form = new AlbumForm();
-        $album = new Album();
-        $form->setInputFilter($album->getInputFilter());
-        $form->setData($data);
-        if ($form->isValid()) {
-            $album->exchangeArray($form->getData());
-            $id = $this->getAlbumTable()->saveAlbum($album);
-        }
+//         $form = new AlbumForm();
+//         $album = new Album();
+//         $form->setInputFilter($album->getInputFilter());
+//         $form->setData($data);
+//         if ($form->isValid()) {
+//             $album->exchangeArray($form->getData());
+//             $id = $this->getAlbumTable()->saveAlbum($album);
+//         }
 
+        $idsave = $this->getAlbumTable()->saveAlbum($data);
         return new JsonModel(array(
-            'data' => $this->get($id),
+            'data' => $this->get($idsave),
         ));
     }
 
     public function update($id, $data)
     {
         $data['id'] = $id;
-        $album = $this->getAlbumTable()->getAlbum($id);
-        $form  = new AlbumForm();
-        $form->bind($album);
-        $form->setInputFilter($album->getInputFilter());
-        $form->setData($data);
-        if ($form->isValid()) {
-            $id = $this->getAlbumTable()->saveAlbum($form->getData());
-        }
+//         $album = $this->getAlbumTable()->getAlbum($id);
+//         $form  = new AlbumForm();
+//         $form->bind($album);
+//         $form->setInputFilter($album->getInputFilter());
+//         $form->setData($data);
+//         if ($form->isValid()) {
+            //$id = $this->getAlbumTable()->saveAlbum($form->getData());
+           $idsave = $this->getAlbumTable()->saveAlbum($data);
+       // }
 
         return new JsonModel(array(
-            'data' => $this->get($id),
+            'data' => $this->get($idsave),
         ));
     }
 
